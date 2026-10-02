@@ -1,0 +1,386 @@
+{
+  "downloadLink": {
+    "buttonLabel": "Download for Chrome",
+    "buttonLabelFor": "Download for [value]",
+    "detect": {
+      "browsers": [
+        {
+          "_key": "cf114e2b1ca2",
+          "_type": "item",
+          "link": {
+            "linkType": "externalLink",
+            "openInNewTab": true,
+            "title": "https://chromewebstore.google.com/detail/ctrl-wallet/hmeobnfnfcmdkdcmlblgagmfpfboieaf?hl=en",
+            "to": "https://chromewebstore.google.com/detail/ctrl-wallet/hmeobnfnfcmdkdcmlblgagmfpfboieaf?hl=en",
+            "trailingSlash": false
+          },
+          "name": "Chrome",
+          "value": "chrome"
+        },
+        {
+          "_key": "7ed3a0c690a3",
+          "_type": "item",
+          "link": {
+            "linkType": "externalLink",
+            "openInNewTab": null,
+            "title": "https://chromewebstore.google.com/detail/ctrl-wallet/hmeobnfnfcmdkdcmlblgagmfpfboieaf?hl=en",
+            "to": "https://chromewebstore.google.com/detail/ctrl-wallet/hmeobnfnfcmdkdcmlblgagmfpfboieaf?hl=en",
+            "trailingSlash": false
+          },
+          "name": "Brave",
+          "value": "brave"
+        },
+        {
+          "_key": "5ff355fdc7b6",
+          "_type": "item",
+          "link": {
+            "linkType": "externalLink",
+            "openInNewTab": null,
+            "title": "https://chromewebstore.google.com/detail/ctrl-wallet/hmeobnfnfcmdkdcmlblgagmfpfboieaf?hl=en",
+            "to": "https://chromewebstore.google.com/detail/ctrl-wallet/hmeobnfnfcmdkdcmlblgagmfpfboieaf?hl=en",
+            "trailingSlash": false
+          },
+          "name": "Opera",
+          "value": "opera"
+        },
+        {
+          "_key": "f1b436375c8c",
+          "_type": "item",
+          "link": {
+            "linkType": "externalLink",
+            "openInNewTab": null,
+            "title": "https://chromewebstore.google.com/detail/ctrl-wallet/hmeobnfnfcmdkdcmlblgagmfpfboieaf?hl=en",
+            "to": "https://chromewebstore.google.com/detail/ctrl-wallet/hmeobnfnfcmdkdcmlblgagmfpfboieaf?hl=en",
+            "trailingSlash": false
+          },
+          "name": "Edge",
+          "value": "edge"
+        },
+        {
+          "_key": "3ad95e8dd087",
+          "_type": "item",
+          "link": {
+            "linkType": "externalLink",
+            "openInNewTab": true,
+            "title": "https://chromewebstore.google.com/detail/ctrl-wallet/hmeobnfnfcmdkdcmlblgagmfpfboieaf?hl=en",
+            "to": "https://chromewebstore.google.com/detail/ctrl-wallet/hmeobnfnfcmdkdcmlblgagmfpfboieaf?hl=en",
+            "trailingSlash": false
+          },
+          "name": "Internet Explorer",
+          "value": "ie"
+        }
+      ],
+      "os": [
+        {
+          "_key": "45e12be888b1",
+          "_type": "item",
+          "link": {
+            "linkType": "externalLink",
+            "openInNewTab": null,
+            "title": "https://play.google.com/store/apps/details?id=xyz.ctrl.wallet",
+            "to": "https://play.google.com/store/apps/details?id=xyz.ctrl.wallet",
+            "trailingSlash": false
+          },
+          "name": "Android",
+          "value": "android"
+        },
+        {
+          "_key": "e36e7a33ec42",
+          "_type": "item",
+          "link": {
+            "linkType": "externalLink",
+            "openInNewTab": null,
+            "title": "https://apps.apple.com/ng/app/ctrl-wallet/id6630386336",
+            "to": "https://apps.apple.com/ng/app/ctrl-wallet/id6630386336",
+            "trailingSlash": false
+          },
+          "name": "iOS",
+          "value": "ios"
+        }
+      ]
+    },
+    "link": {
+      "linkType": "externalLink",
+      "openInNewTab": true,
+      "title": "Download for Chrome",
+      "to": "https://chromewebstore.google.com/detail/ctrl-wallet/hmeobnfnfcmdkdcmlblgagmfpfboieaf?hl=en",
+      "trailingSlash": false
+    }
+  },
+  "footer": {
+    "links": null,
+    "linksList": [
+      {
+        "links": [
+          {
+            "lang": "en",
+            "linkType": "internalLink",
+            "title": "Security",
+            "to": {
+              "name": "uid",
+              "params": {
+                "uid": "secure-crypto-wallet"
+              }
+            }
+          },
+          {
+            "linkType": "externalLink",
+            "openInNewTab": true,
+            "title": "Support",
+            "to": "https://intercom.help/ctrlwallet/en/",
+            "trailingSlash": false
+          }
+        ],
+        "title": "Product"
+      },
+      {
+        "links": [
+          {
+            "lang": "en",
+            "linkType": "internalLink",
+            "title": "Introducing Ctrl",
+            "to": {
+              "path": "/xdefi-wallet-rebranding-to-ctrl"
+            }
+          },
+          {
+            "lang": "en",
+            "linkType": "internalLink",
+            "title": "$CTRL",
+            "to": {
+              "name": "uid",
+              "params": {
+                "uid": "ctrl-token"
+              }
+            }
+          },
+          {
+            "lang": "en",
+            "linkType": "internalLink",
+            "title": "About",
+            "to": {
+              "name": "uid",
+              "params": {
+                "uid": "about"
+              }
+            }
+          }
+        ],
+        "title": "Company"
+      },
+      {
+        "links": [
+          {
+            "lang": "en",
+            "linkType": "internalLink",
+            "title": "News",
+            "to": {
+              "name": "uid",
+              "params": {
+                "uid": "news"
+              }
+            }
+          },
+          {
+            "linkType": "externalLink",
+            "openInNewTab": true,
+            "title": "Docs",
+            "to": "https://docs.xdefi.io/docs",
+            "trailingSlash": false
+          },
+          {
+            "lang": "en",
+            "linkType": "internalLink",
+            "title": "Media Kit",
+            "to": {
+              "name": "uid",
+              "params": {
+                "uid": "media-kit"
+              }
+            }
+          },
+          {
+            "lang": "en",
+            "linkType": "internalLink",
+            "title": "Shortcuts",
+            "to": {
+              "name": "uid",
+              "params": {
+                "uid": "shortcuts"
+              }
+            }
+          }
+        ],
+        "title": "Resources"
+      }
+    ],
+    "secondsLinks": [
+      {
+        "lang": "en",
+        "linkType": "internalLink",
+        "title": "Terms of use",
+        "to": {
+          "name": "uid",
+          "params": {
+            "uid": "terms-of-use"
+          }
+        }
+      },
+      {
+        "lang": "en",
+        "linkType": "internalLink",
+        "title": "Privacy policy",
+        "to": {
+          "name": "uid",
+          "params": {
+            "uid": "privacy"
+          }
+        }
+      }
+    ],
+    "text": null,
+    "titles": [
+      "Level up",
+      "Take Ctrl"
+    ]
+  },
+  "header": {
+    "download": {
+      "lang": "en",
+      "linkType": "internalLink",
+      "title": "Download",
+      "to": {
+        "name": "uid",
+        "params": {
+          "uid": "download"
+        }
+      }
+    },
+    "links": [
+      {
+        "lang": "en",
+        "linkType": "internalLink",
+        "title": "$CTRL",
+        "to": {
+          "name": "uid",
+          "params": {
+            "uid": "ctrl-token"
+          }
+        }
+      },
+      {
+        "linkType": "externalLink",
+        "openInNewTab": true,
+        "title": "Support",
+        "to": "https://intercom.help/ctrlwallet/en/",
+        "trailingSlash": false
+      },
+      {
+        "lang": "en",
+        "linkType": "internalLink",
+        "title": "Security",
+        "to": {
+          "name": "uid",
+          "params": {
+            "uid": "secure-crypto-wallet"
+          }
+        }
+      },
+      {
+        "linkType": "externalLink",
+        "openInNewTab": true,
+        "title": "Resources",
+        "to": "https://docs.xdefi.io/docs",
+        "trailingSlash": false
+      }
+    ]
+  },
+  "locales": {
+    "backToList": "Back to the list",
+    "backToSite": "Back to site",
+    "close": "Close",
+    "cookies": "Cookie Preferences",
+    "desktop": "Desktop",
+    "download": "Download",
+    "filters": "Filters",
+    "menu": "Menu",
+    "mobile": "Mobile",
+    "pageNotFound": "Page not found"
+  },
+  "newsletter": {
+    "alreadyRegistered": "Your email is already registered",
+    "confirmMessage": "Tks, you are subscribed to our newsletter",
+    "emailNotValid": "Your email is not valid",
+    "errorMessage": "An error has occurred",
+    "listId": "c9c338f65f",
+    "placeholder": "Your email address",
+    "signupLabel": "Sign up for news and updates",
+    "submitLabel": "Subscribe",
+    "text": [
+      {
+        "_key": "e9a61f1946bc",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "902f97bc3b9b",
+            "_type": "span",
+            "marks": [],
+            "text": "Subscribe to our amazing newsletter to receive all the latest news & updates."
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      }
+    ],
+    "title": "Newsletter"
+  },
+  "seo": {
+    "description": "Ctrl",
+    "image": null,
+    "title": "Ctrl"
+  },
+  "socials": {
+    "links": [
+      {
+        "icon": "x",
+        "link": {
+          "linkType": "externalLink",
+          "openInNewTab": true,
+          "title": "Link to ctrl_wallet twitter",
+          "to": "https://x.com/ctrl_wallet",
+          "trailingSlash": false
+        }
+      },
+      {
+        "icon": "discord",
+        "link": {
+          "linkType": "externalLink",
+          "openInNewTab": true,
+          "title": "Discord",
+          "to": "https://discord.com/invite/w8sZkc7Nxf",
+          "trailingSlash": false
+        }
+      },
+      {
+        "icon": "telegram",
+        "link": {
+          "linkType": "externalLink",
+          "openInNewTab": true,
+          "title": "Telegram",
+          "to": "https://t.me/ctrl_wallet",
+          "trailingSlash": false
+        }
+      },
+      {
+        "icon": "coingecko",
+        "link": {
+          "linkType": "externalLink",
+          "openInNewTab": true,
+          "title": "CoinGecko",
+          "to": "https://www.coingecko.com/en/coins/ctrl-wallet",
+          "trailingSlash": false
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,84 @@
+{
+  "desktop": {
+    "rects": {
+      "Header": {
+        "top": 206,
+        "height": 59.703125
+      },
+      "HomeHero": {
+        "top": 206,
+        "height": 900
+      },
+      "SliceScrollableAppScreens": {
+        "top": 926,
+        "height": 4050
+      },
+      "SliceBlockchainsSearch": {
+        "top": 4976,
+        "height": 900
+      },
+      "SliceTitleListVertical": {
+        "top": 5876,
+        "height": 2593.1875
+      },
+      "SliceTitleListGrid": {
+        "top": 8469.1875,
+        "height": 1207.078125
+      },
+      "SliceTitleListHorizontal": {
+        "top": 9676.265625,
+        "height": 1921
+      },
+      "SliceFAQ": {
+        "top": 11597.265625,
+        "height": 2523.03125
+      },
+      "Footer": {
+        "top": 14120.390625,
+        "height": 1170.265625
+      }
+    },
+    "scrollHeight": 15291
+  },
+  "mobile": {
+    "rects": {
+      "Header": {
+        "top": 371,
+        "height": 29.25
+      },
+      "HomeHero": {
+        "top": 371,
+        "height": 844
+      },
+      "SliceScrollableAppScreens": {
+        "top": 961.8125,
+        "height": 3798
+      },
+      "SliceBlockchainsSearch": {
+        "top": 4759.8125,
+        "height": 783.203125
+      },
+      "SliceTitleListVertical": {
+        "top": 5543.015625,
+        "height": 2388.734375
+      },
+      "SliceTitleListGrid": {
+        "top": 7931.75,
+        "height": 2211.171875
+      },
+      "SliceTitleListHorizontal": {
+        "top": 10142.921875,
+        "height": 3002
+      },
+      "SliceFAQ": {
+        "top": 13144.921875,
+        "height": 2838.234375
+      },
+      "Footer": {
+        "top": 15983.25,
+        "height": 1094.203125
+      }
+    },
+    "scrollHeight": 17077
+  }
+}

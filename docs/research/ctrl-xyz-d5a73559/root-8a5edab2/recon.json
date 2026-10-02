@@ -1,0 +1,1889 @@
+{
+  "siteKey": "ctrl-xyz-d5a73559",
+  "pageKey": "root-8a5edab2",
+  "global": {
+    "title": "Secure and powerful crypto wallet | Ctrl Wallet",
+    "url": "https://ctrl.xyz/",
+    "metas": [
+      [
+        "viewport",
+        "width=device-width,initial-scale=1"
+      ],
+      [
+        "msapplication-TileColor",
+        "#ffffff"
+      ],
+      [
+        "msapplication-config",
+        "/icons/browserconfig.xml"
+      ],
+      [
+        "apple-itunes-app",
+        "app-id=6630386336"
+      ],
+      [
+        "og:url",
+        "http://localhost:3000/"
+      ],
+      [
+        "og:locale",
+        "en_gb"
+      ],
+      [
+        "og:locale:alternate",
+        "fr_fr"
+      ],
+      [
+        "og:locale:alternate",
+        "de"
+      ],
+      [
+        "og:locale:alternate",
+        "es"
+      ],
+      [
+        "og:locale:alternate",
+        "pt_br"
+      ],
+      [
+        "og:locale:alternate",
+        "zh_hans"
+      ],
+      [
+        "og:locale:alternate",
+        "ru"
+      ],
+      [
+        "og:locale:alternate",
+        "vi"
+      ],
+      [
+        "og:locale:alternate",
+        "tr"
+      ],
+      [
+        "og:image",
+        "/cms/images/rrhq1nuo/production/87c787c2aac94e1908d4f9b3ac847f75f7d3d6ad-1200x630.png"
+      ],
+      [
+        "twitter:image",
+        "/cms/images/rrhq1nuo/production/87c787c2aac94e1908d4f9b3ac847f75f7d3d6ad-1200x630.png"
+      ],
+      [
+        "url",
+        "http://localhost:3000//"
+      ],
+      [
+        "og:url",
+        "http://localhost:3000//"
+      ],
+      [
+        "og:title",
+        "Secure and powerful crypto wallet | Ctrl Wallet"
+      ],
+      [
+        "twitter:title",
+        "Secure and powerful crypto wallet | Ctrl Wallet"
+      ],
+      [
+        "og:site_name",
+        "Secure and powerful crypto wallet | Ctrl Wallet"
+      ],
+      [
+        "description",
+        "Ctrl is the world's most powerful crypto wallet. Secure, easy-to-use and supports more than 2,500 blockchains. One wallet for all your crypto. Take Control.  "
+      ],
+      [
+        "og:description",
+        "Ctrl is the world's most powerful crypto wallet. Secure, easy-to-use and supports more than 2,500 blockchains. One wallet for all your crypto. Take Control.  "
+      ],
+      [
+        "twitter:description",
+        "Ctrl is the world's most powerful crypto wallet. Secure, easy-to-use and supports more than 2,500 blockchains. One wallet for all your crypto. Take Control.  "
+      ],
+      [
+        "twitter:card",
+        "summary_large_image"
+      ],
+      [
+        "robots",
+        "noindex"
+      ],
+      [
+        "theme-color",
+        "#FFFFFF"
+      ]
+    ],
+    "links": [
+      {
+        "rel": "apple-touch-icon",
+        "href": "https://ctrl.xyz/icons/apple-touch-icon.png",
+        "as": "",
+        "sizes": "180x180"
+      },
+      {
+        "rel": "icon",
+        "href": "https://ctrl.xyz/icons/favicon-32x32.png",
+        "as": "",
+        "sizes": "32x32"
+      },
+      {
+        "rel": "icon",
+        "href": "https://ctrl.xyz/icons/favicon-16x16.png",
+        "as": "",
+        "sizes": "16x16"
+      },
+      {
+        "rel": "",
+        "href": "https://ctrl.xyz/icons/safari-pinned-tab.svg",
+        "as": "",
+        "sizes": ""
+      },
+      {
+        "rel": "shortcut icon",
+        "href": "https://ctrl.xyz/icons/favicon.ico",
+        "as": "",
+        "sizes": ""
+      },
+      {
+        "rel": "alternate",
+        "href": "http://localhost:3000/",
+        "as": "",
+        "sizes": ""
+      },
+      {
+        "rel": "alternate",
+        "href": "http://localhost:3000/",
+        "as": "",
+        "sizes": ""
+      },
+      {
+        "rel": "alternate",
+        "href": "http://localhost:3000/fr/",
+        "as": "",
+        "sizes": ""
+      },
+      {
+        "rel": "alternate",
+        "href": "http://localhost:3000/fr/",
+        "as": "",
+        "sizes": ""
+      },
+      {
+        "rel": "alternate",
+        "href": "http://localhost:3000/de/",
+        "as": "",
+        "sizes": ""
+      },
+      {
+        "rel": "alternate",
+        "href": "http://localhost:3000/es/",
+        "as": "",
+        "sizes": ""
+      },
+      {
+        "rel": "alternate",
+        "href": "http://localhost:3000/pt/",
+        "as": "",
+        "sizes": ""
+      },
+      {
+        "rel": "alternate",
+        "href": "http://localhost:3000/pt/",
+        "as": "",
+        "sizes": ""
+      },
+      {
+        "rel": "alternate",
+        "href": "http://localhost:3000/zh-hans/",
+        "as": "",
+        "sizes": ""
+      },
+      {
+        "rel": "alternate",
+        "href": "http://localhost:3000/zh-hans/",
+        "as": "",
+        "sizes": ""
+      },
+      {
+        "rel": "alternate",
+        "href": "http://localhost:3000/ru/",
+        "as": "",
+        "sizes": ""
+      },
+      {
+        "rel": "alternate",
+        "href": "http://localhost:3000/vi/",
+        "as": "",
+        "sizes": ""
+      },
+      {
+        "rel": "alternate",
+        "href": "http://localhost:3000/tr/",
+        "as": "",
+        "sizes": ""
+      },
+      {
+        "rel": "alternate",
+        "href": "http://localhost:3000/",
+        "as": "",
+        "sizes": ""
+      },
+      {
+        "rel": "canonical",
+        "href": "http://localhost:3000/",
+        "as": "",
+        "sizes": ""
+      },
+      {
+        "rel": "preload",
+        "href": "https://ctrl.xyz/_payload.json",
+        "as": "fetch",
+        "sizes": ""
+      },
+      {
+        "rel": "stylesheet",
+        "href": "https://ctrl.xyz/_nuxt/entry.4aFtTMoz.css",
+        "as": "",
+        "sizes": ""
+      },
+      {
+        "rel": "stylesheet",
+        "href": "https://ctrl.xyz/_nuxt/PageDownloadButton.D9c_24V0.css",
+        "as": "",
+        "sizes": ""
+      },
+      {
+        "rel": "stylesheet",
+        "href": "https://ctrl.xyz/_nuxt/useSanityData.CG07qiKI.css",
+        "as": "",
+        "sizes": ""
+      },
+      {
+        "rel": "modulepreload",
+        "href": "https://ctrl.xyz/_nuxt/entry.Bx2--lWY.js",
+        "as": "script",
+        "sizes": ""
+      },
+      {
+        "rel": "modulepreload",
+        "href": "https://ctrl.xyz/_nuxt/index.BBMeA3VW.js",
+        "as": "script",
+        "sizes": ""
+      },
+      {
+        "rel": "modulepreload",
+        "href": "https://ctrl.xyz/_nuxt/PageDownloadButton.9a7kkcah.js",
+        "as": "script",
+        "sizes": ""
+      },
+      {
+        "rel": "modulepreload",
+        "href": "https://ctrl.xyz/_nuxt/useSanityData.w2vamrsi.js",
+        "as": "script",
+        "sizes": ""
+      },
+      {
+        "rel": "prefetch",
+        "href": "https://ctrl.xyz/_nuxt/stegaEncodeSourceMap.w9Za_kDw.js",
+        "as": "script",
+        "sizes": ""
+      },
+      {
+        "rel": "prefetch",
+        "href": "https://ctrl.xyz/_nuxt/browser.DVz645qZ.js",
+        "as": "script",
+        "sizes": ""
+      },
+      {
+        "rel": "prefetch",
+        "href": "https://ctrl.xyz/_nuxt/component-stub.FmFgRqLi.js",
+        "as": "script",
+        "sizes": ""
+      },
+      {
+        "rel": "prefetch",
+        "href": "https://ctrl.xyz/_nuxt/arrow-back.CuIrkrgW.js",
+        "as": "script",
+        "sizes": ""
+      },
+      {
+        "rel": "prefetch",
+        "href": "https://ctrl.xyz/_nuxt/arrow-down.DJEo6FdX.js",
+        "as": "script",
+        "sizes": ""
+      },
+      {
+        "rel": "prefetch",
+        "href": "https://ctrl.xyz/_nuxt/check.DvxCOAeM.js",
+        "as": "script",
+        "sizes": ""
+      },
+      {
+        "rel": "prefetch",
+        "href": "https://ctrl.xyz/_nuxt/coingecko.4p8nIMKo.js",
+        "as": "script",
+        "sizes": ""
+      },
+      {
+        "rel": "prefetch",
+        "href": "https://ctrl.xyz/_nuxt/ctrl-logo-small.B0O4jeCz.js",
+        "as": "script",
+        "sizes": ""
+      },
+      {
+        "rel": "prefetch",
+        "href": "https://ctrl.xyz/_nuxt/ctrl-logo.D6Z5LwBK.js",
+        "as": "script",
+        "sizes": ""
+      },
+      {
+        "rel": "prefetch",
+        "href": "https://ctrl.xyz/_nuxt/cursor-pointer_clean.vVaZ1JrO.js",
+        "as": "script",
+        "sizes": ""
+      },
+      {
+        "rel": "prefetch",
+        "href": "https://ctrl.xyz/_nuxt/cursor-success_clean.B9hnCm8F.js",
+        "as": "script",
+        "sizes": ""
+      },
+      {
+        "rel": "prefetch",
+        "href": "https://ctrl.xyz/_nuxt/cursor_clean.CuXRUZ_x.js",
+        "as": "script",
+        "sizes": ""
+      },
+      {
+        "rel": "prefetch",
+        "href": "https://ctrl.xyz/_nuxt/d-apps.BKYYbfoJ.js",
+        "as": "script",
+        "sizes": ""
+      },
+      {
+        "rel": "prefetch",
+        "href": "https://ctrl.xyz/_nuxt/dark.Diy8joE_.js",
+        "as": "script",
+        "sizes": ""
+      },
+      {
+        "rel": "prefetch",
+        "href": "https://ctrl.xyz/_nuxt/discord.B5kcLCFl.js",
+        "as": "script",
+        "sizes": ""
+      },
+      {
+        "rel": "prefetch",
+        "href": "https://ctrl.xyz/_nuxt/dollar.Co3q6PvO.js",
+        "as": "script",
+        "sizes": ""
+      },
+      {
+        "rel": "prefetch",
+        "href": "https://ctrl.xyz/_nuxt/download-file.BF_LRuZY.js",
+        "as": "script",
+        "sizes": ""
+      },
+      {
+        "rel": "prefetch",
+        "href": "https://ctrl.xyz/_nuxt/download.D4ziGTk3.js",
+        "as": "script",
+        "sizes": ""
+      },
+      {
+        "rel": "prefetch",
+        "href": "https://ctrl.xyz/_nuxt/light.CHx0dcjQ.js",
+        "as": "script",
+        "sizes": ""
+      },
+      {
+        "rel": "prefetch",
+        "href": "https://ctrl.xyz/_nuxt/lock.DpXACXEt.js",
+        "as": "script",
+        "sizes": ""
+      },
+      {
+        "rel": "prefetch",
+        "href": "https://ctrl.xyz/_nuxt/select-avatar.BKI_AtDQ.js",
+        "as": "script",
+        "sizes": ""
+      },
+      {
+        "rel": "prefetch",
+        "href": "https://ctrl.xyz/_nuxt/smile.6rEJfec2.js",
+        "as": "script",
+        "sizes": ""
+      },
+      {
+        "rel": "prefetch",
+        "href": "https://ctrl.xyz/_nuxt/telegram.BMsJtIFN.js",
+        "as": "script",
+        "sizes": ""
+      },
+      {
+        "rel": "prefetch",
+        "href": "https://ctrl.xyz/_nuxt/three-dots.Bkye42JW.js",
+        "as": "script",
+        "sizes": ""
+      },
+      {
+        "rel": "prefetch",
+        "href": "https://ctrl.xyz/_nuxt/x.CnEm2TCU.js",
+        "as": "script",
+        "sizes": ""
+      },
+      {
+        "rel": "stylesheet",
+        "href": "https://ctrl.xyz/shutdown-popup.css",
+        "as": "",
+        "sizes": ""
+      },
+      {
+        "rel": "stylesheet",
+        "href": "https://ctrl.xyz/_nuxt/index.CzfqNYxu.css",
+        "as": "",
+        "sizes": ""
+      },
+      {
+        "rel": "modulepreload",
+        "href": "https://ctrl.xyz/_nuxt/_uid_.BOwaUOxn.js",
+        "as": "script",
+        "sizes": ""
+      },
+      {
+        "rel": "modulepreload",
+        "href": "https://ctrl.xyz/_nuxt/page.CMhre93t.js",
+        "as": "script",
+        "sizes": ""
+      },
+      {
+        "rel": "stylesheet",
+        "href": "https://ctrl.xyz/_nuxt/_uid_.C26tOX5C.css",
+        "as": "",
+        "sizes": ""
+      }
+    ],
+    "scripts": [
+      "https://www.gstatic.com/recaptcha/releases/kemdRjWFxNjgsGdhRslyEPwU/recaptcha__en.js",
+      "https://widget.intercom.io/widget/dummy",
+      "https://ctrl.xyz/_nuxt/entry.Bx2--lWY.js",
+      "https://ctrl.xyz/shutdown-popup.js",
+      "https://www.google.com/recaptcha/api.js?render=explicit",
+      "https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495"
+    ],
+    "htmlClass": "lenis lenis-smooth",
+    "bodyClass": "",
+    "scrollHeight": 15291,
+    "fonts": [
+      [
+        "\"Tomato Grotesk\", Arial, sans-serif",
+        857
+      ]
+    ],
+    "fontFaces": [
+      {
+        "family": "Tomato Grotesk",
+        "weight": "300",
+        "style": "normal",
+        "status": "unloaded"
+      },
+      {
+        "family": "Tomato Grotesk",
+        "weight": "300",
+        "style": "italic",
+        "status": "unloaded"
+      },
+      {
+        "family": "Tomato Grotesk",
+        "weight": "500",
+        "style": "italic",
+        "status": "unloaded"
+      },
+      {
+        "family": "Tomato Grotesk",
+        "weight": "200",
+        "style": "italic",
+        "status": "unloaded"
+      },
+      {
+        "family": "Tomato Grotesk",
+        "weight": "700",
+        "style": "italic",
+        "status": "unloaded"
+      },
+      {
+        "family": "Tomato Grotesk",
+        "weight": "700",
+        "style": "italic",
+        "status": "unloaded"
+      },
+      {
+        "family": "Tomato Grotesk",
+        "weight": "700",
+        "style": "normal",
+        "status": "unloaded"
+      },
+      {
+        "family": "Tomato Grotesk",
+        "weight": "700",
+        "style": "normal",
+        "status": "loaded"
+      },
+      {
+        "family": "Tomato Grotesk",
+        "weight": "500",
+        "style": "normal",
+        "status": "loaded"
+      },
+      {
+        "family": "Tomato Grotesk",
+        "weight": "900",
+        "style": "normal",
+        "status": "unloaded"
+      },
+      {
+        "family": "Tomato Grotesk",
+        "weight": "200",
+        "style": "normal",
+        "status": "unloaded"
+      },
+      {
+        "family": "Tomato Grotesk",
+        "weight": "900",
+        "style": "italic",
+        "status": "unloaded"
+      },
+      {
+        "family": "Tomato Grotesk",
+        "weight": "600",
+        "style": "italic",
+        "status": "unloaded"
+      },
+      {
+        "family": "Tomato Grotesk",
+        "weight": "400",
+        "style": "italic",
+        "status": "unloaded"
+      },
+      {
+        "family": "Tomato Grotesk",
+        "weight": "600",
+        "style": "normal",
+        "status": "loaded"
+      },
+      {
+        "family": "Tomato Grotesk",
+        "weight": "100",
+        "style": "italic",
+        "status": "unloaded"
+      },
+      {
+        "family": "Tomato Grotesk",
+        "weight": "100",
+        "style": "normal",
+        "status": "unloaded"
+      },
+      {
+        "family": "Tomato Grotesk",
+        "weight": "400",
+        "style": "normal",
+        "status": "loaded"
+      }
+    ],
+    "colors": [
+      [
+        "rgb(0, 0, 0)",
+        710
+      ],
+      [
+        "rgb(15, 15, 15)",
+        82
+      ],
+      [
+        "rgb(90, 88, 90)",
+        47
+      ],
+      [
+        "rgba(0, 0, 0, 0)",
+        9
+      ],
+      [
+        "rgb(255, 255, 255)",
+        4
+      ],
+      [
+        "rgb(0, 20, 5)",
+        2
+      ],
+      [
+        "rgb(110, 114, 110)",
+        2
+      ],
+      [
+        "rgb(255, 90, 77)",
+        1
+      ]
+    ],
+    "bgs": [
+      [
+        "rgba(0, 0, 0, 0)",
+        777
+      ],
+      [
+        "rgb(236, 239, 236)",
+        21
+      ],
+      [
+        "rgb(255, 255, 255)",
+        9
+      ],
+      [
+        "rgb(15, 15, 15)",
+        7
+      ],
+      [
+        "rgb(249, 250, 249)",
+        7
+      ],
+      [
+        "rgb(5, 201, 47)",
+        5
+      ],
+      [
+        "rgb(157, 196, 245)",
+        5
+      ],
+      [
+        "rgb(251, 231, 78)",
+        5
+      ],
+      [
+        "rgb(255, 202, 220)",
+        4
+      ],
+      [
+        "rgb(255, 90, 77)",
+        4
+      ],
+      [
+        "rgb(226, 242, 229)",
+        3
+      ],
+      [
+        "rgba(255, 255, 255, 0.5)",
+        3
+      ],
+      [
+        "rgb(158, 158, 158)",
+        1
+      ],
+      [
+        "rgb(209, 214, 210)",
+        1
+      ],
+      [
+        "rgb(238, 238, 238)",
+        1
+      ],
+      [
+        "rgb(57, 92, 61)",
+        1
+      ],
+      [
+        "rgb(36, 163, 227)",
+        1
+      ],
+      [
+        "rgb(156, 166, 158)",
+        1
+      ],
+      [
+        "rgba(0, 0, 0, 0.6)",
+        1
+      ]
+    ],
+    "images": [
+      {
+        "src": "https://ctrl.xyz/cms/images/rrhq1nuo/production/e21f027c08ea0858edfef9e7f415d9b466952ddc-43x38.svg?w=308&h=308&q=80&fit=fill&auto=format&bg=ffffff",
+        "alt": "Ctrl",
+        "w": 0,
+        "h": 0,
+        "pos": "absolute"
+      },
+      {
+        "src": "https://ctrl.xyz/cms/images/rrhq1nuo/production/e6615fd4ace5df6341d81a9ea44282bf57709afc-32x42.svg?w=308&h=308&q=80&fit=fill&auto=format&bg=ffffff",
+        "alt": "Ctrl",
+        "w": 0,
+        "h": 0,
+        "pos": "absolute"
+      },
+      {
+        "src": "https://ctrl.xyz/cms/images/rrhq1nuo/production/0aac84fb0886cf19f96311d95dabc48cc7f4f7e9-44x50.svg?w=308&h=308&q=80&fit=fill&auto=format&bg=ffffff",
+        "alt": "Ctrl",
+        "w": 0,
+        "h": 0,
+        "pos": "absolute"
+      },
+      {
+        "src": "https://ctrl.xyz/cms/images/rrhq1nuo/production/d3888aa5123018a41981bc5d0d7198e6f2740845-48x50.svg?w=308&h=308&q=80&fit=fill&auto=format&bg=ffffff",
+        "alt": "Ctrl",
+        "w": 0,
+        "h": 0,
+        "pos": "absolute"
+      },
+      {
+        "src": "https://ctrl.xyz/cms/images/rrhq1nuo/production/77cf3c1e5359fa4f34a7e2ee3cac3f5d212fc38a-375x347.svg?w=308&h=308&q=80&fit=fill&auto=format&bg=ffffff",
+        "alt": "Ctrl",
+        "w": 0,
+        "h": 0,
+        "pos": "absolute"
+      },
+      {
+        "src": "https://ctrl.xyz/cms/images/rrhq1nuo/production/40155120f94ac1727a1d225184e57be8984e8478-44x50.svg?w=308&h=308&q=80&fit=fill&auto=format&bg=ffffff",
+        "alt": "Ctrl",
+        "w": 0,
+        "h": 0,
+        "pos": "absolute"
+      },
+      {
+        "src": "https://ctrl.xyz/cms/images/rrhq1nuo/production/29a15baa6b5ac9d7515c589163a8a1b1197e42a9-66x65.svg?w=308&h=308&q=80&fit=fill&auto=format&bg=ffffff",
+        "alt": "Ctrl",
+        "w": 0,
+        "h": 0,
+        "pos": "absolute"
+      },
+      {
+        "src": "https://ctrl.xyz/cms/images/rrhq1nuo/production/fbd2906f3f1b3294c34221d3e4f41fb742feca18-45x71.svg?w=308&h=308&q=80&fit=fill&auto=format&bg=ffffff",
+        "alt": "Ctrl",
+        "w": 0,
+        "h": 0,
+        "pos": "absolute"
+      },
+      {
+        "src": "https://ctrl.xyz/cms/images/rrhq1nuo/production/ecce5ff65c141e89a4e0f48a28599da338158f50-43x38.svg?w=308&h=308&q=80&fit=fill&auto=format&bg=ffffff",
+        "alt": "Ctrl",
+        "w": 0,
+        "h": 0,
+        "pos": "absolute"
+      },
+      {
+        "src": "https://ctrl.xyz/cms/images/rrhq1nuo/production/bf2b44b9b5c804aab129f4c0f7f0507886711c66-34x38.svg?w=308&h=308&q=80&fit=fill&auto=format&bg=ffffff",
+        "alt": "Ctrl",
+        "w": 0,
+        "h": 0,
+        "pos": "absolute"
+      },
+      {
+        "src": "https://ctrl.xyz/cms/images/rrhq1nuo/production/b021f43e0ed987217003b52a29a202315bd18c0a-43x38.svg?w=308&h=308&q=80&fit=fill&auto=format&bg=ffffff",
+        "alt": "Ctrl",
+        "w": 0,
+        "h": 0,
+        "pos": "absolute"
+      },
+      {
+        "src": "https://ctrl.xyz/cms/images/rrhq1nuo/production/7f86db5b5b1ba335f520aa68b0547c00f0e566e4-39x43.svg?w=308&h=308&q=80&fit=fill&auto=format&bg=ffffff",
+        "alt": "Ctrl",
+        "w": 0,
+        "h": 0,
+        "pos": "absolute"
+      },
+      {
+        "src": "https://ctrl.xyz/cms/images/rrhq1nuo/production/27b5afac59162a2decc5aed50bcf233b7c253667-111x111.svg?w=308&h=308&q=80&fit=fill&auto=format&bg=ffffff",
+        "alt": "Ctrl",
+        "w": 0,
+        "h": 0,
+        "pos": "absolute"
+      },
+      {
+        "src": "https://ctrl.xyz/cms/images/rrhq1nuo/production/bb6c473cf015107fb6307fdbbde54fb9006085cd-43x23.svg?w=308&h=308&q=80&fit=fill&auto=format&bg=ffffff",
+        "alt": "Ctrl",
+        "w": 0,
+        "h": 0,
+        "pos": "absolute"
+      },
+      {
+        "src": "https://ctrl.xyz/images/stickers/sticker-1_clean.svg",
+        "alt": "Ctrl sticker",
+        "w": 299,
+        "h": 150,
+        "pos": "static"
+      },
+      {
+        "src": "https://ctrl.xyz/images/stickers/sticker-2_clean.svg",
+        "alt": "Ctrl sticker",
+        "w": 150,
+        "h": 150,
+        "pos": "static"
+      },
+      {
+        "src": "https://ctrl.xyz/images/stickers/sticker-3_clean.svg",
+        "alt": "Ctrl sticker",
+        "w": 248,
+        "h": 150,
+        "pos": "static"
+      },
+      {
+        "src": "https://ctrl.xyz/images/stickers/sticker-4_clean.svg",
+        "alt": "Ctrl sticker",
+        "w": 110,
+        "h": 150,
+        "pos": "static"
+      },
+      {
+        "src": "https://ctrl.xyz/images/stickers/sticker-5_clean.svg",
+        "alt": "Ctrl sticker",
+        "w": 150,
+        "h": 150,
+        "pos": "static"
+      },
+      {
+        "src": "https://ctrl.xyz/images/stickers/sticker-1_clean.svg",
+        "alt": "Ctrl sticker",
+        "w": 299,
+        "h": 150,
+        "pos": "static"
+      },
+      {
+        "src": "https://ctrl.xyz/images/stickers/sticker-2_clean.svg",
+        "alt": "Ctrl sticker",
+        "w": 150,
+        "h": 150,
+        "pos": "static"
+      },
+      {
+        "src": "https://ctrl.xyz/images/stickers/sticker-3_clean.svg",
+        "alt": "Ctrl sticker",
+        "w": 248,
+        "h": 150,
+        "pos": "static"
+      },
+      {
+        "src": "https://ctrl.xyz/images/stickers/sticker-4_clean.svg",
+        "alt": "Ctrl sticker",
+        "w": 110,
+        "h": 150,
+        "pos": "static"
+      },
+      {
+        "src": "https://ctrl.xyz/images/stickers/sticker-5_clean.svg",
+        "alt": "Ctrl sticker",
+        "w": 150,
+        "h": 150,
+        "pos": "static"
+      },
+      {
+        "src": "https://ctrl.xyz/popup-sprite.png",
+        "alt": "",
+        "w": 1000,
+        "h": 1000,
+        "pos": "absolute"
+      },
+      {
+        "src": "https://ctrl.xyz/popup-sprite.png",
+        "alt": "",
+        "w": 1000,
+        "h": 1000,
+        "pos": "absolute"
+      },
+      {
+        "src": "https://ctrl.xyz/popup-power-icon.png",
+        "alt": "",
+        "w": 335,
+        "h": 357,
+        "pos": "absolute"
+      }
+    ],
+    "videos": [
+      {
+        "src": "https://player.vimeo.com/progressive_redirect/playback/996079329/rendition/720p/file.mp4?loc=external&oauth2_token_id=1772551642&signature=3eb9960e8d447b2dcbb16b894a5280d9e44cb94c4df48b037b386868b86ac91f",
+        "poster": "",
+        "autoplay": false,
+        "loop": true,
+        "muted": true
+      },
+      {
+        "src": "https://player.vimeo.com/progressive_redirect/playback/995250631/rendition/1080p/file.mp4?loc=external&oauth2_token_id=1772650813&signature=87a8c74664184d913720024cabd8477e4f9184788f859518179a200687cee0d8",
+        "poster": "",
+        "autoplay": false,
+        "loop": true,
+        "muted": true
+      },
+      {
+        "src": "https://player.vimeo.com/progressive_redirect/playback/995250653/rendition/1080p/file.mp4?loc=external&oauth2_token_id=1772650813&signature=79d1364fbfecc4f7a9c268e1ad9b7db1ea431bafae34e5550d60cdedc8da246b",
+        "poster": "",
+        "autoplay": false,
+        "loop": true,
+        "muted": true
+      },
+      {
+        "src": "https://player.vimeo.com/progressive_redirect/playback/995250676/rendition/1080p/file.mp4?loc=external&oauth2_token_id=1772650813&signature=60678d0d95b468a0d0a22267ae75aa42c97f9fb365c32c015fec2dd7e6ed08cb",
+        "poster": "",
+        "autoplay": false,
+        "loop": true,
+        "muted": true
+      },
+      {
+        "src": "https://player.vimeo.com/progressive_redirect/playback/995250592/rendition/1080p/file.mp4?loc=external&oauth2_token_id=1772650813&signature=b2976e99841c789425510ce8cf9fba6f4dd7fc84c5f8a2e11978189c78868a6e",
+        "poster": "",
+        "autoplay": false,
+        "loop": true,
+        "muted": true
+      },
+      {
+        "src": "https://player.vimeo.com/progressive_redirect/playback/995250613/rendition/1080p/file.mp4?loc=external&oauth2_token_id=1772650813&signature=f698816552ab26d4a5440691cf351637a7a77864a28875a24c14914a06fd2709",
+        "poster": "",
+        "autoplay": false,
+        "loop": true,
+        "muted": true
+      },
+      {
+        "src": "https://player.vimeo.com/progressive_redirect/playback/995250622/rendition/1080p/file.mp4?loc=external&oauth2_token_id=1772650813&signature=5177d7a526a6393b64e68bc0affdc183ade0193a9d19f5373d42ad4cf686f7d2",
+        "poster": "",
+        "autoplay": false,
+        "loop": true,
+        "muted": true
+      },
+      {
+        "src": "https://player.vimeo.com/progressive_redirect/playback/995250452/rendition/1080p/file.mp4?loc=external&oauth2_token_id=1772650813&signature=a363f94503b78cd6e3233b37d42e7464044ae42a0385e2b07889f95215360593",
+        "poster": "",
+        "autoplay": false,
+        "loop": true,
+        "muted": true
+      },
+      {
+        "src": "https://player.vimeo.com/progressive_redirect/playback/995250465/rendition/1080p/file.mp4?loc=external&oauth2_token_id=1772650813&signature=e19da93baa7943b56cba6a7c59d6a5ba89f122dbd7015620450ea87c779a656f",
+        "poster": "",
+        "autoplay": false,
+        "loop": true,
+        "muted": true
+      },
+      {
+        "src": "https://player.vimeo.com/progressive_redirect/playback/995250482/rendition/1080p/file.mp4?loc=external&oauth2_token_id=1772650813&signature=9f7304cab3b58a9b955e3fcc68ce0619f5a17f22f8e054a08d2565fe273c0a9f",
+        "poster": "",
+        "autoplay": false,
+        "loop": true,
+        "muted": true
+      },
+      {
+        "src": "https://player.vimeo.com/progressive_redirect/playback/995250644/rendition/1080p/file.mp4?loc=external&oauth2_token_id=1772650813&signature=a6f92b063edd18dd34198e8dfcf7b557a5e0e0f68cb3b6e1342e38c1f6b23328",
+        "poster": "",
+        "autoplay": false,
+        "loop": true,
+        "muted": true
+      },
+      {
+        "src": "https://player.vimeo.com/progressive_redirect/playback/995250529/rendition/1080p/file.mp4?loc=external&oauth2_token_id=1772651873&signature=e287759776b45c8f4c444ce200d82dfccbdda2da7e2e8048f05ae43263dc6a6c",
+        "poster": "",
+        "autoplay": false,
+        "loop": true,
+        "muted": true
+      },
+      {
+        "src": "https://player.vimeo.com/progressive_redirect/playback/995250665/rendition/1080p/file.mp4?loc=external&oauth2_token_id=1772651873&signature=e8d27cadcebc5702463e88dd5b3e63be8feca04a72d0a045f2c7b0c53da6cfaf",
+        "poster": "",
+        "autoplay": false,
+        "loop": true,
+        "muted": true
+      },
+      {
+        "src": "https://player.vimeo.com/progressive_redirect/playback/995250520/rendition/1080p/file.mp4?loc=external&oauth2_token_id=1772651873&signature=aa5a9c9e0fdfb7440c8a634e40b890c236e409f96202b0a8b594484e47342669",
+        "poster": "",
+        "autoplay": false,
+        "loop": true,
+        "muted": true
+      }
+    ],
+    "bgImages": [
+      {
+        "el": "INPUT.autocomplete-input",
+        "bg": "url(\"data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjNjY2IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIHN0cm9rZS13aWR0aD0iMiI+PGNpcmNsZSBjeD0iMTEiIGN5PSIxMSIgcj0iOCIvPjxwYXRoIGQ9Im0yMSAyMS00L"
+      },
+      {
+        "el": "DIV.AppImage-image --placeholder --lazy",
+        "bg": "url(\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAASCAYAAABb0P4QAAAACXBIWXMAAAsTAAALEwEAmpwYAAACqElEQVQ4jXWUT2hcVRjFf5l3Xv6SyXTOnSRWQikolOouEW0htCC4qQoKLgsFiwgKgmK7cOFCcKkthQru2oXVbtpFaDcqCGI3troUEcSWLvonYKJVq2ki909m5oFeuLwZ3nfPd853zn0wvEIFswILHpmEHRrBWsI6jXUC63EC0BsHV9Cucu3/rq7yDmVbXaxXsK5iX"
+      },
+      {
+        "el": "DIV.AppImage-image --placeholder --lazy",
+        "bg": "url(\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAaCAYAAAC3g3x9AAAACXBIWXMAAAsTAAALEwEAmpwYAAAEI0lEQVRIiU2VWajWVRTFf/d+638drtP3rXNNpahsQEt7iCJKiGyABiiooBKiegkiioLowSipfIgopJEgMZWkiYLCgmjSh4IktMGhEaNsgDLHckKNff773uvD4X/57j5r77322uvAEFD6wX3gMeAGLCgN9BRnMtbtWJ9gvYh1Du5MxzqLolMoGmzvDLR36I5rAQvxY"
+      },
+      {
+        "el": "DIV.AppImage-image --placeholder --lazy",
+        "bg": "url(\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAXCAYAAAALHW+jAAAACXBIWXMAAAsTAAALEwEAmpwYAAADNElEQVQ4jW2VS4gcZRSFv+k6f/UQMzPdfao7MxGNmBhFFKILFRRBlBCjuBARBRECulCiKKKuXAiufC3EpY+dblxk4UJwJfiMG3Ehgu4UQfGBSjQQMyP3r7+nq2e64NLVVdWnzr33nNOw6GgSTICRYFhB0wNrvpo+uKqwRljXY92HddcOoBo2ejBMsJFgnFrwKC91A"
+      },
+      {
+        "el": "DIV.AppImage-image --placeholder --lazy",
+        "bg": "url(\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAVCAYAAABG1c6oAAAACXBIWXMAAAsTAAALEwEAmpwYAAADNUlEQVQ4jWWUS4tcVRSFv+q7TnW16Ziqu6obuxMRlUCIDwjR+MpAkYiiGKNCBBUkaFCDhij4BF+IosZX28ZnfMToQBBfgwwEnQgiIjpwKKIDJ/4K2efu6m70wOHeOvfU2mvvtfYG6yesX7C+xnoB626sa7HOx+V0LDPWDGM1jAAXGBewuj2O9wJtgZHigj7H+gvrb"
+      },
+      {
+        "el": "DIV.AppImage-image --placeholder --lazy",
+        "bg": "url(\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAASCAYAAABb0P4QAAAACXBIWXMAAAsTAAALEwEAmpwYAAAB7UlEQVR4nI2US09UQRCFP0BgmAGjXB4JA8MkiARXEIQo8khgQ3gjuGaDC/kJBmJCwmPjSqP/Qfcs9M+Zuvl6ch2elUxyp7v69KlTpxr+jxagFxgHnrnWBywBC+5FPAdeFv7fG93AKDAElIBOQTOgA+gCquZUeEQ8MfkdMOyhGjDiZTXZRk7bXSAlGZSBVhksFZhuA"
+      },
+      {
+        "el": "DIV.AppImage-image --placeholder --lazy",
+        "bg": "url(\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAXCAYAAAALHW+jAAAACXBIWXMAAAsTAAALEwEAmpwYAAADhUlEQVQ4jU1VW4iWVRRd+q3DlGnx/+ubcWRoBClIG03DQcsraNpF81LoVAaKYhBokPlgYRKRWQ/ZQ0QPKdo9NVKLsovilZSyB8mSSsPEC9qTDybzoLLPt+ZnHvbP+c/ZZ317r732PoASUGsCStoSIK/FGsRZUNoM8UOIc/NeM4F6j2+qrDUBzQmAigqgnnpA+kJsg"
+      },
+      {
+        "el": "DIV.AppImage-image --placeholder --lazy",
+        "bg": "url(\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAACXBIWXMAAAsTAAALEwEAmpwYAAACxElEQVQ4jW1VQUtUYRQ9jOfNjEmFc97MaEgtrBYq1K6oVZv2LdpkE1SUVm4LiyxoU/6GImhRrRR0o2W0CSpwVZCClRKIY/YTahH3++6beYoPLu/NvO873z33nnsekF3dRUCMUUn8OQHSXSJbF3/3QLwC8T7E0xHMXlbtJdtRyW2qFoHUwtdk/4tVpMkwxHmIHyDei"
+      },
+      {
+        "el": "DIV.AppImage-image --placeholder --lazy",
+        "bg": "url(\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAgCAYAAAASYli2AAAACXBIWXMAAAsTAAALEwEAmpwYAAAEUklEQVRIiXVWWW9WVRRd7bcOpRQ63HXbQtAyRIppIjaoYDHhwYCoSNUmqBE1zvOIoAJOWE1AcQBbC86JaDWaYAgmJg5/wAHFyIuv/g/NPnfdtqTwJbv39Nx99tl7rT1cYOavJCACbU3Vs5L5ENdY5medkFTrNHDuX0+jUgjFvjmAUhPEiyC+ZlmFIjVh5ZxpY93nM"
+      },
+      {
+        "el": "DIV.AppImage-image --placeholder --lazy",
+        "bg": "url(\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAASCAYAAABb0P4QAAAACXBIWXMAAAsTAAALEwEAmpwYAAACy0lEQVQ4jXWU26tWVRTFf/vbYx09HTviN9bxi0IQrUwMQXwo7EYXkYKUSAt6iXrIHkIiCFEfFCMQH0SiO75Y9NBL0MUe6iFTUzKju9FFiehfsJdQau49v1PR6YPN/PZea4015phjTpgZwFBgLcC6Ces5rE+xXsW6A2shLg2ehJkWaj7xf86fdRnWCqyHsV7D+hrrV"
+      },
+      {
+        "el": "DIV.AppImage-image --placeholder --lazy",
+        "bg": "url(\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAWCAYAAADAQbwGAAAACXBIWXMAAAsTAAALEwEAmpwYAAAC6UlEQVQ4jZWVzYuVZRjGf857PTPjQotzPRplVAvJ/yBc1KYgDYOgQiyIaBMUVLsyrYW4ahdNuyAIghCCaFGiixZ9IBoFYRl9UdmnjfmRMuY4jXE/731mjmJwWtyc836c33M/13091wELrAHWU1ifYR2nlj+wZqlltn1ax7B+wjqCy3u4zGBtpeomXApXT0Et4ELAo"
+      },
+      {
+        "el": "DIV.AppImage-image --placeholder --lazy",
+        "bg": "url(\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAASCAYAAABb0P4QAAAACXBIWXMAAAsTAAALEwEAmpwYAAABtElEQVQ4jZ2Uz25NURjFf713bUxo7117YEYZM8HME1SioZ3xBuLfSMwq0jYSXoKERLxApyUaf/sAPABpO6MlUZVvn90yaZx7TrLOt0/Ozsr3Z30L3AcrYZ3Heoa1gdMWWZtYW/sip93zZj2vY32AnPpkncJ6gPUZp59Yv1ohp93zd6yXWHfB6Qw5zZP1CWubnHbaQ"
+      },
+      {
+        "el": "DIV.AppImage-image --placeholder --lazy",
+        "bg": "url(\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAWCAYAAADAQbwGAAAACXBIWXMAAAsTAAALEwEAmpwYAAADcklEQVQ4jXWVWYyfUxjGfzP/58wwnaT/+T9f2+mISLQi0VhKQhOJC5QQETt3iC3E7saFvbG0qK2KaiV2pZGIuCAIaruQTieixBZboi2NtKVoXMh7vnfaceHi5PvO9pznPO/zvge6Ak+20n57nT5cRrCOw3oEayLb8nasjDDS6aMnaHKP859eDBTq5DAxMYx1MNYlW"
+      },
+      {
+        "el": "DIV.AppImage-image --placeholder --lazy",
+        "bg": "url(\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAACXBIWXMAAAsTAAALEwEAmpwYAAACeklEQVQ4jY2UOWhVQRSGf3n/WMTCJP/Eyg0RRAVrLURBu6iliCAiCApqKQTBQoOVhYUIWqiNnVtpNJUbcYE0IuKKC1FEUeJKnsl7cs7MvW/h4bM4zMydme+ebX5AhNvcio2EuAjidojnIT6C+BXiFMTfEN9DvAXxGMT1EPsgzsJAAGIA+ogEs4U4B+JqiEcg3oQ4A"
+      },
+      {
+        "el": "DIV.AppImage-image --placeholder --lazy",
+        "bg": "url(\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAYAAAB/Ca1DAAAACXBIWXMAAAsTAAALEwEAmpwYAAAB8klEQVQokU2TS4hPYRjGfzPzfGbkEv/n/Gchu78VKVkYCwllw2LcSmNvhWyUZIMNI8qUFQvJQmLhFtkIRXIp5DY1JnfDyL1kp/fMOzWnvs053/d7nu95nwMzusCagrUUawDrOdYvrA9YZ3BZi8tMXNqwFmIdw3qKNYj1EusJ1iWs7VhzwWUSLgE7nhveYb3G+oj1F"
+      }
+    ],
+    "svgCount": 24,
+    "canvasCount": 0,
+    "iframes": [],
+    "lenis": true,
+    "topLevel": [
+      {
+        "tag": "DIV",
+        "id": "__nuxt",
+        "cls": "",
+        "h": 15290.65625,
+        "pos": "static"
+      },
+      {
+        "tag": "SCRIPT",
+        "id": "__NUXT_DATA__",
+        "cls": "",
+        "h": 0,
+        "pos": "static"
+      },
+      {
+        "tag": "SCRIPT",
+        "id": "",
+        "cls": "",
+        "h": 0,
+        "pos": "static"
+      },
+      {
+        "tag": "SCRIPT",
+        "id": "",
+        "cls": "",
+        "h": 0,
+        "pos": "static"
+      },
+      {
+        "tag": "DIV",
+        "id": "",
+        "cls": "PopupBanner-overlay is-open",
+        "h": 900,
+        "pos": "fixed"
+      },
+      {
+        "tag": "DIV",
+        "id": "",
+        "cls": "",
+        "h": 0,
+        "pos": "static"
+      }
+    ],
+    "text": "Thank you for being part of Ctrl Wallet.\n\nAs of August 19, 2026, Ctrl Wallet has been permanently shut down. It has been a privilege to serve you.\n\nYour assets are still yours. As long as you have your recovery phrase, you can import it into any compatible wallet and continue managing your funds.\n\n⚠️ Never share your recovery phrase with anyone. Ctrl Wallet will never ask for it and neither will any legitimate service.\n\nView the announcement\n$CTRL\nSupport\nSecurity\nResources\nDownload\nDownload for Chrome\nOne wallet\nfor all your crypto\nTake\nCtrl\n.\n2,500+ chains. One wallet.\nCtrl Wallet supports millions of assets and NFTs on 2,500+ blockchains.\nAvalanche\nBitcoin\nTHORChain\nTron\nCardano\nBNB Smart Chain\nCosmos\nEthereum\nPolygon\nDoge\nSolana\nArbitrum\nBase\nOptimism\nLevel up\nCapture\n \nevery\nopportunity\n \n \non\nevery\n \nchain.\n10M+ assets at your fingertips\n\nCtrl supports all the newest memecoins and testnets on every EVM chain, Bitcoin, Ethereum, Cardano, Solana, THORChain, Midnight and more.\n\nConnect to every application\n\nCtrl connects to every dapp on 2,500+ blockchains and testnets.\n\nOne home for all your NFTs\n\nCtrl’s NFT gallery displays all your NFTs from 30+ chains including Bitcoin, Ethereum, Cardano, Solana, THORChain, Midnight and more.\n\nTake Ctrl\nJoin\n \nthe\n \n \n600,000+\n \npeople\nwho\n \ntrust\n \nCtrl.\nFounded in 2020, Ctrl (formerly XDEFI) was the world's first multichain wallet.\n4.8 star rating in the Google Chrome Store after 650+ reviews.\n24/7 live customer support. Our global team is here to help you.\nSecure and private\nThe\n \nSecure\n \nway\n \nto\n \nWeb3\nPortfolio overview\n\nTrack your entire portfolio in one place.\n\nHardware wallet support\n\nKeeps funds safe on your Ledger / Trezor.\n\nMalicious address alerts\n\nWe flag malicious and suspicious addresses for you.\n\nNo IP tracking\n\nWe do not record any user IP addresses.\n\nAny questions ?\nFAQ\nHow do I take part in the Midnight Scavenger Mine?\n\nYou can read our full guide on how to take part in the Midnight Scavenger Mine here.\n\nHow do I claim the Midnight Glacier Airdrop $NIGHT token?\n\nYou can check out our full guide on how to claim your Midnight Glacier Airdrop $NIGHT.\n\nDo you have a mobile wallet application?\n\nYes, our mobile applications are now available on the App Store / Play Store. IOS: https://apps.apple.com/ng/app/ctrl-wallet/id6630386336 Android: https://play.google.com/store/apps/details?id=xyz.ctrl.wallet\n\nCan I migrate my MetaMask, Phantom or Keplr wallet to Ctrl?\n\nYes, you can migrate any wallet to Ctrl using your wallet’s seed phrase. This process only takes a few seconds, and all of your assets and NFTs will immediately appear in Ctrl.\n\nPlease see our quick start guide here.\n\nHow do I connect to a dapp if I don't see the Ctrl logo?\n\nCtrl can connect to all dapps on all supported chains. In many cases you will see the Ctrl logo when you go to ‘connect wallet’. If you do not see the Ctrl logo, you can still connect to the dapp by clicking on the first wallet in the list, usually MetaMask, Keplr or Phantom. Please make sure you have ‘prioritize Ctrl’ turned on in your Ctrl settings.\n\nWhat is a non-custodial wallet?\n\nUnlike centralized exchanges, non-custodial wallets offer you full control over your seed phrase, private keys and assets (including NFTs). Forgetting or losing your seed phrase and private keys means losing access to your deposit addresses and the funds you hold on them, so make sure to back them up.\n\nWe recommend offline storage on at least two devices, one of which has FLASH memory. Encrypting the digital device holding this information is a good practice as long as you remember your decryption password.\n\nXDEFI migrated to Ctrl. What does this mean for me as an XDEFI user?\n\nYour existing XDEFI Wallet browser extension will automatically update and be migrated to the new Ctrl Wallet. You do not need to do anything during this update.\n\nHow do I migrate my $XDEFI to $CTRL?\n\nYou can migrate $XDEFI and v$XDEFI to $CTRL here.\n\nCtrl will pay your gas on the migration until December 31, 2024.\n\nYou have until September 2025 to complete the migration.\n\nAre my funds safe?\n\nYes. Ctrl has been independently audited and your funds always remain completely under your custody. Read more about our security here.\n\nDoes Ctrl have control of my coins?\n\nCtrl is a non-custodial & decentralised wallet.\n\nRemember that your coins or tokens are not stored in your wallet but on the blockchain, your wallet allows you to view and manage them.\n\nCtrl does NOT have access to your secret phrase, password or recovery code.\n\nYou are in complete control of your information and your wallet, so please do keep your secret phrase safe!\n\nI have questions or concerns, where is the best place to ask?\n\nFor direct support, you can contact us on our support intercom below or ask in our Discord.\n\nShow all questions\nNewsletter\n\nSubscribe to our amazing newsletter to receive all the latest news & updates.\n\nSubscribe\nLevel up\nTake Ctrl\n.\nProduct\nSecurity\nSupport\nCompany\nIntroducing Ctrl\n$CTRL\nAbout\nResources\nNews\nDocs\nMedia Kit\nShortcuts\nEnglish\nFrench\nDeutsch\nEspañol\nPortuguese\n简体中文\nРусский\nTiếng Việt\nTürkçe\nTerms of use\nPrivacy policy\nCookie Preferences\nThank you for being part of Ctrl Wallet.\n\nAs of August 19, 2026, Ctrl Wallet has been permanently shut down. It has been a privilege to serve you.\n\nYour assets are still yours. As long as you have your recovery phrase, you can import it into any compatible wallet and continue managing your funds.\n\n⚠️ Never share your recovery phrase with anyone. Ctrl Wallet will never ask for it and neither will any legitimate service.\n\nView the announcement"
+  },
+  "tablet-768": {
+    "scrollHeight": 31447
+  },
+  "mobile-390": {
+    "scrollHeight": 17077
+  },
+  "requests": [
+    {
+      "url": "https://ctrl.xyz/",
+      "status": 200,
+      "type": "document",
+      "ct": "text/html"
+    },
+    {
+      "url": "https://ctrl.xyz/_nuxt/entry.4aFtTMoz.css",
+      "status": 200,
+      "type": "stylesheet",
+      "ct": "text/css"
+    },
+    {
+      "url": "https://ctrl.xyz/_nuxt/stegaEncodeSourceMap.w9Za_kDw.js",
+      "status": 200,
+      "type": "other",
+      "ct": "application/javascript"
+    },
+    {
+      "url": "https://ctrl.xyz/_nuxt/useSanityData.CG07qiKI.css",
+      "status": 200,
+      "type": "stylesheet",
+      "ct": "text/css"
+    },
+    {
+      "url": "https://ctrl.xyz/_nuxt/ctrl-logo-small.B0O4jeCz.js",
+      "status": 200,
+      "type": "other",
+      "ct": "application/javascript"
+    },
+    {
+      "url": "https://ctrl.xyz/_nuxt/coingecko.4p8nIMKo.js",
+      "status": 200,
+      "type": "other",
+      "ct": "application/javascript"
+    },
+    {
+      "url": "https://ctrl.xyz/_nuxt/arrow-down.DJEo6FdX.js",
+      "status": 200,
+      "type": "other",
+      "ct": "application/javascript"
+    },
+    {
+      "url": "https://ctrl.xyz/_nuxt/arrow-back.CuIrkrgW.js",
+      "status": 200,
+      "type": "other",
+      "ct": "application/javascript"
+    },
+    {
+      "url": "https://ctrl.xyz/_nuxt/PageDownloadButton.9a7kkcah.js",
+      "status": 200,
+      "type": "script",
+      "ct": "application/javascript"
+    },
+    {
+      "url": "https://ctrl.xyz/_nuxt/index.BBMeA3VW.js",
+      "status": 200,
+      "type": "script",
+      "ct": "application/javascript"
+    },
+    {
+      "url": "https://ctrl.xyz/_nuxt/useSanityData.w2vamrsi.js",
+      "status": 200,
+      "type": "script",
+      "ct": "application/javascript"
+    },
+    {
+      "url": "https://ctrl.xyz/_nuxt/PageDownloadButton.D9c_24V0.css",
+      "status": 200,
+      "type": "stylesheet",
+      "ct": "text/css"
+    },
+    {
+      "url": "https://ctrl.xyz/_nuxt/browser.DVz645qZ.js",
+      "status": 200,
+      "type": "other",
+      "ct": "application/javascript"
+    },
+    {
+      "url": "https://ctrl.xyz/_nuxt/component-stub.FmFgRqLi.js",
+      "status": 200,
+      "type": "other",
+      "ct": "application/javascript"
+    },
+    {
+      "url": "https://ctrl.xyz/_nuxt/check.DvxCOAeM.js",
+      "status": 200,
+      "type": "other",
+      "ct": "application/javascript"
+    },
+    {
+      "url": "https://ctrl.xyz/_nuxt/ctrl-logo.D6Z5LwBK.js",
+      "status": 200,
+      "type": "other",
+      "ct": "application/javascript"
+    },
+    {
+      "url": "https://ctrl.xyz/_nuxt/cursor-pointer_clean.vVaZ1JrO.js",
+      "status": 200,
+      "type": "other",
+      "ct": "application/javascript"
+    },
+    {
+      "url": "https://ctrl.xyz/_nuxt/cursor-success_clean.B9hnCm8F.js",
+      "status": 200,
+      "type": "other",
+      "ct": "application/javascript"
+    },
+    {
+      "url": "https://ctrl.xyz/_nuxt/cursor_clean.CuXRUZ_x.js",
+      "status": 200,
+      "type": "other",
+      "ct": "application/javascript"
+    },
+    {
+      "url": "https://ctrl.xyz/_nuxt/d-apps.BKYYbfoJ.js",
+      "status": 200,
+      "type": "other",
+      "ct": "application/javascript"
+    },
+    {
+      "url": "https://ctrl.xyz/_nuxt/dark.Diy8joE_.js",
+      "status": 200,
+      "type": "other",
+      "ct": "application/javascript"
+    },
+    {
+      "url": "https://ctrl.xyz/_nuxt/discord.B5kcLCFl.js",
+      "status": 200,
+      "type": "other",
+      "ct": "application/javascript"
+    },
+    {
+      "url": "https://ctrl.xyz/_nuxt/dollar.Co3q6PvO.js",
+      "status": 200,
+      "type": "other",
+      "ct": "application/javascript"
+    },
+    {
+      "url": "https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495",
+      "status": 200,
+      "type": "script",
+      "ct": "text/javascript;charset=UTF-8"
+    },
+    {
+      "url": "https://ctrl.xyz/_nuxt/download-file.BF_LRuZY.js",
+      "status": 200,
+      "type": "other",
+      "ct": "application/javascript"
+    },
+    {
+      "url": "https://ctrl.xyz/_nuxt/download.D4ziGTk3.js",
+      "status": 200,
+      "type": "other",
+      "ct": "application/javascript"
+    },
+    {
+      "url": "https://ctrl.xyz/_nuxt/light.CHx0dcjQ.js",
+      "status": 200,
+      "type": "other",
+      "ct": "application/javascript"
+    },
+    {
+      "url": "https://ctrl.xyz/_nuxt/lock.DpXACXEt.js",
+      "status": 200,
+      "type": "other",
+      "ct": "application/javascript"
+    },
+    {
+      "url": "https://ctrl.xyz/_nuxt/select-avatar.BKI_AtDQ.js",
+      "status": 200,
+      "type": "other",
+      "ct": "application/javascript"
+    },
+    {
+      "url": "https://ctrl.xyz/_nuxt/smile.6rEJfec2.js",
+      "status": 200,
+      "type": "other",
+      "ct": "application/javascript"
+    },
+    {
+      "url": "https://ctrl.xyz/_nuxt/telegram.BMsJtIFN.js",
+      "status": 200,
+      "type": "other",
+      "ct": "application/javascript"
+    },
+    {
+      "url": "https://ctrl.xyz/_nuxt/three-dots.Bkye42JW.js",
+      "status": 200,
+      "type": "other",
+      "ct": "application/javascript"
+    },
+    {
+      "url": "https://ctrl.xyz/_nuxt/x.CnEm2TCU.js",
+      "status": 200,
+      "type": "other",
+      "ct": "application/javascript"
+    },
+    {
+      "url": "https://ctrl.xyz/_payload.json",
+      "status": 200,
+      "type": "other",
+      "ct": "application/json"
+    },
+    {
+      "url": "https://ctrl.xyz/_nuxt/entry.Bx2--lWY.js",
+      "status": 200,
+      "type": "script",
+      "ct": "application/javascript"
+    },
+    {
+      "url": "https://ctrl.xyz/shutdown-popup.css",
+      "status": 200,
+      "type": "stylesheet",
+      "ct": "text/css"
+    },
+    {
+      "url": "https://ctrl.xyz/shutdown-popup.js",
+      "status": 200,
+      "type": "script",
+      "ct": "application/javascript"
+    },
+    {
+      "url": "https://ctrl.xyz/_nuxt/TomatoGrotesk-SemiBold.C_6lu3PJ.woff2",
+      "status": 200,
+      "type": "font",
+      "ct": "font/woff2"
+    },
+    {
+      "url": "https://ctrl.xyz/_nuxt/TomatoGrotesk-ExtraBold.s_fsEMOx.woff2",
+      "status": 200,
+      "type": "font",
+      "ct": "font/woff2"
+    },
+    {
+      "url": "https://ctrl.xyz/popup-power-icon.png",
+      "status": 200,
+      "type": "image",
+      "ct": "image/png"
+    },
+    {
+      "url": "https://ctrl.xyz/_nuxt/TomatoGrotesk-Medium.BzqDELbt.woff2",
+      "status": 200,
+      "type": "font",
+      "ct": "font/woff2"
+    },
+    {
+      "url": "https://ctrl.xyz/_nuxt/TomatoGrotesk-Regular.UIJl-J5V.woff2",
+      "status": 200,
+      "type": "font",
+      "ct": "font/woff2"
+    },
+    {
+      "url": "https://ctrl.xyz/popup-sprite.png",
+      "status": 200,
+      "type": "image",
+      "ct": "image/png"
+    },
+    {
+      "url": "https://ctrl.xyz/_nuxt/index.CzfqNYxu.css",
+      "status": 200,
+      "type": "stylesheet",
+      "ct": "text/css"
+    },
+    {
+      "url": "https://widget.intercom.io/widget/dummy",
+      "status": 200,
+      "type": "script",
+      "ct": "application/javascript; charset=UTF-8"
+    },
+    {
+      "url": "https://ctrl.xyz/cdn-cgi/rum?",
+      "status": 204,
+      "type": "xhr",
+      "ct": "text/plain"
+    },
+    {
+      "url": "https://ctrl.xyz/_nuxt/builds/meta/7ac415ba-a39b-4bd5-ba8a-e3e54a75fa65.json",
+      "status": 200,
+      "type": "fetch",
+      "ct": "application/json"
+    },
+    {
+      "url": "https://ctrl.xyz/_nuxt/ctrl-logo.D6Z5LwBK.js",
+      "status": 200,
+      "type": "script",
+      "ct": "application/javascript"
+    },
+    {
+      "url": "https://ctrl.xyz/_nuxt/cursor-success_clean.B9hnCm8F.js",
+      "status": 200,
+      "type": "script",
+      "ct": "application/javascript"
+    },
+    {
+      "url": "https://ctrl.xyz/_nuxt/x.CnEm2TCU.js",
+      "status": 200,
+      "type": "script",
+      "ct": "application/javascript"
+    },
+    {
+      "url": "https://ctrl.xyz/_nuxt/discord.B5kcLCFl.js",
+      "status": 200,
+      "type": "script",
+      "ct": "application/javascript"
+    },
+    {
+      "url": "https://ctrl.xyz/_nuxt/telegram.BMsJtIFN.js",
+      "status": 200,
+      "type": "script",
+      "ct": "application/javascript"
+    },
+    {
+      "url": "https://ctrl.xyz/_nuxt/coingecko.4p8nIMKo.js",
+      "status": 200,
+      "type": "script",
+      "ct": "application/javascript"
+    },
+    {
+      "url": "https://ctrl.xyz/_nuxt/download.D4ziGTk3.js",
+      "status": 200,
+      "type": "script",
+      "ct": "application/javascript"
+    },
+    {
+      "url": "https://ctrl.xyz/_nuxt/ctrl-logo-small.B0O4jeCz.js",
+      "status": 200,
+      "type": "script",
+      "ct": "application/javascript"
+    },
+    {
+      "url": "https://ctrl.xyz/_nuxt/light.CHx0dcjQ.js",
+      "status": 200,
+      "type": "script",
+      "ct": "application/javascript"
+    },
+    {
+      "url": "https://ctrl.xyz/_nuxt/select-avatar.BKI_AtDQ.js",
+      "status": 200,
+      "type": "script",
+      "ct": "application/javascript"
+    },
+    {
+      "url": "https://ctrl.xyz/_nuxt/d-apps.BKYYbfoJ.js",
+      "status": 200,
+      "type": "script",
+      "ct": "application/javascript"
+    },
+    {
+      "url": "https://ctrl.xyz/_nuxt/arrow-down.DJEo6FdX.js",
+      "status": 200,
+      "type": "script",
+      "ct": "application/javascript"
+    },
+    {
+      "url": "https://ctrl.xyz/_nuxt/_uid_.C26tOX5C.css",
+      "status": 200,
+      "type": "stylesheet",
+      "ct": "text/css"
+    },
+    {
+      "url": "https://ctrl.xyz/_nuxt/page.CMhre93t.js",
+      "status": 200,
+      "type": "script",
+      "ct": "application/javascript"
+    },
+    {
+      "url": "https://ctrl.xyz/_nuxt/_uid_.BOwaUOxn.js",
+      "status": 200,
+      "type": "script",
+      "ct": "application/javascript"
+    },
+    {
+      "url": "https://www.google.com/recaptcha/api.js?render=explicit",
+      "status": 200,
+      "type": "script",
+      "ct": "text/javascript; charset=utf-8"
+    },
+    {
+      "url": "https://ctrl.xyz/cms/files/rrhq1nuo/production/c6a214947a3d21457026b5e97d1127500ff1d47e.json",
+      "status": 404,
+      "type": "fetch",
+      "ct": "text/html"
+    },
+    {
+      "url": "https://ctrl.xyz/cms/files/rrhq1nuo/production/8144fbb02bcb70e82da17c194ca58bfe02e01108.json",
+      "status": 404,
+      "type": "fetch",
+      "ct": "text/html"
+    },
+    {
+      "url": "https://ctrl.xyz/cms/files/rrhq1nuo/production/d6b171d58a76cbad39c1347a8f0c116ac4d9117b.json",
+      "status": 404,
+      "type": "fetch",
+      "ct": "text/html"
+    },
+    {
+      "url": "https://ctrl.xyz/cms/files/rrhq1nuo/production/cf7de0d1031efb56f6db3a5ff69f26ec0765d679.json",
+      "status": 404,
+      "type": "fetch",
+      "ct": "text/html"
+    },
+    {
+      "url": "https://ctrl.xyz/cms/files/rrhq1nuo/production/b686ba6e5c67212df00280c95b88ff3825156d41.json",
+      "status": 404,
+      "type": "fetch",
+      "ct": "text/html"
+    },
+    {
+      "url": "https://ctrl.xyz/cms/files/rrhq1nuo/production/c8660933d490924cb8dfcaa8b64c44b1ac6e1dc8.json",
+      "status": 404,
+      "type": "fetch",
+      "ct": "text/html"
+    },
+    {
+      "url": "https://ctrl.xyz/_payload.json",
+      "status": 200,
+      "type": "fetch",
+      "ct": "application/json"
+    },
+    {
+      "url": "https://ctrl.xyz/ctrl-token/_payload.json",
+      "status": 200,
+      "type": "fetch",
+      "ct": "application/json"
+    },
+    {
+      "url": "https://ctrl.xyz/download/_payload.json",
+      "status": 200,
+      "type": "fetch",
+      "ct": "application/json"
+    },
+    {
+      "url": "https://ctrl.xyz/secure-crypto-wallet/_payload.json",
+      "status": 200,
+      "type": "fetch",
+      "ct": "application/json"
+    },
+    {
+      "url": "https://player.vimeo.com/progressive_redirect/playback/996079329/rendition/720p/file.mp4?loc=external&oauth2_token_id=1772551642&signature=3eb9960e8d447b2dcbb16b894a5280d9e44cb94c4df48b037b386868b86ac91f",
+      "status": 302,
+      "type": "media"
+    },
+    {
+      "url": "https://www.gstatic.com/recaptcha/releases/kemdRjWFxNjgsGdhRslyEPwU/recaptcha__en.js",
+      "status": 200,
+      "type": "script",
+      "ct": "text/javascript"
+    },
+    {
+      "url": "https://download-video-ak.vimeocdn.com/v3-1/playback/3e5ba639-2e9f-4264-b0bd-30a8a1354071/38762011?__token__=st=1790934351~exp=1790937951~acl=%2Fv3-1%2Fplayback%2F3e5ba639-2e9f-4264-b0bd-30a8a1354071%2F38762011%2A~hmac=1051da214503f04735f16c4682db8651d297399e3e558f0fef73d247b969e504&r=dXMtd2VzdDE%3D",
+      "status": 206,
+      "type": "media",
+      "ct": "video/mp4"
+    },
+    {
+      "url": "https://player.vimeo.com/progressive_redirect/playback/995250631/rendition/1080p/file.mp4?loc=external&oauth2_token_id=1772650813&signature=87a8c74664184d913720024cabd8477e4f9184788f859518179a200687cee0d8",
+      "status": 302,
+      "type": "media"
+    },
+    {
+      "url": "https://player.vimeo.com/progressive_redirect/playback/995250653/rendition/1080p/file.mp4?loc=external&oauth2_token_id=1772650813&signature=79d1364fbfecc4f7a9c268e1ad9b7db1ea431bafae34e5550d60cdedc8da246b",
+      "status": 302,
+      "type": "media"
+    },
+    {
+      "url": "https://ctrl.xyz/cms/images/rrhq1nuo/production/b021f43e0ed987217003b52a29a202315bd18c0a-43x38.svg?w=308&h=308&q=80&fit=fill&auto=format&bg=ffffff",
+      "status": 404,
+      "type": "image",
+      "ct": "text/html"
+    },
+    {
+      "url": "https://ctrl.xyz/cms/images/rrhq1nuo/production/bf2b44b9b5c804aab129f4c0f7f0507886711c66-34x38.svg?w=308&h=308&q=80&fit=fill&auto=format&bg=ffffff",
+      "status": 404,
+      "type": "image",
+      "ct": "text/html"
+    },
+    {
+      "url": "https://ctrl.xyz/cms/images/rrhq1nuo/production/ecce5ff65c141e89a4e0f48a28599da338158f50-43x38.svg?w=308&h=308&q=80&fit=fill&auto=format&bg=ffffff",
+      "status": 404,
+      "type": "image",
+      "ct": "text/html"
+    },
+    {
+      "url": "https://ctrl.xyz/cms/images/rrhq1nuo/production/27b5afac59162a2decc5aed50bcf233b7c253667-111x111.svg?w=308&h=308&q=80&fit=fill&auto=format&bg=ffffff",
+      "status": 404,
+      "type": "image",
+      "ct": "text/html"
+    },
+    {
+      "url": "https://ctrl.xyz/cms/images/rrhq1nuo/production/fbd2906f3f1b3294c34221d3e4f41fb742feca18-45x71.svg?w=308&h=308&q=80&fit=fill&auto=format&bg=ffffff",
+      "status": 404,
+      "type": "image",
+      "ct": "text/html"
+    },
+    {
+      "url": "https://ctrl.xyz/cms/images/rrhq1nuo/production/7f86db5b5b1ba335f520aa68b0547c00f0e566e4-39x43.svg?w=308&h=308&q=80&fit=fill&auto=format&bg=ffffff",
+      "status": 404,
+      "type": "image",
+      "ct": "text/html"
+    },
+    {
+      "url": "https://ctrl.xyz/cms/images/rrhq1nuo/production/40155120f94ac1727a1d225184e57be8984e8478-44x50.svg?w=308&h=308&q=80&fit=fill&auto=format&bg=ffffff",
+      "status": 404,
+      "type": "image",
+      "ct": "text/html"
+    },
+    {
+      "url": "https://ctrl.xyz/cms/images/rrhq1nuo/production/29a15baa6b5ac9d7515c589163a8a1b1197e42a9-66x65.svg?w=308&h=308&q=80&fit=fill&auto=format&bg=ffffff",
+      "status": 404,
+      "type": "image",
+      "ct": "text/html"
+    },
+    {
+      "url": "https://player.vimeo.com/progressive_redirect/playback/995250676/rendition/1080p/file.mp4?loc=external&oauth2_token_id=1772650813&signature=60678d0d95b468a0d0a22267ae75aa42c97f9fb365c32c015fec2dd7e6ed08cb",
+      "status": 302,
+      "type": "media"
+    },
+    {
+      "url": "https://ctrl.xyz/cms/images/rrhq1nuo/production/0aac84fb0886cf19f96311d95dabc48cc7f4f7e9-44x50.svg?w=308&h=308&q=80&fit=fill&auto=format&bg=ffffff",
+      "status": 404,
+      "type": "image",
+      "ct": "text/html"
+    },
+    {
+      "url": "https://ctrl.xyz/cms/images/rrhq1nuo/production/d3888aa5123018a41981bc5d0d7198e6f2740845-48x50.svg?w=308&h=308&q=80&fit=fill&auto=format&bg=ffffff",
+      "status": 404,
+      "type": "image",
+      "ct": "text/html"
+    },
+    {
+      "url": "https://ctrl.xyz/cms/images/rrhq1nuo/production/bb6c473cf015107fb6307fdbbde54fb9006085cd-43x23.svg?w=308&h=308&q=80&fit=fill&auto=format&bg=ffffff",
+      "status": 404,
+      "type": "image",
+      "ct": "text/html"
+    },
+    {
+      "url": "https://ctrl.xyz/cms/images/rrhq1nuo/production/e6615fd4ace5df6341d81a9ea44282bf57709afc-32x42.svg?w=308&h=308&q=80&fit=fill&auto=format&bg=ffffff",
+      "status": 404,
+      "type": "image",
+      "ct": "text/html"
+    },
+    {
+      "url": "https://ctrl.xyz/cms/images/rrhq1nuo/production/e21f027c08ea0858edfef9e7f415d9b466952ddc-43x38.svg?w=308&h=308&q=80&fit=fill&auto=format&bg=ffffff",
+      "status": 404,
+      "type": "image",
+      "ct": "text/html"
+    },
+    {
+      "url": "https://ctrl.xyz/cms/images/rrhq1nuo/production/77cf3c1e5359fa4f34a7e2ee3cac3f5d212fc38a-375x347.svg?w=308&h=308&q=80&fit=fill&auto=format&bg=ffffff",
+      "status": 404,
+      "type": "image",
+      "ct": "text/html"
+    },
+    {
+      "url": "https://player.vimeo.com/progressive_redirect/playback/995250592/rendition/1080p/file.mp4?loc=external&oauth2_token_id=1772650813&signature=b2976e99841c789425510ce8cf9fba6f4dd7fc84c5f8a2e11978189c78868a6e",
+      "status": 302,
+      "type": "media"
+    },
+    {
+      "url": "https://download-video-ak.vimeocdn.com/v3-1/playback/1648c32e-596f-433c-be4c-df2ed038c9f2/867efc57-637ca778?__token__=st=1790934357~exp=1790937957~acl=%2Fv3-1%2Fplayback%2F1648c32e-596f-433c-be4c-df2ed038c9f2%2F867efc57-637ca778%2A~hmac=cea453d94ccbf27e2b62885ea8342c9ce1a9560e00fab71fc60bef9c9623169d&r=dXMtd2VzdDE%3D",
+      "status": 206,
+      "type": "media",
+      "ct": "video/mp4"
+    },
+    {
+      "url": "https://player.vimeo.com/progressive_redirect/playback/995250613/rendition/1080p/file.mp4?loc=external&oauth2_token_id=1772650813&signature=f698816552ab26d4a5440691cf351637a7a77864a28875a24c14914a06fd2709",
+      "status": 302,
+      "type": "media"
+    },
+    {
+      "url": "https://player.vimeo.com/progressive_redirect/playback/995250622/rendition/1080p/file.mp4?loc=external&oauth2_token_id=1772650813&signature=5177d7a526a6393b64e68bc0affdc183ade0193a9d19f5373d42ad4cf686f7d2",
+      "status": 302,
+      "type": "media"
+    },
+    {
+      "url": "https://download-video-ak.vimeocdn.com/v3-1/playback/884199c1-3209-40c4-930e-4edf83c89e5e/f8d8b618-45c636e8?__token__=st=1790934358~exp=1790937958~acl=%2Fv3-1%2Fplayback%2F884199c1-3209-40c4-930e-4edf83c89e5e%2Ff8d8b618-45c636e8%2A~hmac=97c52d4c65ae1e053d2355aa311b7c7d6e0626f06c1455c293e44c37fe404923&r=dXMtZWFzdDE%3D",
+      "status": 206,
+      "type": "media",
+      "ct": "video/mp4"
+    },
+    {
+      "url": "https://player.vimeo.com/progressive_redirect/playback/995250465/rendition/1080p/file.mp4?loc=external&oauth2_token_id=1772650813&signature=e19da93baa7943b56cba6a7c59d6a5ba89f122dbd7015620450ea87c779a656f",
+      "status": 302,
+      "type": "media"
+    },
+    {
+      "url": "https://player.vimeo.com/progressive_redirect/playback/995250452/rendition/1080p/file.mp4?loc=external&oauth2_token_id=1772650813&signature=a363f94503b78cd6e3233b37d42e7464044ae42a0385e2b07889f95215360593",
+      "status": 302,
+      "type": "media"
+    },
+    {
+      "url": "https://player.vimeo.com/progressive_redirect/playback/995250482/rendition/1080p/file.mp4?loc=external&oauth2_token_id=1772650813&signature=9f7304cab3b58a9b955e3fcc68ce0619f5a17f22f8e054a08d2565fe273c0a9f",
+      "status": 302,
+      "type": "media"
+    },
+    {
+      "url": "https://download-video-ak.vimeocdn.com/v3-1/playback/0edbff9d-3daa-4e7d-afd0-6d5cb5a02bc3/91d4a587-04a79f8a?__token__=st=1790934358~exp=1790937958~acl=%2Fv3-1%2Fplayback%2F0edbff9d-3daa-4e7d-afd0-6d5cb5a02bc3%2F91d4a587-04a79f8a%2A~hmac=84290796b67c27beaf1211e633c5fc74f0febb12dee4b5c1fe37dc1405f2a02b&r=dXMtZWFzdDE%3D",
+      "status": 206,
+      "type": "media",
+      "ct": "video/mp4"
+    },
+    {
+      "url": "https://download-video-ak.vimeocdn.com/v3-1/playback/70f42e25-dc29-4c99-a097-23d60352ca41/18390bad?__token__=st=1790934360~exp=1790937960~acl=%2Fv3-1%2Fplayback%2F70f42e25-dc29-4c99-a097-23d60352ca41%2F18390bad%2A~hmac=a194647d610cdda711a629dc28324b844fde640cb5cf3496394db820b81d85d2&r=dXMtZWFzdDE%3D",
+      "status": 206,
+      "type": "media",
+      "ct": "video/mp4"
+    },
+    {
+      "url": "https://player.vimeo.com/progressive_redirect/playback/995250644/rendition/1080p/file.mp4?loc=external&oauth2_token_id=1772650813&signature=a6f92b063edd18dd34198e8dfcf7b557a5e0e0f68cb3b6e1342e38c1f6b23328",
+      "status": 302,
+      "type": "media"
+    },
+    {
+      "url": "https://player.vimeo.com/progressive_redirect/playback/995250520/rendition/1080p/file.mp4?loc=external&oauth2_token_id=1772651873&signature=aa5a9c9e0fdfb7440c8a634e40b890c236e409f96202b0a8b594484e47342669",
+      "status": 302,
+      "type": "media"
+    },
+    {
+      "url": "https://player.vimeo.com/progressive_redirect/playback/995250665/rendition/1080p/file.mp4?loc=external&oauth2_token_id=1772651873&signature=e8d27cadcebc5702463e88dd5b3e63be8feca04a72d0a045f2c7b0c53da6cfaf",
+      "status": 302,
+      "type": "media"
+    },
+    {
+      "url": "https://player.vimeo.com/progressive_redirect/playback/995250529/rendition/1080p/file.mp4?loc=external&oauth2_token_id=1772651873&signature=e287759776b45c8f4c444ce200d82dfccbdda2da7e2e8048f05ae43263dc6a6c",
+      "status": 302,
+      "type": "media"
+    },
+    {
+      "url": "https://download-video-ak.vimeocdn.com/v3-1/playback/7de18477-1d60-4b7d-8289-399c08ea7868/55689e9b-2687e23e?__token__=st=1790934360~exp=1790937960~acl=%2Fv3-1%2Fplayback%2F7de18477-1d60-4b7d-8289-399c08ea7868%2F55689e9b-2687e23e%2A~hmac=4a0f7305d53e6a50d08233b4c9687c74820bdf8e5534485bf3c158f5b933cd6c&r=dXMtd2VzdDE%3D",
+      "status": 206,
+      "type": "media",
+      "ct": "video/mp4"
+    },
+    {
+      "url": "https://download-video-ak.vimeocdn.com/v3-1/playback/91bd5760-7b89-4102-86b9-cc8ea1d2fc70/30e77dc2-fb7f834b?__token__=st=1790934360~exp=1790937960~acl=%2Fv3-1%2Fplayback%2F91bd5760-7b89-4102-86b9-cc8ea1d2fc70%2F30e77dc2-fb7f834b%2A~hmac=69a1295e0c5fdcae2defb4516ad1f82a34bf4edde75b8c7ffb1f0c6caefabae5&r=dXMtZWFzdDE%3D",
+      "status": 206,
+      "type": "media",
+      "ct": "video/mp4"
+    },
+    {
+      "url": "https://ctrl.xyz/images/stickers/sticker-1_clean.svg",
+      "status": 200,
+      "type": "image",
+      "ct": "image/svg+xml"
+    },
+    {
+      "url": "https://ctrl.xyz/images/stickers/sticker-4_clean.svg",
+      "status": 200,
+      "type": "image",
+      "ct": "image/svg+xml"
+    },
+    {
+      "url": "https://ctrl.xyz/images/stickers/sticker-2_clean.svg",
+      "status": 200,
+      "type": "image",
+      "ct": "image/svg+xml"
+    },
+    {
+      "url": "https://ctrl.xyz/images/stickers/sticker-3_clean.svg",
+      "status": 200,
+      "type": "image",
+      "ct": "image/svg+xml"
+    },
+    {
+      "url": "https://ctrl.xyz/images/stickers/sticker-5_clean.svg",
+      "status": 200,
+      "type": "image",
+      "ct": "image/svg+xml"
+    },
+    {
+      "url": "https://download-video-ak.vimeocdn.com/v3-1/playback/092f01ea-8069-4e86-9d80-5fa547a9710c/3a18fc1d?__token__=st=1790934361~exp=1790937961~acl=%2Fv3-1%2Fplayback%2F092f01ea-8069-4e86-9d80-5fa547a9710c%2F3a18fc1d%2A~hmac=dbf034c45badcf25574f24d7cf3d0133f8b70cb3e6d521e1ba671cf2b851cb14&r=dXMtZWFzdDE%3D",
+      "status": 206,
+      "type": "media",
+      "ct": "video/mp4"
+    },
+    {
+      "url": "https://download-video-ak.vimeocdn.com/v3-1/playback/cd093a46-6c03-46c7-a7b3-d28b27efc7f4/29af9467-63d4e51a?__token__=st=1790934361~exp=1790937961~acl=%2Fv3-1%2Fplayback%2Fcd093a46-6c03-46c7-a7b3-d28b27efc7f4%2F29af9467-63d4e51a%2A~hmac=e5df4039ef937d703d0d471ff13af0831f9dc9230cbc95ff8a2e184b9d36a6af&r=dXMtd2VzdDE%3D",
+      "status": 206,
+      "type": "media",
+      "ct": "video/mp4"
+    },
+    {
+      "url": "https://download-video-ak.vimeocdn.com/v3-1/playback/0d72b9be-5689-47e9-bf20-293d6b96085a/ab16a979-7e965600?__token__=st=1790934362~exp=1790937962~acl=%2Fv3-1%2Fplayback%2F0d72b9be-5689-47e9-bf20-293d6b96085a%2Fab16a979-7e965600%2A~hmac=b157b394e2c964b66ffcc74c26979db31c97dbb653e066d51781b42a53eb3ac3&r=dXMtY2VudHJhbDE%3D",
+      "status": 206,
+      "type": "media",
+      "ct": "video/mp4"
+    },
+    {
+      "url": "https://download-video-ak.vimeocdn.com/v3-1/playback/dce2a130-9ac6-4d36-aa3c-819af5e9f57a/ee4a19a1-508f3524?__token__=st=1790934362~exp=1790937962~acl=%2Fv3-1%2Fplayback%2Fdce2a130-9ac6-4d36-aa3c-819af5e9f57a%2Fee4a19a1-508f3524%2A~hmac=9ea47447c4e7db1fba88ee2d4d44ae6c58a9d8c1d4b73553ae6862b8a53edbf1&r=dXMtY2VudHJhbDE%3D",
+      "status": 206,
+      "type": "media",
+      "ct": "video/mp4"
+    },
+    {
+      "url": "https://download-video-ak.vimeocdn.com/v3-1/playback/b3d0e02b-ec31-493b-b156-1c75cdd8025a/9a35b6a1-e6465708?__token__=st=1790934361~exp=1790937961~acl=%2Fv3-1%2Fplayback%2Fb3d0e02b-ec31-493b-b156-1c75cdd8025a%2F9a35b6a1-e6465708%2A~hmac=a4529a452c16f2c8b73c15c4603e783383fdeff3cdc04aa91503ed6e8f311c80&r=dXMtZWFzdDE%3D",
+      "status": 206,
+      "type": "media",
+      "ct": "video/mp4"
+    },
+    {
+      "url": "https://download-video-ak.vimeocdn.com/v3-1/playback/97371bf7-5aff-4387-bfe5-e8f1f5b43bec/ca67db66-6c851ff6?__token__=st=1790934362~exp=1790937962~acl=%2Fv3-1%2Fplayback%2F97371bf7-5aff-4387-bfe5-e8f1f5b43bec%2Fca67db66-6c851ff6%2A~hmac=dd2ac9ce5eb6a6b0c322ce3fa1a5df38f27ecba39087cecdc38e8adbf789c377&r=dXMtY2VudHJhbDE%3D",
+      "status": 206,
+      "type": "media",
+      "ct": "video/mp4"
+    },
+    {
+      "url": "https://download-video-ak.vimeocdn.com/v3-1/playback/70dc4d93-64b0-4c1e-ba19-5184eae49e12/5185b4d4-c2e9c1b1?__token__=st=1790934362~exp=1790937962~acl=%2Fv3-1%2Fplayback%2F70dc4d93-64b0-4c1e-ba19-5184eae49e12%2F5185b4d4-c2e9c1b1%2A~hmac=a8d6c066470f2667fd3850d9b2e5e2790787f7e629473bc717278c1de111a462&r=dXMtY2VudHJhbDE%3D",
+      "status": 206,
+      "type": "media",
+      "ct": "video/mp4"
+    },
+    {
+      "url": "https://ctrl.xyz/about/_payload.json",
+      "status": 200,
+      "type": "fetch",
+      "ct": "application/json"
+    },
+    {
+      "url": "https://ctrl.xyz/news/_payload.json",
+      "status": 200,
+      "type": "fetch",
+      "ct": "application/json"
+    },
+    {
+      "url": "https://ctrl.xyz/privacy/_payload.json",
+      "status": 200,
+      "type": "fetch",
+      "ct": "application/json"
+    },
+    {
+      "url": "https://ctrl.xyz/terms-of-use/_payload.json",
+      "status": 200,
+      "type": "fetch",
+      "ct": "application/json"
+    },
+    {
+      "url": "https://ctrl.xyz/media-kit/_payload.json",
+      "status": 200,
+      "type": "fetch",
+      "ct": "application/json"
+    },
+    {
+      "url": "https://ctrl.xyz/shortcuts/_payload.json",
+      "status": 200,
+      "type": "fetch",
+      "ct": "application/json"
+    },
+    {
+      "url": "https://ctrl.xyz/xdefi-wallet-rebranding-to-ctrl/_payload.json",
+      "status": 200,
+      "type": "fetch",
+      "ct": "application/json"
+    },
+    {
+      "url": "https://download-video-ak.vimeocdn.com/v3-1/playback/884199c1-3209-40c4-930e-4edf83c89e5e/f8d8b618-45c636e8?__token__=st=1790934358~exp=1790937958~acl=%2Fv3-1%2Fplayback%2F884199c1-3209-40c4-930e-4edf83c89e5e%2Ff8d8b618-45c636e8%2A~hmac=97c52d4c65ae1e053d2355aa311b7c7d6e0626f06c1455c293e44c37fe404923&r=dXMtZWFzdDE%3D",
+      "status": 206,
+      "type": "media",
+      "ct": "video/mp4"
+    },
+    {
+      "url": "https://download-video-ak.vimeocdn.com/v3-1/playback/0edbff9d-3daa-4e7d-afd0-6d5cb5a02bc3/91d4a587-04a79f8a?__token__=st=1790934358~exp=1790937958~acl=%2Fv3-1%2Fplayback%2F0edbff9d-3daa-4e7d-afd0-6d5cb5a02bc3%2F91d4a587-04a79f8a%2A~hmac=84290796b67c27beaf1211e633c5fc74f0febb12dee4b5c1fe37dc1405f2a02b&r=dXMtZWFzdDE%3D",
+      "status": 206,
+      "type": "media",
+      "ct": "video/mp4"
+    },
+    {
+      "url": "https://download-video-ak.vimeocdn.com/v3-1/playback/1648c32e-596f-433c-be4c-df2ed038c9f2/867efc57-637ca778?__token__=st=1790934357~exp=1790937957~acl=%2Fv3-1%2Fplayback%2F1648c32e-596f-433c-be4c-df2ed038c9f2%2F867efc57-637ca778%2A~hmac=cea453d94ccbf27e2b62885ea8342c9ce1a9560e00fab71fc60bef9c9623169d&r=dXMtd2VzdDE%3D",
+      "status": 206,
+      "type": "media",
+      "ct": "video/mp4"
+    }
+  ]
+}

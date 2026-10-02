@@ -1,0 +1,8 @@
+/*
+ * Tailwind is loaded without its preflight: the cloned site ships its own reset
+ * (see src/styles/sites/ctrl-xyz-d5a73559/site.css) and preflight would change
+ * defaults the original never sets.
+ */
+@layer theme, base, components, utilities;
+@import "tailwindcss/theme.css" layer(theme);
+@import "tailwindcss/utilities.css" layer(utilities);

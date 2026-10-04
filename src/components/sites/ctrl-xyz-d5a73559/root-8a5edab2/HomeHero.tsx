@@ -2,10 +2,9 @@
 
 import { useEffect, useRef } from "react";
 import { AppSvg } from "../shared/AppSvg";
-import { getDevice, useDevice } from "../shared/device";
+import { getDevice } from "../shared/device";
 import { gsap } from "../shared/gsap";
 import { useObserve } from "../shared/observe";
-import { MobileDownloadButton } from "../shared/MobileDownloadButton";
 
 interface HomeHeroProps {
   surtitle?: string | null;
@@ -13,12 +12,10 @@ interface HomeHeroProps {
 }
 
 /**
- * Port of `HomeHero` (scope data-v-cca44647): "Take [logo] Ctrl." title whose intro is
+ * Port of `HomeHero` (scope data-v-cca44647): "Stake [mark] ETH." title whose intro is
  * drawn by a travelling dot, and which scales/fades out over the first half viewport of scroll.
  */
 export function HomeHero({ surtitle = null, title = null }: HomeHeroProps) {
-  const { desktop } = useDevice();
-
   const elRef = useRef<HTMLElement>(null);
   const titleRef = useRef<HTMLDivElement>(null);
   const surtitleRef = useRef<HTMLHeadingElement>(null);
@@ -138,7 +135,7 @@ export function HomeHero({ surtitle = null, title = null }: HomeHeroProps) {
                     {words[0]}
                   </span>
                 </div>
-                <AppSvg ref={logoRef} data-v-cca44647="" name="ctrl-logo-small" />
+                <AppSvg ref={logoRef} data-v-cca44647="" name="definica-mark" />
                 <div data-v-cca44647="" className="HomeHero-titleMainItem">
                   <span ref={mainTitleRightRef} data-v-cca44647="">
                     {(words[1] ?? "") + " "}
@@ -151,9 +148,8 @@ export function HomeHero({ surtitle = null, title = null }: HomeHeroProps) {
               {" . "}
             </div>
           </div>
-          <div data-v-cca44647="" className="HomeHero-mobileDownload --tac">
-            {desktop ? null : <MobileDownloadButton data-v-cca44647="" />}
-          </div>
+          {/* Kept for its mobile spacing; the download button it held is gone. */}
+          <div data-v-cca44647="" className="HomeHero-mobileDownload --tac" />
         </div>
       </div>
     </section>

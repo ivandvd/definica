@@ -10,6 +10,7 @@ import { getDevice } from "../shared/device";
 import { gsap } from "../shared/gsap";
 import { SurtitleWithDot } from "../shared/SurtitleWithDot";
 import { TitleWithIcon } from "../shared/TitleWithIcon";
+import { isLoopSceneName, LoopScene } from "./scenes/LoopScene";
 import { StickyHorizontalList } from "./StickyHorizontalList";
 
 /** The CMS title object, bound onto `TitleWithIcon` as in the original (`v-bind="props.title"`). */
@@ -26,6 +27,8 @@ export interface SliceTitleListHorizontalItem {
   _type?: string;
   title?: string | null;
   text?: string | null;
+  /** Animated scene shown instead of a video (see `scenes/LoopScene`); takes precedence over `vimeo`. */
+  scene?: string | null;
   vimeo?: VimeoVideo | null;
   /** Non-Vimeo fallback of the original (`VideoLoop` with `sources`); unused by the page data. */
   video?: { sources?: unknown[] } | null;
@@ -154,7 +157,17 @@ export function SliceTitleListHorizontal({
                 {item.text}
               </p>
             </div>
-            {item.vimeo && item.vimeo.src ? (
+            {isLoopSceneName(item.scene) ? (
+              <LoopScene
+                ref={(handle) => {
+                  refVideos.current[index] = handle;
+                }}
+                scene={item.scene}
+                autoplay={!desktop}
+                className="SliceTitleListHorizontal-listItemAsset"
+                data-v-80f8c832=""
+              />
+            ) : item.vimeo && item.vimeo.src ? (
               <BaseVideoVimeoLoop
                 ref={(handle) => {
                   refVideos.current[index] = handle;

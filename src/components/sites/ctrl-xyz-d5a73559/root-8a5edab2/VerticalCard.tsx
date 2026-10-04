@@ -9,6 +9,7 @@ import { getDevice } from "../shared/device";
 import { gsap } from "../shared/gsap";
 import { useObserve } from "../shared/observe";
 import { SanityPortableText, type PortableTextNode } from "../shared/SanityPortableText";
+import { isLoopSceneName, LoopScene } from "./scenes/LoopScene";
 
 export type VerticalCardVariant = "default" | "sliceJoinTeam" | "sliceMediasList" | "sliceToken";
 
@@ -20,6 +21,8 @@ export interface VerticalCardProps extends Omit<HTMLAttributes<HTMLElement>, "ti
   /** Self-hosted loop (`BaseVideoLoop` in the original); not used by the home page, see the note below. */
   video?: { sources?: readonly unknown[] | null } | null;
   vimeo?: VimeoVideo | null;
+  /** Animated scene shown instead of a video (see `scenes/LoopScene`); takes precedence over `vimeo`. */
+  scene?: string | null;
   button?: CmsLink | null;
   link?: CmsLink | null;
   variant?: VerticalCardVariant;
@@ -58,6 +61,7 @@ export function VerticalCard({
   animation: _animation,
   video: _video = null,
   vimeo = null,
+  scene = null,
   button = null,
   link = null,
   variant = "default",
@@ -128,7 +132,9 @@ export function VerticalCard({
         {link && link.to ? <AppLinkArrow {...link} className="VerticalCard-link" /> : null}
       </div>
       {/* The original falls back to `BaseVideoLoop` for `video.sources`; no card on this page uses it, so it is not ported. */}
-      {vimeo && vimeo.src ? (
+      {isLoopSceneName(scene) ? (
+        <LoopScene data-v-eafce9c3="" scene={scene} autoplay className="VerticalCard-asset" />
+      ) : vimeo && vimeo.src ? (
         <BaseVideoVimeoLoop data-v-eafce9c3="" video={vimeo} autoplay className="VerticalCard-asset" />
       ) : null}
     </article>

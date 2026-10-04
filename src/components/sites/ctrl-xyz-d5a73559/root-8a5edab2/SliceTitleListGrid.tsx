@@ -6,10 +6,13 @@ import { getDevice } from "../shared/device";
 import { gsap } from "../shared/gsap";
 import { SurtitleWithDot } from "../shared/SurtitleWithDot";
 import { TitleWithIcon } from "../shared/TitleWithIcon";
+import { isLoopSceneName, LoopScene } from "./scenes/LoopScene";
 import { titleProps, type SliceTitle } from "./SliceTitleListVertical";
 
 export interface SliceTitleListGridItem {
   title?: string | null;
+  /** Animated scene shown instead of a video (see `scenes/LoopScene`); takes precedence over `vimeo`. */
+  scene?: string | null;
   vimeo?: VimeoVideo | null;
   /** Self-hosted loop (`BaseVideoLoop` in the original); not used by the home page, see the note below. */
   video?: { sources?: readonly unknown[] | null } | null;
@@ -132,7 +135,17 @@ export function SliceTitleListGrid({
                 </h3>
               </div>
               {/* The original falls back to `BaseVideoLoop` for `video.sources`; no card on this page uses it, so it is not ported. */}
-              {item.vimeo && item.vimeo.src ? (
+              {isLoopSceneName(item.scene) ? (
+                <LoopScene
+                  ref={(handle) => {
+                    refAssets.current[index] = handle;
+                  }}
+                  data-v-de6b7178=""
+                  scene={item.scene}
+                  autoplay={!desktop}
+                  className="SliceTitleListGrid-listItemAsset"
+                />
+              ) : item.vimeo && item.vimeo.src ? (
                 <BaseVideoVimeoLoop
                   ref={(handle) => {
                     refAssets.current[index] = handle;

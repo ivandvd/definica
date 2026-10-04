@@ -61,17 +61,17 @@ export function StickersEffectItem({ name = null, size = "default", ref, ...rest
   return (
     <div {...rest} ref={refEl} data-v-f798db2b="" className={`StickersEffetctItem --size-${size}`}>
       {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img data-v-f798db2b="" src={`${ASSET_BASE}/images/stickers/${name}.svg`} loading="lazy" alt="Ctrl sticker" />
+      <img data-v-f798db2b="" src={`${ASSET_BASE}/images/stickers/${name}.svg`} loading="lazy" alt="" />
     </div>
   );
 }
 
-const stickerSet = (prefix: string) =>
-  Array.from({ length: 10 }, (_, i) => `${prefix}sticker-${(i % 5) + 1}_clean`);
+const stickerSet = (prefix: string, count = 5) =>
+  Array.from({ length: count * 2 }, (_, i) => `${prefix}sticker-${(i % count) + 1}_clean`);
 
-/** Sticker names per page type, each set of five repeated twice (as in the original). */
+/** Sticker names per page type, each set repeated twice (as in the original). The footer set has a sixth Definica sticker. */
 const STICKERS = {
-  default: stickerSet(""),
+  default: stickerSet("", 6),
   pageAbout: stickerSet("about-"),
   pageXdefi: stickerSet("xdefi-"),
   pageSecurity: stickerSet("security-"),

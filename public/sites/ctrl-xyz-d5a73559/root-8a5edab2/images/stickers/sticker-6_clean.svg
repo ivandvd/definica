@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Playful Definica mark sticker (footer cursor trail): the two triangles of the D, one up, one down. -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <g transform="rotate(-10 50 51)">
+    <g transform="translate(-3.16 -12.39) scale(5.3)">
+      <path d="M9.38556 5.45784L3.9263 11.3478C3.6051 11.6944 3.6051 12.2336 3.9263 12.5801L4.48495 13.1829L14.236 9.28886L10.6851 5.45784C10.3333 5.07819 9.73745 5.07819 9.38556 5.45784Z" fill="#d1f500" stroke="#001405" stroke-width="0.42" stroke-linejoin="round" transform="translate(0 -2.2)"/>
+      <path d="M16.9295 10.3087L15.6535 10.8182L5.90247 14.7122L3.93511 15.4979L3.21179 13.6913L4.48495 13.1829L14.236 9.28886L16.2061 8.50211L16.9295 10.3087Z" fill="#001405"/>
+      <path d="M10.6851 18.4701L16.1444 12.5801C16.4656 12.2336 16.4656 11.6944 16.1444 11.3478L15.6535 10.8182L5.90247 14.7122L9.38556 18.4701C9.73745 18.8498 10.3333 18.8498 10.6851 18.4701Z" fill="#d1f500" stroke="#001405" stroke-width="0.42" stroke-linejoin="round" transform="translate(0 2.2)"/>
+    </g>
+  </g>
+  <path d="M79 9 L84 3 M85 19 L93 16 M21 91 L16 97 M15 80 L7 83" fill="none" stroke="#001405" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round"/>
+</svg>

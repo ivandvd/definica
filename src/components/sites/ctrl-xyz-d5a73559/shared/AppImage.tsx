@@ -111,7 +111,7 @@ export function AppImage({
         src={resolveImageUrl(url, fullUrl)}
         width={mockupWidth}
         height={mockupHeight}
-        alt={alt && alt.length > 0 ? alt : "Ctrl"}
+        alt={alt && alt.length > 0 ? alt : "Definica"}
         loading={loading}
         data-nuxt-img=""
         className={`AppImage-image --${loading}`}

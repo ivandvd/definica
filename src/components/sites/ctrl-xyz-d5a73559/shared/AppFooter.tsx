@@ -7,9 +7,7 @@ import { AppLink } from "./AppLink";
 import { AppNewsletter } from "./AppNewsletter";
 import { AppSvg } from "./AppSvg";
 import { settings, type CmsLink } from "./content";
-import { useDevice } from "./device";
 import type { IconName } from "./icons";
-import { MobileDownloadButton } from "./MobileDownloadButton";
 import { StickersEffect } from "./StickersEffect";
 
 const footer: {
@@ -27,11 +25,10 @@ const getServerSnapshot = () => false;
 
 /**
  * Port of `AppFooter` (scope data-v-b3bc0079): sticker trail, newsletter, animated titles,
- * socials, link columns, language switcher, mobile download button and legal links.
+ * socials, link columns, language switcher and legal links.
  * The sticker trail is paused while the pointer is over any of the link groups.
  */
 export function AppFooter() {
-  const { desktop } = useDevice();
   const isClient = useSyncExternalStore(subscribe, getClientSnapshot, getServerSnapshot);
   const [isStickersActive, setIsStickersActive] = useState(true);
 
@@ -91,9 +88,6 @@ export function AppFooter() {
             </div>
           </div>
           <div className="Footer-posButtonHelper" data-v-b3bc0079="" />
-          <div className="--tac" data-v-b3bc0079="">
-            {desktop ? null : <MobileDownloadButton data-v-b3bc0079="" />}
-          </div>
           <ul
             className="Footer-secondLinks"
             data-v-b3bc0079=""

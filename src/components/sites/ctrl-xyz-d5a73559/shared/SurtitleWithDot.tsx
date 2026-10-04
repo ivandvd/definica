@@ -11,7 +11,23 @@ export interface SurtitleWithDotProps extends Omit<HTMLAttributes<HTMLElement>, 
   dotColor?: string;
 }
 
-/** Port of `SurtitleWithDot` (scope data-v-7c967a2e): text slides in, then the dot drops with a bounce. */
+/** Fill of the blob for each original dot colour class. */
+const BLOB_FILLS: Record<string, string> = {
+  green: "#05c92f",
+  "flash-red": "#ff5a4d",
+  baby: "#ffcadc",
+  lemonade: "#fbe74e",
+  sky: "#9dc4f5",
+};
+
+/** A soft, hand-drawn blob in the site's sticker style (ink outline, flat fill). */
+const BLOB_PATH =
+  "M12.4 2.3c3.5-.2 7.6 1.6 8.9 5 1.2 3.1-.3 5.4.2 8.2.4 2.7-2 5.6-5.4 6.1-3 .4-4.6-1.3-7.6-1.1-3 .2-5.6-1.7-6.1-4.9-.5-3.1 1.6-4.4 1.6-7.4C4 4.9 7.9 2.5 12.4 2.3Z";
+
+/**
+ * Port of `SurtitleWithDot` (scope data-v-7c967a2e): text slides in, then the dot drops with a bounce.
+ * For Definica the dot is drawn as a small blob (see definica.css), which keeps the drop animation.
+ */
 export function SurtitleWithDot({ tag = "div", surtitle, dotColor = "green", className, ...rest }: SurtitleWithDotProps) {
   const refEl = useRef<HTMLElement>(null);
   const refDot = useRef<HTMLSpanElement>(null);
@@ -46,7 +62,17 @@ export function SurtitleWithDot({ tag = "div", surtitle, dotColor = "green", cla
       {...rest}
       className={className ? `SurtitleWithDot ${className}` : "SurtitleWithDot"}
     >
-      <span ref={refDot} data-v-7c967a2e="" className={`SurtitleWithDot-dot --bg-${dotColor}`} />
+      <span ref={refDot} data-v-7c967a2e="" className="SurtitleWithDot-dot">
+        <svg data-v-7c967a2e="" className="SurtitleWithDot-blob" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+          <path
+            d={BLOB_PATH}
+            fill={BLOB_FILLS[dotColor] ?? BLOB_FILLS.green}
+            stroke="#001405"
+            strokeWidth="1.7"
+            strokeLinejoin="round"
+          />
+        </svg>
+      </span>
       <span ref={refText} data-v-7c967a2e="" className="SurtitleWithDot-text">
         {surtitle}
       </span>

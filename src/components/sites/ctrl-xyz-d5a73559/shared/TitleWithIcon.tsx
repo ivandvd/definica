@@ -22,6 +22,8 @@ export interface TitleWithIconProps {
   svgColor?: string;
   /** Index of the word the icon is inserted before. */
   iconPos?: number;
+  /** Definica: where the icon goes on mobile (≤768px), when it differs from `iconPos`. */
+  iconPosMobile?: number;
   delay?: number;
   hasTitleAnimation?: boolean;
   forceWrapBeforeIcon?: boolean;
@@ -39,6 +41,17 @@ export interface TitleWithIconProps {
 const ICON_WRAP = '<div class="iconWrap">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>';
 
 /**
+ * An icon wrap for one breakpoint (`desktopOnly` / `mobileOnly`, see definica.css), remembering its
+ * word index. No hyphens: SplitTextBlock turns the first "-" of the markup into a non-breaking one.
+ */
+const iconWrapFor = (variant: string, pos: number) =>
+  `<div class="iconWrap ${variant}" iconpos="${pos}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>`;
+
+/** The icon wrap that is displayed at the current breakpoint. */
+const visibleIconWrap = (root: Element | null) =>
+  Array.from(root?.querySelectorAll(".iconWrap") ?? []).find((wrap) => getComputedStyle(wrap).display !== "none") ?? null;
+
+/**
  * Port of `TitleWithIcon` (scope data-v-100b8b8e): a title split into lines/words that reveals
  * word by word when it enters the viewport, with an icon that pops in between two words.
  */
@@ -51,6 +64,7 @@ export function TitleWithIcon({
   isSvg = false,
   svgColor = "--bg-lemonade",
   iconPos = 0,
+  iconPosMobile,
   delay = 0,
   hasTitleAnimation = true,
   forceWrapBeforeIcon = false,
@@ -68,10 +82,23 @@ export function TitleWithIcon({
 
   const html = useMemo(() => {
     if (!iconUrl) return title;
-    const words = title.split(" ");
+    // Definica: a "\n" in the title is a line break on desktop (hidden on mobile, see definica.css).
+    const words = title.split(" ").map((word) => word.replace(/\n/g, '<br class="titleBreak">'));
+    if (!forceWrapBeforeIcon && iconPos > 0) {
+      // Definica: glue the icon to the word before it, so it never wraps onto a line of its own.
+      // With a separate mobile position, both wraps are written and CSS shows one per breakpoint.
+      const mobile = iconPosMobile && iconPosMobile > 0 && iconPosMobile !== iconPos ? iconPosMobile : null;
+      const glue = (pos: number, wrap: string) => {
+        const before = Math.min(pos, words.length) - 1;
+        words[before] = `<span class="iconGlue">${words[before]} ${wrap}</span>`;
+      };
+      glue(iconPos, mobile ? iconWrapFor("desktopOnly", iconPos) : ICON_WRAP);
+      if (mobile) glue(mobile, iconWrapFor("mobileOnly", mobile));
+      return words.join(" ");
+    }
     words.splice(iconPos, 0, forceWrapBeforeIcon ? `<br>${ICON_WRAP}` : ICON_WRAP);
     return words.join(" ");
-  }, [title, iconUrl, iconPos, forceWrapBeforeIcon]);
+  }, [title, iconUrl, iconPos, iconPosMobile, forceWrapBeforeIcon]);
 
   const latest = useRef({ iconPos, delay, hasTitleAnimation, isSvg });
   useEffect(() => {
@@ -83,7 +110,9 @@ export function TitleWithIcon({
     const el = refEl.current;
     const split = refSplitText.current;
     if (!el || !split) return;
-    const { iconPos: pos, delay: startDelay, hasTitleAnimation: animateTitle, isSvg: svg } = latest.current;
+    const { iconPos: defaultPos, delay: startDelay, hasTitleAnimation: animateTitle, isSvg: svg } = latest.current;
+    // A breakpoint-specific wrap carries its own word index (see `iconWrapFor`).
+    const pos = Number(wrapEl?.getAttribute("iconpos") ?? defaultPos);
 
     const tl = gsap.timeline({ paused: true, delay: startDelay });
     timeline.current = tl;
@@ -122,9 +151,9 @@ export function TitleWithIcon({
     timeline.current = null;
   };
 
-  /** Port of the `split` handler: the icon moves into the `.iconWrap` of the split markup. */
+  /** Port of the `split` handler: the icon moves into the (displayed) `.iconWrap` of the split markup. */
   const handleSplit = () => {
-    setIconWrap(iconUrl ? (refEl.current?.querySelector(".iconWrap") ?? null) : null);
+    setIconWrap(iconUrl ? visibleIconWrap(refEl.current) : null);
   };
 
   // Port of `onMounted`; re-runs when the markup changes (the original bumps a key).

@@ -99,6 +99,15 @@ export function BlockchainsWheel({ blockchains = NO_BLOCKCHAINS, onDrag, ref, cl
       rawTimeline.add(itemTimeline, index * ITEM_STAGGER);
     });
 
+    // Each item is animated by three copies of its timeline. A tween records its starting values the first
+    // time it renders, and restores them when the playhead moves back past its start. Copies first rendered
+    // while their item was mid-animation would restore that stale position, leaving items stuck on top of
+    // each other once the wheel had been scrolled back and forth. Running the timeline through once here
+    // makes every copy record the item's hidden state instead.
+    rawTimeline.totalTime(rawTimeline.duration(), true);
+    rawTimeline.totalTime(0, true);
+    gsap.set(items, { yPercent: 650, x: desktop ? "14rem" : "10rem", opacity: 0 });
+
     const loop = gsap.fromTo(
       rawTimeline,
       { totalTime: startTime },

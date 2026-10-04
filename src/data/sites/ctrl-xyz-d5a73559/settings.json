@@ -1,296 +1,127 @@
 {
-  "downloadLink": {
-    "buttonLabel": "Download for Chrome",
-    "buttonLabelFor": "Download for [value]",
-    "detect": {
-      "browsers": [
-        {
-          "_key": "cf114e2b1ca2",
-          "_type": "item",
-          "link": {
-            "linkType": "externalLink",
-            "openInNewTab": true,
-            "title": "https://chromewebstore.google.com/detail/ctrl-wallet/hmeobnfnfcmdkdcmlblgagmfpfboieaf?hl=en",
-            "to": "https://chromewebstore.google.com/detail/ctrl-wallet/hmeobnfnfcmdkdcmlblgagmfpfboieaf?hl=en",
-            "trailingSlash": false
-          },
-          "name": "Chrome",
-          "value": "chrome"
-        },
-        {
-          "_key": "7ed3a0c690a3",
-          "_type": "item",
-          "link": {
-            "linkType": "externalLink",
-            "openInNewTab": null,
-            "title": "https://chromewebstore.google.com/detail/ctrl-wallet/hmeobnfnfcmdkdcmlblgagmfpfboieaf?hl=en",
-            "to": "https://chromewebstore.google.com/detail/ctrl-wallet/hmeobnfnfcmdkdcmlblgagmfpfboieaf?hl=en",
-            "trailingSlash": false
-          },
-          "name": "Brave",
-          "value": "brave"
-        },
-        {
-          "_key": "5ff355fdc7b6",
-          "_type": "item",
-          "link": {
-            "linkType": "externalLink",
-            "openInNewTab": null,
-            "title": "https://chromewebstore.google.com/detail/ctrl-wallet/hmeobnfnfcmdkdcmlblgagmfpfboieaf?hl=en",
-            "to": "https://chromewebstore.google.com/detail/ctrl-wallet/hmeobnfnfcmdkdcmlblgagmfpfboieaf?hl=en",
-            "trailingSlash": false
-          },
-          "name": "Opera",
-          "value": "opera"
-        },
-        {
-          "_key": "f1b436375c8c",
-          "_type": "item",
-          "link": {
-            "linkType": "externalLink",
-            "openInNewTab": null,
-            "title": "https://chromewebstore.google.com/detail/ctrl-wallet/hmeobnfnfcmdkdcmlblgagmfpfboieaf?hl=en",
-            "to": "https://chromewebstore.google.com/detail/ctrl-wallet/hmeobnfnfcmdkdcmlblgagmfpfboieaf?hl=en",
-            "trailingSlash": false
-          },
-          "name": "Edge",
-          "value": "edge"
-        },
-        {
-          "_key": "3ad95e8dd087",
-          "_type": "item",
-          "link": {
-            "linkType": "externalLink",
-            "openInNewTab": true,
-            "title": "https://chromewebstore.google.com/detail/ctrl-wallet/hmeobnfnfcmdkdcmlblgagmfpfboieaf?hl=en",
-            "to": "https://chromewebstore.google.com/detail/ctrl-wallet/hmeobnfnfcmdkdcmlblgagmfpfboieaf?hl=en",
-            "trailingSlash": false
-          },
-          "name": "Internet Explorer",
-          "value": "ie"
-        }
-      ],
-      "os": [
-        {
-          "_key": "45e12be888b1",
-          "_type": "item",
-          "link": {
-            "linkType": "externalLink",
-            "openInNewTab": null,
-            "title": "https://play.google.com/store/apps/details?id=xyz.ctrl.wallet",
-            "to": "https://play.google.com/store/apps/details?id=xyz.ctrl.wallet",
-            "trailingSlash": false
-          },
-          "name": "Android",
-          "value": "android"
-        },
-        {
-          "_key": "e36e7a33ec42",
-          "_type": "item",
-          "link": {
-            "linkType": "externalLink",
-            "openInNewTab": null,
-            "title": "https://apps.apple.com/ng/app/ctrl-wallet/id6630386336",
-            "to": "https://apps.apple.com/ng/app/ctrl-wallet/id6630386336",
-            "trailingSlash": false
-          },
-          "name": "iOS",
-          "value": "ios"
-        }
-      ]
-    },
-    "link": {
-      "linkType": "externalLink",
-      "openInNewTab": true,
-      "title": "Download for Chrome",
-      "to": "https://chromewebstore.google.com/detail/ctrl-wallet/hmeobnfnfcmdkdcmlblgagmfpfboieaf?hl=en",
-      "trailingSlash": false
-    }
-  },
   "footer": {
     "links": null,
     "linksList": [
       {
+        "title": "Protocol",
         "links": [
           {
-            "lang": "en",
-            "linkType": "internalLink",
-            "title": "Security",
-            "to": {
-              "name": "uid",
-              "params": {
-                "uid": "secure-crypto-wallet"
-              }
-            }
+            "linkType": "externalLink",
+            "title": "Staking",
+            "to": "https://www.definica.com/#liquid",
+            "trailingSlash": false
           },
           {
             "linkType": "externalLink",
-            "openInNewTab": true,
-            "title": "Support",
-            "to": "https://intercom.help/ctrlwallet/en/",
+            "title": "Liquidity Module",
+            "to": "https://www.definica.com/#node",
             "trailingSlash": false
           }
-        ],
-        "title": "Product"
+        ]
       },
       {
+        "title": "Company",
         "links": [
           {
-            "lang": "en",
-            "linkType": "internalLink",
-            "title": "Introducing Ctrl",
-            "to": {
-              "path": "/xdefi-wallet-rebranding-to-ctrl"
-            }
-          },
-          {
-            "lang": "en",
-            "linkType": "internalLink",
-            "title": "$CTRL",
-            "to": {
-              "name": "uid",
-              "params": {
-                "uid": "ctrl-token"
-              }
-            }
-          },
-          {
-            "lang": "en",
-            "linkType": "internalLink",
+            "linkType": "externalLink",
             "title": "About",
-            "to": {
-              "name": "uid",
-              "params": {
-                "uid": "about"
-              }
-            }
-          }
-        ],
-        "title": "Company"
-      },
-      {
-        "links": [
-          {
-            "lang": "en",
-            "linkType": "internalLink",
-            "title": "News",
-            "to": {
-              "name": "uid",
-              "params": {
-                "uid": "news"
-              }
-            }
-          },
-          {
-            "linkType": "externalLink",
-            "openInNewTab": true,
-            "title": "Docs",
-            "to": "https://docs.xdefi.io/docs",
+            "to": "https://www.definica.com/about",
             "trailingSlash": false
           },
           {
-            "lang": "en",
-            "linkType": "internalLink",
-            "title": "Media Kit",
-            "to": {
-              "name": "uid",
-              "params": {
-                "uid": "media-kit"
-              }
-            }
+            "linkType": "externalLink",
+            "title": "Roadmap",
+            "to": "https://www.definica.com/roadmap",
+            "trailingSlash": false
           },
           {
-            "lang": "en",
-            "linkType": "internalLink",
-            "title": "Shortcuts",
-            "to": {
-              "name": "uid",
-              "params": {
-                "uid": "shortcuts"
-              }
-            }
+            "linkType": "externalLink",
+            "title": "Contact",
+            "to": "https://www.definica.com/contact",
+            "trailingSlash": false
           }
-        ],
-        "title": "Resources"
+        ]
+      },
+      {
+        "title": "Resources",
+        "links": [
+          {
+            "linkType": "externalLink",
+            "title": "Borrowing",
+            "to": "https://www.definica.com/borrowing",
+            "trailingSlash": false
+          },
+          {
+            "linkType": "externalLink",
+            "title": "FAQ",
+            "to": "https://www.definica.com/#faq",
+            "trailingSlash": false
+          },
+          {
+            "linkType": "externalLink",
+            "title": "Community",
+            "to": "https://www.definica.com/#community",
+            "trailingSlash": false
+          },
+          {
+            "linkType": "externalLink",
+            "title": "Verify a team member",
+            "to": "https://www.definica.com/#community",
+            "trailingSlash": false
+          }
+        ]
       }
     ],
     "secondsLinks": [
       {
-        "lang": "en",
-        "linkType": "internalLink",
-        "title": "Terms of use",
-        "to": {
-          "name": "uid",
-          "params": {
-            "uid": "terms-of-use"
-          }
-        }
+        "linkType": "externalLink",
+        "title": "Terms of service",
+        "to": "https://www.definica.com/terms-of-service",
+        "trailingSlash": false
       },
       {
-        "lang": "en",
-        "linkType": "internalLink",
+        "linkType": "externalLink",
         "title": "Privacy policy",
-        "to": {
-          "name": "uid",
-          "params": {
-            "uid": "privacy"
-          }
-        }
+        "to": "https://www.definica.com/privacy-policy",
+        "trailingSlash": false
       }
     ],
     "text": null,
     "titles": [
-      "Level up",
-      "Take Ctrl"
+      "Stake ETH",
+      "Definica"
     ]
   },
   "header": {
     "download": {
-      "lang": "en",
-      "linkType": "internalLink",
-      "title": "Download",
-      "to": {
-        "name": "uid",
-        "params": {
-          "uid": "download"
-        }
-      }
+      "linkType": "externalLink",
+      "title": "Launch App",
+      "to": "https://www.definica.com/",
+      "trailingSlash": false
     },
     "links": [
       {
-        "lang": "en",
-        "linkType": "internalLink",
-        "title": "$CTRL",
-        "to": {
-          "name": "uid",
-          "params": {
-            "uid": "ctrl-token"
-          }
-        }
-      },
-      {
         "linkType": "externalLink",
-        "openInNewTab": true,
-        "title": "Support",
-        "to": "https://intercom.help/ctrlwallet/en/",
+        "title": "Staking",
+        "to": "https://www.definica.com/#liquid",
         "trailingSlash": false
       },
       {
-        "lang": "en",
-        "linkType": "internalLink",
-        "title": "Security",
-        "to": {
-          "name": "uid",
-          "params": {
-            "uid": "secure-crypto-wallet"
-          }
-        }
+        "linkType": "externalLink",
+        "title": "Borrowing",
+        "to": "https://www.definica.com/borrowing",
+        "trailingSlash": false
       },
       {
         "linkType": "externalLink",
-        "openInNewTab": true,
-        "title": "Resources",
-        "to": "https://docs.xdefi.io/docs",
+        "title": "Roadmap",
+        "to": "https://www.definica.com/roadmap",
+        "trailingSlash": false
+      },
+      {
+        "linkType": "externalLink",
+        "title": "About",
+        "to": "https://www.definica.com/about",
         "trailingSlash": false
       }
     ]
@@ -301,7 +132,7 @@
     "close": "Close",
     "cookies": "Cookie Preferences",
     "desktop": "Desktop",
-    "download": "Download",
+    "download": "Launch App",
     "filters": "Filters",
     "menu": "Menu",
     "mobile": "Mobile",
@@ -309,23 +140,23 @@
   },
   "newsletter": {
     "alreadyRegistered": "Your email is already registered",
-    "confirmMessage": "Tks, you are subscribed to our newsletter",
+    "confirmMessage": "Thanks, you are subscribed to our newsletter",
     "emailNotValid": "Your email is not valid",
     "errorMessage": "An error has occurred",
-    "listId": "c9c338f65f",
+    "listId": "",
     "placeholder": "Your email address",
     "signupLabel": "Sign up for news and updates",
     "submitLabel": "Subscribe",
     "text": [
       {
-        "_key": "e9a61f1946bc",
+        "_key": "blk000j",
         "_type": "block",
         "children": [
           {
-            "_key": "902f97bc3b9b",
+            "_key": "spn000k",
             "_type": "span",
             "marks": [],
-            "text": "Subscribe to our amazing newsletter to receive all the latest news & updates."
+            "text": "Launch updates, module releases and published contract addresses, straight from the team."
           }
         ],
         "markDefs": [],
@@ -335,9 +166,8 @@
     "title": "Newsletter"
   },
   "seo": {
-    "description": "Ctrl",
-    "image": null,
-    "title": "Ctrl"
+    "description": "Definica",
+    "title": "Definica"
   },
   "socials": {
     "links": [
@@ -345,40 +175,20 @@
         "icon": "x",
         "link": {
           "linkType": "externalLink",
-          "openInNewTab": true,
-          "title": "Link to ctrl_wallet twitter",
-          "to": "https://x.com/ctrl_wallet",
-          "trailingSlash": false
-        }
-      },
-      {
-        "icon": "discord",
-        "link": {
-          "linkType": "externalLink",
-          "openInNewTab": true,
-          "title": "Discord",
-          "to": "https://discord.com/invite/w8sZkc7Nxf",
-          "trailingSlash": false
+          "title": "Definica on X",
+          "to": "https://x.com/definicacom",
+          "trailingSlash": false,
+          "openInNewTab": true
         }
       },
       {
         "icon": "telegram",
         "link": {
           "linkType": "externalLink",
-          "openInNewTab": true,
-          "title": "Telegram",
-          "to": "https://t.me/ctrl_wallet",
-          "trailingSlash": false
-        }
-      },
-      {
-        "icon": "coingecko",
-        "link": {
-          "linkType": "externalLink",
-          "openInNewTab": true,
-          "title": "CoinGecko",
-          "to": "https://www.coingecko.com/en/coins/ctrl-wallet",
-          "trailingSlash": false
+          "title": "Definica on Telegram",
+          "to": "https://t.me/definica",
+          "trailingSlash": false,
+          "openInNewTab": true
         }
       }
     ]

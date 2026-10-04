@@ -10,8 +10,8 @@ export const SITE_KEY = "ctrl-xyz-d5a73559";
 export const PAGE_KEY = "root-8a5edab2";
 /** Public base path of this page's assets (images, videos, cms files). */
 export const ASSET_BASE = `/sites/${SITE_KEY}/${PAGE_KEY}`;
-/** Origin of the cloned site; routes that are not part of the clone link back to it. */
-export const ORIGIN = "https://ctrl.xyz";
+/** Origin of the main Definica site; routes that do not exist in this app link there. */
+export const ORIGIN = "https://www.definica.com";
 
 export type RouteTo = { name?: string; params?: { uid?: string }; path?: string };
 export type LinkTo = string | RouteTo | null | undefined;

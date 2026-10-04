@@ -1,11 +1,12 @@
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import "@/styles/sites/ctrl-xyz-d5a73559/site.css";
+import "@/styles/sites/ctrl-xyz-d5a73559/definica.css";
 
 const SEO = "/sites/ctrl-xyz-d5a73559/shared/seo";
-const title = "Secure and powerful crypto wallet | Ctrl Wallet";
+const title = "Definica — Stake ETH. Unlock Utility. Earn Multi-Layer Rewards.";
 const description =
-  "Ctrl is the world's most powerful crypto wallet. Secure, easy-to-use and supports more than 2,500 blockchains. One wallet for all your crypto. Take Control.  ";
+  "Definica is a hybrid Ethereum-native staking, liquidity, and collateralized borrowing protocol designed around StakeWise-compatible ETH staking infrastructure, osETH composability, Aave-compatible osETH flows, and fixed-duration aEthosETH lock-ups.";
 
 export const metadata: Metadata = {
   title,
@@ -19,7 +20,7 @@ export const metadata: Metadata = {
     shortcut: `${SEO}/favicon.ico`,
     apple: { url: `${SEO}/apple-touch-icon.png`, sizes: "180x180" },
   },
-  openGraph: { title, description, siteName: title, locale: "en_gb", images: `${SEO}/og-image.png` },
+  openGraph: { title, description, siteName: "Definica", locale: "en_GB", images: `${SEO}/og-image.png` },
   twitter: { card: "summary_large_image", title, description, images: `${SEO}/og-image.png` },
 };
 
@@ -36,7 +37,7 @@ export default function RootLayout({
 }>) {
   return (
     // Lenis and the app shell set classes / CSS variables on <html> at runtime.
-    <html lang="en-gb" dir="ltr" suppressHydrationWarning>
+    <html lang="en" dir="ltr" suppressHydrationWarning>
       <body>{children}</body>
     </html>
   );

@@ -1,0 +1,938 @@
+/*
+ * Animated phone screens for the app-screens slice. Everything is laid out on a 360px-wide design
+ * canvas that PhoneScreen scales to the phone's width and stretches to its height.
+ */
+
+.viewport {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  background: #f0f3f0;
+}
+
+.canvas {
+  --bg: #f0f3f0;
+  --ink: #002012;
+  --ink-2: #5d6a62;
+  --ink-3: #8f9893;
+  --line: #dde2de;
+  --chip: #e2e5e2;
+  --card: #ffffff;
+  --green: #1fae4b;
+  --green-ink: #138a3b;
+  --green-soft: #d5f4e6;
+  --lime: #d1f500;
+  --sticker-ink: #001405;
+
+  position: relative;
+  width: 360px;
+  overflow: hidden;
+  transform-origin: 0 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: "Tomato Grotesk", Arial, sans-serif;
+  font-weight: 500;
+  line-height: 1.2;
+  -webkit-font-smoothing: antialiased;
+  user-select: none;
+}
+
+.canvas *,
+.canvas *::before,
+.canvas *::after {
+  box-sizing: border-box;
+}
+
+/* ---------- shared pieces ---------- */
+
+.layer {
+  position: absolute;
+  inset: 0;
+}
+
+/* The Definica pointer. The element is a zero-size anchor at the tip, so x/y place the tip itself
+   and presses scale towards it. */
+.cursor {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 50;
+  width: 0;
+  height: 0;
+  opacity: 0;
+  pointer-events: none;
+  transform-origin: 0 0;
+}
+
+.cursorArrow {
+  position: absolute;
+  left: -3.5px;
+  top: -2px;
+  display: block;
+  overflow: visible;
+  filter: drop-shadow(1.5px 2px 0 rgba(0, 20, 5, 0.18));
+}
+
+/* The ring that spreads from the tip on a tap. */
+.cursorRipple {
+  position: absolute;
+  left: -16px;
+  top: -16px;
+  width: 32px;
+  height: 32px;
+  border: 1.5px solid #001405;
+  border-radius: 50%;
+  background: rgba(209, 245, 0, 0.55);
+  opacity: 0;
+  visibility: hidden;
+}
+
+.screenTitle {
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  text-align: center;
+}
+
+.primaryButton {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
+  border-radius: 9px;
+  background: var(--ink);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.secondaryButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
+  border-radius: 10px;
+  background: var(--card);
+  color: var(--ink);
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.labelStack {
+  position: relative;
+  display: grid;
+}
+
+.labelStack > * {
+  grid-area: 1 / 1;
+  text-align: center;
+}
+
+.alt {
+  opacity: 0;
+}
+
+.card {
+  border-radius: 14px;
+  background: var(--card);
+}
+
+.pill {
+  display: inline-flex;
+  align-items: center;
+  height: 18px;
+  padding: 0 7px;
+  border-radius: 6px;
+  font-size: 10px;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.pillGreen {
+  background: var(--green-soft);
+  color: var(--green-ink);
+}
+
+.pillGrey {
+  background: var(--bg);
+  color: var(--ink-2);
+}
+
+.iconButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  background: var(--card);
+}
+
+.iconButton svg {
+  width: 18px;
+  height: 18px;
+}
+
+.badge {
+  display: inline-flex;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #0f0f0f;
+  border-radius: 50%;
+}
+
+.badge img {
+  display: block;
+  width: 46%;
+  height: 46%;
+  object-fit: contain;
+}
+
+/* ---------- top bar + bottom nav ---------- */
+
+.topBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 36px;
+}
+
+.networkPill {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  height: 36px;
+  padding: 0 12px;
+  border-radius: 10px;
+  background: var(--card);
+  font-size: 12px;
+}
+
+.networkPill svg {
+  width: 10px;
+  height: 16px;
+}
+
+.nav {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  height: 66px;
+  padding: 0 6px 6px;
+  border-top: 1px solid #e3e7e4;
+  background: #f6f7f6;
+}
+
+.navItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  width: 52px;
+  color: var(--ink-3);
+  font-size: 9px;
+}
+
+.navItem svg {
+  width: 19px;
+  height: 19px;
+}
+
+.navItemActive {
+  color: var(--ink);
+}
+
+.navHex {
+  width: 54px;
+  height: 54px;
+  margin-top: -10px;
+}
+
+/* ---------- position card (home) ---------- */
+
+.home {
+  display: flex;
+  flex-direction: column;
+  padding: 14px 16px 0;
+}
+
+.positionCard {
+  margin-top: 12px;
+  padding: 16px 16px 12px;
+}
+
+.rowBetween {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.cardLabel {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+}
+
+.cardLabel svg {
+  width: 14px;
+  height: 14px;
+  color: var(--ink-2);
+}
+
+.arrowIcon {
+  width: 14px;
+  height: 14px;
+  color: var(--ink-2);
+}
+
+.bigValue {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 6px;
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.bigValue small {
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.chart {
+  display: block;
+  width: calc(100% + 32px);
+  height: 82px;
+  margin: 8px -16px 0;
+}
+
+/* The position card keeps its height (a footnote line used to sit above the chart). */
+.positionCard .chart {
+  margin-top: 23px;
+}
+
+.tabs {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 8px;
+  padding: 0 4px;
+  color: var(--ink-2);
+  font-size: 11px;
+}
+
+.tabs span {
+  padding: 5px 9px;
+  border-radius: 7px;
+}
+
+.tabActive {
+  background: var(--green-soft);
+  color: var(--green-ink);
+}
+
+.sectionHead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 18px;
+  padding: 0 2px;
+  font-size: 13px;
+}
+
+.sectionHead svg {
+  width: 14px;
+  height: 14px;
+  color: var(--ink-2);
+}
+
+.layers {
+  margin-top: 10px;
+  padding: 4px 16px;
+}
+
+.layerRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 62px;
+}
+
+.layerRow + .layerRow {
+  border-top: 1px solid #eef1ef;
+}
+
+.layerName {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--ink-2);
+  font-size: 12px;
+}
+
+.layerValue {
+  margin-top: 5px;
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.layerValueMuted {
+  color: var(--ink-3);
+}
+
+.layerSide {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.kebab {
+  width: 3px;
+  height: 13px;
+  color: var(--ink-3);
+}
+
+/* ---------- intro: mark + sticker burst ---------- */
+
+.intro {
+  background: #fff;
+}
+
+.introMark {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  z-index: 5;
+  width: 72px;
+  height: 80px;
+  margin: -40px 0 0 -36px;
+}
+
+.sticker {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  display: block;
+  overflow: visible;
+}
+
+/* ---------- Stage 1: stake ---------- */
+
+/* Centred vertically, so taller phones (mobile) keep the original's balance. */
+.stakeIntro {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0 16px 6px;
+}
+
+.stakeTitle {
+  margin: 0;
+}
+
+.coinCard {
+  position: relative;
+  width: 176px;
+  height: 122px;
+  margin-top: 58px;
+  border: 1.5px solid #0f0f0f;
+  border-radius: 16px;
+  background: #a7c5f4;
+}
+
+.coin {
+  position: absolute;
+  width: 36px;
+  height: 36px;
+}
+
+/* 3 x 2 grid of coins, as the six shapes in the original card. */
+.coin:nth-child(1) { left: 26px; top: 21px; }
+.coin:nth-child(2) { left: 70px; top: 21px; }
+.coin:nth-child(3) { left: 114px; top: 21px; }
+.coin:nth-child(4) { left: 26px; top: 65px; }
+.coin:nth-child(5) { left: 70px; top: 65px; }
+.coin:nth-child(6) { left: 114px; top: 65px; }
+
+.coin[data-tone="yellow"] { --fill: #fbe74e; --edge: #d9c22c; }
+.coin[data-tone="pink"] { --fill: #ffcadc; --edge: #e7a3ba; }
+.coin[data-tone="green"] { --fill: #5ccf55; --edge: #3aa834; }
+.coin[data-tone="mint"] { --fill: #e8f6ea; --edge: #bfd6c3; }
+.coin[data-tone="red"] { --fill: #ff5a4d; --edge: #d63b2f; }
+.coin[data-tone="blue"] { --fill: #3462d8; --edge: #2445a6; }
+
+.coinEdge,
+.coinFace {
+  position: absolute;
+  inset: 0;
+  border: 1.5px solid #0f0f0f;
+  border-radius: 50%;
+}
+
+.coinEdge {
+  background: var(--edge);
+}
+
+.coinFace {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--fill);
+}
+
+.coinFace svg {
+  width: 11px;
+  height: 18px;
+}
+
+.stakeButton {
+  width: 100%;
+  margin-top: 48px;
+}
+
+.divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 26px;
+  color: var(--ink);
+  font-size: 11px;
+}
+
+.divider svg {
+  width: 13px;
+  height: 13px;
+  color: var(--ink-2);
+}
+
+.dividerLine {
+  width: 44px;
+  height: 1px;
+  background: var(--line);
+}
+
+.chips {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  width: 100%;
+  margin-top: 18px;
+}
+
+.chip {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 34px;
+  border-radius: 9px;
+  background: var(--chip);
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.chipFill {
+  position: absolute;
+  inset: 0;
+  border-radius: 9px;
+  background: var(--ink);
+  opacity: 0;
+}
+
+.chip > span {
+  position: relative;
+}
+
+/* ---------- Stage 2: liquidity sheet ---------- */
+
+.overlay {
+  background: rgba(0, 32, 15, 0.39);
+}
+
+.sheet {
+  position: absolute;
+  left: 8px;
+  right: 8px;
+  bottom: 74px;
+  overflow: hidden;
+  border-radius: 18px;
+  background: var(--bg);
+}
+
+.pane {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 10px 12px 12px;
+}
+
+.sheetHeader {
+  display: grid;
+  grid-template-columns: 24px 1fr 24px;
+  align-items: center;
+  height: 34px;
+  margin-bottom: 8px;
+  font-size: 14px;
+  font-weight: 700;
+  text-align: center;
+}
+
+.sheetHeader svg {
+  width: 14px;
+  height: 14px;
+  color: var(--ink-2);
+}
+
+.sheetHeader > :last-child {
+  justify-self: end;
+}
+
+.sheetCard {
+  position: relative;
+  padding: 14px;
+  border-radius: 12px;
+  background: var(--card);
+}
+
+.sheetLabel {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 10px;
+}
+
+.sheetValue {
+  margin-top: 4px;
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.sheetValue small {
+  margin-left: 4px;
+  color: var(--ink-2);
+  font-size: 11px;
+  font-weight: 500;
+}
+
+.lockBadge {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  width: 38px;
+  height: 38px;
+}
+
+.rule {
+  height: 1px;
+  margin: 12px 0;
+  background: #eef1ef;
+}
+
+.toggleRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.toggleTitle {
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.toggleText {
+  margin-top: 3px;
+  color: var(--ink-2);
+  font-size: 10px;
+  line-height: 1.35;
+}
+
+.toggle {
+  position: relative;
+  flex: 0 0 auto;
+  width: 38px;
+  height: 22px;
+  border: 1.5px solid var(--ink);
+  border-radius: 11px;
+  background: #fff;
+}
+
+.toggleFill {
+  position: absolute;
+  inset: -1.5px;
+  border-radius: 11px;
+  background: var(--ink);
+  opacity: 0;
+}
+
+.toggleKnob {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 15px;
+  height: 15px;
+  border: 1.5px solid var(--ink);
+  border-radius: 50%;
+  background: #fff;
+}
+
+.buttonRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.tokenName {
+  margin-top: 8px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.tokenSub {
+  margin-top: 3px;
+  color: var(--ink-2);
+  font-size: 10px;
+}
+
+.amount {
+  margin-top: 12px;
+  font-size: 26px;
+  font-weight: 700;
+}
+
+.segment {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(3, 62px);
+  height: 28px;
+  margin-top: 12px;
+  padding: 2px;
+  border-radius: 8px;
+  background: var(--bg);
+  font-size: 11px;
+}
+
+.segment > span {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.segmentThumb {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 62px;
+  height: 24px;
+  border-radius: 7px;
+  background: #fff;
+  box-shadow: 0 1px 2px rgba(0, 32, 18, 0.12);
+}
+
+.fullButton {
+  margin-top: 10px;
+}
+
+.flowIcons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.flowIcons svg {
+  width: 12px;
+  height: 12px;
+  color: var(--ink-3);
+}
+
+.kvRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2px 0;
+  font-size: 11px;
+}
+
+.kvRow + .kvRow {
+  margin-top: 12px;
+}
+
+.kvRow > :first-child {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  color: var(--ink-2);
+}
+
+.kvRow svg {
+  width: 11px;
+  height: 11px;
+}
+
+.kvRow > :last-child {
+  font-weight: 600;
+}
+
+.sheetCard + .sheetCard {
+  margin-top: 8px;
+}
+
+.sheetNote {
+  margin: 10px 0 2px;
+  color: var(--ink-2);
+  font-size: 9px;
+  text-align: center;
+}
+
+/* ---------- Stage 3: borrowing markets ---------- */
+
+.borrow {
+  display: flex;
+  flex-direction: column;
+  padding: 14px 16px 0;
+}
+
+.closeIcon {
+  width: 16px;
+  height: 16px;
+  margin-right: 6px;
+  color: var(--ink-2);
+}
+
+.borrowHeader {
+  margin-top: 18px;
+}
+
+.tabsRow {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-top: 16px;
+  font-size: 11px;
+}
+
+.tabsRow > span {
+  padding: 6px 11px;
+  border-radius: 8px;
+  color: var(--ink-2);
+}
+
+.tabsRow > .tabOn {
+  background: var(--card);
+  color: var(--ink);
+}
+
+.tabsRow svg {
+  width: 13px;
+  height: 13px;
+  margin-left: auto;
+  color: var(--ink-2);
+}
+
+.listCard {
+  position: relative;
+  flex: 1 1 auto;
+  margin-top: 10px;
+  overflow: hidden;
+  border-radius: 14px 14px 0 0;
+  background: var(--card);
+}
+
+.listInner {
+  padding: 4px 14px;
+}
+
+.marketRow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  height: 62px;
+}
+
+.marketText {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.marketName {
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.marketSub {
+  margin-top: 3px;
+  color: var(--ink-2);
+  font-size: 10px;
+}
+
+.marketSide {
+  text-align: right;
+}
+
+.marketStatus {
+  margin-top: 3px;
+  color: var(--ink-3);
+  font-size: 10px;
+}
+
+.expand {
+  overflow: hidden;
+  height: 0;
+}
+
+.paramRow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  height: 54px;
+  padding-left: 14px;
+}
+
+.paramIcon {
+  display: flex;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--bg);
+}
+
+.paramIcon svg {
+  width: 14px;
+  height: 14px;
+}
+
+.paramName {
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.paramValue {
+  margin-top: 3px;
+  color: var(--green-ink);
+  font-size: 10px;
+}

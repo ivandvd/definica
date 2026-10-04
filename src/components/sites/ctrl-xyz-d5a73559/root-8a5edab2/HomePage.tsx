@@ -2,9 +2,7 @@
 
 import type { ReactNode } from "react";
 import { home } from "../shared/content";
-import { useDevice } from "../shared/device";
 import { HomeHero } from "./HomeHero";
-import { PageDownloadButton } from "./PageDownloadButton";
 import { SliceBlockchainsSearch, type SliceBlockchainsSearchProps } from "./SliceBlockchainsSearch";
 import { SliceFAQ, type SliceFAQProps } from "./SliceFAQ";
 import { SliceScrollableAppScreens, type SliceScrollableAppScreensProps } from "./SliceScrollableAppScreens";
@@ -51,10 +49,8 @@ function renderSlice(slice: Slice, index: number): ReactNode {
 
 /** Port of the home page component (scope data-v-11ce35e1) and its `Slices` list (scope data-v-fc0f272b). */
 export function HomePage() {
-  const { desktop } = useDevice();
   return (
     <div className="HomePage Page" data-v-11ce35e1="">
-      {desktop ? <PageDownloadButton isHome /> : null}
       <HomeHero {...home.hero} />
       <main className="Slices" data-v-11ce35e1="" data-v-fc0f272b="">
         {slices.map(renderSlice)}

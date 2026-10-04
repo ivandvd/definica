@@ -50,11 +50,11 @@ export function AppHeader() {
 
   useObserve(refHitzone, { onEnter: () => introTimeline.current?.play() });
 
-  // Hide on scroll down / show on scroll up; any scroll closes the mobile nav.
+  // Hide on scroll down / show on scroll up; any scroll closes the mobile nav. Unlike the original,
+  // this applies on mobile too, and hides the logo and Launch App as well (see definica.css).
   useEffect(() => {
     const onScroll = ({ value, direction }: ScrollState) => {
       setIsNavOpen(false);
-      if (getDevice().mobile) return;
       const half = window.innerHeight / 2;
       if (value < half) setIsHidden(false);
       else setIsHidden(direction === "down" && !isHovered.current);
@@ -151,7 +151,7 @@ export function AppHeader() {
               className="nuxt-link-active router-link-exact-active Header-logo"
               data-v-d5c9479a=""
             >
-              <AppSvg name="ctrl-logo" className="Header-logoIcon" data-v-d5c9479a="" />
+              <AppSvg name="definica-logo" className="Header-logoIcon" data-v-d5c9479a="" />
             </AppLink>
             <nav
               ref={refNav}

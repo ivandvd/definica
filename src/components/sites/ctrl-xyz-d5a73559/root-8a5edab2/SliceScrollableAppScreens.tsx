@@ -12,6 +12,7 @@ import { CustomEase, gsap } from "../shared/gsap";
 import { icons, type IconName } from "../shared/icons";
 import { LottiePlayer } from "../shared/LottiePlayer";
 import { smoothScroll } from "../shared/smooth-scroll";
+import { isPhoneScreenName, PhoneScreen } from "./phone/PhoneScreen";
 
 export interface SliceScrollableAppScreensItem {
   title?: string | null;
@@ -19,12 +20,16 @@ export interface SliceScrollableAppScreensItem {
   titleIcon?: string | null;
   text?: string | null;
   iconFile?: { url?: string | null } | null;
+  /** Animated screen shown in the phone for this item (see `phone/PhoneScreen`); takes precedence over `vimeo`. */
+  screen?: string | null;
   vimeo?: VimeoVideo | null;
   /** Non-Vimeo fallback of the original (`VideoLoop` with `sources`); unused by the page data. */
   video?: { sources?: unknown[] } | null;
 }
 
 export interface SliceScrollableAppScreensProps {
+  /** Animated screen shown in the phone before the items (see `phone/PhoneScreen`); takes precedence over `vimeo`. */
+  screen?: string | null;
   vimeo?: VimeoVideo | null;
   /** Non-Vimeo fallback of the original (`VideoLoop` with `sources`); unused by the page data. */
   video?: { sources?: unknown[] } | null;
@@ -50,6 +55,7 @@ const isIconName = (name: string | null | undefined): name is IconName => !!name
  * scrubs over ~3.5 viewports.
  */
 export function SliceScrollableAppScreens({
+  screen = null,
   vimeo = null,
   items = [],
   sliceId,
@@ -262,7 +268,9 @@ export function SliceScrollableAppScreens({
           <div data-v-c86fbc86="" className="SliceScrollableAppScreens-app">
             <div data-v-c86fbc86="" className="SliceScrollableAppScreens-appInner">
               <div ref={appMainRef} data-v-c86fbc86="" className="SliceScrollableAppScreens-appMain">
-                {vimeo?.src ? (
+                {isPhoneScreenName(screen) ? (
+                  <PhoneScreen ref={appMainVideoRef} screen={screen} className="SliceScrollableAppScreens-appMainVideo" />
+                ) : vimeo?.src ? (
                   <BaseVideoVimeoLoop
                     ref={appMainVideoRef}
                     data-v-c86fbc86=""
@@ -275,7 +283,15 @@ export function SliceScrollableAppScreens({
               </div>
               {items.map((item, index) => (
                 <div key={index} data-v-c86fbc86="" className="SliceScrollableAppScreens-appItem">
-                  {item.vimeo?.src ? (
+                  {isPhoneScreenName(item.screen) ? (
+                    <PhoneScreen
+                      ref={(handle) => {
+                        appItemVideoRefs.current[index] = handle;
+                      }}
+                      screen={item.screen}
+                      className="SliceScrollableAppScreens-appItemVideo"
+                    />
+                  ) : item.vimeo?.src ? (
                     <BaseVideoVimeoLoop
                       ref={(handle) => {
                         appItemVideoRefs.current[index] = handle;

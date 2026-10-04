@@ -70,7 +70,7 @@ export function SliceTitleListVertical({
               key={index}
               data-v-27a8be81=""
               {...item}
-              className="SliceTitleListVertical-listItem --bg-grey8"
+              className={item.tone ? "SliceTitleListVertical-listItem" : "SliceTitleListVertical-listItem --bg-grey8"}
             />
           ))}
         </div>

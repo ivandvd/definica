@@ -366,7 +366,8 @@
             }
           ],
           "title": "Shares, not fixed balances",
-          "scene": "shares"
+          "scene": "shares",
+          "tone": "baby"
         },
         {
           "_key": "5b8d94cb3d67",
@@ -388,7 +389,8 @@
             }
           ],
           "title": "Every layer, kept apart",
-          "scene": "layers"
+          "scene": "layers",
+          "tone": "lemonade"
         },
         {
           "_key": "acffae178d1f",
@@ -410,7 +412,8 @@
             }
           ],
           "title": "Know which contract holds it",
-          "scene": "contracts"
+          "scene": "contracts",
+          "tone": "sky"
         }
       ],
       "sliceId": "sliceTitleListVertical",
@@ -449,15 +452,15 @@
         }
       ],
       "sliceId": "sliceTitleListGrid",
-      "surtitle": "Transparency",
+      "surtitle": "Three stages",
       "title": {
         "forceWrapBeforeIcon": null,
         "icon": null,
         "iconFile": {
           "url": "/sites/ctrl-xyz-d5a73559/root-8a5edab2/cms/definica-mark-playful.json"
         },
-        "iconPos": 5,
-        "title": "Live means published, not promised."
+        "iconPos": 3,
+        "title": "Stake, lock, borrow."
       }
     },
     {
@@ -484,7 +487,8 @@
             }
           ],
           "title": "One deposit, put to work",
-          "scene": "pooled"
+          "scene": "pooled",
+          "tone": "mint"
         },
         {
           "_key": "mech02",
@@ -506,7 +510,8 @@
             }
           ],
           "title": "Two routes to a stronger share",
-          "scene": "treasury"
+          "scene": "treasury",
+          "tone": "lemonade"
         },
         {
           "_key": "mech03",
@@ -528,7 +533,8 @@
             }
           ],
           "title": "Liquidity, committed",
-          "scene": "commit"
+          "scene": "commit",
+          "tone": "baby"
         },
         {
           "_key": "mech04",
@@ -550,7 +556,8 @@
             }
           ],
           "title": "Interest, split in the open",
-          "scene": "returns"
+          "scene": "returns",
+          "tone": "sky"
         },
         {
           "_key": "mech05",
@@ -572,7 +579,8 @@
             }
           ],
           "title": "Built on StakeWise",
-          "scene": "stakewise"
+          "scene": "stakewise",
+          "tone": "mint"
         },
         {
           "_key": "mech06",
@@ -594,7 +602,8 @@
             }
           ],
           "title": "New stake for StakeWise",
-          "scene": "growth"
+          "scene": "growth",
+          "tone": "baby"
         }
       ],
       "surtitle": "Mechanisms",
@@ -616,28 +625,32 @@
           "_type": "item",
           "text": "Rewards depend on validator performance.",
           "title": "Staking & validator",
-          "scene": "validators"
+          "scene": "validators",
+          "tone": "lemonade"
         },
         {
           "_key": "d59f8801eac4",
           "_type": "item",
           "text": "Verify every address Definica publishes.",
           "title": "Smart contract risk",
-          "scene": "contract"
+          "scene": "contract",
+          "tone": "sky"
         },
         {
           "_key": "797b7095a09b",
           "_type": "item",
           "text": "osETH rates and Aave conditions change over time.",
           "title": "Market & liquidity",
-          "scene": "market"
+          "scene": "market",
+          "tone": "baby"
         },
         {
           "_key": "3ba23af16674",
           "_type": "item",
           "text": "Debt, interest, oracles and liquidation apply.",
           "title": "Borrowing risk",
-          "scene": "borrowRisk"
+          "scene": "borrowRisk",
+          "tone": "mint"
         }
       ],
       "sliceId": "sliceTitleListHorizontal",

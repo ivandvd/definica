@@ -785,14 +785,14 @@
   white-space: nowrap;
 }
 
-/* A record card tucked under a tile (Core's ledger, the module's records). */
+/* A record card next to its tile (Core's ledger, the module's records). */
 .ledger {
   position: absolute;
   z-index: 2;
   display: flex;
   flex-direction: column;
   gap: 4px;
-  padding: 17px 10px 9px;
+  padding: 10px 10px 9px;
   border: 2.5px solid var(--line);
   border-radius: 16px;
   background: #ffffff;
@@ -802,6 +802,7 @@
   font-size: 9.5px;
   font-weight: 700;
   letter-spacing: 0.14em;
+  white-space: nowrap;
 }
 
 .ledgerRow {
@@ -945,13 +946,6 @@
   height: 17px;
 }
 
-.shard {
-  position: absolute;
-  border: 2.5px solid var(--line);
-  border-radius: 4px;
-  background: #3a3f3b;
-}
-
 .ember {
   position: absolute;
   z-index: 8;
@@ -962,15 +956,20 @@
   border-radius: 50%;
 }
 
-.smoke {
+/* Smoke wisps drawn on (stroke) above the flame once a share has burned. */
+.wisps {
   position: absolute;
   z-index: 6;
-  width: 22px;
-  height: 22px;
-  margin: -11px 0 0 -11px;
-  border: 2px solid var(--line);
-  border-radius: 50%;
-  background: #e7ebe8;
+  width: 60px;
+  height: 64px;
+  overflow: visible;
+}
+
+.wisps path {
+  fill: none;
+  stroke: #7d857f;
+  stroke-width: 2.6;
+  stroke-linecap: round;
 }
 
 .flame {
@@ -989,50 +988,6 @@
   width: 100%;
   height: 100%;
   overflow: visible;
-}
-
-.pLine {
-  position: absolute;
-  height: 0;
-  border-top: 2.5px dashed var(--line);
-}
-
-.pBadge {
-  position: absolute;
-  top: -14px;
-  right: -30px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 25px;
-  height: 25px;
-  border: 2px solid var(--line);
-  border-radius: 50%;
-  background: var(--lime);
-  font-size: 12px;
-  font-weight: 700;
-}
-
-/* Formula pill; stacked spans swap in place. */
-.formula {
-  position: absolute;
-  z-index: 4;
-  height: 32px;
-  border: 2px solid var(--line);
-  border-radius: 10px;
-  background: #ffffff;
-  font-family: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
-  font-size: 13px;
-  font-weight: 700;
-}
-
-.formula span {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  white-space: nowrap;
 }
 
 /* Interest split: the share on each branch. */
@@ -1099,8 +1054,7 @@
 }
 
 /* The site's reset gives every element weight 500, so nested lines must inherit explicitly. */
-.gearLabel > div,
-.formula span {
+.gearLabel > div {
   font-weight: inherit;
 }
 

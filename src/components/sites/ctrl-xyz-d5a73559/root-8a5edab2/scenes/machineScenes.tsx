@@ -1,6 +1,6 @@
 import type { ReactNode } from "react";
 import { gsap } from "../../shared/gsap";
-import { DefinicaMark, glyphSrc, PercentIcon } from "../phone/kit";
+import { DefinicaMark, glyphSrc, PercentIcon, STAKEWISE_LOGO } from "../phone/kit";
 import { allEl, byEl } from "../phone/motion";
 import {
   INK,
@@ -155,8 +155,8 @@ export function PooledMarkup() {
   return (
     <>
       <Pipes routes={[POOL_YOU_CORE, POOL_CORE_VAULT, POOL_VAULT_VAL]} />
-      {/* Core's user ledger, tucked under the Core tile. */}
-      <Ledger x={156} y={126} w={154} title="CORE LEDGER" rows={[{ el: "yours", label: "Your shares", icon: <SharesGlyph /> }]} />
+      {/* Core's user ledger, just below the Core tile. */}
+      <Ledger x={148} y={152} w={150} title="CORE LEDGER" rows={[{ el: "yours", label: "Your shares", icon: <SharesGlyph /> }]} />
       <Station el="you" x={POOL.you[0]} y={POOL.you[1]} color="#ffffff" label="You" labelSide="above">
         <Smiley />
       </Station>
@@ -167,7 +167,7 @@ export function PooledMarkup() {
       <Station el="validators" x={POOL.validators[0]} y={POOL.validators[1]} color="#05c92f" label="Validators">
         <ServerIcon />
       </Station>
-      <Tag el="sharesTag" x={176} y={214} color="#fbe74e">
+      <Tag el="sharesTag" x={196} y={232} color="#fbe74e">
         VAULT SHARES
       </Tag>
       <Tag el="rewardsTag" x={164} y={256} color="#d1f500">
@@ -235,10 +235,10 @@ export function buildPooled(canvas: HTMLElement) {
 /* ---------- 2. Two routes to a stronger share: each share is backed by more ETH ---------- */
 
 /*
- * A two-sided card. Front: the multisig donates ETH through DefinicaCore to the Vault; at the next
- * harvest every share's backing rises (P = (A + D) / S). Back: the multisig burns its own Vault share;
- * its ETH stays in the Vault, so the remaining shares' backing rises (P = A / (S - B)). Each side starts
- * from the same Vault: four shares, each a jar of the ETH backing it.
+ * A two-sided card. Each side starts from the same Vault, where every share is a jar of the ETH
+ * backing it. Front (ETH route): the multisig donates ETH through DefinicaCore into the Vault; it
+ * counts from the next harvest, and then every jar rises. Back (share route): the multisig's own
+ * share hands its ETH to the others (the Vault keeps it) and is burned, so each remaining jar rises.
  */
 
 const BOARD = { left: 20, top: 20, size: 360 };
@@ -247,22 +247,20 @@ const JAR = { width: 40, height: 76, top: 202, gap: 26 };
 const JAR_LEFT = [0, 1, 2, 3].map((k) => 63 + k * (JAR.width + JAR.gap));
 /** The flame sits straight above the multisig's jar (the fourth), which rises into it. */
 const TR = { multisig: [64, 98], core: [178, 98], flame: [JAR_LEFT[3] + JAR.width / 2, 94] } as const satisfies Record<string, Pt>;
-/** Liquid heights (px): the base level, and the level after either route (x 4/3 for both). */
+/** The flame's box (its base is where the burning jar comes to rest). */
+const FLAME = { width: 56, height: 68, base: TR.flame[1] + 32 };
+/** Liquid heights (px): the starting level, and the level after either route (x 4/3 in both). */
 const LEVEL = { base: 33, after: 44 };
-const JAR_FLOOR = JAR.top + JAR.height - 2.5;
 const TR_MS_CORE = route([TR.multisig, TR.core]);
 const TR_CORE_VAULT = route([TR.core, [TR.core[0], 238]]);
-/** The burned share breaks into six charred pieces (2 x 3) and gives off embers. */
-const SHARDS = [0, 1, 2, 3, 4, 5].map((i) => [(i % 2) * (JAR.width / 2), Math.floor(i / 2) * (JAR.height / 3)] as const);
+/** Sparks thrown up by the burning share (offsets from the middle of the flame). */
 const EMBERS = [
-  { x: 12, y: 20, color: "#ff5a4d" },
-  { x: 28, y: 26, color: "#fbe74e" },
-  { x: 18, y: 40, color: "#ff5a4d" },
-  { x: 30, y: 50, color: "#fbe74e" },
-  { x: 8, y: 54, color: "#fbe74e" },
-  { x: 22, y: 62, color: "#ff5a4d" },
-  { x: 34, y: 34, color: "#ff5a4d" },
-  { x: 6, y: 32, color: "#fbe74e" },
+  { x: -10, y: -6, color: "#ff5a4d" },
+  { x: 8, y: -12, color: "#fbe74e" },
+  { x: -2, y: 4, color: "#ff5a4d" },
+  { x: 12, y: 2, color: "#fbe74e" },
+  { x: -14, y: 8, color: "#fbe74e" },
+  { x: 4, y: -18, color: "#ff5a4d" },
 ];
 
 function Jar({ el, left, owned = false, burnable = false }: { el: string; left: number; owned?: boolean; burnable?: boolean }) {
@@ -272,15 +270,10 @@ function Jar({ el, left, owned = false, burnable = false }: { el: string; left: 
         <span className={styles.jarFill} data-el="jarFill" />
       </div>
       {owned ? (
-        <span className={styles.jarBadge} data-el={burnable ? "burnBadge" : "badge"}>
+        <span className={styles.jarBadge} data-el={burnable ? "burnBadge" : undefined}>
           <KeyIcon />
         </span>
       ) : null}
-      {burnable
-        ? SHARDS.map(([x, y], i) => (
-            <span key={i} className={styles.shard} data-el="shard" style={{ left: x, top: y, width: JAR.width / 2, height: JAR.height / 3 }} />
-          ))
-        : null}
     </div>
   );
 }
@@ -302,21 +295,22 @@ function VaultSide({ side }: { side: 1 | 2 }) {
         </Station>
       ) : (
         <>
-          {[0, 1, 2].map((k) => (
-            <span key={k} className={styles.smoke} data-el="smoke" style={{ left: TR.flame[0], top: TR.flame[1] - 26 }} />
-          ))}
-          {/* Embers fly out of the burning share, in front of the flame. */}
+          {/* A wisp of smoke once the share has burned, and the sparks it throws up. */}
+          <svg className={styles.wisps} viewBox="0 0 60 64" style={{ left: TR.flame[0] - 30, top: FLAME.base - FLAME.height * 0.8 - 62 }} aria-hidden="true">
+            <path data-el="wisp" d="M24 62C18 52 30 44 24 34S18 16 24 6" />
+            <path data-el="wisp" d="M38 58C44 48 32 40 38 30S44 14 38 4" />
+          </svg>
           {EMBERS.map(({ x, y, color }, i) => (
-            <span key={i} className={styles.ember} data-el="ember" style={{ left: TR.flame[0] - JAR.width / 2 + x, top: TR.flame[1] + 2 - JAR.height / 2 + y, background: color }} />
+            <span key={i} className={styles.ember} data-el="ember" style={{ left: TR.flame[0] + x, top: TR.flame[1] + y, background: color }} />
           ))}
-          <div className={styles.flame} data-el="flame" style={{ left: TR.flame[0] - 28, top: TR.flame[1] - 36, width: 56, height: 68 }}>
+          <div className={styles.flame} data-el="flame" style={{ left: TR.flame[0] - FLAME.width / 2, top: FLAME.base - FLAME.height, width: FLAME.width, height: FLAME.height }}>
             <span className={styles.flameInner} data-el="flameInner">
               <FlameArt />
             </span>
           </div>
         </>
       )}
-      {/* The Vault: its frame, the four shares (jars of the ETH backing each one) and the P level. */}
+      {/* The Vault: its frame and the four shares, each a jar of the ETH backing it. */}
       <div className={styles.vaultGroup} data-el={`vault${side}`}>
         <div className={styles.vaultFrame} style={{ left: FRAME.left, top: FRAME.top, width: FRAME.width, height: FRAME.height }}>
           <span className={styles.frameCaption}>VAULT SHARES</span>
@@ -324,23 +318,19 @@ function VaultSide({ side }: { side: 1 | 2 }) {
         {JAR_LEFT.map((left, k) => (
           <Jar key={k} el={`jar${side}_${k}`} left={left} owned={k === 3} burnable={!eth && k === 3} />
         ))}
-        <div className={styles.pLine} data-el={`pLine${side}`} style={{ left: 48, top: JAR_FLOOR - LEVEL.base, width: 256 }}>
-          <b className={styles.pBadge}>P</b>
-        </div>
       </div>
-      <div className={styles.formula} style={{ left: 18, top: 312, width: 320 }}>
-        <span data-el={`fBase${side}`}>P = A / S</span>
-        <span data-el={`fAfter${side}`}>{eth ? "P = (A + D) / S" : "P = A / (S − B)"}</span>
-      </div>
+      <Tag el={`more${side}`} x={100} y={314} color="#d1f500">
+        MORE ETH PER SHARE
+      </Tag>
       {eth ? (
         <>
-          <Tag el="harvest" x={204} y={150} color="#d1f500">
+          <Tag el="harvest" x={204} y={150} color="#ffffff">
             NEXT HARVEST
           </Tag>
-          <Token el="donation" size={36} caption="Donation D" captionSide="above" />
+          <Token el="donation" size={36} caption="ETH donation" captionSide="above" />
         </>
       ) : (
-        <Tag el="assetsStay" x={30} y={155} color="#d1f500">
+        <Tag el="assetsStay" x={30} y={155} color="#ffffff">
           ITS ETH STAYS IN THE VAULT
         </Tag>
       )}
@@ -369,19 +359,16 @@ export function buildTreasury(canvas: HTMLElement) {
   const donation = byEl(canvas, "donation");
   const harvest = byEl(canvas, "harvest");
   const assetsStay = byEl(canvas, "assetsStay");
+  const [more1, more2] = [byEl(canvas, "more1"), byEl(canvas, "more2")];
   const fills1 = allEl(face1, "jarFill");
   const fills2 = allEl(face2, "jarFill");
-  const [pLine1, pLine2] = [byEl(canvas, "pLine1"), byEl(canvas, "pLine2")];
-  const [fBase1, fAfter1, fBase2, fAfter2] = ["fBase1", "fAfter1", "fBase2", "fAfter2"].map((name) => byEl(canvas, name));
   const burnJar = byEl(canvas, "jar2_3");
   const burnBody = byEl(canvas, "burnBody");
   const burnBadge = byEl(canvas, "burnBadge");
-  const shards = allEl(canvas, "shard");
   const embers = allEl(canvas, "ember");
-  const smoke = allEl(canvas, "smoke");
+  const wisps = Array.from(canvas.querySelectorAll<SVGPathElement>('[data-el="wisp"]'));
   const flame = byEl(canvas, "flame");
   const flameInner = byEl(canvas, "flameInner");
-  const rise = LEVEL.after - LEVEL.base;
 
   prepare(canvas);
   gsap.set(board, { scaleX: 1 });
@@ -389,22 +376,19 @@ export function buildTreasury(canvas: HTMLElement) {
   gsap.set(face1, { autoAlpha: 1 });
   gsap.set(face2, { autoAlpha: 0 });
   gsap.set([...fills1, ...fills2], { height: LEVEL.base });
-  gsap.set([pLine1, pLine2], { y: 0 });
-  gsap.set([fBase1, fBase2], { autoAlpha: 1, y: 0 });
-  gsap.set([fAfter1, fAfter2], { autoAlpha: 0, y: 0 });
   gsap.set(donation, { x: TR.multisig[0], y: TR.multisig[1], scale: 0.8 });
-  gsap.set([harvest, assetsStay], { autoAlpha: 0, scale: 0.4, rotation: -12 });
-  gsap.set(burnJar, { x: 0, y: 0, rotation: 0, scaleY: 1 });
-  gsap.set([burnBody, burnBadge], { autoAlpha: 1, backgroundColor: "#ffffff" });
-  gsap.set(shards, { autoAlpha: 0, x: 0, y: 0, rotation: 0, scale: 1 });
+  gsap.set([harvest, assetsStay, more1, more2], { autoAlpha: 0, scale: 0.4, rotation: -12 });
+  gsap.set(burnJar, { x: 0, y: 0, scale: 1, autoAlpha: 1, transformOrigin: "50% 100%" });
+  gsap.set([burnBody, burnBadge], { backgroundColor: "#ffffff" });
   gsap.set(embers, { autoAlpha: 0, x: 0, y: 0, scale: 1 });
-  gsap.set(smoke, { autoAlpha: 0, x: 0, y: 0, scale: 0.4 });
+  wisps.forEach((wisp) => {
+    const length = wisp.getTotalLength();
+    gsap.set(wisp, { autoAlpha: 0, y: 0, strokeDasharray: length, strokeDashoffset: length });
+  });
   gsap.set(flame, { scale: 0.8, transformOrigin: "50% 100%" });
   gsap.set(flameInner, { scaleY: 1, scaleX: 1, transformOrigin: "50% 100%" });
 
   const tl = gsap.timeline({ paused: true, repeat: -1 });
-  const swap = (show: HTMLElement, hide: HTMLElement, at: number) =>
-    tl.to(hide, { autoAlpha: 0, duration: 0.15 }, at).fromTo(show, { y: 6 }, { autoAlpha: 1, y: 0, duration: 0.3, ease: "back.out(2)", immediateRender: false }, at + 0.1);
   const flip = (show: HTMLElement, hide: HTMLElement, at: number) =>
     tl
       .to(board, { scaleX: 0.02, duration: 0.2, ease: "power2.in" }, at)
@@ -415,24 +399,21 @@ export function buildTreasury(canvas: HTMLElement) {
   // Front, ETH route: the multisig donates through DefinicaCore into the Vault...
   const toCore = ride(tl, donation, TR_MS_CORE, 0.35, { from: multisig1, to: core, size: 36 });
   const toVault = ride(tl, donation, TR_CORE_VAULT, toCore.inside + 0.5, { from: core, to: vault, size: 36 });
-  // ...and it counts from the next harvest: then every share's backing rises.
+  // ...and it counts from the next harvest: then every share holds more ETH.
   popIn(tl, harvest, toVault.inside + 0.1, 5);
   const harvestAt = toVault.inside + 0.75;
   tl.to(harvest, { scale: 1.15, duration: 0.1, ease: "power2.out", yoyo: true, repeat: 1 }, harvestAt);
   fills1.forEach((fill, k) => tl.to(fill, { height: LEVEL.after, duration: 0.45, ease: "back.out(2)" }, harvestAt + 0.1 + k * 0.07));
-  tl.to(pLine1, { y: -rise, duration: 0.45, ease: "back.out(2)" }, harvestAt + 0.15);
-  swap(fAfter1, fBase1, harvestAt + 0.25);
+  popIn(tl, more1, harvestAt + 0.5, -3);
   popOut(tl, harvest, harvestAt + 1.1);
 
   // Turn the card over.
-  const FLIP_TO_BACK = harvestAt + 1.55;
+  const FLIP_TO_BACK = harvestAt + 1.7;
   flip(face2, face1, FLIP_TO_BACK);
   // The front quietly returns to its starting state while it is face down.
   const reset = FLIP_TO_BACK + 0.6;
   tl.set(fills1, { height: LEVEL.base }, reset)
-    .set(pLine1, { y: 0 }, reset)
-    .set(fBase1, { autoAlpha: 1, y: 0 }, reset)
-    .set(fAfter1, { autoAlpha: 0 }, reset)
+    .set(more1, { autoAlpha: 0, scale: 0.4, rotation: -12 }, reset)
     .set(donation, { x: TR.multisig[0], y: TR.multisig[1], scale: 0.8 }, reset);
 
   // Back, share route: the multisig acts on its own share (the jar with its key)...
@@ -443,52 +424,41 @@ export function buildTreasury(canvas: HTMLElement) {
   const drain = B + 0.55;
   tl.to(fills2[3], { height: 0, duration: 0.75, ease: "power1.inOut" }, drain);
   fills2.slice(0, 3).forEach((fill, k) => tl.to(fill, { height: LEVEL.after, duration: 0.65, ease: "back.out(1.6)" }, drain + 0.1 + k * 0.06));
-  tl.to(pLine2, { y: -rise, duration: 0.6, ease: "back.out(1.6)" }, drain + 0.15);
   popIn(tl, assetsStay, drain + 0.2, -4);
-  // ...and the empty share is lifted out and burned.
+  // ...and the empty share is lifted out, into the flame.
   const lift = drain + 0.95;
-  const toFlame = TR.flame[1] + 2 - (JAR.top + JAR.height / 2);
-  tl.to(burnJar, { y: 4, scaleY: 0.94, transformOrigin: "50% 100%", duration: 0.12, ease: "power2.in" }, lift)
-    .to(burnJar, { y: toFlame, scaleY: 1, duration: 0.6, ease: "power2.inOut" }, lift + 0.12);
+  const toFlame = FLAME.base - 4 - (JAR.top + JAR.height);
+  tl.to(burnJar, { y: 4, scaleY: 0.94, duration: 0.12, ease: "power2.in" }, lift).to(burnJar, { y: toFlame, scaleY: 1, duration: 0.6, ease: "power2.inOut" }, lift + 0.12);
+  // It burns: the flame flares round it, it chars and shakes and burns down to nothing, throwing
+  // sparks. Then the flame settles and a wisp of smoke drifts up.
   const burn = lift + 0.72;
-  // The flame flares and swallows it: it chars and shakes, crumbles into embers, smoke rises.
-  tl.to(flame, { scale: 1.45, duration: 0.2, ease: "power2.out" }, burn)
-    .to([burnBody, burnBadge], { backgroundColor: "#3a3f3b", duration: 0.35, ease: "power1.in" }, burn + 0.05)
-    .to(burnJar, { x: 2.5, duration: 0.05, ease: "none", yoyo: true, repeat: 7 }, burn + 0.1)
-    .set([burnBody, burnBadge], { autoAlpha: 0 }, burn + 0.55)
-    .set(shards, { autoAlpha: 1 }, burn + 0.55);
-  shards.forEach((shard, i) => {
-    const side = i % 2 ? 1 : -1;
-    const row = Math.floor(i / 2);
-    tl.to(
-      shard,
-      { x: side * (12 + row * 7), y: 18 + row * 10, rotation: side * (40 + row * 25), scale: 0.25, autoAlpha: 0, duration: 0.6, ease: "power2.in" },
-      burn + 0.55 + row * 0.04,
-    );
-  });
+  tl.to(flame, { scale: 1.5, duration: 0.2, ease: "power2.out" }, burn)
+    .to(flameInner, { scaleY: 1.1, scaleX: 0.94, duration: 0.14, ease: "sine.inOut", yoyo: true, repeat: 7 }, burn)
+    .to([burnBody, burnBadge], { backgroundColor: "#2e3430", duration: 0.3, ease: "power1.in" }, burn + 0.05)
+    .to(burnJar, { x: 2.5, duration: 0.05, ease: "none", yoyo: true, repeat: 5 }, burn + 0.1)
+    .to(burnJar, { scale: 0.12, duration: 0.5, ease: "power2.in" }, burn + 0.38)
+    .set(burnJar, { autoAlpha: 0 }, burn + 0.9);
   embers.forEach((ember, i) => {
-    const at = burn + 0.5 + i * 0.045;
+    const at = burn + 0.25 + i * 0.07;
     tl.set(ember, { autoAlpha: 1, x: 0, y: 0, scale: 1 }, at).to(
       ember,
-      { x: ((i * 7) % 5) * 6 - 12, y: -58 - ((i * 5) % 4) * 12, scale: 0.15, autoAlpha: 0, duration: 1.0, ease: "power1.out" },
+      { x: (i % 2 ? 1 : -1) * (8 + (i % 3) * 6), y: -46 - (i % 3) * 14, scale: 0.2, autoAlpha: 0, duration: 0.85, ease: "power1.out" },
       at,
     );
   });
-  smoke.forEach((puff, i) => {
-    tl.set(puff, { autoAlpha: 0.95, x: 0, y: 0, scale: 0.4 }, burn + 0.4 + i * 0.22).to(
-      puff,
-      { x: (i - 1) * 8, y: -42, scale: 1.5, autoAlpha: 0, duration: 1.0, ease: "power1.out" },
-      burn + 0.4 + i * 0.22,
-    );
-  });
   tl.to(flame, { scale: 0.8, duration: 0.55, ease: "power2.inOut" }, burn + 0.95);
-  // The flame flickers while it burns.
-  tl.to(flameInner, { scaleY: 1.1, scaleX: 0.94, duration: 0.14, ease: "sine.inOut", yoyo: true, repeat: 7 }, burn);
-  swap(fAfter2, fBase2, burn + 0.7);
+  wisps.forEach((wisp, i) => {
+    const at = burn + 1.15 + i * 0.18;
+    tl.set(wisp, { autoAlpha: 1, y: 0 }, at)
+      .to(wisp, { strokeDashoffset: 0, duration: 0.6, ease: "power1.out" }, at)
+      .to(wisp, { y: -12, duration: 1.0, ease: "power1.out" }, at)
+      .to(wisp, { autoAlpha: 0, duration: 0.45, ease: "power1.in" }, at + 0.55);
+  });
+  popIn(tl, more2, burn + 1.0, 3);
   popOut(tl, assetsStay, burn + 1.2);
 
   // Turn back to the front for the next round.
-  const FLIP_TO_FRONT = burn + 2.0;
+  const FLIP_TO_FRONT = burn + 2.4;
   flip(face1, face2, FLIP_TO_FRONT);
   hold(tl, FLIP_TO_FRONT + 0.9);
   return tl;
@@ -505,11 +475,12 @@ export function CommitMarkup() {
   return (
     <>
       <Pipes routes={[COMMIT_SUPPLY, COMMIT_LOCK, COMMIT_LOAN]} />
-      {/* The module's records, tucked under the module tile. */}
+      {/* The module's records, just below the module tile. */}
       <Ledger
-        x={262}
-        y={146}
-        w={132}
+        x={258}
+        y={170}
+        w={138}
+        title="MODULE RECORDS"
         rows={[
           { el: "custody", label: "Custody", icon: <LockIcon /> },
           { el: "debt", label: "Debt", icon: <DebtIcon /> },
@@ -521,12 +492,12 @@ export function CommitMarkup() {
       <Station el="aave" x={COMMIT.aave[0]} y={COMMIT.aave[1]} size={84} color="#c6dcfa" glyph="aave-v3" label="Aave V3" labelSide="above" />
       <Station el="module" x={COMMIT.module[0]} y={COMMIT.module[1]} size={84} color="#ff5a4d" glyph="liquidity-module" label="Liquidity Module" labelSide="above" />
       <Station el="markets" x={COMMIT.markets[0]} y={COMMIT.markets[1]} size={84} color="#fbe74e" glyph="borrowing-markets" label="Lending markets" />
-      <Tag el="loanTag" x={212} y={226} color="#ffffff">
-        FUNDING LOAN
+      <Tag el="loanTag" x={28} y={198} color="#ffffff">
+        WETH FUNDING LOAN
       </Tag>
       <Token el="oseth" glyph="oseth" caption="osETH" captionSide="above" />
       <Token el="aeth" color="mint" glyph="aethoseth" caption="aEthosETH" captionSide="above" />
-      <Token el="weth" color="grey" caption="WETH" captionSide="left" />
+      <Token el="weth" color="grey" />
     </>
   );
 }
@@ -568,9 +539,9 @@ export function buildCommit(canvas: HTMLElement) {
   return tl;
 }
 
-/* ---------- 4. Interest, split in the open: 0.75 x I to you, 0.25 x I to Definica ---------- */
+/* ---------- 4. Interest, split in the open: 75% of it to you, 25% to Definica ---------- */
 
-const SPLIT = { market: [200, 84], splitter: [200, 194], you: [100, 296], definica: [300, 296] } as const satisfies Record<string, Pt>;
+const SPLIT = { market: [200, 100], splitter: [200, 212], you: [100, 314], definica: [300, 314] } as const satisfies Record<string, Pt>;
 const SPLIT_IN = route([SPLIT.market, SPLIT.splitter]);
 const SPLIT_YOU = route([SPLIT.splitter, [SPLIT.you[0], SPLIT.splitter[1]], SPLIT.you]);
 const SPLIT_DEF = route([SPLIT.splitter, [SPLIT.definica[0], SPLIT.splitter[1]], SPLIT.definica]);
@@ -599,7 +570,7 @@ export function ReturnsMarkup() {
   return (
     <>
       <Pipes routes={[SPLIT_IN, SPLIT_YOU, SPLIT_DEF]} />
-      <Station el="market" x={SPLIT.market[0]} y={SPLIT.market[1]} size={80} color="#fbe74e" glyph="borrowing-markets" label="Lending interest · I" labelSide="above" />
+      <Station el="market" x={SPLIT.market[0]} y={SPLIT.market[1]} size={80} color="#fbe74e" glyph="borrowing-markets" label="Lending interest" labelSide="above" />
       <Station el="splitter" x={SPLIT.splitter[0]} y={SPLIT.splitter[1]} size={72} color="#ffffff">
         <SplitIcon />
       </Station>
@@ -609,20 +580,12 @@ export function ReturnsMarkup() {
       <Station el="definica" x={SPLIT.definica[0]} y={SPLIT.definica[1]} size={76} color={INK} label="Definica">
         <DefinicaMark color="#d1f500" accent={null} />
       </Station>
-      <div className={styles.splitShare} style={{ left: 112, top: 156 }}>
+      <div className={styles.splitShare} data-el="shareYou" style={{ left: 112, top: SPLIT.splitter[1] - 38 }}>
         75%
       </div>
-      <div className={styles.splitShare} style={{ left: 244, top: 156 }}>
+      <div className={styles.splitShare} data-el="shareDef" style={{ left: 244, top: SPLIT.splitter[1] - 38 }}>
         25%
       </div>
-      {[
-        { x: SPLIT.you[0], text: "0.75 × I", el: "fYou" },
-        { x: SPLIT.definica[0], text: "0.25 × I", el: "fDef" },
-      ].map(({ x, text, el }) => (
-        <div key={el} className={styles.formula} data-el={el} style={{ left: x - 50, top: SPLIT.you[1] + 38 + 30, width: 100, height: 28 }}>
-          <span>{text}</span>
-        </div>
-      ))}
       {[0, 1].map((k) => (
         <Token key={k} el="interest" size={PIECE} color="lemon">
           <span className={styles.coinIcon}>
@@ -648,8 +611,8 @@ export function buildReturns(canvas: HTMLElement) {
   const coins = allEl(canvas, "interest");
   const big = allEl(canvas, "piece75");
   const small = allEl(canvas, "piece25");
-  const fYou = byEl(canvas, "fYou");
-  const fDef = byEl(canvas, "fDef");
+  const shareYou = byEl(canvas, "shareYou");
+  const shareDef = byEl(canvas, "shareDef");
   const ROUND = 2.3;
 
   prepare(canvas);
@@ -664,10 +627,10 @@ export function buildReturns(canvas: HTMLElement) {
     // ...which cuts it: three quarters to you, one quarter to Definica.
     const out = into.inside + 0.55;
     release(tl, splitter.tile, out, [0, 0]);
-    const toYou = ride(tl, big[k], SPLIT_YOU, out, { from: splitter, to: you, size: PIECE, quiet: true });
-    const toDef = ride(tl, small[k], SPLIT_DEF, out, { from: splitter, to: definica, size: PIECE * 0.6, quiet: true });
-    tl.to(fYou, { scale: 1.1, duration: 0.12, ease: "power2.out", yoyo: true, repeat: 1 }, toYou.inside);
-    tl.to(fDef, { scale: 1.1, duration: 0.12, ease: "power2.out", yoyo: true, repeat: 1 }, toDef.inside);
+    ride(tl, big[k], SPLIT_YOU, out, { from: splitter, to: you, size: PIECE, quiet: true });
+    ride(tl, small[k], SPLIT_DEF, out, { from: splitter, to: definica, size: PIECE * 0.6, quiet: true });
+    // Each branch's share pulses as its piece sets off.
+    tl.to([shareYou, shareDef], { scale: 1.15, duration: 0.12, ease: "power2.out", yoyo: true, repeat: 1 }, out + 0.12);
   });
   hold(tl, 0.3 + coins.length * ROUND);
   return tl;
@@ -705,9 +668,9 @@ const GEAR_SPECS: GearSpec[] = [
     color: "#ffcadc",
     row: "low",
     label: ["StakeWise", "Vaults"],
-    hub: 46,
-    // eslint-disable-next-line @next/next/no-img-element -- tiny decorative svg
-    icon: <img src={glyphSrc("stakewise-vault")} alt="" draggable={false} />,
+    hub: 52,
+    // eslint-disable-next-line @next/next/no-img-element -- small decorative logo
+    icon: <img src={STAKEWISE_LOGO} alt="" draggable={false} />,
   },
   { el: "gA", teeth: 12, color: "#9dc4f5", row: "up", label: ["Independent", "Vault admin"], hub: 36, icon: <KeyIcon /> },
   { el: "gB", teeth: 12, color: "#fbe74e", row: "low", label: ["Proportional", "accounting"], hub: 36, icon: <SharesGlyph /> },
@@ -894,7 +857,10 @@ export function GrowthMarkup() {
       <Station el="app" x={GROW.app[0]} y={GROW.app[1]} size={84} color={INK} label="Definica">
         <DefinicaMark color="#d1f500" accent={null} />
       </Station>
-      <Station el="stakewise" x={GROW.stakewise[0]} y={GROW.stakewise[1]} size={84} color="#ffcadc" glyph="stakewise-vault" label="StakeWise" labelSide="above" />
+      <Station el="stakewise" x={GROW.stakewise[0]} y={GROW.stakewise[1]} size={84} color="#ffffff" label="StakeWise" labelSide="above">
+        {/* eslint-disable-next-line @next/next/no-img-element -- small decorative logo */}
+        <img src={STAKEWISE_LOGO} alt="" draggable={false} />
+      </Station>
       <div className={styles.binLabel} style={{ left: METER.left - 20, top: METER.top - 22, width: METER.width + 40 }}>
         NET NEW ETH
       </div>

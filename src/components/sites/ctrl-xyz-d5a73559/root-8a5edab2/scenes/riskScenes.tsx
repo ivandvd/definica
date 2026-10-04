@@ -15,10 +15,11 @@ const INK = "#001405";
  * tray's rewards slide on into the Vault, which takes each one in.
  */
 
+/** Tile colours chosen to stand out on the card's lemonade background. */
 const VALIDATORS = [
   { left: 28, color: "#e2f2e5" },
   { left: 148, color: "#9dc4f5" },
-  { left: 268, color: "#fbe74e" },
+  { left: 268, color: "#ffffff" },
 ];
 const PENALISED = 1;
 const TILE = { top: 30, width: 104, height: 96 };

@@ -13,9 +13,15 @@ import { isLoopSceneName, LoopScene } from "./scenes/LoopScene";
 
 export type VerticalCardVariant = "default" | "sliceJoinTeam" | "sliceMediasList" | "sliceToken";
 
+/** A card's background colour, from the site palette (the stage cards' colours plus light green; see definica.css). */
+export type CardTone = "sky" | "baby" | "lemonade" | "mint";
+export const toneClass = (tone?: CardTone | null) => (tone ? `--tone-${tone}` : "");
+
 export interface VerticalCardProps extends Omit<HTMLAttributes<HTMLElement>, "title" | "children"> {
   title?: string | null;
   text?: readonly PortableTextNode[] | null;
+  /** Background colour; the parent list falls back to its neutral grey when unset. */
+  tone?: CardTone | null;
   /** Declared by the original but never read. */
   animation?: string | null;
   /** Self-hosted loop (`BaseVideoLoop` in the original); not used by the home page, see the note below. */
@@ -58,6 +64,7 @@ function AppLinkArrow({ className, title, to, openInNewTab }: CmsLink & { classN
 export function VerticalCard({
   title = null,
   text = null,
+  tone = null,
   animation: _animation,
   video: _video = null,
   vimeo = null,
@@ -104,7 +111,7 @@ export function VerticalCard({
       {...itemAttrs}
       {...rest}
       // Kept stable: `useObserve` adds `--in-view` through classList.
-      className={`VerticalCard --variant-${variant}${className ? ` ${className}` : ""}`}
+      className={["VerticalCard", `--variant-${variant}`, toneClass(tone), className].filter(Boolean).join(" ")}
     >
       <div data-v-eafce9c3="" className="VerticalCard-content">
         {title ? (

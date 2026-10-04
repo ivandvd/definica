@@ -51,7 +51,7 @@ const SCENES = {
   shares: { Markup: SharesMarkup, build: buildShares, width: 400, height: 400 },
   layers: { Markup: LayersMarkup, build: buildLayers, width: 400, height: 400 },
   contracts: { Markup: ContractsMarkup, build: buildContracts, width: 400, height: 400 },
-  // "Live means published" stage cards (the videos were shown 16:9)
+  // "Stake, lock, borrow." stage cards (the videos were shown 16:9)
   stage1: { Markup: Stage1Markup, build: buildStage1, width: 480, height: 270 },
   stage2: { Markup: Stage2Markup, build: buildStage2, width: 480, height: 270 },
   stage3: { Markup: Stage3Markup, build: buildStage3, width: 480, height: 270 },

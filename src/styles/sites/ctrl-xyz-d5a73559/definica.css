@@ -123,3 +123,28 @@
   margin-top: 0 !important;
   transform: translateY(calc(-50% - 0.36em));
 }
+
+/* ---------- Card colours: the stage cards' sky, baby pink and lemonade, plus the site's light green ---------- */
+
+/* Set per card in home.json (`tone`), chosen so the colour never swallows that card's key elements. */
+.--tone-sky {
+  background-color: rgb(167, 203, 246);
+}
+
+.--tone-baby {
+  background-color: rgb(255, 208, 226);
+}
+
+.--tone-lemonade {
+  background-color: rgb(252, 234, 89);
+}
+
+.--tone-mint {
+  background-color: rgb(214, 238, 219);
+}
+
+/* Body text in ink rather than grey, which turns muddy on colour. */
+[class*="--tone-"] .VerticalCard-text[data-v-eafce9c3],
+[class*="--tone-"] .SliceTitleListHorizontal-listItemText[data-v-80f8c832] {
+  color: rgba(0, 20, 5, 0.76);
+}

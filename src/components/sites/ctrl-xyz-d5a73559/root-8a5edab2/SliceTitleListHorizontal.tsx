@@ -12,6 +12,7 @@ import { SurtitleWithDot } from "../shared/SurtitleWithDot";
 import { TitleWithIcon } from "../shared/TitleWithIcon";
 import { isLoopSceneName, LoopScene } from "./scenes/LoopScene";
 import { StickyHorizontalList } from "./StickyHorizontalList";
+import { toneClass, type CardTone } from "./VerticalCard";
 
 /** The CMS title object, bound onto `TitleWithIcon` as in the original (`v-bind="props.title"`). */
 export interface SliceTitleListHorizontalTitle {
@@ -29,6 +30,8 @@ export interface SliceTitleListHorizontalItem {
   text?: string | null;
   /** Animated scene shown instead of a video (see `scenes/LoopScene`); takes precedence over `vimeo`. */
   scene?: string | null;
+  /** Background colour; falls back to the neutral grey when unset. */
+  tone?: CardTone | null;
   vimeo?: VimeoVideo | null;
   /** Non-Vimeo fallback of the original (`VideoLoop` with `sources`); unused by the page data. */
   video?: { sources?: unknown[] } | null;
@@ -140,11 +143,13 @@ export function SliceTitleListHorizontal({
             ref={(node) => {
               refCards.current[index] = node;
             }}
-            className={
-              needCorrectiveColors
-                ? "SliceTitleListHorizontal-listItem --bg-grey7 --need-corrective-colors"
-                : "SliceTitleListHorizontal-listItem --bg-grey7"
-            }
+            className={[
+              "SliceTitleListHorizontal-listItem",
+              item.tone ? toneClass(item.tone) : "--bg-grey7",
+              needCorrectiveColors ? "--need-corrective-colors" : "",
+            ]
+              .filter(Boolean)
+              .join(" ")}
             data-v-80f8c832=""
             onMouseEnter={() => onMouseEnter(index)}
             onMouseLeave={() => onMouseLeave(index)}

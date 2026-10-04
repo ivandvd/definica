@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Vault pie sticker (footer cursor trail): everyone’s shares, with yours popped out. -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+<g transform="rotate(-8 50 50)">
+  <path d="M49 52L49 12A40 40 0 0 1 87.04 39.64Z" fill="#9dc4f5" stroke="#001405" stroke-width="2.6" stroke-linejoin="round"/>
+  <path d="M49 52L87.04 39.64A40 40 0 0 1 82.16 74.37Z" fill="#ffcadc" stroke="#001405" stroke-width="2.6" stroke-linejoin="round"/>
+  <path d="M49 52L37.97 90.45A40 40 0 0 1 9.39 46.43Z" fill="#fbe74e" stroke="#001405" stroke-width="2.6" stroke-linejoin="round"/>
+  <path d="M49 52L9.39 46.43A40 40 0 0 1 49 12Z" fill="#ff5a4d" stroke="#001405" stroke-width="2.6" stroke-linejoin="round"/>
+  <path d="M51.39 58.58L84.55 80.95A40 40 0 0 1 40.36 97.03Z" fill="#d1f500" stroke="#001405" stroke-width="2.6" stroke-linejoin="round"/>
+</g>
+</svg>

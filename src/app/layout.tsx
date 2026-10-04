@@ -1,9 +1,9 @@
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
-import "@/styles/sites/ctrl-xyz-d5a73559/site.css";
-import "@/styles/sites/ctrl-xyz-d5a73559/definica.css";
+import "@/styles/sites/definica/site.css";
+import "@/styles/sites/definica/definica.css";
 
-const SEO = "/sites/ctrl-xyz-d5a73559/shared/seo";
+const SEO = "/sites/definica/shared/seo";
 const title = "Definica — Stake ETH. Unlock Utility. Earn Multi-Layer Rewards.";
 const description =
   "Definica is a hybrid Ethereum-native staking, liquidity, and collateralized borrowing protocol designed around StakeWise-compatible ETH staking infrastructure, osETH composability, Aave-compatible osETH flows, and fixed-duration aEthosETH lock-ups.";

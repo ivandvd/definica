@@ -1,0 +1,850 @@
+{
+  "hero": {
+    "surtitle": "Unlock Utility.\nEarn Multi-Layer Rewards.",
+    "title": "Stake ETH"
+  },
+  "seo": {
+    "description": "Definica is a hybrid Ethereum-native staking, liquidity, and collateralized borrowing protocol designed around StakeWise-compatible ETH staking infrastructure, osETH composability, Aave-compatible osETH flows, and fixed-duration aEthosETH lock-ups.",
+    "image": {
+      "url": "/sites/definica/shared/seo/og-image.png"
+    },
+    "title": "Definica — Stake ETH. Unlock Utility. Earn Multi-Layer Rewards."
+  },
+  "slices": [
+    {
+      "componentName": "SliceScrollableAppScreens",
+      "screen": "intro",
+      "items": [
+        {
+          "_key": "28b2f8f8af7c",
+          "_type": "item",
+          "iconFile": {
+            "url": "/sites/definica/root-8a5edab2/cms/eth-coins.json"
+          },
+          "tag": "Stage 1",
+          "text": "Pooled in a dedicated StakeWise Vault. No validator to run.",
+          "title": "Pool your ETH. Keep your share.",
+          "titleIcon": "eth",
+          "screen": "stake"
+        },
+        {
+          "_key": "838ae99b566c",
+          "_type": "item",
+          "iconFile": {
+            "url": "/sites/definica/root-8a5edab2/cms/eth-coins-stacked.json"
+          },
+          "tag": "Stage 2",
+          "text": "The core layer for locking Aave-supplied osETH, held as aEthosETH.",
+          "title": "Main Liquidity Module.",
+          "titleIcon": "lock",
+          "screen": "liquidity"
+        },
+        {
+          "_key": "019373aa7755",
+          "_type": "item",
+          "iconFile": {
+            "url": "/sites/definica/root-8a5edab2/cms/balance.json"
+          },
+          "tag": "Stage 3",
+          "text": "Planned: borrow osETH or osETH-linked liquidity under protocol-defined risk parameters.",
+          "title": "Borrowing for ETH-correlated collateral.",
+          "titleIcon": "balance",
+          "screen": "borrow"
+        }
+      ],
+      "sliceId": "sliceScrollableAppScreens"
+    },
+    {
+      "blockchains": [
+        {
+          "color": "#9dc4f5",
+          "icon": {
+            "_type": "image",
+            "image": {
+              "alt": "Ethereum",
+              "dimensions": {
+                "aspectRatio": 0.6338028169014085,
+                "width": 45,
+                "height": 71
+              },
+              "fullUrl": "/sites/definica/root-8a5edab2/glyphs/ethereum.svg",
+              "lqip": null,
+              "url": "/sites/definica/root-8a5edab2/glyphs/ethereum.svg"
+            }
+          },
+          "isFeatured": true,
+          "name": "Ethereum",
+          "slug": "ethereum"
+        },
+        {
+          "color": "#d1f500",
+          "icon": {
+            "_type": "image",
+            "image": {
+              "alt": "Definica Core",
+              "dimensions": {
+                "aspectRatio": 1,
+                "width": 24,
+                "height": 24
+              },
+              "fullUrl": "/sites/definica/root-8a5edab2/glyphs/definica-core.svg",
+              "lqip": null,
+              "url": "/sites/definica/root-8a5edab2/glyphs/definica-core.svg"
+            }
+          },
+          "isFeatured": true,
+          "name": "Definica Core",
+          "slug": "definica-core"
+        },
+        {
+          "color": "#ffcadc",
+          "icon": {
+            "_type": "image",
+            "image": {
+              "alt": "StakeWise Vault",
+              "dimensions": {
+                "aspectRatio": 1,
+                "width": 48,
+                "height": 48
+              },
+              "fullUrl": "/sites/definica/root-8a5edab2/glyphs/stakewise-vault.svg",
+              "lqip": null,
+              "url": "/sites/definica/root-8a5edab2/glyphs/stakewise-vault.svg"
+            }
+          },
+          "isFeatured": true,
+          "name": "StakeWise Vault",
+          "slug": "stakewise-vault"
+        },
+        {
+          "color": "#e2f2e5",
+          "icon": {
+            "_type": "image",
+            "image": {
+              "alt": "Validators",
+              "dimensions": {
+                "aspectRatio": 1,
+                "width": 48,
+                "height": 48
+              },
+              "fullUrl": "/sites/definica/root-8a5edab2/glyphs/validators.svg",
+              "lqip": null,
+              "url": "/sites/definica/root-8a5edab2/glyphs/validators.svg"
+            }
+          },
+          "isFeatured": true,
+          "name": "Validators",
+          "slug": "validators"
+        },
+        {
+          "color": "#fbe74e",
+          "icon": {
+            "_type": "image",
+            "image": {
+              "alt": "Vault shares",
+              "dimensions": {
+                "aspectRatio": 1,
+                "width": 48,
+                "height": 48
+              },
+              "fullUrl": "/sites/definica/root-8a5edab2/glyphs/vault-shares.svg",
+              "lqip": null,
+              "url": "/sites/definica/root-8a5edab2/glyphs/vault-shares.svg"
+            }
+          },
+          "isFeatured": true,
+          "name": "Vault shares",
+          "slug": "vault-shares"
+        },
+        {
+          "color": "#9ca69e",
+          "icon": {
+            "_type": "image",
+            "image": {
+              "alt": "Share locks",
+              "dimensions": {
+                "aspectRatio": 1,
+                "width": 48,
+                "height": 48
+              },
+              "fullUrl": "/sites/definica/root-8a5edab2/glyphs/share-locks.svg",
+              "lqip": null,
+              "url": "/sites/definica/root-8a5edab2/glyphs/share-locks.svg"
+            }
+          },
+          "isFeatured": true,
+          "name": "Share locks",
+          "slug": "share-locks"
+        },
+        {
+          "color": "#ff5a4d",
+          "icon": {
+            "_type": "image",
+            "image": {
+              "alt": "Exit queue",
+              "dimensions": {
+                "aspectRatio": 1,
+                "width": 48,
+                "height": 48
+              },
+              "fullUrl": "/sites/definica/root-8a5edab2/glyphs/exit-queue.svg",
+              "lqip": null,
+              "url": "/sites/definica/root-8a5edab2/glyphs/exit-queue.svg"
+            }
+          },
+          "isFeatured": true,
+          "name": "Exit queue",
+          "slug": "exit-queue"
+        },
+        {
+          "color": "#24a3e3",
+          "icon": {
+            "_type": "image",
+            "image": {
+              "alt": "Keeper",
+              "dimensions": {
+                "aspectRatio": 1,
+                "width": 48,
+                "height": 48
+              },
+              "fullUrl": "/sites/definica/root-8a5edab2/glyphs/keeper.svg",
+              "lqip": null,
+              "url": "/sites/definica/root-8a5edab2/glyphs/keeper.svg"
+            }
+          },
+          "isFeatured": true,
+          "name": "Keeper",
+          "slug": "keeper"
+        },
+        {
+          "color": "#fbe74e",
+          "icon": {
+            "_type": "image",
+            "image": {
+              "alt": "Treasury",
+              "dimensions": {
+                "aspectRatio": 1,
+                "width": 48,
+                "height": 48
+              },
+              "fullUrl": "/sites/definica/root-8a5edab2/glyphs/treasury.svg",
+              "lqip": null,
+              "url": "/sites/definica/root-8a5edab2/glyphs/treasury.svg"
+            }
+          },
+          "isFeatured": true,
+          "name": "Treasury",
+          "slug": "treasury"
+        },
+        {
+          "color": "#e2f2e5",
+          "icon": {
+            "_type": "image",
+            "image": {
+              "alt": "osETH",
+              "dimensions": {
+                "aspectRatio": 1,
+                "width": 48,
+                "height": 48
+              },
+              "fullUrl": "/sites/definica/root-8a5edab2/glyphs/oseth.svg",
+              "lqip": null,
+              "url": "/sites/definica/root-8a5edab2/glyphs/oseth.svg"
+            }
+          },
+          "isFeatured": true,
+          "name": "osETH",
+          "slug": "oseth"
+        },
+        {
+          "color": "#ffcadc",
+          "icon": {
+            "_type": "image",
+            "image": {
+              "alt": "Aave V3",
+              "dimensions": {
+                "aspectRatio": 1,
+                "width": 48,
+                "height": 48
+              },
+              "fullUrl": "/sites/definica/root-8a5edab2/glyphs/aave-v3.svg",
+              "lqip": null,
+              "url": "/sites/definica/root-8a5edab2/glyphs/aave-v3.svg"
+            }
+          },
+          "isFeatured": true,
+          "name": "Aave V3",
+          "slug": "aave-v3"
+        },
+        {
+          "color": "#9dc4f5",
+          "icon": {
+            "_type": "image",
+            "image": {
+              "alt": "aEthosETH",
+              "dimensions": {
+                "aspectRatio": 1,
+                "width": 48,
+                "height": 48
+              },
+              "fullUrl": "/sites/definica/root-8a5edab2/glyphs/aethoseth.svg",
+              "lqip": null,
+              "url": "/sites/definica/root-8a5edab2/glyphs/aethoseth.svg"
+            }
+          },
+          "isFeatured": true,
+          "name": "aEthosETH",
+          "slug": "aethoseth"
+        },
+        {
+          "color": "#ff5a4d",
+          "icon": {
+            "_type": "image",
+            "image": {
+              "alt": "Liquidity Module",
+              "dimensions": {
+                "aspectRatio": 1,
+                "width": 48,
+                "height": 48
+              },
+              "fullUrl": "/sites/definica/root-8a5edab2/glyphs/liquidity-module.svg",
+              "lqip": null,
+              "url": "/sites/definica/root-8a5edab2/glyphs/liquidity-module.svg"
+            }
+          },
+          "isFeatured": true,
+          "name": "Liquidity Module",
+          "slug": "liquidity-module"
+        },
+        {
+          "color": "#9ca69e",
+          "icon": {
+            "_type": "image",
+            "image": {
+              "alt": "Borrowing markets",
+              "dimensions": {
+                "aspectRatio": 1,
+                "width": 48,
+                "height": 48
+              },
+              "fullUrl": "/sites/definica/root-8a5edab2/glyphs/borrowing-markets.svg",
+              "lqip": null,
+              "url": "/sites/definica/root-8a5edab2/glyphs/borrowing-markets.svg"
+            }
+          },
+          "isFeatured": true,
+          "name": "Borrowing markets",
+          "slug": "borrowing-markets"
+        }
+      ],
+      "componentName": "SliceBlockchainsSearch",
+      "placeholder": "Search",
+      "sliceId": "sliceBlockchainsSearch",
+      "text": "Definica is designed to connect pooled ETH staking through StakeWise Vault infrastructure with osETH liquidity and Aave V3 Ethereum supply positions represented by aEthosETH. Together, these components create the foundation for liquidity locks, protocol incentives, and future borrowing markets for approved ETH-correlated collaterals.",
+      "title": "DeFi Infrastructure."
+    },
+    {
+      "componentName": "SliceTitleListVertical",
+      "items": [
+        {
+          "_key": "9600a6d4b906",
+          "_type": "item",
+          "text": [
+            {
+              "_key": "blk0001",
+              "_type": "block",
+              "children": [
+                {
+                  "_key": "spn0002",
+                  "_type": "span",
+                  "marks": [],
+                  "text": "Vault shares are accounting units. Your position is your proportion of the Vault and its net performance after fees."
+                }
+              ],
+              "markDefs": [],
+              "style": "normal"
+            }
+          ],
+          "title": "Shares, not fixed balances",
+          "scene": "shares",
+          "tone": "baby"
+        },
+        {
+          "_key": "5b8d94cb3d67",
+          "_type": "item",
+          "text": [
+            {
+              "_key": "blk0003",
+              "_type": "block",
+              "children": [
+                {
+                  "_key": "spn0004",
+                  "_type": "span",
+                  "marks": [],
+                  "text": "Staking performance, Aave supply interest and any Definica incentives are shown as separate components."
+                }
+              ],
+              "markDefs": [],
+              "style": "normal"
+            }
+          ],
+          "title": "Every layer, kept apart",
+          "scene": "layers",
+          "tone": "lemonade"
+        },
+        {
+          "_key": "acffae178d1f",
+          "_type": "item",
+          "text": [
+            {
+              "_key": "blk0005",
+              "_type": "block",
+              "children": [
+                {
+                  "_key": "spn0006",
+                  "_type": "span",
+                  "marks": [],
+                  "text": "Each layer names the contract that manages it, so you can trace a position from deposit to exit."
+                }
+              ],
+              "markDefs": [],
+              "style": "normal"
+            }
+          ],
+          "title": "Know which contract holds it",
+          "scene": "contracts",
+          "tone": "sky"
+        }
+      ],
+      "sliceId": "sliceTitleListVertical",
+      "surtitle": "Position",
+      "title": {
+        "forceWrapBeforeIcon": null,
+        "icon": null,
+        "iconFile": {
+          "url": "/sites/definica/root-8a5edab2/cms/vault-pie.json"
+        },
+        "iconPos": 3,
+        "iconPosMobile": 6,
+        "title": "See every part \nof your position."
+      }
+    },
+    {
+      "componentName": "SliceTitleListGrid",
+      "items": [
+        {
+          "_key": "0e917a1225fb",
+          "_type": "item",
+          "title": "Stage 1 · Pooled ETH staking \nthrough a dedicated StakeWise Vault.",
+          "scene": "stage1"
+        },
+        {
+          "_key": "48c92ee26549",
+          "_type": "item",
+          "title": "Stage 2 · Main Liquidity Module. \nPlanned fixed-duration aEthosETH lock-ups.",
+          "scene": "stage2"
+        },
+        {
+          "_key": "bed376c1650f",
+          "_type": "item",
+          "title": "Stage 3 · Borrowing markets. \nParameters published before activation.",
+          "scene": "stage3"
+        }
+      ],
+      "sliceId": "sliceTitleListGrid",
+      "surtitle": "Three stages",
+      "title": {
+        "forceWrapBeforeIcon": null,
+        "icon": null,
+        "iconFile": {
+          "url": "/sites/definica/root-8a5edab2/cms/definica-mark-playful.json"
+        },
+        "iconPos": 3,
+        "title": "Stake, lock, borrow."
+      }
+    },
+    {
+      "componentName": "SliceTitleListVertical",
+      "sliceId": "sliceMechanisms",
+      "items": [
+        {
+          "_key": "mech01",
+          "_type": "item",
+          "text": [
+            {
+              "_key": "blkm01",
+              "_type": "block",
+              "children": [
+                {
+                  "_key": "spnm01",
+                  "_type": "span",
+                  "marks": [],
+                  "text": "Your ETH goes to DefinicaCore, which forwards it to the dedicated StakeWise Vault and credits your Vault shares. The Vault funds validators, and their rewards accrue to every share."
+                }
+              ],
+              "markDefs": [],
+              "style": "normal"
+            }
+          ],
+          "title": "One deposit, put to work",
+          "scene": "pooled",
+          "tone": "mint"
+        },
+        {
+          "_key": "mech02",
+          "_type": "item",
+          "text": [
+            {
+              "_key": "blkm02",
+              "_type": "block",
+              "children": [
+                {
+                  "_key": "spnm02",
+                  "_type": "span",
+                  "marks": [],
+                  "text": "Definica's multisig can donate ETH, adding assets, or burn its own Vault shares, reducing supply. Either way, each remaining share is backed by more ETH."
+                }
+              ],
+              "markDefs": [],
+              "style": "normal"
+            }
+          ],
+          "title": "Two routes to a stronger share",
+          "scene": "treasury",
+          "tone": "lemonade"
+        },
+        {
+          "_key": "mech03",
+          "_type": "item",
+          "text": [
+            {
+              "_key": "blkm03",
+              "_type": "block",
+              "children": [
+                {
+                  "_key": "spnm03",
+                  "_type": "span",
+                  "marks": [],
+                  "text": "Supply osETH to Aave V3, then commit the aEthosETH to the Main Liquidity Module. It records custody and any funding loan sent to the lending markets."
+                }
+              ],
+              "markDefs": [],
+              "style": "normal"
+            }
+          ],
+          "title": "Liquidity, committed",
+          "scene": "commit",
+          "tone": "baby"
+        },
+        {
+          "_key": "mech04",
+          "_type": "item",
+          "text": [
+            {
+              "_key": "blkm04",
+              "_type": "block",
+              "children": [
+                {
+                  "_key": "spnm04",
+                  "_type": "span",
+                  "marks": [],
+                  "text": "Borrowers pay interest on loans against approved ETH-correlated collateral. Of the lending interest attributable to you, 75% is allocated to you and 25% to Definica."
+                }
+              ],
+              "markDefs": [],
+              "style": "normal"
+            }
+          ],
+          "title": "Interest, split in the open",
+          "scene": "returns",
+          "tone": "sky"
+        },
+        {
+          "_key": "mech05",
+          "_type": "item",
+          "text": [
+            {
+              "_key": "blkm05",
+              "_type": "block",
+              "children": [
+                {
+                  "_key": "spnm05",
+                  "_type": "span",
+                  "marks": [],
+                  "text": "StakeWise Vaults give Definica what it needs: independent Vault administration, proportional accounting and adoption of approved upgrades."
+                }
+              ],
+              "markDefs": [],
+              "style": "normal"
+            }
+          ],
+          "title": "Built on StakeWise",
+          "scene": "stakewise",
+          "tone": "mint"
+        },
+        {
+          "_key": "mech06",
+          "_type": "item",
+          "text": [
+            {
+              "_key": "blkm06",
+              "_type": "block",
+              "children": [
+                {
+                  "_key": "spnm06",
+                  "_type": "span",
+                  "marks": [],
+                  "text": "Definica brings new users and their ETH to StakeWise through wallet, portfolio-app and aggregator integrations. Only net new ETH counts, not transfers between Vaults."
+                }
+              ],
+              "markDefs": [],
+              "style": "normal"
+            }
+          ],
+          "title": "New stake for StakeWise",
+          "scene": "growth",
+          "tone": "baby"
+        }
+      ],
+      "surtitle": "Mechanisms",
+      "title": {
+        "forceWrapBeforeIcon": null,
+        "icon": null,
+        "iconFile": {
+          "url": "/sites/definica/root-8a5edab2/cms/gears.json"
+        },
+        "iconPos": 3,
+        "title": "Watch it work."
+      }
+    },
+    {
+      "componentName": "SliceTitleListHorizontal",
+      "items": [
+        {
+          "_key": "563fc402551a",
+          "_type": "item",
+          "text": "Rewards depend on validator performance.",
+          "title": "Staking & validator",
+          "scene": "validators",
+          "tone": "lemonade"
+        },
+        {
+          "_key": "d59f8801eac4",
+          "_type": "item",
+          "text": "Verify every address Definica publishes.",
+          "title": "Smart contract risk",
+          "scene": "contract",
+          "tone": "sky"
+        },
+        {
+          "_key": "797b7095a09b",
+          "_type": "item",
+          "text": "osETH rates and Aave conditions change over time.",
+          "title": "Market & liquidity",
+          "scene": "market",
+          "tone": "baby"
+        },
+        {
+          "_key": "3ba23af16674",
+          "_type": "item",
+          "text": "Debt, interest, oracles and liquidation apply.",
+          "title": "Borrowing risk",
+          "scene": "borrowRisk",
+          "tone": "mint"
+        }
+      ],
+      "sliceId": "sliceTitleListHorizontal",
+      "surtitle": "Risks, stated up front",
+      "title": {
+        "forceWrapBeforeIcon": null,
+        "icon": null,
+        "iconFile": {
+          "url": "/sites/definica/root-8a5edab2/cms/shield-check.json"
+        },
+        "iconPos": 6,
+        "title": "The honest way \nto stake ETH"
+      }
+    },
+    {
+      "button": {
+        "linkType": "externalLink",
+        "title": "Ask the community",
+        "to": "https://t.me/definica",
+        "trailingSlash": false,
+        "openInNewTab": true
+      },
+      "componentName": "SliceFAQ",
+      "items": [
+        {
+          "_type": "item",
+          "answer": [
+            {
+              "_key": "blk0007",
+              "_type": "block",
+              "children": [
+                {
+                  "_key": "spn0008",
+                  "_type": "span",
+                  "marks": [],
+                  "text": "Definica is a hybrid Ethereum-native staking, liquidity, and collateralized borrowing protocol designed around StakeWise-compatible ETH staking infrastructure, osETH composability, Aave-compatible osETH flows, and fixed-duration aEthosETH lock-ups. Each module is activated separately, and a roadmap feature should be treated as planned until Definica publishes its contracts and identifies it as live."
+                }
+              ],
+              "markDefs": [],
+              "style": "normal"
+            }
+          ],
+          "question": "What is Definica?"
+        },
+        {
+          "_type": "item",
+          "answer": [
+            {
+              "_key": "blk0009",
+              "_type": "block",
+              "children": [
+                {
+                  "_key": "spn000a",
+                  "_type": "span",
+                  "marks": [],
+                  "text": "No. Eligible deposits are combined in a dedicated StakeWise Vault, and the selected operator runs the validators. Definica Core records your proportional position. Vault capacity, fees and participation conditions are shown before you confirm a transaction."
+                }
+              ],
+              "markDefs": [],
+              "style": "normal"
+            }
+          ],
+          "question": "Do I need to run my own validator?"
+        },
+        {
+          "_type": "item",
+          "answer": [
+            {
+              "_key": "blk000b",
+              "_type": "block",
+              "children": [
+                {
+                  "_key": "spn000c",
+                  "_type": "span",
+                  "marks": [],
+                  "text": "Definica uses share-based accounting. Definica Core holds the aggregate Vault position and records each user's proportion. Vault shares are accounting units rather than a fixed one-share-to-one-ETH balance, so your position reflects your share of the Vault and its net performance after protocol and operator fees."
+                }
+              ],
+              "markDefs": [],
+              "style": "normal"
+            }
+          ],
+          "question": "How are my position and rewards recorded?"
+        },
+        {
+          "_type": "item",
+          "answer": [
+            {
+              "_key": "blk000d",
+              "_type": "block",
+              "children": [
+                {
+                  "_key": "spn000e",
+                  "_type": "span",
+                  "marks": [],
+                  "text": "StakeWise provides the Vault infrastructure for the pooled staking layer. osETH is StakeWise's liquid staking token, whose exchange rate reflects accumulated staking performance. aEthosETH is the Aave V3 Ethereum aToken for the osETH reserve; supplying osETH to that market creates a position represented by aEthosETH."
+                }
+              ],
+              "markDefs": [],
+              "style": "normal"
+            }
+          ],
+          "question": "Why StakeWise, and what are osETH and aEthosETH?"
+        },
+        {
+          "_type": "item",
+          "answer": [
+            {
+              "_key": "blk000f",
+              "_type": "block",
+              "children": [
+                {
+                  "_key": "spn000g",
+                  "_type": "span",
+                  "marks": [],
+                  "text": "In Stage 1 you deposit ETH through Definica Core, which routes eligible ETH to the dedicated Vault and records your position. A withdrawal may use available liquidity or require validator exits before ETH becomes claimable. Stage 2 adds a separate path where eligible osETH is supplied to Aave V3 and the aEthosETH position can be locked in the Main Liquidity Module."
+                }
+              ],
+              "markDefs": [],
+              "style": "normal"
+            }
+          ],
+          "question": "How will deposits, locks and withdrawals work?"
+        },
+        {
+          "_type": "item",
+          "answer": [
+            {
+              "_key": "blk0101",
+              "_type": "block",
+              "children": [
+                {
+                  "_key": "spn0101",
+                  "_type": "span",
+                  "marks": [],
+                  "text": "Stage 1's specified design supports optional share locks of 7 to 365 days, with up to 10 lock positions at a time. Locked shares stay in reward accounting. These Core locks are separate from the planned fixed-duration aEthosETH lock-ups of Stage 2."
+                }
+              ],
+              "markDefs": [],
+              "style": "normal"
+            }
+          ],
+          "question": "Can I lock my Vault shares?"
+        },
+        {
+          "_type": "item",
+          "answer": [
+            {
+              "_key": "blk0102",
+              "_type": "block",
+              "children": [
+                {
+                  "_key": "spn0102",
+                  "_type": "span",
+                  "marks": [],
+                  "text": "No. Staking rewards depend on validator performance, and later layers depend on market conditions. Treasury contributions to the Vault are discretionary and budget-dependent, and they do not establish a guaranteed APY."
+                }
+              ],
+              "markDefs": [],
+              "style": "normal"
+            }
+          ],
+          "question": "Does Definica guarantee a return?"
+        },
+        {
+          "_type": "item",
+          "answer": [
+            {
+              "_key": "blk000h",
+              "_type": "block",
+              "children": [
+                {
+                  "_key": "spn000i",
+                  "_type": "span",
+                  "marks": [],
+                  "text": "The three stages describe a development sequence, not three features that are already active. The three stages are delivered through six milestones, and progress is tied to evidence and readiness rather than a fixed launch date. A module should be considered live only after Definica publishes its supported network, verified contract addresses, parameters, documentation and enabled interface. The deployed onchain configuration remains the final source of truth."
+                }
+              ],
+              "markDefs": [],
+              "style": "normal"
+            }
+          ],
+          "question": "Which features are live, and how is security handled?"
+        }
+      ],
+      "sliceId": "sliceFAQ",
+      "surtitle": "Any questions?",
+      "title": {
+        "forceWrapBeforeIcon": null,
+        "icon": null,
+        "iconFile": null,
+        "iconPos": null,
+        "title": "FAQ"
+      }
+    }
+  ]
+}

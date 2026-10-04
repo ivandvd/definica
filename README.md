@@ -1,6 +1,6 @@
 # Definica
 
-A Next.js 16 app (App Router, React 19, TypeScript). The home page is currently a port of the ctrl.xyz home page, with its content, fonts, videos and Lottie animations served locally.
+The Definica landing page: a Next.js 16 app (App Router, React 19, TypeScript) for a hybrid Ethereum-native staking, liquidity and collateralized borrowing protocol. Its sections are illustrated with live GSAP-animated scenes and Lottie icons, all served locally.
 
 ## Getting started
 
@@ -34,14 +34,14 @@ docker compose up dev --build   # Dev mode on port 3001
 
 ```
 src/
-  app/                            Routes, root layout, global CSS
+  app/                        Routes, root layout, global CSS
   components/
-    sites/ctrl-xyz-d5a73559/
-      root-8a5edab2/              Home page and its sections
-      shared/                     Header, footer, app shell, shared helpers
-    ui/                           shadcn/ui primitives
-  data/sites/ctrl-xyz-d5a73559/   Page content and site settings (JSON)
-  styles/sites/ctrl-xyz-d5a73559/ Site stylesheet
+    sites/definica/
+      root-8a5edab2/          Home page, its sections, phone screens and animated scenes
+      shared/                 Header, footer, app shell, shared helpers
+    ui/                       shadcn/ui primitives
+  data/sites/definica/        Page content and site settings (JSON)
+  styles/sites/definica/      Site stylesheet and Definica overrides
 public/
-  sites/ctrl-xyz-d5a73559/        Fonts, videos, images, Lottie files, favicons
+  sites/definica/             Fonts, images, stickers, glyphs, Lottie files, favicons
 ```

@@ -8,20 +8,23 @@
           {
             "linkType": "internalLink",
             "title": "Staking",
-            "to": "/#staking",
-            "trailingSlash": false
+            "to": {
+              "path": "/staking"
+            }
           },
           {
             "linkType": "internalLink",
             "title": "Liquidity Module",
-            "to": "/#liquidity",
-            "trailingSlash": false
+            "to": {
+              "path": "/liquidity"
+            }
           },
           {
             "linkType": "internalLink",
             "title": "Borrowing",
-            "to": "/#borrowing",
-            "trailingSlash": false
+            "to": {
+              "path": "/borrowing"
+            }
           },
           {
             "linkType": "internalLink",
@@ -35,10 +38,11 @@
         "title": "Company",
         "links": [
           {
-            "linkType": "externalLink",
+            "linkType": "internalLink",
             "title": "About",
-            "to": "https://www.definica.com/about",
-            "trailingSlash": false
+            "to": {
+              "path": "/about"
+            }
           },
           {
             "linkType": "internalLink",
@@ -48,9 +52,9 @@
             }
           },
           {
-            "linkType": "externalLink",
+            "linkType": "internalLink",
             "title": "Contact",
-            "to": "https://www.definica.com/contact",
+            "to": "/about#contact",
             "trailingSlash": false
           }
         ]
@@ -115,14 +119,16 @@
       {
         "linkType": "internalLink",
         "title": "Staking",
-        "to": "/#staking",
-        "trailingSlash": false
+        "to": {
+          "path": "/staking"
+        }
       },
       {
         "linkType": "internalLink",
         "title": "Borrowing",
-        "to": "/#borrowing",
-        "trailingSlash": false
+        "to": {
+          "path": "/borrowing"
+        }
       },
       {
         "linkType": "internalLink",
@@ -139,10 +145,11 @@
         }
       },
       {
-        "linkType": "externalLink",
+        "linkType": "internalLink",
         "title": "About",
-        "to": "https://www.definica.com/about",
-        "trailingSlash": false
+        "to": {
+          "path": "/about"
+        }
       }
     ]
   },

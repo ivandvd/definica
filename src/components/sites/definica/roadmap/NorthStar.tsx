@@ -2,10 +2,10 @@
 
 import { Fragment, useRef } from "react";
 import { roadmap } from "./content";
-import { useScrubWords } from "./motion";
+import { useScrubWords } from "../shared/motion";
 import styles from "./roadmap.module.css";
 import { Scenery } from "./Scenery";
-import { SectionHead } from "./SectionHead";
+import { SectionHead } from "../shared/SectionHead";
 
 const { northStar } = roadmap;
 

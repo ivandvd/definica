@@ -14,7 +14,7 @@ Take Definica's addresses only from the official interface, and confirm them in 
 
 ## Definica contracts
 
-Definica's contract addresses are listed in the app (the Contracts card on the Stake screen lists DefinicaCore, the Vault and the Keeper) and shown again by your wallet before you sign. Check them on a block explorer before sending funds.
+This page is where you check Definica's contract addresses. When you confirm a transaction in the app, your wallet shows the address of the contract it goes to: look that address up on a block explorer and run the checks for that contract, in the table below and under [How to verify a Definica address](#how-to-verify-a-definica-address), before you send funds.
 
 | Contract | What it does | What to check |
 |---|---|---|
@@ -59,12 +59,12 @@ Address books change. Re-check the linked source before relying on any entry.
 
 ## How to verify a Definica address
 
-1. **Find it in the app, then in your wallet.** The app lists it (for Phase 1, on the Contracts card of the Stake screen), and your wallet shows it again before you sign; the two must agree. Never use an address from a chat, a post or a screenshot.
+1. **Start from your wallet.** When you confirm a transaction in the app, your wallet shows the contract it goes to. Look that address up on a block explorer and run the checks below on it. Never use an address from a chat, a post or a screenshot.
 2. **Check the source is verified** on a block explorer and matches the release's source revision and compiler settings.
 3. **Read the proxy.** The ERC-1967 implementation slot should point at the implementation, and the admin slot at the expected admin; see [Control model](/security/control-model).
-4. **For the Vault:** `VaultsRegistry.vaults(vault)` is true; `Keeper.isCollateralized(vault)` is true before you deposit; `capacity()`, `feePercent()`, `feeRecipient()`, `admin()` and `version()` match what the app shows.
-5. **For Core:** `Vault.getShares(core)` is non-zero once deposits exist, and the Vault and Keeper that Core is configured with match the Vault shown in the app and StakeWise's Keeper above.
-6. **Before signing:** your wallet shows the same address, network, function and amount as the interface.
+4. **For the Vault:** `VaultsRegistry.vaults(vault)` is true; `Keeper.isCollateralized(vault)` is true before you deposit; `capacity()` and `feePercent()` match the capacity and Vault fee the app shows; `feeRecipient()`, `admin()` and `version()` show who receives the fee, who administers the Vault and which version it runs.
+5. **For Core:** `Vault.getShares(core)` is non-zero once deposits exist, and the Vault and Keeper that Core is configured with match the Vault you checked in step 4 and StakeWise's Keeper above.
+6. **Before signing:** your wallet shows the address you checked, Ethereum as the network, and the amount from the app's review.
 
 ## Related
 

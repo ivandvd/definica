@@ -18,6 +18,7 @@ const SKY = "#9dc4f5";
 const BABY = "#ffcadc";
 const LEMON = "#fbe74e";
 const GREEN = "#05c92f";
+const CORAL = "#ff5a4d";
 
 const BLOB = "M12.4 2.3c3.5-.2 7.6 1.6 8.9 5 1.2 3.1-.3 5.4.2 8.2.4 2.7-2 5.6-5.4 6.1-3 .4-4.6-1.3-7.6-1.1-3 .2-5.6-1.7-6.1-4.9-.5-3.1 1.6-4.4 1.6-7.4C4 4.9 7.9 2.5 12.4 2.3Z";
 const SPARKLE = "M12 1.5C12.8 7.4 16.6 11.2 22.5 12 16.6 12.8 12.8 16.6 12 22.5 11.2 16.6 7.4 12.8 1.5 12 7.4 11.2 11.2 7.4 12 1.5Z";
@@ -108,7 +109,8 @@ function RoadGraphic() {
 }
 
 /** App and docs: a card of the three layers, as in the app's "Your layers". */
-function LayersGraphic({ rows }: { rows: { name: string; tone: string }[] }) {
+/** Three rows with a pill each: "Phase n" unless a row brings its own tag. */
+function LayersGraphic({ rows }: { rows: { name: string; tone: string; tag?: string }[] }) {
   return (
     <div style={{ position: "relative", display: "flex", width: 470, height: 470 }}>
       <div
@@ -150,12 +152,14 @@ function LayersGraphic({ rows }: { rows: { name: string; tone: string }[] }) {
                 whiteSpace: "nowrap",
                 padding: "5px 14px",
                 borderRadius: 999,
-                background: "#d5f4e6",
-                color: "#138a3b",
+                // "Coming soon" wears the app's lime sticker pill; everything else the walkthrough's green.
+                background: row.tag === "Coming soon" ? LIME : "#d5f4e6",
+                border: row.tag === "Coming soon" ? `2px solid ${INK}` : "2px solid transparent",
+                color: row.tag === "Coming soon" ? INK : "#138a3b",
                 fontSize: 20,
               }}
             >
-              {`Phase ${index + 1}`}
+              {row.tag ?? `Phase ${index + 1}`}
             </div>
           </div>
         ))}
@@ -166,7 +170,118 @@ function LayersGraphic({ rows }: { rows: { name: string; tone: string }[] }) {
   );
 }
 
-export type ShareGraphic = "mark" | "road" | "app" | "docs";
+/** The ETH diamond, centred on (x, y), `h` tall. A plain function: the renderer only reads SVG elements inside an <svg>. */
+function diamond(x: number, y: number, h: number, fill: string = GREEN_INK) {
+  const k = h / 24.5;
+  return (
+    <g transform={`translate(${x} ${y - 0.25 * k}) scale(${k})`} fill={fill}>
+      <path d="M0-12 7.5 0.5 0 5-7.5 0.5Z" />
+      <path d="M-7.5 2.4 0 6.9 7.5 2.4 0 12.5Z" />
+    </g>
+  );
+}
+
+const OUTLINE = { stroke: GREEN_INK, strokeWidth: 3, strokeLinejoin: "round", strokeLinecap: "round" } as const;
+
+/** Staking: the dedicated Vault, with a coin about to drop into its slot. */
+function VaultGraphic() {
+  return (
+    <div style={{ position: "relative", display: "flex", width: 470, height: 470 }}>
+      <svg width={470} height={470} viewBox="0 0 470 470" style={{ position: "absolute", left: 0, top: 0 }}>
+        <circle cx="235" cy="252" r="200" fill="#e2f2e5" />
+        <rect x="134" y="390" width="36" height="26" rx="7" fill={GREEN_INK} />
+        <rect x="300" y="390" width="36" height="26" rx="7" fill={GREEN_INK} />
+        <rect x="100" y="142" width="270" height="258" rx="32" fill={BABY} {...OUTLINE} />
+        <rect x="124" y="166" width="222" height="210" rx="22" fill="#ffffff" {...OUTLINE} />
+        <rect x="114" y="196" width="16" height="40" rx="5" fill={GREEN_INK} />
+        <rect x="114" y="306" width="16" height="40" rx="5" fill={GREEN_INK} />
+        <circle cx="214" cy="271" r="64" fill={LEMON} {...OUTLINE} />
+        <circle cx="214" cy="271" r="35" fill="#ffffff" {...OUTLINE} />
+        <path d="M198 271h32M214 255v32" stroke={GREEN_INK} strokeWidth={6} strokeLinecap="round" />
+        <circle cx="214" cy="271" r="8" fill={GREEN_INK} />
+        <rect x="302" y="226" width="22" height="90" rx="11" fill={LIME} {...OUTLINE} />
+        <rect x="168" y="133" width="134" height="18" rx="9" fill={GREEN_INK} />
+        <circle cx="235" cy="86" r="40" fill={LEMON} {...OUTLINE} />
+        <circle cx="235" cy="86" r="29" fill="none" stroke={GREEN_INK} strokeWidth={2} opacity={0.4} />
+        {diamond(235, 86, 40)}
+      </svg>
+      <Sparkle size={54} fill={LIME} x={386} y={56} />
+      <Blob size={46} fill={SKY} x={26} y={66} />
+      <Blob size={36} fill={GREEN} x={404} y={392} />
+    </div>
+  );
+}
+
+/** Main Liquidity Module: osETH into the Aave pool, its receipt out, locked in. */
+function CommitGraphic() {
+  return (
+    <div style={{ position: "relative", display: "flex", width: 470, height: 470 }}>
+      <svg width={470} height={470} viewBox="0 0 470 470" style={{ position: "absolute", left: 0, top: 0 }}>
+        <circle cx="235" cy="246" r="200" fill="#fff1f6" />
+        <path d="M40 300h250c0 72-55 124-125 124S40 372 40 300Z" fill="#ffffff" {...OUTLINE} />
+        <path
+          d="M52 326c17-15 34-15 51 0s34 15 51 0 34-15 51 0 34 15 48-2c-6 50-48 86-98 86s-91-34-103-84Z"
+          fill={SKY}
+          {...OUTLINE}
+        />
+        <circle cx="98" cy="150" r="46" fill={SKY} {...OUTLINE} />
+        <circle cx="98" cy="150" r="34" fill="none" stroke={GREEN_INK} strokeWidth={2} opacity={0.4} />
+        {diamond(98, 150, 46, "#ffffff")}
+        <path d="M128 196c14 22 24 44 30 74" fill="none" stroke={GREEN_INK} strokeWidth={3} strokeDasharray="8 10" strokeLinecap="round" />
+        <g transform="rotate(-10 222 214)">
+          <path
+            d="M170 186a10 10 0 0 1 10-10h104a10 10 0 0 1 10 10v16a16 16 0 0 0 0 32v16a10 10 0 0 1-10 10H180a10 10 0 0 1-10-10v-16a16 16 0 0 0 0-32Z"
+            fill={BABY}
+            {...OUTLINE}
+          />
+          <path d="M262 182v72" stroke={GREEN_INK} strokeWidth={2.4} strokeDasharray="5 5" />
+          <path d="M188 204h52M188 220h38M188 236h46" stroke={GREEN_INK} strokeWidth={3.4} strokeLinecap="round" opacity={0.7} />
+        </g>
+        <path d="M330 206v-30a40 40 0 0 1 80 0v30" fill="none" stroke={GREEN_INK} strokeWidth={17} strokeLinecap="round" />
+        <path d="M330 206v-30a40 40 0 0 1 80 0v30" fill="none" stroke="#d1d6d2" strokeWidth={10} strokeLinecap="round" />
+        <rect x="304" y="196" width="132" height="112" rx="22" fill={LIME} {...OUTLINE} />
+        <circle cx="370" cy="242" r="12" fill={GREEN_INK} />
+        <rect x="364" y="246" width="12" height="34" rx="6" fill={GREEN_INK} />
+      </svg>
+      <Sparkle size={50} fill={LEMON} x={392} y={40} />
+      <Blob size={40} fill={GREEN} x={24} y={36} />
+      <Blob size={34} fill={LIME} x={400} y={392} />
+    </div>
+  );
+}
+
+/** Borrowing: the health gauge, with the collateral stacked beside it. */
+function GaugeGraphic() {
+  return (
+    <div style={{ position: "relative", display: "flex", width: 470, height: 470 }}>
+      <svg width={470} height={470} viewBox="0 0 470 470" style={{ position: "absolute", left: 0, top: 0 }}>
+        <circle cx="235" cy="246" r="200" fill="#fffbe0" />
+        <path d="M55 300a180 180 0 0 1 360 0Z" fill="#ffffff" {...OUTLINE} />
+        <path d="M95 300A140 140 0 0 1 165 178.76" fill="none" stroke={CORAL} strokeWidth={30} />
+        <path d="M165 178.76A140 140 0 0 1 282.88 168.45" fill="none" stroke={LEMON} strokeWidth={30} />
+        <path d="M282.88 168.45A140 140 0 0 1 375 300" fill="none" stroke={GREEN} strokeWidth={30} />
+        <path d="M80 300a155 155 0 0 1 310 0" fill="none" stroke={GREEN_INK} strokeWidth={3} />
+        <path d="M110 300a125 125 0 0 1 250 0" fill="none" stroke={GREEN_INK} strokeWidth={3} />
+        <path d="M235 300 320 214" stroke={GREEN_INK} strokeWidth={10} strokeLinecap="round" />
+        <circle cx="235" cy="300" r="18" fill={GREEN_INK} />
+        <path d="M40 300h390" stroke={GREEN_INK} strokeWidth={4} strokeLinecap="round" />
+        {[390, 370, 350].map((y, i) => (
+          <g key={y}>
+            <path d={`M70 ${y}v14a54 17 0 0 0 108 0v-14`} fill={[LEMON, BABY, SKY][i]} {...OUTLINE} />
+            <ellipse cx="124" cy={y} rx="54" ry="17" fill={[LEMON, BABY, SKY][i]} {...OUTLINE} />
+          </g>
+        ))}
+        <circle cx="352" cy="372" r="40" fill={LIME} {...OUTLINE} />
+        <circle cx="352" cy="372" r="29" fill="none" stroke={GREEN_INK} strokeWidth={2} opacity={0.4} />
+        {diamond(352, 372, 40)}
+      </svg>
+      <Sparkle size={52} fill={LIME} x={384} y={52} />
+      <Blob size={42} fill={BABY} x={30} y={60} />
+    </div>
+  );
+}
+
+export type ShareGraphic = "mark" | "road" | "app" | "docs" | "vault" | "commit" | "gauge";
 
 const GRAPHICS: Record<ShareGraphic, () => ReactNode> = {
   mark: () => <MarkGraphic />,
@@ -174,9 +289,9 @@ const GRAPHICS: Record<ShareGraphic, () => ReactNode> = {
   app: () => (
     <LayersGraphic
       rows={[
-        { name: "Vault shares", tone: LEMON },
-        { name: "Liquidity Module", tone: BABY },
-        { name: "Borrowing", tone: SKY },
+        { name: "Vault shares", tone: LEMON, tag: "Stake" },
+        { name: "Liquidity Module", tone: BABY, tag: "Coming soon" },
+        { name: "Borrowing", tone: SKY, tag: "Coming soon" },
       ]}
     />
   ),
@@ -189,6 +304,9 @@ const GRAPHICS: Record<ShareGraphic, () => ReactNode> = {
       ]}
     />
   ),
+  vault: () => <VaultGraphic />,
+  commit: () => <CommitGraphic />,
+  gauge: () => <GaugeGraphic />,
 };
 
 let fonts: Promise<{ name: string; data: Buffer; weight: 500 | 600; style: "normal" }[]> | null = null;

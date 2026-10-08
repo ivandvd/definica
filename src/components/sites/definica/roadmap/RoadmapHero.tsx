@@ -5,7 +5,7 @@ import { AppButton } from "../shared/AppButton";
 import { SurtitleWithDot } from "../shared/SurtitleWithDot";
 import { TitleWithIcon } from "../shared/TitleWithIcon";
 import { roadmap } from "./content";
-import { useRise } from "./motion";
+import { useRise } from "../shared/motion";
 import styles from "./roadmap.module.css";
 import { Scenery } from "./Scenery";
 

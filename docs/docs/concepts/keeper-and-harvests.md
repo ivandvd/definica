@@ -63,7 +63,7 @@ Between harvests the Vault's figures reflect the last reward update, normally no
 - `isStateUpdateRequired()` on the Vault.
 - The Oracle set and threshold, published by StakeWise.
 
-The Keeper's address is in [Verify addresses](/security/verify-addresses); the Vault's is on the Contracts card of the Stake screen in the app.
+The Keeper's address is in [Verify addresses](/security/verify-addresses), which also sets out how to check the Vault's.
 
 ## Related
 

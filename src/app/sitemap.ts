@@ -4,7 +4,11 @@ import { SITE_URL } from "@/lib/site";
 /** The site's public pages. The docs publish their own sitemap on docs.definica.com. */
 const PAGES: { path: string; changeFrequency: "weekly" | "monthly" | "yearly"; priority: number }[] = [
   { path: "/", changeFrequency: "weekly", priority: 1 },
+  { path: "/staking", changeFrequency: "monthly", priority: 0.9 },
+  { path: "/liquidity", changeFrequency: "monthly", priority: 0.8 },
+  { path: "/borrowing", changeFrequency: "monthly", priority: 0.8 },
   { path: "/roadmap", changeFrequency: "monthly", priority: 0.8 },
+  { path: "/about", changeFrequency: "monthly", priority: 0.7 },
   { path: "/app", changeFrequency: "monthly", priority: 0.7 },
   { path: "/terms", changeFrequency: "yearly", priority: 0.3 },
   { path: "/privacy", changeFrequency: "yearly", priority: 0.3 },

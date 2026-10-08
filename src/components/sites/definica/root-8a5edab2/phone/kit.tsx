@@ -352,13 +352,13 @@ export function PositionCard({ value, valueEl, dataEl, lineEl, fillEl }: {
 }
 
 /** A new position: staked ETH, nothing locked yet and no debt (the empty layers are muted). */
-const LAYERS: { name: string; glyph: GlyphName; color: string; value: string; phase: string; empty: boolean }[] = [
-  { name: "Vault shares", glyph: "vault-shares", color: "#fbe74e", value: "1.00 ETH", phase: "Phase 1", empty: false },
-  { name: "Liquidity Module", glyph: "liquidity-module", color: "#ff5a4d", value: "0.00 aEthosETH", phase: "Phase 2", empty: true },
-  { name: "Borrowing", glyph: "borrowing-markets", color: "#9ca69e", value: "No debt", phase: "Phase 3", empty: true },
+const LAYERS: { name: string; glyph: GlyphName; color: string; value: string; empty: boolean }[] = [
+  { name: "Vault shares", glyph: "vault-shares", color: "#fbe74e", value: "1.00 ETH", empty: false },
+  { name: "Liquidity Module", glyph: "liquidity-module", color: "#ff5a4d", value: "0.00 aEthosETH", empty: true },
+  { name: "Borrowing", glyph: "borrowing-markets", color: "#9ca69e", value: "No debt", empty: true },
 ];
 
-/** "Your layers" header and list: one row per phase of the position. */
+/** "Your layers" header and list: one row per layer of the position. */
 export function LayersList({ headEl, listEl, rowEl }: { headEl?: string; listEl?: string; rowEl?: string }) {
   return (
     <>
@@ -377,7 +377,6 @@ export function LayersList({ headEl, listEl, rowEl }: { headEl?: string; listEl?
               <div className={`${styles.layerValue} ${layer.empty ? styles.layerValueMuted : ""}`}>{layer.value}</div>
             </div>
             <div className={styles.layerSide}>
-              <span className={`${styles.pill} ${styles.pillGreen}`}>{layer.phase}</span>
               <KebabIcon className={styles.kebab} />
             </div>
           </div>

@@ -40,11 +40,11 @@ StakeWise's [VaultsRegistry](/glossary#vaults-registry) is the canonical onchain
 - Your ETH funds only this Vault's validators, and only this Vault's rewards and penalties reach your position.
 - Your shares cannot be moved to another wallet. You leave through the [exit queue](/concepts/exit-queue).
 - The Vault cannot mint osETH, so Phase 1 shares are not an entry to Phase 2; see [osETH](/concepts/oseth).
-- The Vault's capacity, fee, fee recipient, minimum deposit and operator are set per Vault and shown in the app before you confirm, together with the network and the participation conditions.
+- The Vault's capacity, fee, minimum deposit and operator are set per Vault and shown in the app before you confirm, together with the network and the participation conditions. Its fee recipient is one of the Vault settings you can check through [Verify addresses](/security/verify-addresses).
 
 ## What you can verify
 
-The Vault's address is listed on the Contracts card of the Stake screen in the app; the StakeWise registry and Keeper addresses are in [Verify addresses](/security/verify-addresses).
+[Verify addresses](/security/verify-addresses) sets out how to check the Vault's address, and lists the StakeWise registry and Keeper addresses.
 
 | Check | How |
 |---|---|

@@ -1,0 +1,397 @@
+{
+  "seo": {
+    "title": "Staking",
+    "description": "How Definica staking works: ETH pooled in a dedicated StakeWise Vault, your share and its price, harvests every 12 hours, share locks and exits."
+  },
+  "hero": {
+    "surtitle": "Staking",
+    "title": "One Vault, \nyour share.",
+    "text": "Definica pools your ETH in a dedicated StakeWise Vault and records your proportional share of it. The Vault's validators do the staking, so there is no validator for you to run, and each step from deposit to exit can be checked onchain.",
+    "buttons": [
+      {
+        "linkType": "internalLink",
+        "title": "Launch App",
+        "to": {
+          "path": "/app"
+        },
+        "theme": "dark"
+      },
+      {
+        "linkType": "internalLink",
+        "title": "Read the docs",
+        "to": "/docs/phase-1",
+        "trailingSlash": false,
+        "theme": "border-light"
+      }
+    ]
+  },
+  "flow": {
+    "surtitle": "How a deposit flows",
+    "title": "Where your \nETH goes.",
+    "intro": "A deposit is one transaction from your wallet. After that, each contract does one job, and each one can be named and checked.",
+    "stations": [
+      {
+        "icon": "wallet",
+        "name": "Your wallet",
+        "text": "You send ETH to DefinicaCore and sign once you have reviewed the transaction. The minimum deposit is set for the Vault and shown in the app."
+      },
+      {
+        "icon": "core",
+        "name": "DefinicaCore",
+        "text": "Definica's ledger. It accepts deposits only once the Vault has registered validators, forwards your ETH with you recorded as the referrer and credits the returned shares to you."
+      },
+      {
+        "icon": "vault",
+        "name": "StakeWise Vault",
+        "text": "A dedicated Vault that pools deposits. It checks its blocklist and its capacity, mints Vault shares to Core and funds validators once funding requirements are met."
+      },
+      {
+        "icon": "validators",
+        "name": "Validators",
+        "text": "Run by the Vault's operator on Ethereum. Their rewards and penalties reach every share at each harvest."
+      }
+    ],
+    "confirm": {
+      "title": "Shown before you confirm",
+      "items": [
+        "The Vault, its network and its operator",
+        "The remaining capacity and the minimum deposit",
+        "The Vault fee and any Definica fee, as a percentage of rewards",
+        "The estimated shares and the current share price"
+      ]
+    }
+  },
+  "shares": {
+    "surtitle": "Vault shares",
+    "title": "Shares, priced \nat every harvest.",
+    "intro": "Your position is a number of Vault shares, not an ETH balance. Core holds the shares for every Definica deposit and records your proportion of them; what they are worth moves with the Vault.",
+    "equations": [
+      [
+        "Share price",
+        "=",
+        "Vault assets",
+        "÷",
+        "Vault shares"
+      ],
+      [
+        "Your position",
+        "=",
+        "Your shares",
+        "×",
+        "Share price"
+      ]
+    ],
+    "harvest": {
+      "title": "Every 12 hours",
+      "text": "StakeWise's Oracles report the Vault's rewards and penalties every 12 hours. At the next harvest the Vault applies them, mints fee shares on any profit, recognises pending treasury donations and processes the exit queue. Core needs no transaction: your position follows the new price at once."
+    },
+    "moves": {
+      "title": "What moves the share price",
+      "items": [
+        {
+          "effect": "up",
+          "title": "Validator rewards",
+          "text": "Reported at a harvest. The Vault's assets rise and its shares don't, so each share is worth more."
+        },
+        {
+          "effect": "down",
+          "title": "Penalties and slashing",
+          "text": "Reported at a harvest too. Assets fall, and every share, locked or not, is worth less."
+        },
+        {
+          "effect": "less",
+          "title": "The Vault fee",
+          "text": "Minted as new shares on profit, so the price rises by less than the gross reward."
+        },
+        {
+          "effect": "flat",
+          "title": "Deposits and exits",
+          "text": "Assets and shares move together, so the price holds, apart from rounding."
+        },
+        {
+          "effect": "up",
+          "title": "A treasury donation",
+          "text": "ETH added without new shares. It counts from the next successful harvest."
+        },
+        {
+          "effect": "up",
+          "title": "A treasury share burn",
+          "text": "Shares the treasury owns are burned, so fewer shares back the same ETH, at once."
+        }
+      ]
+    },
+    "note": "Shares never rebase and can't be moved to another wallet. Every conversion rounds, so the ETH value of a position is never exactly its number of shares."
+  },
+  "rewards": {
+    "surtitle": "Rewards and fees",
+    "title": "Where rewards \ncome from.",
+    "intro": "Rewards come from the work the Vault's validators do on Ethereum. They reach you through the share price, never as a separate payout, and no return is guaranteed.",
+    "sources": [
+      {
+        "icon": "ballot",
+        "title": "Consensus rewards",
+        "text": "Validators earn for attestations, block proposals and sync committee duties."
+      },
+      {
+        "icon": "block",
+        "title": "Execution rewards",
+        "text": "Priority fees and MEV from the blocks they propose. The Vault has its own MEV escrow, so it keeps its own block rewards rather than sharing them in a pool."
+      },
+      {
+        "icon": "warning",
+        "tone": "baby",
+        "title": "Penalties",
+        "text": "A missed vote costs what it would have earned, and slashing, for provable misbehaviour, costs more. Every share in the Vault bears them; other Vaults' validators can't cause them."
+      }
+    ],
+    "fees": {
+      "title": "The fees, and how they are taken",
+      "items": [
+        {
+          "title": "The Vault fee",
+          "text": "A percentage of rewards, never of your deposit. It is paid as new shares to the fee recipient at each profitable harvest, so it dilutes every share equally."
+        },
+        {
+          "title": "Any Definica fee",
+          "text": "Shown as its own line, also as a percentage of rewards."
+        },
+        {
+          "title": "Set per Vault",
+          "text": "The fee is set for the Vault, within StakeWise's limits, and shown in the app before you confirm. StakeWise itself charges stakers nothing for using its Vaults."
+        },
+        {
+          "title": "Gas",
+          "text": "Deposits, exit requests, claims and locks are each an Ethereum transaction."
+        }
+      ]
+    },
+    "treasury": {
+      "title": "Treasury contributions, on their own line",
+      "text": "Definica's multisig can donate ETH to the Vault or burn Vault shares it owns; either way each remaining share is backed by more ETH. Contributions are discretionary and budget-dependent, reported apart from validator performance and never a guaranteed APY."
+    }
+  },
+  "locks": {
+    "surtitle": "Share locks",
+    "title": "Lock shares, \nkeep earning.",
+    "intro": "A share lock commits some of your Vault shares in Core for a period you choose. Locked shares stay in reward accounting, earning and losing exactly what unlocked shares do. They just can't enter the exit queue before maturity.",
+    "stats": [
+      {
+        "value": "7–365",
+        "unit": "days",
+        "text": "Any duration in that range, chosen for each lock."
+      },
+      {
+        "value": "10",
+        "unit": "locks",
+        "text": "The most lock positions you can have open at once."
+      }
+    ],
+    "states": [
+      {
+        "title": "Active",
+        "text": "Created with your shares and a duration. Until maturity the shares can't be requested for exit."
+      },
+      {
+        "title": "Matured",
+        "text": "The maturity date has passed. Core keeps matured locks apart until you release them."
+      },
+      {
+        "title": "Released",
+        "text": "A claim on Core returns the shares to your balance, ready to exit or lock again, and frees the lock position."
+      }
+    ],
+    "meter": {
+      "slots": "Lock positions",
+      "from": "7 days",
+      "to": "365 days"
+    },
+    "warn": {
+      "title": "No early unlock to count on",
+      "text": "Unlocking before maturity may be impossible, even in adverse market, validator, protocol or security conditions. Lock only shares you can leave until the date."
+    },
+    "note": "A lock carries no bonus, multiplier or governance right, and treasury contributions don't favour locked shares. Share locks are separate from commitments in the Main Liquidity Module.",
+    "link": {
+      "title": "Share locks in the docs",
+      "to": "/docs/phase-1/share-locks"
+    }
+  },
+  "exits": {
+    "surtitle": "Unstaking",
+    "title": "Request, wait, \nthen claim.",
+    "intro": "Leaving takes two transactions with a wait in between. Your shares join the Vault's exit queue and keep earning until the Vault burns them; once the request is processed and the claim delay has passed, you claim the ETH.",
+    "steps": [
+      {
+        "title": "Request",
+        "text": "Choose the shares to exit, or an ETH amount the app converts to shares, and how the exit is routed. Locked shares can't be requested."
+      },
+      {
+        "title": "Queue",
+        "text": "Your shares enter the exit queue and a position ticket records your place. They keep earning, and bearing penalties, until they are burned."
+      },
+      {
+        "title": "Serve",
+        "text": "The Vault uses the ETH it isn't staking, and new deposits, first. When that isn't enough, validators exit to free the rest."
+      },
+      {
+        "title": "Process",
+        "text": "At a harvest the Vault burns the queued shares and sets the ETH aside. You get the share price of that moment, not of your request."
+      },
+      {
+        "title": "Claim",
+        "text": "Once the Vault's claim delay, fixed when it was deployed, has passed, you claim. If only part has exited, the rest stays queued."
+      }
+    ],
+    "sources": [
+      {
+        "icon": "coins",
+        "title": "Available liquidity",
+        "text": "ETH in the Vault that isn't staked, and new deposits, which cover the exit queue before they fund new validators. Either serves the queue at the next harvest."
+      },
+      {
+        "icon": "validators",
+        "title": "Validator exits",
+        "text": "When liquidity falls short, the operator exits validators, and StakeWise's Oracles force exits if it doesn't. Ethereum's validator exit queue sets the pace: from hours to weeks."
+      }
+    ],
+    "routes": {
+      "title": "Two routes out",
+      "columns": [
+        "Managed through Core",
+        "Direct at the Vault"
+      ],
+      "rows": [
+        [
+          "Receiver",
+          "Core",
+          "Your wallet"
+        ],
+        [
+          "Who claims",
+          "Core, settling your position",
+          "You, at the Vault"
+        ],
+        [
+          "A partial claim",
+          "The remainder stays in your exit position",
+          "A new ticket holds the remainder"
+        ]
+      ]
+    },
+    "notes": [
+      {
+        "icon": "ticket",
+        "text": "In StakeWise's design an exit request can't be cancelled once it is queued."
+      },
+      {
+        "icon": "hourglass",
+        "text": "Queue positions and wait times in the app are estimates."
+      },
+      {
+        "icon": "gas",
+        "text": "A request, a claim and any partial claim are each their own transaction."
+      }
+    ]
+  },
+  "verify": {
+    "surtitle": "Verify",
+    "title": "Check it \nonchain.",
+    "intro": "The app is a convenience layer over the contracts; the contracts are the record. Everything that matters about your position and the Vault can be read from them.",
+    "checks": [
+      {
+        "title": "What your position is worth",
+        "read": "convertToAssets(shares) on the Vault"
+      },
+      {
+        "title": "That the Vault is a recognised StakeWise Vault",
+        "read": "VaultsRegistry.vaults(vault)"
+      },
+      {
+        "title": "That it has registered validators",
+        "read": "Keeper.isCollateralized(vault)"
+      },
+      {
+        "title": "Its capacity, fee and fee recipient",
+        "read": "capacity(), feePercent(), feeRecipient()"
+      },
+      {
+        "title": "When it was last harvested",
+        "read": "Keeper.lastRewardsTimestamp()"
+      },
+      {
+        "title": "Who holds each role",
+        "read": "admin(), validatorsManager(), blocklistManager()"
+      }
+    ],
+    "noteTitle": "Where addresses come from",
+    "note": "Take Definica's contract addresses only from the official interface and check them on a block explorer. Your wallet shows the address again before you sign, and the two must match. Never use one from a chat, a post or a screenshot.",
+    "link": {
+      "title": "Every check, in the docs",
+      "to": "/docs/security/verify-addresses"
+    }
+  },
+  "risks": {
+    "surtitle": "Risks",
+    "title": "What can \ngo wrong.",
+    "intro": "Pooling doesn't take the risk out of staking. These are the risks that apply here, stated plainly.",
+    "items": [
+      {
+        "icon": "validators",
+        "tone": "baby",
+        "title": "Validator performance",
+        "text": "Rewards depend on how the Vault's validators perform. Missed duties and slashing lower the value of every share, locked or not."
+      },
+      {
+        "icon": "person",
+        "title": "The operator",
+        "text": "Pooled staking concentrates stake with the operator who runs the nodes. The app shows the operator with the Vault's details."
+      },
+      {
+        "icon": "hourglass",
+        "title": "Exit timing",
+        "text": "Ethereum rate-limits validator exits, so a withdrawal that needs them can take hours or weeks. No timing is promised."
+      },
+      {
+        "icon": "gear",
+        "title": "Contracts and upgrades",
+        "text": "Core and the Vault are upgradeable through separate roles, all readable onchain. Non-custodial doesn't mean that no permissions exist."
+      },
+      {
+        "icon": "eye",
+        "title": "Oracles",
+        "text": "If StakeWise's Oracles stop reporting, harvests stop: the share price freezes and exits aren't processed."
+      },
+      {
+        "icon": "coin",
+        "tone": "baby",
+        "title": "No guaranteed return",
+        "text": "No APY is guaranteed. Any rate the app shows is informational, and treasury contributions are discretionary."
+      }
+    ],
+    "link": {
+      "title": "Read the risks in full",
+      "to": "/docs/risks"
+    }
+  },
+  "closing": {
+    "surtitle": "Get started",
+    "title": "Stake from \nthe app.",
+    "text": "The app shows the Vault's capacity, fees, minimum deposit and share price before you confirm. The docs carry every detail, from the contracts to the exit queue.",
+    "buttons": [
+      {
+        "linkType": "internalLink",
+        "title": "Launch App",
+        "to": {
+          "path": "/app"
+        },
+        "theme": "dark"
+      },
+      {
+        "linkType": "internalLink",
+        "title": "Read the docs",
+        "to": "/docs/phase-1",
+        "trailingSlash": false,
+        "theme": "border-light"
+      }
+    ]
+  }
+}

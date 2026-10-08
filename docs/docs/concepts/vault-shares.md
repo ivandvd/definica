@@ -57,7 +57,7 @@ Shares never rebase. When the Vault earns, each share is worth more ETH; when it
 
 ## What you can verify
 
-The Vault's address is listed on the Contracts card of the Stake screen in the app, and shown again by your wallet before you sign; see [Verify addresses](/security/verify-addresses). On the Vault you can read:
+[Verify addresses](/security/verify-addresses) sets out how to check the Vault's address. On the Vault you can read:
 
 - `totalAssets()` and `totalShares()`, for `A` and `S`.
 - `convertToShares(assets)` and `convertToAssets(shares)`, for the current conversions.

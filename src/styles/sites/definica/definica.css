@@ -54,8 +54,12 @@
   height: 100%;
 }
 
+/* In the bar's flow, but still the containing block of its green hover fill (ButtonHover::before),
+   which would otherwise cover the whole bar. */
 .Header-download[data-v-d5c9479a] {
-  position: static;
+  position: relative;
+  right: auto;
+  top: auto;
 }
 
 /* No separators between the links. */

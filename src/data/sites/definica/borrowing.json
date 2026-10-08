@@ -1,0 +1,393 @@
+{
+  "seo": {
+    "title": "Borrowing",
+    "description": "Definica's borrowing markets: osETH as the primary collateral, rules set per market, the health factor and liquidation explained, and the 75/25 interest split."
+  },
+  "hero": {
+    "surtitle": "Borrowing markets",
+    "title": "Borrow with the \nrules up front.",
+    "text": "Post approved ETH-correlated collateral, with osETH as the primary collateral asset, and borrow a supported asset. Each market sets its own collateral, oracle, limits and liquidation process, and the app shows them before you confirm.",
+    "buttons": [
+      {
+        "linkType": "internalLink",
+        "title": "Read the docs",
+        "to": "/docs/phase-3",
+        "trailingSlash": false,
+        "theme": "dark"
+      },
+      {
+        "linkType": "internalLink",
+        "title": "Launch App",
+        "to": {
+          "path": "/app"
+        },
+        "theme": "border-light"
+      }
+    ]
+  },
+  "markets": {
+    "surtitle": "The markets",
+    "title": "Who brings \nwhat.",
+    "intro": "Liquidity flows into a market from two sources, borrowers take loans from it, and the interest they pay is split between the liquidity behind it and Definica.",
+    "labels": {
+      "brings": "Brings",
+      "receives": "Receives",
+      "bears": "Bears"
+    },
+    "participants": [
+      {
+        "icon": "person",
+        "title": "Borrowers",
+        "brings": "Approved collateral",
+        "receives": "A supported asset",
+        "bears": "Interest, oracle risk and liquidation risk"
+      },
+      {
+        "icon": "lock",
+        "title": "Funding loans",
+        "brings": "The proceeds of a funding loan, through the Main Liquidity Module",
+        "receives": "75% of attributable lending interest",
+        "bears": "Funding cost, lending losses and liquidation risk at Aave"
+      },
+      {
+        "icon": "coins",
+        "title": "Direct ETH supply",
+        "brings": "Their own ETH, with no Aave funding debt",
+        "receives": "75% of attributable lending interest",
+        "bears": "Lending losses; exits follow the market's withdrawal conditions"
+      }
+    ],
+    "asset": "Each market lends a supported asset, listed with the market in the app. Liquidity from funding loans arrives as the asset borrowed at Aave: WETH or another permitted asset."
+  },
+  "collateral": {
+    "surtitle": "Collateral",
+    "title": "Nothing is collateral \nby default.",
+    "intro": "A market enables each collateral asset explicitly, and only for itself. Committing aEthosETH to the Main Liquidity Module doesn't make it collateral.",
+    "items": [
+      {
+        "icon": "coin",
+        "tone": "sky",
+        "title": "osETH",
+        "text": "The primary collateral asset of the borrowing markets."
+      },
+      {
+        "icon": "ticket",
+        "tone": "baby",
+        "title": "aEthosETH",
+        "text": "Collateral only in a market that approves it, under that market's own oracle, LTV, liquidity, lock, redemption and liquidation rules."
+      },
+      {
+        "icon": "layers",
+        "title": "Other ETH-correlated assets",
+        "text": "Collateral in any market that approves them, under that market's own rules."
+      }
+    ],
+    "paths": {
+      "title": "One aEthosETH receipt, two paths",
+      "items": [
+        {
+          "title": "As collateral",
+          "text": "Where a market approves aEthosETH, you post it and borrow against it, under that market's rules."
+        },
+        {
+          "title": "As liquidity",
+          "text": "Committed in the Main Liquidity Module, it backs a funding loan that supplies the market. You are then a liquidity participant, not a borrower."
+        }
+      ],
+      "note": "A single aEthosETH position doesn't serve both paths at once, unless a market's rules provide for it."
+    }
+  },
+  "parameters": {
+    "surtitle": "Market parameters",
+    "title": "What each \nparameter sets.",
+    "intro": "Every market is defined by the same parameters. Their values are set per market: the app lists them for each market, and the review repeats the ones that apply before you confirm.",
+    "groups": [
+      {
+        "title": "Assets and pricing",
+        "icon": "coin",
+        "items": [
+          {
+            "title": "Supported borrow asset",
+            "text": "The asset borrowers receive and repay, in which the debt and its interest are counted."
+          },
+          {
+            "title": "Approved collateral assets",
+            "text": "The assets you can post. osETH is the primary one; nothing is collateral unless the market approves it."
+          },
+          {
+            "title": "Oracle",
+            "text": "How collateral and debt are valued: the price source, how a stale or failed price is handled, and how often the value updates."
+          }
+        ]
+      },
+      {
+        "title": "Risk limits",
+        "icon": "gauge",
+        "items": [
+          {
+            "title": "Maximum LTV",
+            "text": "The most you can borrow, as a percentage of your collateral's value. A limit, not a target to borrow up to."
+          },
+          {
+            "title": "Liquidation threshold",
+            "text": "The loan-to-value at which a position becomes eligible for liquidation. The gap below it is your cushion."
+          },
+          {
+            "title": "Interest-rate model",
+            "text": "How the borrow rate responds to utilisation, and how much of the interest reaches lenders."
+          },
+          {
+            "title": "Market caps",
+            "text": "The limits on total supply and total borrowing. A reached cap blocks new supply or new loans."
+          }
+        ]
+      },
+      {
+        "title": "Operations",
+        "icon": "gear",
+        "items": [
+          {
+            "title": "Liquidation process",
+            "text": "Who may liquidate, how much of the debt one liquidation can repay, the liquidator's compensation and any liquidation fee."
+          },
+          {
+            "title": "Health monitoring",
+            "text": "How positions are watched, and how borrowers are warned as they approach the threshold."
+          },
+          {
+            "title": "Liquidity management",
+            "text": "How lenders' withdrawals are served, and what happens when utilisation is high."
+          },
+          {
+            "title": "Debt attribution",
+            "text": "How loans, interest and losses are attributed to the liquidity behind them."
+          },
+          {
+            "title": "Emergency controls",
+            "text": "Which controls exist, such as a pause, caps or a migration, and who can use them."
+          }
+        ]
+      },
+      {
+        "title": "Deployment",
+        "icon": "globe",
+        "items": [
+          {
+            "title": "Contracts and network",
+            "text": "The market's contract addresses and the network they run on, listed in the app and checkable onchain."
+          },
+          {
+            "title": "Activation conditions",
+            "text": "What must hold for the market to accept supply and new loans."
+          }
+        ]
+      }
+    ],
+    "reading": {
+      "title": "Read them together",
+      "items": [
+        {
+          "title": "The cushion",
+          "text": "Compare the maximum LTV with the liquidation threshold. A small gap means a small price move, or a little accrued interest, can make a position liquidatable."
+        },
+        {
+          "title": "The oracle",
+          "text": "A position is liquidated on the oracle's price, which can differ from the price you see elsewhere."
+        },
+        {
+          "title": "Rates and caps",
+          "text": "Near a borrow cap or at high utilisation, the borrow rate can rise quickly and lenders' withdrawals can wait."
+        },
+        {
+          "title": "Emergency powers",
+          "text": "Check who can pause or cap the market, and whether a delay applies before a change takes effect."
+        },
+        {
+          "title": "The onchain values",
+          "text": "If the app, the docs and the deployed contracts ever differ, the contract state prevails."
+        }
+      ]
+    }
+  },
+  "health": {
+    "surtitle": "Health factor",
+    "title": "Liquidation, \nin plain words.",
+    "intro": "Your health factor compares what your collateral counts for with what you owe. Above 1 the position stands; below 1 it can be liquidated.",
+    "equation": [
+      "Health factor",
+      "=",
+      "Collateral value × liquidation threshold",
+      "÷",
+      "Debt"
+    ],
+    "factors": {
+      "title": "What pushes it down",
+      "items": [
+        {
+          "title": "The collateral's value falls",
+          "text": "osETH's market price or exchange rate can fall relative to the debt asset."
+        },
+        {
+          "title": "The debt grows",
+          "text": "Variable interest accrues continuously, faster at high utilisation, with no price move at all."
+        },
+        {
+          "title": "The oracle disagrees",
+          "text": "The market values collateral on its oracle's price, which can lag or differ from prices elsewhere."
+        },
+        {
+          "title": "The rules change",
+          "text": "Governance can change thresholds and leave an existing position closer to liquidation."
+        }
+      ]
+    },
+    "gauge": {
+      "safe": "Healthy",
+      "edge": "Liquidation",
+      "line": "1"
+    },
+    "liquidation": {
+      "title": "Below 1",
+      "text": "Liquidators repay part or all of the debt and take collateral at a discount, their bonus. Any liquidation fee is separate from the repayment and the bonus. A liquidation reduces the position; it doesn't necessarily clear the debt."
+    },
+    "cushion": {
+      "title": "Keep a cushion",
+      "text": "The gap between the maximum LTV and the liquidation threshold is the room between the most you can borrow and the point of liquidation. Borrowing to the maximum leaves a thin cushion."
+    }
+  },
+  "lending": {
+    "surtitle": "Lending",
+    "title": "Interest, split \n75 / 25.",
+    "intro": "Borrowers pay interest. Of the lending interest attributable to you as a liquidity participant, 75% is allocated to you and 25% to Definica.",
+    "split": {
+      "you": "75%",
+      "youLabel": "To you",
+      "definica": "25%",
+      "definicaLabel": "To Definica",
+      "caption": "Of the lending interest attributable to you"
+    },
+    "points": [
+      {
+        "icon": "receipt",
+        "title": "Before your costs",
+        "text": "Definica's share is taken on attributable lending interest before upstream financing costs: never on your principal, never on net profit."
+      },
+      {
+        "icon": "person",
+        "title": "Attributable means yours",
+        "text": "It follows how much lending balance you supplied and for how long. LTV is a borrowing constraint, not an allocation key."
+      },
+      {
+        "icon": "layers",
+        "title": "Other returns stay apart",
+        "text": "The osETH staking return, Aave supply interest and lock incentives are not part of the split; each has its own line."
+      },
+      {
+        "icon": "down",
+        "title": "It can be negative",
+        "text": "Financed, your result is 75% of attributable interest minus funding costs and other applicable costs. If the loan costs more, you lose money even though the market earned interest."
+      },
+      {
+        "icon": "coins",
+        "title": "Direct supply",
+        "text": "Supplying your own ETH carries no funding cost, but the same market risks: lending losses, utilisation and liquidity."
+      },
+      {
+        "icon": "core",
+        "title": "Definica's share",
+        "text": "It supports development, operations and budgeted treasury and incentive programmes."
+      }
+    ]
+  },
+  "rules": {
+    "surtitle": "Every market",
+    "title": "Four rules that \nalways apply.",
+    "intro": "Whatever a market's parameters are set to, these four hold in every one of them.",
+    "items": [
+      {
+        "icon": "interest",
+        "title": "Debt and interest",
+        "text": "Borrowers pay interest, and the debt with its accrued interest must be repaid to release the collateral."
+      },
+      {
+        "icon": "eye",
+        "title": "Oracle dependency",
+        "text": "An oracle prices the collateral and the borrow asset. Its correctness is a dependency of every market."
+      },
+      {
+        "icon": "gavel",
+        "title": "Liquidation",
+        "text": "If the collateral's value falls, the debt grows or the position crosses its threshold, some or all of the collateral can be sold."
+      },
+      {
+        "icon": "link",
+        "title": "Correlation is not safety",
+        "text": "ETH-correlated collateral still carries validator, fee, price, liquidity, redemption and contract risks."
+      }
+    ]
+  },
+  "risks": {
+    "surtitle": "Risks",
+    "title": "What can \ngo wrong.",
+    "intro": "Borrowing and lending carry different risks. Both sides are set out here.",
+    "items": [
+      {
+        "icon": "gavel",
+        "title": "Losing collateral",
+        "text": "Borrowing instead of selling doesn't guarantee you keep the collateral: some or all of it can be sold in a liquidation."
+      },
+      {
+        "icon": "chart",
+        "title": "Debt that grows",
+        "text": "Variable interest accrues continuously, and a position that started healthy can drift towards its threshold without any price move."
+      },
+      {
+        "icon": "warning",
+        "title": "Bad debt",
+        "text": "If a borrower's collateral is sold too late or too cheaply to cover the debt, the shortfall falls on lenders."
+      },
+      {
+        "icon": "hourglass",
+        "title": "Utilisation",
+        "text": "When most of a market's liquidity is lent out, withdrawals wait until borrowers repay or new liquidity arrives."
+      },
+      {
+        "icon": "building",
+        "title": "Market insolvency",
+        "text": "A market-wide event can leave more debt than collateral."
+      },
+      {
+        "icon": "interest",
+        "tone": "baby",
+        "title": "Funding cost",
+        "text": "A financed participant owes Aave whatever the market returns, so lending losses and funding costs can outweigh returns."
+      }
+    ],
+    "link": {
+      "title": "Read the borrowing risks",
+      "to": "/docs/risks/borrowing"
+    }
+  },
+  "closing": {
+    "surtitle": "Before you borrow",
+    "title": "Read the market, \nthen borrow.",
+    "text": "Each market's collateral, oracle, maximum LTV, liquidation threshold and caps are shown in the app before you confirm. The documentation explains each one in full.",
+    "buttons": [
+      {
+        "linkType": "internalLink",
+        "title": "Read the docs",
+        "to": "/docs/phase-3",
+        "trailingSlash": false,
+        "theme": "dark"
+      },
+      {
+        "linkType": "internalLink",
+        "title": "Launch App",
+        "to": {
+          "path": "/app"
+        },
+        "theme": "border-light"
+      }
+    ]
+  }
+}

@@ -1,0 +1,53 @@
+/* Launch App: lime, then ink, sweep up over the page; the mark arrives in the middle. Fixed px:
+   the curtain must match the app's (16px rem) frame for frame. */
+
+.root {
+  position: fixed;
+  inset: 0;
+  z-index: 2000000;
+  pointer-events: auto;
+  cursor: progress;
+}
+
+.lime,
+.ink {
+  position: absolute;
+  inset: 0;
+  clip-path: inset(100% 0 0 0);
+}
+
+.lime {
+  background: #d1f500;
+  animation: sweep 0.48s cubic-bezier(0.76, 0, 0.24, 1) forwards;
+}
+
+.ink {
+  display: grid;
+  place-items: center;
+  background: #0f0f0f;
+  animation: sweep 0.48s cubic-bezier(0.76, 0, 0.24, 1) 0.1s forwards;
+}
+
+.mark {
+  width: 64px;
+  height: 68px;
+  opacity: 0;
+  transform: scale(0.6) rotate(-10deg);
+  animation: mark 0.42s cubic-bezier(0.34, 1.56, 0.64, 1) 0.32s forwards;
+}
+
+@keyframes sweep {
+  from {
+    clip-path: inset(100% 0 0 0);
+  }
+  to {
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+@keyframes mark {
+  to {
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
+  }
+}

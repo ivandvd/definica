@@ -1,12 +1,14 @@
 ---
 title: 'Liquidity Module and Borrow'
-description: 'The Liquidity Module screen for committing aEthosETH and financing it, and the Borrow screen for the borrowing markets.'
+description: 'Where Liquidity and Borrow sit in the app, and how the Liquidity Module screen for committing aEthosETH and the Borrow screen for the borrowing markets work.'
 sidebar_position: 7
 ---
 
 # Liquidity Module and Borrow
 
-Two screens cover Phase 2 and Phase 3. The Liquidity Module screen takes osETH through Aave V3 into a committed aEthosETH position, with optional financing. The Borrow screen lists the borrowing markets, each with its collateral and parameters, beside your borrow position.
+In the app, **Liquidity** and **Borrow** sit in the sidebar under **Next** with a **Coming soon** label, and each opens a short page on what it does, with a link to this page.
+
+Two screens cover committed liquidity and borrowing. The Liquidity Module screen takes osETH through Aave V3 into a committed aEthosETH position, with optional financing. The Borrow screen lists the borrowing markets, each with its collateral and parameters, beside your borrow position.
 
 ## The Liquidity Module screen \{#liquidity-module\}
 
@@ -14,17 +16,17 @@ The screen, headed **Main Liquidity Module**, is the layer for locking Aave-supp
 
 ### The committed-liquidity path
 
-The screen sets out the path in three steps:
+The path runs in three steps:
 
 1. **Supply osETH to Aave V3 Ethereum.** The supplied position is represented by aEthosETH, the [aToken](/glossary#atoken) of the osETH reserve.
 2. **Lock the aEthosETH position.** The [Main Liquidity Module](/glossary#main-liquidity-module) records custody and keeps the [commitment](/glossary#commitment) for a fixed duration.
 3. **Optionally fund lending markets.** With your authorisation, an eligible position supports a [funding loan](/glossary#funding-loan) of WETH or another permitted asset, which supplies Definica's lending markets.
 
-You enter with osETH you already hold or a compatible aEthosETH receipt, or with osETH minted against ETH staked in a separate StakeWise factory Vault: see [Entry A and Entry B](/glossary#entry-a-and-entry-b). Your Phase 1 position is not a way in, because the Phase 1 Vault does not mint osETH.
+You enter with osETH you already hold or a compatible aEthosETH receipt, or with osETH minted against ETH staked in a separate StakeWise factory Vault: see [Entry A and Entry B](/glossary#entry-a-and-entry-b). Vault shares from the Stake screen are not a way in, because the staking Vault does not mint osETH.
 
 ### Lock aEthosETH
 
-The **Lock aEthosETH** form takes the osETH to supply and lock, and a fixed duration. Before you confirm, the review shows:
+The lock form takes the osETH to supply and lock, or aEthosETH you already hold, and a fixed duration. Before you confirm, the review shows:
 
 - whether the osETH reserve at Aave is active, frozen or paused, its supply-cap headroom and the current supply rate;
 - the Module's rules for the commitment: duration, lock, allocation, capacity and withdrawal rules;
@@ -38,7 +40,7 @@ Financing is opt-in: a commitment alone creates no debt. When you authorise a fu
 
 ### What the screen tracks
 
-The **Tracked per participant** card lists what the Module records for you: your commitment, allocated debt, income and withdrawal conditions. Each part of the return is reported on its own line: osETH exposure, Aave supply interest, allocated debt and its cost, lending income and incentives.
+The screen lists what the Module records for you: your commitments, the debt allocated to you, income and withdrawal conditions. Debts are listed apart from returns, and each part of the return is reported on its own line: osETH exposure, Aave supply interest, allocated debt and its cost, lending income and incentives.
 
 aEthosETH does not create a second ETH deposit or duplicate the osETH staking return, and locking it does not make it collateral.
 
@@ -63,7 +65,7 @@ The screen, headed **Borrowing markets**, is where you borrow supported assets a
 
 ### Markets
 
-Each market has a card named after its collateral asset. osETH is the primary collateral asset. A market can also accept aEthosETH from the Main Liquidity Module, with its own oracle, LTV, liquidity, lock, redemption and liquidation rules. Each card lists the market's parameters.
+The markets card lists each market, named after its asset. osETH is the primary collateral asset. A market can also accept aEthosETH from the Main Liquidity Module, with its own oracle, LTV, liquidity, lock, redemption and liquidation rules. The card's **Parameters** view sets out each collateral market's parameters side by side.
 
 | Parameter | What it sets |
 |---|---|
@@ -80,24 +82,24 @@ The values are set per market and shown in the app before you confirm. See [Mark
 
 ### Your borrow position
 
-The **Your borrow position** card shows your collateral, your debt and your health, with a bar that runs from red, near liquidation, to green. From here you supply collateral, borrow, repay and add collateral. Before each action, the review shows the maximum LTV, your health factor after the action, the interest-rate model, the caps and the oracle.
+The **Your borrow position** card shows your collateral and its value, your debt, what you can still borrow, the liquidation price and your health, with a bar that runs from red, near liquidation, to green. From here you supply collateral, borrow, repay and withdraw collateral. Before each action, the review shows your health factor and borrowing power before and after, the maximum LTV, the liquidation threshold and the oracle, and, for a borrow or a repayment, the borrow rate and the liquidation penalty.
 
 ### What applies to every market
 
-The screen lists four rules that hold in every market:
+The screen's **What applies to every market** card lists four rules:
 
-- **Debt and interest.** Borrowers pay interest, and the debt with its accrued interest must be repaid to release the collateral.
+- **Debt and interest.** Borrowers pay variable interest, and the debt with its accrued interest must be repaid to release the collateral.
 - **Oracle dependency.** An oracle prices the collateral and the borrow asset; its correctness is a dependency of every market.
 - **Liquidation.** If the collateral's value falls, the debt grows or the position crosses its threshold, some or all of the collateral can be sold.
-- **Correlation is not safety.** ETH-correlated collateral still carries validator, fee, price, liquidity, redemption and contract risks.
+- **Correlation isn't safety.** ETH-correlated collateral still carries validator, fee, price, liquidity, redemption and contract risks.
 
 ### Where lending liquidity comes from
 
-Market liquidity comes from funding loans through the Liquidity Module and from [direct ETH supply](/glossary#direct-eth-supply): your own ETH, with no Aave funding debt. Of the [attributable lending interest](/glossary#attributable-lending-interest), 75% is allocated to the participant and 25% to Definica, before financing costs. A financed participant's net result is `0.75 × I_u − funding costs − other costs`, which can be negative. See [Economics](/phase-3/economics).
+Market liquidity comes from funding loans through the Liquidity Module and from [direct ETH supply](/glossary#direct-eth-supply): your own ETH, with no Aave funding debt, supplied through the screen's **Lend ETH** card. Of the [attributable lending interest](/glossary#attributable-lending-interest), 75% is allocated to the participant and 25% to Definica, before financing costs. A financed participant's net result is `0.75 × I_u − funding costs − other costs`, which can be negative. See [Economics](/phase-3/economics).
 
 ## When Aave refuses an action
 
-Supply, financing and withdrawals in the Liquidity Module run through Aave V3, and Aave's own checks can stop a transaction. The dialog then shows the reason.
+Supply, financing and withdrawals in the Liquidity Module run through Aave V3, and Aave's own checks can stop a transaction. The app then shows the reason.
 
 | Aave check | When it stops an action |
 |---|---|
@@ -109,7 +111,7 @@ Supply, financing and withdrawals in the Liquidity Module run through Aave V3, a
 
 ## Related
 
-- [Phase 2](/phase-2)
-- [Phase 3](/phase-3)
+- [Main Liquidity Module](/phase-2)
+- [Borrowing markets](/phase-3)
 - [Separate obligations](/phase-2/separate-obligations)
 - [Borrowing risk](/risks/borrowing)

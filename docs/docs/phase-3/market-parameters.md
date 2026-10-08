@@ -39,7 +39,7 @@ Each borrowing market is defined by a set of parameters. They are set per market
 
 | Parameter | What it determines |
 |---|---|
-| **Deployed contracts and network** | The market's contract addresses and the network they run on, listed in the app and checkable onchain. See [Verify addresses](/security/verify-addresses). |
+| **Deployed contracts and network** | The market's contract addresses and the network they run on, checkable onchain. See [Verify addresses](/security/verify-addresses). |
 | **Activation conditions** | The conditions that must hold for the market to accept supply and new loans. |
 
 ## Reading a market's parameters

@@ -1,0 +1,378 @@
+/*
+ * Borrowing page: the pieces the kit (shared/page-kit/kit.module.css) doesn't have — the market's
+ * flow and its participants, the factors beside the health gauge, and the 75 / 25 ring with its
+ * legend. Sized in rem like the rest of the site; desktop starts at 769px.
+ */
+
+/* ---------- the markets: the flow and who brings what ---------- */
+
+.flowArt {
+  width: 100%;
+  max-width: 52rem;
+  margin: 0 auto 4rem;
+}
+
+@media screen and (min-width: 769px) {
+  .flowArt {
+    max-width: 104rem;
+    margin-bottom: 6rem;
+  }
+}
+
+.participants {
+  display: grid;
+  gap: 1.6rem;
+}
+
+@media screen and (min-width: 769px) {
+  .participants {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 2.4rem;
+  }
+}
+
+.participant {
+  padding: 2.4rem 2.4rem 1.2rem;
+  border-radius: 2rem;
+  background-color: #ffffff;
+}
+
+@media screen and (min-width: 769px) {
+  .participant {
+    padding: 3.6rem 3.6rem 2rem;
+    border-radius: 3rem;
+  }
+}
+
+.participantHead {
+  display: flex;
+  align-items: center;
+  gap: 1.4rem;
+  margin: 0 0 1.4rem;
+}
+
+@media screen and (min-width: 769px) {
+  .participantHead {
+    gap: 1.8rem;
+    margin-bottom: 2rem;
+  }
+}
+
+.participantIcon {
+  flex: 0 0 auto;
+  width: 5.2rem;
+  height: 5.2rem;
+  overflow: visible;
+}
+
+@media screen and (min-width: 769px) {
+  .participantIcon {
+    width: 6.8rem;
+    height: 6.8rem;
+  }
+}
+
+.participantTitle {
+  margin: 0;
+  font-size: 2.2rem;
+  font-weight: 600;
+  line-height: 2.6rem;
+}
+
+@media screen and (min-width: 769px) {
+  .participantTitle {
+    font-size: 2.8rem;
+    line-height: 3.2rem;
+  }
+}
+
+.facts {
+  margin: 0;
+}
+
+.fact {
+  padding: 1.4rem 0;
+  border-top: 1px solid rgba(0, 20, 5, 0.14);
+}
+
+@media screen and (min-width: 769px) {
+  .fact {
+    padding: 1.8rem 0;
+  }
+}
+
+.factLabel {
+  margin: 0 0 0.4rem;
+}
+
+.factText {
+  margin: 0;
+  color: rgb(15, 15, 15);
+}
+
+/* ---------- collateral: the two paths ---------- */
+
+.paths {
+  display: flex;
+  flex-direction: column;
+  gap: 2.4rem;
+}
+
+/* ---------- the health factor: the factors beside the gauge ---------- */
+
+.gauge {
+  --p: 1;
+}
+
+.equationCentre {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 5rem;
+}
+
+@media screen and (min-width: 769px) {
+  .equationCentre {
+    margin-bottom: 8rem;
+  }
+}
+
+.equationCentre p {
+  justify-content: center;
+}
+
+.factors {
+  display: grid;
+  gap: 1.2rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: factor;
+}
+
+@media screen and (min-width: 769px) {
+  .factors {
+    gap: 1.6rem;
+  }
+}
+
+/* Each factor lights up as the needle passes its share of the scroll. */
+.factor {
+  position: relative;
+  padding: 1.8rem 2rem 2rem 6rem;
+  border: 2px solid rgba(15, 15, 15, 0.16);
+  border-radius: 2rem;
+  background-color: #ffffff;
+  counter-increment: factor;
+  transition:
+    border-color 0.35s ease,
+    background-color 0.35s ease;
+}
+
+@media screen and (min-width: 769px) {
+  .factor {
+    padding: 2.2rem 2.8rem 2.4rem 8rem;
+    border-radius: 2.4rem;
+  }
+}
+
+.factor::before {
+  content: counter(factor);
+  position: absolute;
+  top: 1.7rem;
+  left: 1.8rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 3rem;
+  height: 3rem;
+  border: 2px solid rgb(15, 15, 15);
+  border-radius: 50%;
+  background-color: #ffffff;
+  font-size: 1.4rem;
+  font-weight: 600;
+  transition: background-color 0.35s ease;
+}
+
+@media screen and (min-width: 769px) {
+  .factor::before {
+    top: 2.2rem;
+    left: 2.4rem;
+    width: 3.8rem;
+    height: 3.8rem;
+    font-size: 1.7rem;
+  }
+}
+
+.factor[data-active] {
+  border-color: rgb(15, 15, 15);
+}
+
+.factor[data-active]::before {
+  background-color: rgb(255, 90, 77);
+}
+
+.factorTitle {
+  margin: 0;
+  font-size: 2rem;
+  font-weight: 600;
+  line-height: 2.4rem;
+}
+
+@media screen and (min-width: 769px) {
+  .factorTitle {
+    font-size: 2.4rem;
+    line-height: 2.9rem;
+  }
+}
+
+.factorText {
+  margin-top: 0.6rem;
+  color: rgb(90, 88, 90);
+}
+
+/* Two notes side by side on desktop. */
+.notes {
+  display: grid;
+  gap: 1.6rem;
+}
+
+@media screen and (min-width: 769px) {
+  .notes {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 2.4rem;
+  }
+}
+
+/* ---------- lending: the ring and its legend ---------- */
+
+.ring {
+  width: 100%;
+  max-width: 34rem;
+  margin: 0 auto;
+}
+
+@media screen and (min-width: 769px) {
+  .ring {
+    max-width: 46rem;
+  }
+}
+
+.legend {
+  display: grid;
+  gap: 1.2rem;
+  max-width: 46rem;
+  margin: 3rem auto 0;
+}
+
+.legendRow {
+  display: grid;
+  grid-template-columns: 2.4rem auto minmax(0, 1fr);
+  gap: 1.4rem;
+  align-items: center;
+  margin: 0;
+}
+
+.swatch {
+  width: 2.4rem;
+  height: 2.4rem;
+  border: 2px solid rgb(15, 15, 15);
+  border-radius: 50%;
+}
+
+.legendValue {
+  font-size: 2.8rem;
+  font-weight: 600;
+  line-height: 1;
+}
+
+@media screen and (min-width: 769px) {
+  .legendValue {
+    font-size: 3.6rem;
+  }
+}
+
+.legendLabel {
+  color: rgb(90, 88, 90);
+}
+
+.legendCaption {
+  margin-top: 0.4rem;
+  color: rgb(90, 88, 90);
+  text-align: center;
+}
+
+/* ---------- the hero: the market's rules reviewed row by row, before you confirm ---------- */
+
+/* A lime highlight steps down the four rows, fades at the last and comes back in at the first. */
+.scanRow {
+  opacity: 0;
+  animation: scanRow 6.4s ease-in-out infinite;
+}
+
+@keyframes scanRow {
+  0% {
+    transform: translateY(0);
+    opacity: 0;
+  }
+  5%,
+  20% {
+    transform: translateY(0);
+    opacity: 0.5;
+  }
+  25%,
+  45% {
+    transform: translateY(42px);
+    opacity: 0.5;
+  }
+  50%,
+  70% {
+    transform: translateY(84px);
+    opacity: 0.5;
+  }
+  75%,
+  90% {
+    transform: translateY(126px);
+    opacity: 0.5;
+  }
+  96%,
+  100% {
+    transform: translateY(126px);
+    opacity: 0;
+  }
+}
+
+/* ---------- collateral: one receipt, two paths, lighting up in turn ---------- */
+
+.branch {
+  animation: branch 5s ease-in-out infinite;
+}
+
+.branchLater {
+  animation-delay: -2.5s;
+}
+
+@keyframes branch {
+  0%,
+  8% {
+    opacity: 0.25;
+  }
+  16%,
+  42% {
+    opacity: 1;
+  }
+  50%,
+  100% {
+    opacity: 0.25;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scanRow,
+  .branch {
+    animation: none !important;
+  }
+
+  .scanRow {
+    opacity: 0;
+  }
+}

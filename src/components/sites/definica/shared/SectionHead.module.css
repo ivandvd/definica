@@ -1,0 +1,22 @@
+/* A section head as on the home page: the surtitle with its blob above the title, centred. */
+
+.head {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+/*
+ * Full width, so the word split measures its lines against the whole wrapper. Balanced, so the
+ * lines it measures are even and no word is left alone on the last one (where "\n" doesn't break
+ * the title, on phones).
+ */
+.title {
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+  text-wrap: balance;
+}

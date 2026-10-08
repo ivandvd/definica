@@ -12,16 +12,16 @@ This block is written and re-added by `next dev` — verify at `node_modules/nex
 
 ## What This Is
 Three Definica surfaces in one repo:
-- **Landing site** (`/`, `/roadmap`): header, hero, content slices and footer, with scroll/GSAP animations, animated card scenes and Lottie icons.
-- **dApp** (`/app`): the staking app — Overview, Stake, Withdraw, Share locks, Liquidity Module, Borrow, Activity. UI-only for now: it runs on a mock wallet and a mock protocol client behind typed interfaces, ready for onchain wiring.
+- **Landing site** (`/`, `/roadmap`, `/staking`, `/liquidity`, `/borrowing`, `/about`): header, hero, content slices and footer, with scroll/GSAP animations, animated card scenes and Lottie icons. The four explainer pages share a page kit (`shared/page-kit/`: sections, accordions, sticker art and looping motions in `kit.module.css`) and take their copy from `src/data/sites/definica/{staking,liquidity,borrowing,about}.json`; they go deeper than the home page rather than repeat it.
+- **Web app** (`/app`): the staking app — Home, Stake, Unstake, Locks, Activity, Settings, with Liquidity and Borrow in the sidebar as "Coming soon". Frontend only for now: it runs on a preview wallet and a simulated chain behind typed interfaces (`ProtocolClient`, `WalletAdapter`), ready for onchain wiring. See "The web app" below.
 - **Docs** (`docs/`): a self-contained Docusaurus site (own `package.json`), served at `/docs` through a redirect.
 
 ## Tech Stack
 - **Framework:** Next.js 16 (App Router, React 19, TypeScript strict)
 - **Site styling:** the site stylesheet (`src/styles/sites/definica/site.css`) with Definica overrides in `definica.css`. Its `rem` scales with the viewport width. Tailwind CSS v4 theme and utilities are loaded without preflight (see `src/app/globals.css`)
-- **dApp styling:** its own Tailwind entry with preflight and a fixed 16px `rem` (`src/app/(dapp)/dapp.css`); tokens come from the phone-screen palette. The site and the dApp are separate root layouts (route groups) and must stay that way.
-- **Motion:** GSAP (ScrollTrigger, SplitText, Draggable, CustomEase), Lenis smooth scroll, dotLottie — site only
-- **UI primitives:** Base UI (`@base-ui/react`: dialog, menu, tabs, slider, tooltip) and lucide-react in the dApp; shadcn/ui (`src/components/ui`, `cn()` utility) scaffolded but unused
+- **App styling:** its own Tailwind entry with preflight and a fixed 16px `rem` (`src/app/(dapp)/dapp.css`); tokens come from the landing page's phone walkthrough palette. The site and the app are separate root layouts (route groups) and must stay that way.
+- **Motion:** GSAP (ScrollTrigger, SplitText, Draggable, CustomEase), Lenis smooth scroll, dotLottie — site only. The app animates with CSS keyframes in `dapp.css` and small hooks (`useCountUp`), honouring reduced motion.
+- **UI primitives:** Base UI (`@base-ui/react`: dialog, drawer, popover, menu, tabs, switch, slider, toast, tooltip) and lucide-react in the app; shadcn/ui (`src/components/ui`, `cn()` utility) scaffolded but unused
 
 ## Commands
 - `npm run dev` — Start dev server (use `npx next dev -p 3300` if port 3000 is taken)
@@ -41,6 +41,15 @@ Three Definica surfaces in one repo:
 ## Launch essentials (where they live)
 Per-page `metadata` (title template "%s — Definica", description, canonical) in each route; icons and the manifest are file conventions in `src/app/` (`icon.svg`, `apple-icon.png`, `favicon.ico`, `manifest.ts`), plus `robots.ts` and `sitemap.ts`. Share images are `opengraph-image.tsx` files built with `src/lib/og.tsx` (Tomato Grotesk `.woff` in `src/assets/fonts/`, since the share-image renderer cannot read woff2). The 404 page is `src/app/global-not-found.tsx` (needs `experimental.globalNotFound`, as the site and the app have separate root layouts). Terms and Privacy are `/terms` and `/privacy`, their text in `src/data/sites/definica/legal/`.
 
+## The web app
+- **Scope:** Home, Stake, Unstake (request an exit, then claim), Locks (share locks), Activity and Settings work end to end. Liquidity and Borrow are built (`LiquidityScreen`, `BorrowScreen`) but switched off in `src/components/dapp/lib/features.ts`; switched off, their routes show `ComingSoonScreen` and the sidebar shows a "Coming soon" pill. Turning a switch on also seeds that phase's sample data.
+- **Simulated chain, live UI:** `lib/environment.ts` builds what the app runs on for now: a simulated chain (`lib/mock/world.ts`) kept in localStorage, with harvests every 12 hours and test accounts. The UI never says so (the owner's call: it must read as live): no "preview", "sample" or "simulated" wording anywhere a visitor can see. The developer tools (Settings: switch account, wallet network, make the next transaction fail, skip time ahead, Vault/access/incident/stale states, start over) show only in a browser opened once with `?devtools=1` (`?devtools=0` hides them; `lib/devtools.ts`). Etherscan links appear once an onchain environment (`preview: null`) replaces it.
+- **Transactions:** every action goes through `ProtocolClient.preview()` (live, as the user types) and `execute()`; `tx/useTxFlow` + `TxPanes` (inline panels) or `TxSheet` (from lists) show review → wallet → pending → updating → result, and the provider keeps a transaction running if its panel closes. Every confirmed transaction raises a toast with "View transaction", which opens its receipt (`shell/ReceiptSheet.tsx`: status, amounts, block, fee, hash, Etherscan); the result screens, the bell and every Activity row open the same receipt. In the preview, each wallet request waits in `shell/WalletPrompt.tsx` (a wallet window with Reject / Confirm, portalled to `<body>` so it stays reachable over a sheet), so signing feels real. Each state has its own animated picture, cross-fading on one centre (`ui/txart.tsx`, `TxStage`): the wallet window, the block taking the coin in, the check, the seal and confetti; declined (the wallet shaking its head), failed onchain (a coral sticker with a "!", with what stayed with you and the fee spent), the unplugged network, the warning sign. Failed rows and receipts are titled by what was tried ("Stake") with a Failed pill.
+- **Look:** the landing page's palette (ink rgb(15,15,15), its greys, lime, green #05c92f, the pastel tones), pill buttons with its green sweep on hover (`btn-sweep`), large figures with `.figure` spacing, token icons from `ui/Glyph.tsx` (`TokenIcon`), sticker-style art (`ui/art.tsx`) and animated panel scenes (`ui/scenes.tsx`: the staking factory, the exit gate, the lock safe, its calendar showing the chosen duration). Time is live: `ui/Countdown.tsx` ticks against the protocol's clock (the next harvest on Home and after staking, each lock's and exit's time left), and `ui/Calendar.tsx` draws the unlock date as a calendar page and saves a reminder (.ics) for a lock's maturity.
+- **Launch App:** on the site, `shared/LaunchTransition.tsx` sweeps a lime then an ink curtain with the mark over the page and sets a flag (or `?launch=1` across hosts); the app's root layout reads it before paint and lifts the same curtain (`.launch-curtain` in dapp.css).
+- **No cookies, no analytics in the app.** No contract lists, addresses or function names in the UI; the docs' Verify addresses page covers them.
+- **Layout:** sidebar from 1024px, two content columns from 1280px; phones get the walkthrough's tab bar and bottom sheets.
+
 ## Code Style
 - TypeScript strict mode, no `any`
 - Named exports, PascalCase components, camelCase utils
@@ -51,20 +60,23 @@ Per-page `metadata` (title template "%s — Definica", description, canonical) i
 ```
 src/
   app/
-    (site)/                       # Landing site root layout, home page, roadmap/
-    (dapp)/                       # dApp root layout + dapp.css; app/ routes (stake, withdraw, locks, …)
+    (site)/                       # Landing site root layout, home page, roadmap/, staking/, liquidity/, borrowing/, about/
+    (dapp)/                       # App root layout + dapp.css; app/ routes (stake, unstake, locks, activity, settings, …)
     globals.css                   # Tailwind theme + utilities for the site (no preflight)
   components/
     sites/definica/
       root-8a5edab2/              # Home page, its sections (slices), phone screens and scenes
       roadmap/                    # Roadmap page sections
-      shared/                     # Header, footer, app shell, shared components and helpers
+      staking/ liquidity/         # The explainer pages: page component, sections, art, CSS module
+      borrowing/ about/
+      shared/                     # Header, footer, app shell, Launch App transition, page-kit/, shared helpers
     dapp/
-      lib/                        # Domain types, ProtocolClient + WalletAdapter interfaces, mocks, formatting
-      providers/                  # DappProvider (wallet + protocol + loaded data)
-      shell/                      # Sidebar, top bar, mobile tab bar, wallet button, nav config
-      ui/                         # Buttons, cards, pills, fields, dialog, tabs, slider, chart
-      tx/                         # Transaction flow (review → wallet → pending → result)
+      lib/                        # Domain types, ProtocolClient + WalletAdapter, features.ts, preferences, formatting
+        mock/                     # The preview: simulated chain (world.ts), reads, actions, client, wallet
+      providers/                  # DappProvider (wallet, protocol, loaded data, transactions, toasts)
+      shell/                      # Sidebar, top bar, tab bar + action sheet, wallet, banners, gates, toasts
+      ui/                         # Kit: buttons, cards, pills, token icons, amount input, sheets, chart, art
+      tx/                         # One transaction flow: preview → review → wallet → pending → updating → result
       screens/                    # One component per route
     ui/                           # shadcn/ui primitives (unused)
   data/sites/definica/            # Page content (home.json, roadmap.json) and site settings (settings.json)
@@ -74,10 +86,11 @@ src/
 docs/                             # Docusaurus documentation site (own package; excluded from root tsconfig/eslint)
 public/
   sites/definica/                 # Fonts, images, stickers, glyphs, Lottie files, favicons
+    app/tokens/                   # Token icons (ETH CC0, osETH from StakeWise MIT, WETH from Trust Wallet MIT)
 ```
 
 ## Content rules
-- The three parts of the protocol are **Phase 1–3** (staking, committed liquidity, borrowing) everywhere: home page, roadmap, app and docs. Never "Stage".
+- The three parts of the protocol are **Phase 1–3** (staking, committed liquidity, borrowing) on the home page, roadmap and docs. Never "Stage". The web app shows no phase labels at all: what isn't open yet sits in the sidebar with a "Coming soon" pill.
 - The roadmap and the docs describe the mechanics in the present tense, as the protocol's behaviour. No status labels ("Planned", "Supplied design", "Proposed") and no "not yet live" / "published before activation" phrasing there.
 - Never invent a number: no APY/APR, date, contract address or market parameter (LTV, caps, fees, oracles, collateral lists) unless Definica has published it. Say it is set per market or vault and shown in the app before you confirm, and don't claim a module is live, launched or audited.
 - British spelling, plain register.

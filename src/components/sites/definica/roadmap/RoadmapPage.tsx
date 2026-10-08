@@ -3,7 +3,7 @@
 import { useRef } from "react";
 import { About } from "./About";
 import { Closing } from "./Closing";
-import { useRefreshOnResize } from "./motion";
+import { useRefreshOnResize } from "../shared/motion";
 import { NorthStar } from "./NorthStar";
 import { Road } from "./Road";
 import styles from "./roadmap.module.css";

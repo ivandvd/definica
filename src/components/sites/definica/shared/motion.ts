@@ -1,9 +1,9 @@
 "use client";
 
 import { useEffect, useRef, type RefObject } from "react";
-import { getDevice } from "../shared/device";
-import { gsap, ScrollTrigger } from "../shared/gsap";
-import { useObserve } from "../shared/observe";
+import { getDevice } from "./device";
+import { gsap, ScrollTrigger } from "./gsap";
+import { useObserve } from "./observe";
 
 export const prefersReducedMotion = () =>
   typeof window !== "undefined" && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -131,6 +131,51 @@ export function useScrubWords<T extends HTMLElement>(ref: RefObject<T | null>) {
     });
     return () => ctx.revert();
   }, [ref]);
+}
+
+export interface ScrollProgressOptions {
+  /** ScrollTrigger start and end, e.g. "top 80%" / "bottom 40%". */
+  start?: string;
+  end?: string;
+  /** Smoothing of the scrub, in seconds. */
+  scrub?: number;
+}
+
+/**
+ * Calls `onProgress` with 0 → 1 as the element crosses the viewport between `start` and `end`,
+ * both ways (for drawings that move with the scroll: a coin along a pipe, a needle on a gauge).
+ * The callback should write to the DOM (a CSS variable, an attribute), not to React state.
+ * Under `prefers-reduced-motion` it is called once with 1: the drawing shows its end state.
+ */
+export function useScrollProgress<T extends HTMLElement>(
+  ref: RefObject<T | null>,
+  onProgress: (progress: number) => void,
+  { start = "top 80%", end = "bottom 45%", scrub = 0.6 }: ScrollProgressOptions = {},
+) {
+  const latest = useRef(onProgress);
+  useEffect(() => {
+    latest.current = onProgress;
+  });
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    if (prefersReducedMotion()) {
+      latest.current(1);
+      return;
+    }
+    const proxy = { progress: 0 };
+    latest.current(0);
+    const ctx = gsap.context(() => {
+      gsap.to(proxy, {
+        progress: 1,
+        ease: "none",
+        onUpdate: () => latest.current(proxy.progress),
+        scrollTrigger: { trigger: el, start, end, scrub },
+      });
+    });
+    return () => ctx.revert();
+  }, [ref, start, end, scrub]);
 }
 
 /**

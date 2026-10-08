@@ -21,7 +21,7 @@ These rules come from Definica's [Terms of Service](https://www.definica.com/ter
 ## What this documentation is not
 
 - A substitute for the contracts. It explains how the mechanisms work; the deployed contracts decide what happens.
-- A source of addresses. Definica's contract addresses are listed in the app and shown again by your wallet before you sign; see [Verify addresses](/security/verify-addresses).
+- A source of addresses. Your wallet shows the address of the contract each transaction goes to; [Verify addresses](/security/verify-addresses) sets out how to check it before you sign.
 - A substitute for your wallet's confirmation screen. Check the network, address, function, amount and receiver before you sign.
 
 ## The interface is a convenience layer

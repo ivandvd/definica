@@ -3,7 +3,7 @@
 import { useRef, type CSSProperties } from "react";
 import { BLOB_FILLS } from "../shared/SurtitleWithDot";
 import { Blob } from "./Blob";
-import { useParallax } from "./motion";
+import { useParallax } from "../shared/motion";
 import {
   Book,
   Bubble,

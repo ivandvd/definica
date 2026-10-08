@@ -144,4 +144,4 @@ DefinicaCore has a distinct admin and upgrade authoriser, with one pre-authorise
 
 ### Where do I verify addresses and ask questions?
 
-Definica's contract addresses are listed in the app, with Phase 1's on the Contracts card of the Stake screen; check them on a block explorer and in your wallet before you sign. For questions, write to contact@definica.com, or security@definica.com for security matters. The official accounts are [t.me/definica](https://t.me/definica) and [x.com/definicacom](https://x.com/definicacom). See [Verify addresses](/security/verify-addresses).
+Check addresses on [Verify addresses](/security/verify-addresses): your wallet shows the address of the contract each transaction goes to, and that page sets out how to check it on a block explorer before you sign. For questions, write to contact@definica.com, or security@definica.com for security matters. The official accounts are [t.me/definica](https://t.me/definica) and [x.com/definicacom](https://x.com/definicacom).

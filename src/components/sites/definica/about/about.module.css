@@ -1,0 +1,390 @@
+/*
+ * About page: the pieces the kit (shared/page-kit/kit.module.css) doesn't have — the questions as
+ * speech bubbles, the mission statement, the principles' three-over-two grid, the foundations,
+ * and the contact section's addresses and channels. Sized in rem like the rest of the site;
+ * desktop starts at 769px.
+ */
+
+/* ---------- why: the questions ---------- */
+
+.questions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2.2rem 1.4rem;
+  max-width: 120rem;
+  margin: 0 auto;
+  padding: 0;
+  list-style: none;
+}
+
+@media screen and (min-width: 769px) {
+  .questions {
+    gap: 3.6rem 2.4rem;
+  }
+}
+
+.question {
+  display: block;
+}
+
+.bubbleFloat {
+  display: inline-block;
+}
+
+/* A speech bubble with its tail at the bottom left; tone and tilt by `data-tone`. */
+.bubble {
+  position: relative;
+  display: inline-block;
+  padding: 1.4rem 2rem 1.5rem;
+  border: 2px solid rgb(15, 15, 15);
+  border-radius: 2.4rem;
+  background-color: rgb(167, 203, 246);
+  font-size: 1.8rem;
+  font-weight: 500;
+  line-height: 1.3;
+  color: rgb(15, 15, 15);
+  transform: rotate(-2deg);
+}
+
+@media screen and (min-width: 769px) {
+  .bubble {
+    padding: 2rem 3rem 2.2rem;
+    border-radius: 3.2rem;
+    font-size: 2.8rem;
+  }
+}
+
+.bubble::after {
+  content: "";
+  position: absolute;
+  bottom: -0.9rem;
+  left: 2.8rem;
+  width: 1.6rem;
+  height: 1.6rem;
+  border-right: 2px solid rgb(15, 15, 15);
+  border-bottom: 2px solid rgb(15, 15, 15);
+  background-color: inherit;
+  transform: rotate(45deg);
+}
+
+@media screen and (min-width: 769px) {
+  .bubble::after {
+    bottom: -1.2rem;
+    left: 4rem;
+    width: 2.2rem;
+    height: 2.2rem;
+  }
+}
+
+.bubble[data-tone="1"] {
+  background-color: rgb(255, 208, 226);
+  transform: rotate(1.5deg);
+}
+
+.bubble[data-tone="2"] {
+  background-color: rgb(252, 234, 89);
+  transform: rotate(-1deg);
+}
+
+.bubble[data-tone="3"] {
+  background-color: rgb(214, 238, 219);
+  transform: rotate(2deg);
+}
+
+.bubble[data-tone="4"] {
+  background-color: #ffffff;
+  transform: rotate(-1.5deg);
+}
+
+.answer {
+  max-width: 64rem;
+  margin: 5rem auto 0;
+  color: rgb(15, 15, 15);
+  text-align: center;
+}
+
+@media screen and (min-width: 769px) {
+  .answer {
+    max-width: 96rem;
+    margin-top: 8rem;
+  }
+}
+
+/* ---------- the mission: the statement darkening into ink ---------- */
+
+.statement {
+  margin: 0;
+  color: rgb(15, 15, 15);
+  text-align: center;
+}
+
+/* ---------- principles: three cards over two ---------- */
+
+.principles {
+  display: grid;
+  gap: 1.6rem;
+}
+
+@media screen and (min-width: 560px) and (max-width: 768px) {
+  .principles {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media screen and (min-width: 769px) {
+  .principles {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    gap: 2.4rem;
+  }
+
+  .principles > :nth-child(-n + 3) {
+    grid-column: span 2;
+  }
+
+  .principles > :nth-child(n + 4) {
+    grid-column: span 3;
+  }
+}
+
+/* ---------- built on: the foundations ---------- */
+
+.foundationArt {
+  width: 100%;
+  max-width: 44rem;
+  margin: 0 auto 4rem;
+}
+
+@media screen and (min-width: 769px) {
+  .foundationArt {
+    max-width: 62rem;
+    margin-bottom: 6rem;
+  }
+}
+
+.foundationHead {
+  display: flex;
+  align-items: center;
+  gap: 1.6rem;
+  margin-bottom: 0.4rem;
+}
+
+@media screen and (min-width: 769px) {
+  .foundationHead {
+    gap: 2.2rem;
+  }
+}
+
+.foundationIcon {
+  flex: 0 0 auto;
+  width: 5.6rem;
+  height: 5.6rem;
+  overflow: visible;
+}
+
+@media screen and (min-width: 769px) {
+  .foundationIcon {
+    width: 7.6rem;
+    height: 7.6rem;
+  }
+}
+
+/* What each foundation provides, under its name. */
+.role {
+  display: block;
+  margin-top: 0.4rem;
+  font-size: 1.5rem;
+  font-weight: 600;
+  line-height: 1.3;
+  color: rgb(90, 88, 90);
+}
+
+@media screen and (min-width: 769px) {
+  .role {
+    font-size: 1.8rem;
+  }
+}
+
+/* ---------- the layers: a link at each card's foot ---------- */
+
+.layerLink {
+  margin-top: auto;
+  padding-top: 2rem;
+}
+
+/* ---------- contact ---------- */
+
+.emails {
+  display: grid;
+  margin: 0;
+  padding: 0;
+  border-top: 1px solid rgba(0, 20, 5, 0.14);
+  list-style: none;
+}
+
+.email {
+  display: grid;
+  gap: 0.4rem;
+  padding: 1.8rem 0;
+  border-bottom: 1px solid rgba(0, 20, 5, 0.14);
+}
+
+@media screen and (min-width: 769px) {
+  .email {
+    gap: 0.6rem;
+    padding: 2.4rem 0;
+  }
+}
+
+.emailLabel {
+  color: rgb(90, 88, 90);
+}
+
+.emailLink {
+  justify-self: start;
+  max-width: 100%;
+  font-size: 2rem;
+  font-weight: 600;
+  line-height: 1.3;
+  color: rgb(15, 15, 15);
+  text-decoration: underline;
+  text-decoration-color: #d1f500;
+  text-decoration-thickness: 0.28em;
+  text-underline-offset: -0.06em;
+  text-decoration-skip-ink: none;
+  overflow-wrap: anywhere;
+  transition: text-decoration-color 0.2s ease;
+}
+
+.emailLink:hover {
+  text-decoration-color: #05c92f;
+}
+
+@media screen and (min-width: 769px) {
+  .emailLink {
+    font-size: 2.8rem;
+  }
+}
+
+.channels {
+  text-align: center;
+}
+
+.channelsText {
+  margin: -1rem auto 0;
+  color: rgb(90, 88, 90);
+}
+
+.channelList {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.2rem;
+  margin: 3rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+@media screen and (min-width: 769px) {
+  .channelList {
+    gap: 2rem;
+    margin-top: 4rem;
+  }
+}
+
+/* A channel as a pill: its icon in a circle, its name above its address. */
+.channel {
+  display: inline-flex;
+  align-items: center;
+  gap: 1.2rem;
+  padding: 0.8rem 2.2rem 0.8rem 0.8rem;
+  border: 2px solid rgb(15, 15, 15);
+  border-radius: 10rem;
+  background-color: #ffffff;
+  color: rgb(15, 15, 15);
+  text-align: left;
+  transition:
+    background-color 0.25s ease,
+    transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.channel:hover {
+  background-color: #d1f500;
+  transform: translateY(-0.3rem);
+}
+
+@media screen and (min-width: 769px) {
+  .channel {
+    gap: 1.6rem;
+    padding: 1rem 3rem 1rem 1rem;
+  }
+}
+
+.channelIcon {
+  display: flex;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+  width: 4.4rem;
+  height: 4.4rem;
+  border: 2px solid rgb(15, 15, 15);
+  border-radius: 50%;
+  background-color: rgb(249, 250, 249);
+}
+
+@media screen and (min-width: 769px) {
+  .channelIcon {
+    width: 5.6rem;
+    height: 5.6rem;
+  }
+}
+
+.socialIcon {
+  display: block;
+  width: 1.8rem;
+  height: 1.8rem;
+}
+
+.socialIcon :global(svg) {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+@media screen and (min-width: 769px) {
+  .socialIcon {
+    width: 2.2rem;
+    height: 2.2rem;
+  }
+}
+
+.stickerIcon {
+  width: 70%;
+  height: 70%;
+  overflow: visible;
+}
+
+.channelLabel {
+  display: block;
+  font-size: 1.4rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: rgba(0, 20, 5, 0.62);
+}
+
+.channelHandle {
+  display: block;
+  font-size: 1.8rem;
+  font-weight: 600;
+}
+
+@media screen and (min-width: 769px) {
+  .channelLabel {
+    font-size: 1.4rem;
+  }
+
+  .channelHandle {
+    font-size: 2.2rem;
+  }
+}

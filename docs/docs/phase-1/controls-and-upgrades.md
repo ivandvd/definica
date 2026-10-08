@@ -63,7 +63,7 @@ In an incident, Definica can pause the app's interface, recommend that users sto
 | Multisig | Its signers and threshold, read from the multisig itself |
 | Collateralisation | `Keeper.isCollateralized(vault)` |
 
-Core's and the Vault's addresses are listed on the Contracts card of the Stake screen in the app, and your wallet shows them again before you sign; see [Verify addresses](/security/verify-addresses).
+Your wallet shows Core's address when you confirm a deposit, and [Verify addresses](/security/verify-addresses) sets out how to check Core's and the Vault's addresses.
 
 ## Related
 

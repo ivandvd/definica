@@ -57,7 +57,7 @@ Rewards stay in the value of your shares until you exit. To take ETH out, includ
 
 ## What you see in the app
 
-The Overview screen shows your position's value, lifetime rewards, Vault shares and ETH deposited, and the shares available to exit or lock. Next to it are your exit queue, your share locks and the Vault card, with the network, operator, capacity used, share price and fees. [Activity](/app/activity) lists every deposit, exit, lock and reward entry.
+The [Home screen](/app#the-home-screen) shows your position's value, in ETH or in Vault shares, its lifetime rewards and the ETH deposited, and how many shares are available to exit or lock, locked, or in the exit queue. Next to it are **Needs you**, with exits ready to claim and matured locks, and the Vault card, with the network, operator, capacity used, share price and fees. [Activity](/app/activity) lists every deposit, exit, lock and reward entry.
 
 ## What you can verify
 

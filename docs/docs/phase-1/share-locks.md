@@ -55,7 +55,7 @@ The Share locks screen shows your locked shares, your open lock positions out of
 
 ## What you can verify
 
-On Core: each lock record (shares, start, maturity and state) and the events Core emits when a lock is created, matures and is released. Core's address is listed on the Contracts card of the Stake screen in the app; see [Verify addresses](/security/verify-addresses).
+On Core: each lock record (shares, start, maturity and state) and the events Core emits when a lock is created, matures and is released. [Verify addresses](/security/verify-addresses) sets out how to check Core's address.
 
 ## Related
 

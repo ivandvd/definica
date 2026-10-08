@@ -1,0 +1,365 @@
+{
+  "seo": {
+    "title": "Main Liquidity Module",
+    "description": "Supply osETH to Aave V3, commit the aEthosETH receipt to the Main Liquidity Module and choose whether to finance it. Every return and debt shown apart."
+  },
+  "hero": {
+    "surtitle": "Main Liquidity Module",
+    "title": "Commit osETH, \nsee every line.",
+    "text": "Supply osETH to Aave V3 Ethereum, hold the aEthosETH receipt and commit it to the Main Liquidity Module for a fixed duration. If you choose, authorise a funding loan against it that supplies Definica's borrowing markets. Every return and every debt is reported on its own line.",
+    "buttons": [
+      {
+        "linkType": "internalLink",
+        "title": "Read the docs",
+        "to": "/docs/phase-2",
+        "trailingSlash": false,
+        "theme": "dark"
+      },
+      {
+        "linkType": "internalLink",
+        "title": "Launch App",
+        "to": {
+          "path": "/app"
+        },
+        "theme": "border-light"
+      }
+    ]
+  },
+  "path": {
+    "surtitle": "The path",
+    "title": "From osETH \nto a commitment.",
+    "intro": "The Module builds on two established systems: StakeWise for osETH, Aave V3 Ethereum for the supply market. Here is what you hold at each step.",
+    "stations": [
+      {
+        "icon": "coin",
+        "tone": "sky",
+        "name": "osETH",
+        "text": "StakeWise's liquid staking token. Its exchange rate carries the staking return."
+      },
+      {
+        "icon": "pool",
+        "name": "Aave V3 Ethereum",
+        "text": "Your osETH is supplied to the Aave V3 Pool. A supply fails if the reserve is inactive, frozen or paused, or its supply cap is reached; the app shows the cap's headroom first."
+      },
+      {
+        "icon": "ticket",
+        "tone": "baby",
+        "name": "aEthosETH",
+        "text": "Aave's receipt for supplied osETH. Its balance grows with Aave's variable supply interest; it is not a second deposit and doesn't duplicate the staking return."
+      },
+      {
+        "icon": "lock",
+        "name": "Main Liquidity Module",
+        "text": "You commit the receipt for a fixed duration. The Module records custody, the commitment period, any allocated debt, income and the withdrawal conditions."
+      }
+    ],
+    "entries": {
+      "title": "Two ways in",
+      "items": [
+        {
+          "icon": "coin",
+          "tone": "sky",
+          "title": "With osETH you hold",
+          "text": "Supply it, then commit. A compatible aEthosETH receipt you already hold is committed directly."
+        },
+        {
+          "icon": "coins",
+          "title": "With ETH you stake",
+          "text": "Stake in a separate StakeWise Vault that mints osETH, mint it, then supply and commit. Minting leaves an osETH liability at that Vault until you settle it."
+        }
+      ]
+    },
+    "note": "Definica's staking Vault doesn't mint osETH, so a staking position isn't a way in: you leave it through the exit queue and come in separately."
+  },
+  "financing": {
+    "surtitle": "Optional financing",
+    "title": "A funding loan, \nonly if you say so.",
+    "intro": "Committing creates no debt. If you authorise it, the Module borrows WETH or another permitted asset at Aave V3 against your committed aEthosETH, records your share as allocated debt and supplies the borrowed asset to Definica's borrowing markets.",
+    "points": [
+      {
+        "icon": "pen",
+        "title": "Opt-in",
+        "text": "Authorisation is explicit consent. A commitment on its own never creates a loan."
+      },
+      {
+        "icon": "link",
+        "title": "A real debt",
+        "text": "Variable interest accrues continuously. Neither the receipt nor the lock extinguishes the debt; only repayment does."
+      },
+      {
+        "icon": "book",
+        "title": "Aave's rules",
+        "text": "It is an ordinary Aave V3 borrow: LTV, liquidation threshold, eMode and borrow caps all apply, and a reached cap blocks new borrowing."
+      },
+      {
+        "icon": "gauge",
+        "title": "Watched",
+        "text": "The Module watches the loan's health factor and responds as it falls, under its rules. Below 1, the position can be liquidated."
+      }
+    ],
+    "confirm": {
+      "title": "Shown before you authorise",
+      "items": [
+        "The asset to borrow and the eMode category",
+        "The LTV and liquidation threshold that apply",
+        "The current variable borrow rate and the caps",
+        "Your allocated debt and the health factor after the borrow"
+      ]
+    },
+    "result": {
+      "title": "How a financed result adds up",
+      "terms": [
+        "Your result",
+        "=",
+        "75% of your attributable lending interest",
+        "−",
+        "Funding costs",
+        "−",
+        "Other costs"
+      ],
+      "text": "Definica's 25% is taken on the attributable lending interest before your funding costs, so when the loan costs more than your allocation, the result is negative."
+    }
+  },
+  "lines": {
+    "surtitle": "Separate lines",
+    "title": "Returns and debts, \nnever blended.",
+    "intro": "Each component of a position is accounted for on its own: what it earns, what it owes and where each line comes from. No blended headline figure is shown.",
+    "returns": {
+      "title": "What can earn",
+      "items": [
+        {
+          "title": "osETH exposure",
+          "text": "StakeWise staking performance, through the osETH exchange rate."
+        },
+        {
+          "title": "Aave supply interest",
+          "text": "Variable interest in the aEthosETH balance, moving with the reserve's utilisation."
+        },
+        {
+          "title": "Lending income",
+          "text": "If you finance: 75% of the lending interest attributable to you."
+        },
+        {
+          "title": "Lock incentives",
+          "text": "A separately funded programme, where one runs, with its own budget and rules."
+        }
+      ]
+    },
+    "obligations": {
+      "title": "What can be owed",
+      "items": [
+        {
+          "title": "Funding loan",
+          "text": "Owed at Aave V3 and recorded as your allocated debt. It grows with variable borrow interest and is settled by repaying the amount borrowed plus interest."
+        },
+        {
+          "title": "osETH minting liability",
+          "text": "Only if you minted osETH. Owed at the StakeWise Vault that minted it, it grows with StakeWise's fee on osToken rewards and is settled by burning osETH, fees included."
+        }
+      ]
+    },
+    "note": "aEthosETH is a receipt: it proves the supply and repays nothing. A commitment fixes how long the receipt stays committed; it settles nothing."
+  },
+  "rules": {
+    "surtitle": "Module rules",
+    "title": "Set by the Module, \nshown before you commit.",
+    "intro": "The Module applies the same rules to every position. Their values are set by the Module and shown in the app before you commit; here is what each one decides.",
+    "groups": [
+      {
+        "title": "Commitment",
+        "icon": "calendar",
+        "items": [
+          {
+            "title": "Accepted receipts",
+            "text": "Which aEthosETH receipts you already hold can be committed directly, without a new supply."
+          },
+          {
+            "title": "Commitment durations",
+            "text": "The fixed durations you can choose."
+          },
+          {
+            "title": "Commitment amounts",
+            "text": "The minimum and maximum you can commit."
+          },
+          {
+            "title": "Capacity",
+            "text": "The total the Module accepts across all commitments."
+          },
+          {
+            "title": "Early release",
+            "text": "Whether a commitment can end before maturity, and on what conditions."
+          },
+          {
+            "title": "Withdrawal conditions",
+            "text": "What must be true for a commitment to be released and the position withdrawn."
+          },
+          {
+            "title": "Maturity",
+            "text": "The claim or accounting action that settles a commitment when it ends."
+          }
+        ]
+      },
+      {
+        "title": "Custody and financing",
+        "icon": "key",
+        "items": [
+          {
+            "title": "Custody",
+            "text": "How the Module records custody of each committed position."
+          },
+          {
+            "title": "Financing consent",
+            "text": "A funding loan is taken only with your explicit authorisation."
+          },
+          {
+            "title": "Aave market and eMode",
+            "text": "The Aave V3 Ethereum market and the eMode category a funding loan uses."
+          },
+          {
+            "title": "Permitted borrow assets",
+            "text": "WETH or another permitted asset, subject to the market's eMode, liquidity and caps."
+          },
+          {
+            "title": "Allocated debt",
+            "text": "The share of the funding loan recorded against your position, and its cost."
+          },
+          {
+            "title": "Health-factor monitoring",
+            "text": "How the Module watches the loan's health factor and responds as it falls, including in a liquidation."
+          }
+        ]
+      },
+      {
+        "title": "Incentives",
+        "icon": "gift",
+        "items": [
+          {
+            "title": "Lock-incentive programme",
+            "text": "Where one runs: its budget, asset, duration, eligibility and allocation rules. It is funded separately."
+          },
+          {
+            "title": "Lock-duration multiplier",
+            "text": "Where one applies, it changes incentive-allocation weight only, never validator rewards or market interest."
+          }
+        ]
+      },
+      {
+        "title": "Accounting and reporting",
+        "icon": "receipt",
+        "items": [
+          {
+            "title": "Separate reporting",
+            "text": "osETH exposure, Aave supply interest, allocated debt and its cost, lending interest and incentives, each on its own line."
+          },
+          {
+            "title": "Interest allocation",
+            "text": "Of the lending interest attributable to you, 75% is allocated to you and 25% to Definica, before financing costs."
+          },
+          {
+            "title": "Other applicable costs",
+            "text": "The costs, beyond funding costs, deducted in the net-result formula."
+          }
+        ]
+      }
+    ],
+    "always": {
+      "title": "Whatever the values, three things hold",
+      "items": [
+        "aEthosETH doesn't create a second ETH deposit or duplicate the osETH staking return.",
+        "Committing aEthosETH doesn't make it collateral.",
+        "Lending losses and funding costs can outweigh returns."
+      ]
+    }
+  },
+  "leaving": {
+    "surtitle": "Leaving a position",
+    "title": "Unwind it, \nin order.",
+    "intro": "Closing reverses the path in. Each step depends on the one before and is its own transaction, and the waits at Aave and StakeWise are outside Definica's control.",
+    "steps": [
+      {
+        "title": "Release",
+        "text": "The commitment matures, or is released under the Module's rules."
+      },
+      {
+        "title": "Repay",
+        "text": "If you financed, repay the funding loan: the amount borrowed plus accrued interest. Liquidity lent out in a market comes back as utilisation allows."
+      },
+      {
+        "title": "Withdraw",
+        "text": "Redeem aEthosETH for osETH at Aave, as far as the reserve's unborrowed liquidity and your health factor allow."
+      },
+      {
+        "title": "Keep or convert",
+        "text": "Hold the osETH, sell it, or redeem it for ETH through StakeWise's redemption queue."
+      }
+    ],
+    "minted": "If you minted the osETH, burn it, accrued fees included, at the Vault that minted it, then exit the stake there.",
+    "warn": {
+      "title": "Lock expiry is not cash",
+      "text": "A commitment that reaches maturity is released from the Module's rules, but that by itself creates no liquidity at Aave, at StakeWise or in a market."
+    }
+  },
+  "risks": {
+    "surtitle": "Risks",
+    "title": "What can \ngo wrong.",
+    "intro": "Committed liquidity adds layers, and each layer adds risk. These apply here, on top of the risks of osETH itself.",
+    "items": [
+      {
+        "icon": "chart",
+        "title": "Variable rates",
+        "text": "Supply interest and a funding loan's cost follow utilisation and can change quickly, often when strategies are most crowded."
+      },
+      {
+        "icon": "pool",
+        "title": "Caps and liquidity",
+        "text": "Aave governance sets supply and borrow caps, and a reached cap blocks new supply or new loans. A withdrawal needs unborrowed osETH in the reserve."
+      },
+      {
+        "icon": "gavel",
+        "title": "Liquidation",
+        "text": "A funding loan whose health factor falls below 1 can be liquidated: collateral is sold at a discount, and the debt isn't necessarily cleared."
+      },
+      {
+        "icon": "eye",
+        "title": "Oracles",
+        "text": "Aave values osETH through an adapter combining StakeWise's exchange rate with an ETH/USD feed. A wrong or late price can liquidate a position, or flatter one."
+      },
+      {
+        "icon": "link",
+        "title": "Correlation isn't safety",
+        "text": "osETH, aEthosETH and the borrowed asset all move with ETH, but not identically. Correlation removes none of the price, interest or governance risk."
+      },
+      {
+        "icon": "building",
+        "title": "Third parties",
+        "text": "StakeWise and Aave have their own contracts, governance and upgrades. A decision there can reach your position without any action by Definica."
+      }
+    ],
+    "link": {
+      "title": "Read the risks in full",
+      "to": "/docs/risks"
+    }
+  },
+  "closing": {
+    "surtitle": "Read first",
+    "title": "Every rule, \nin the docs.",
+    "text": "The documentation covers the Module rules, the funding loan, Aave's checks and every obligation in full. The app shows each value before you commit or authorise anything.",
+    "buttons": [
+      {
+        "linkType": "internalLink",
+        "title": "Read the docs",
+        "to": "/docs/phase-2",
+        "trailingSlash": false,
+        "theme": "dark"
+      },
+      {
+        "linkType": "internalLink",
+        "title": "Launch App",
+        "to": {
+          "path": "/app"
+        },
+        "theme": "border-light"
+      }
+    ]
+  }
+}

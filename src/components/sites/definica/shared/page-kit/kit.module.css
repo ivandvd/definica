@@ -1,0 +1,1741 @@
+/*
+ * The kit shared by the content pages (staking, liquidity, borrowing, about): the roadmap's
+ * section rhythm and heads, plus cards, numbered steps, lists, notes, an accordion, the hero,
+ * the close and the motions of the sticker art. Sized in rem like the rest of the site (the root
+ * font-size follows the viewport, see site.css); desktop starts at 769px, as everywhere.
+ */
+
+.page {
+  position: relative;
+  width: 100%;
+}
+
+/* No word left alone on a paragraph's last line, and headings in even lines. */
+.page p {
+  text-wrap: pretty;
+}
+
+.page h3,
+.page h4 {
+  text-wrap: balance;
+}
+
+/* ---------- sections ---------- */
+
+.section {
+  position: relative;
+  width: 100%;
+  padding: 8rem 0 9rem;
+  overflow: hidden;
+}
+
+@media screen and (min-width: 769px) {
+  .section {
+    padding: 13rem 0 14rem;
+  }
+}
+
+.white {
+  background-color: #ffffff;
+}
+
+.grey {
+  background-color: rgb(249, 250, 249);
+}
+
+/* The line under a section head. */
+.intro {
+  position: relative;
+  z-index: 1;
+  max-width: 64rem;
+  margin: 2.5rem auto 0;
+  color: rgb(90, 88, 90);
+  text-align: center;
+}
+
+@media screen and (min-width: 769px) {
+  .intro {
+    max-width: 92rem;
+    margin-top: 3.5rem;
+  }
+}
+
+/* What follows a head and its intro. */
+.body {
+  position: relative;
+  z-index: 1;
+  margin-top: 5rem;
+}
+
+@media screen and (min-width: 769px) {
+  .body {
+    margin-top: 8rem;
+  }
+}
+
+.muted {
+  color: rgb(90, 88, 90);
+}
+
+/* Stickers placed in a section, behind its content. */
+.deco {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+/* A centred line with a link, under a block. */
+.more {
+  position: relative;
+  z-index: 1;
+  margin-top: 4rem;
+  color: rgb(90, 88, 90);
+  text-align: center;
+}
+
+@media screen and (min-width: 769px) {
+  .more {
+    margin-top: 6rem;
+  }
+}
+
+/* Inline links in running text: ink, with the site's lime underline. */
+.link {
+  color: rgb(15, 15, 15);
+  text-decoration: underline;
+  text-decoration-color: #d1f500;
+  text-decoration-thickness: 0.3em;
+  text-underline-offset: -0.08em;
+  text-decoration-skip-ink: none;
+  transition: text-decoration-color 0.2s ease;
+}
+
+.link:hover {
+  text-decoration-color: #05c92f;
+}
+
+/* The site removes focus rings; keyboard users get one back on everything interactive here. */
+.page a:focus-visible,
+.page button:focus-visible {
+  outline: 2px solid rgb(15, 15, 15);
+  outline-offset: 3px;
+  border-radius: 0.6rem;
+}
+
+/* A heading inside a section's body: "What moves the share price". */
+.subhead {
+  margin: 0 0 2.4rem;
+  font-size: 2.6rem;
+  font-weight: 500;
+  line-height: 3.1rem;
+  color: rgb(15, 15, 15);
+}
+
+@media screen and (min-width: 769px) {
+  .subhead {
+    margin-bottom: 3.6rem;
+    font-size: 4rem;
+    line-height: 4.6rem;
+  }
+}
+
+.subheadCentre {
+  text-align: center;
+}
+
+/* Space between the blocks of a section's body. */
+.gap {
+  margin-top: 6rem;
+}
+
+@media screen and (min-width: 769px) {
+  .gap {
+    margin-top: 10rem;
+  }
+}
+
+/* A small uppercase label: "Shown before you confirm", "Step 2". */
+.label {
+  display: block;
+  font-size: 1.2rem;
+  font-weight: 600;
+  line-height: 1.4;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(0, 20, 5, 0.62);
+}
+
+@media screen and (min-width: 769px) {
+  .label {
+    font-size: 1.4rem;
+  }
+}
+
+/* ---------- two columns: text beside art ---------- */
+
+.split {
+  display: grid;
+  gap: 4rem;
+  align-items: center;
+}
+
+@media screen and (min-width: 769px) {
+  .split {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 8rem;
+  }
+
+  /* The art on the left, the text on the right. */
+  .splitFlip > :first-child {
+    order: 2;
+  }
+}
+
+.splitArt {
+  position: relative;
+  width: 100%;
+  max-width: 44rem;
+  margin: 0 auto;
+}
+
+@media screen and (min-width: 769px) {
+  .splitArt {
+    max-width: 58rem;
+  }
+}
+
+/* ---------- cards ---------- */
+
+.grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 1.6rem;
+}
+
+@media screen and (min-width: 560px) and (max-width: 768px) {
+  .grid2,
+  .grid3,
+  .grid4 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media screen and (min-width: 769px) {
+  .grid {
+    gap: 2.4rem;
+  }
+
+  .grid2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .grid3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .grid4 {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  padding: 2.6rem 2.4rem 2.8rem;
+  border-radius: 2rem;
+  background-color: #ffffff;
+}
+
+@media screen and (min-width: 769px) {
+  .card {
+    padding: 3.8rem 3.6rem 4.2rem;
+    border-radius: 3rem;
+  }
+}
+
+/* On a white section, cards take the FAQ's ink outline instead of standing on grey. */
+.cardLine {
+  border: 2px solid rgb(15, 15, 15);
+}
+
+.cardIcon {
+  display: block;
+  flex: 0 0 auto;
+  width: 5.2rem;
+  height: 5.2rem;
+  margin-bottom: 1.6rem;
+  overflow: visible;
+}
+
+@media screen and (min-width: 769px) {
+  .cardIcon {
+    width: 8rem;
+    height: 8rem;
+    margin-bottom: 2.8rem;
+  }
+}
+
+.cardTitle {
+  margin: 0;
+  font-size: 2.2rem;
+  font-weight: 600;
+  line-height: 2.7rem;
+  color: rgb(15, 15, 15);
+}
+
+@media screen and (min-width: 769px) {
+  .cardTitle {
+    font-size: 2.8rem;
+    line-height: 3.3rem;
+  }
+}
+
+.cardText {
+  margin-top: 1rem;
+  color: rgb(90, 88, 90);
+}
+
+@media screen and (min-width: 769px) {
+  .cardText {
+    margin-top: 1.4rem;
+  }
+}
+
+/* Body text in ink rather than grey, which turns muddy on colour. */
+[class*="--tone-"] .cardText,
+[class*="--tone-"] .muted {
+  color: rgba(0, 20, 5, 0.76);
+}
+
+/* ---------- numbered steps ---------- */
+
+.steps {
+  position: relative;
+  display: grid;
+  gap: 1.4rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: step;
+}
+
+@media screen and (min-width: 769px) {
+  .steps {
+    grid-auto-columns: minmax(0, 1fr);
+    grid-auto-flow: column;
+    gap: 2rem;
+  }
+}
+
+.step {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  padding: 2.4rem 2.4rem 2.6rem;
+  border-radius: 2rem;
+  background-color: #ffffff;
+  counter-increment: step;
+}
+
+@media screen and (min-width: 769px) {
+  .step {
+    padding: 3rem 2.8rem 3.4rem;
+    border-radius: 2.6rem;
+  }
+}
+
+/* The number and the title: on one row on phones, the number above on desktop. */
+.stepHead {
+  display: flex;
+  align-items: center;
+  gap: 1.4rem;
+}
+
+@media screen and (min-width: 769px) {
+  .stepHead {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2.4rem;
+  }
+}
+
+/* The step's number in a lime disc. */
+.stepNum {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 4rem;
+  height: 4rem;
+  border: 2px solid rgb(15, 15, 15);
+  border-radius: 50%;
+  background-color: #d1f500;
+  font-size: 1.6rem;
+  font-weight: 600;
+  line-height: 1;
+  color: rgb(15, 15, 15);
+}
+
+.stepNum::before {
+  content: counter(step);
+}
+
+@media screen and (min-width: 769px) {
+  .stepNum {
+    width: 4.8rem;
+    height: 4.8rem;
+    font-size: 1.9rem;
+  }
+}
+
+.stepTitle {
+  margin: 0;
+  font-size: 2.2rem;
+  font-weight: 600;
+  line-height: 2.7rem;
+  color: rgb(15, 15, 15);
+}
+
+@media screen and (min-width: 769px) {
+  .stepTitle {
+    font-size: 2.6rem;
+    line-height: 3.1rem;
+  }
+}
+
+.stepText {
+  margin-top: 1.2rem;
+  color: rgb(90, 88, 90);
+}
+
+/* ---------- equations in pills (Equation) ---------- */
+
+.equations {
+  display: grid;
+  gap: 1.4rem;
+  margin: 0 0 3.6rem;
+}
+
+@media screen and (min-width: 769px) {
+  .equations {
+    gap: 1.8rem;
+    margin-bottom: 5rem;
+  }
+}
+
+.equation {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.8rem 1rem;
+  margin: 0;
+}
+
+/* A pill; a long term wraps inside it on narrow screens. */
+.eqTerm {
+  display: inline-flex;
+  align-items: center;
+  min-width: 0;
+  padding: 0.8rem 1.5rem;
+  border: 2px solid rgb(15, 15, 15);
+  border-radius: 2.2rem;
+  background-color: #ffffff;
+  font-size: 1.6rem;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+@media screen and (min-width: 769px) {
+  .eqTerm {
+    padding: 1.1rem 2.1rem;
+    border-radius: 2.8rem;
+    font-size: 2.2rem;
+  }
+}
+
+/* The term being defined. */
+.equation .eqTerm:first-child {
+  background-color: #d1f500;
+}
+
+/* An operator kept on the same line as the term after it. */
+.eqPair {
+  display: inline-flex;
+  align-items: center;
+  gap: 1rem;
+  max-width: 100%;
+}
+
+.eqOp {
+  font-size: 2.4rem;
+  font-weight: 600;
+  line-height: 1;
+}
+
+@media screen and (min-width: 769px) {
+  .eqOp {
+    font-size: 3.2rem;
+  }
+}
+
+/* ---------- a numbered list of points (NumberedList) ---------- */
+
+.numbered {
+  display: grid;
+  margin: 0;
+  padding: 0;
+  border-top: 1px solid rgba(0, 20, 5, 0.14);
+  list-style: none;
+  counter-reset: step;
+}
+
+.numberedItem {
+  display: grid;
+  grid-template-columns: 4rem minmax(0, 1fr);
+  gap: 0.8rem 1.6rem;
+  align-items: center;
+  padding: 2rem 0;
+  border-bottom: 1px solid rgba(0, 20, 5, 0.14);
+  counter-increment: step;
+}
+
+.numberedText {
+  grid-column: 2;
+  margin: 0;
+  color: rgb(90, 88, 90);
+}
+
+@media screen and (min-width: 769px) {
+  .numberedItem {
+    grid-template-columns: 4.8rem minmax(0, 0.36fr) minmax(0, 1fr);
+    gap: 3.2rem;
+    padding: 2.8rem 0;
+  }
+
+  .numberedText {
+    grid-column: auto;
+  }
+}
+
+.numberedTitle {
+  margin: 0;
+  font-size: 2.2rem;
+  font-weight: 600;
+  line-height: 2.6rem;
+}
+
+@media screen and (min-width: 769px) {
+  .numberedTitle {
+    font-size: 2.6rem;
+    line-height: 3rem;
+  }
+}
+
+/* ---------- lists ---------- */
+
+.bullets {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+@media screen and (min-width: 769px) {
+  .bullets {
+    gap: 1.6rem;
+  }
+}
+
+.bullet {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.2rem;
+  color: rgb(15, 15, 15);
+}
+
+/* The site's blob as a bullet, sat on the first line's x-height. */
+.bulletMark {
+  flex: 0 0 auto;
+  width: 1.6rem;
+  height: 1.6rem;
+  margin-top: 0.3em;
+  overflow: visible;
+}
+
+@media screen and (min-width: 769px) {
+  .bulletMark {
+    width: 1.8rem;
+    height: 1.8rem;
+  }
+}
+
+.bullet strong {
+  font-weight: 600;
+}
+
+/* ---------- a list with stickers (IconList) ---------- */
+
+.iconList {
+  display: grid;
+  gap: 2.2rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+@media screen and (min-width: 769px) {
+  .iconList {
+    gap: 3.2rem;
+  }
+}
+
+.iconItem {
+  display: grid;
+  grid-template-columns: 5.2rem minmax(0, 1fr);
+  gap: 1.6rem;
+  align-items: start;
+}
+
+@media screen and (min-width: 769px) {
+  .iconItem {
+    grid-template-columns: 7.2rem minmax(0, 1fr);
+    gap: 2.4rem;
+  }
+}
+
+.iconItemIcon {
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+
+.iconItemTitle {
+  margin: 0;
+  font-size: 2.2rem;
+  font-weight: 600;
+  line-height: 2.6rem;
+}
+
+@media screen and (min-width: 769px) {
+  .iconItemTitle {
+    font-size: 2.8rem;
+    line-height: 3.2rem;
+  }
+}
+
+.iconItemText {
+  margin-top: 0.8rem;
+  color: rgb(90, 88, 90);
+}
+
+/* ---------- "shown before you confirm" ---------- */
+
+.confirm {
+  position: relative;
+  padding: 2.6rem 2.4rem 2.8rem;
+  border: 2px solid rgb(15, 15, 15);
+  border-radius: 2rem;
+  background-color: #ffffff;
+}
+
+@media screen and (min-width: 769px) {
+  .confirm {
+    padding: 3.6rem 4rem 4rem;
+    border-radius: 3rem;
+  }
+}
+
+.confirmHead {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+}
+
+.confirmIcon {
+  flex: 0 0 auto;
+  width: 4.4rem;
+  height: 4.4rem;
+  overflow: visible;
+}
+
+@media screen and (min-width: 769px) {
+  .confirmIcon {
+    width: 5.6rem;
+    height: 5.6rem;
+  }
+}
+
+.confirmTitle {
+  margin: 0;
+  font-size: 2.2rem;
+  font-weight: 600;
+  line-height: 2.6rem;
+}
+
+@media screen and (min-width: 769px) {
+  .confirmTitle {
+    font-size: 2.8rem;
+    line-height: 3.2rem;
+  }
+}
+
+.checks {
+  display: grid;
+  gap: 1.2rem;
+  margin: 2rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+@media screen and (min-width: 769px) {
+  .checks {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.6rem 4rem;
+    margin-top: 2.8rem;
+  }
+
+  .checks1 {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .checks3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.check {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.2rem;
+  color: rgb(15, 15, 15);
+}
+
+.checkMark {
+  flex: 0 0 auto;
+  width: 2.2rem;
+  height: 2.2rem;
+  margin-top: 0.05em;
+  overflow: visible;
+}
+
+@media screen and (min-width: 769px) {
+  .checkMark {
+    width: 2.6rem;
+    height: 2.6rem;
+  }
+}
+
+/* ---------- notes ---------- */
+
+.note {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  gap: 1.4rem;
+  padding: 2rem 2.2rem;
+  border-radius: 1.8rem;
+  background-color: rgb(226, 242, 229);
+  color: rgb(0, 20, 5);
+}
+
+@media screen and (min-width: 769px) {
+  .note {
+    gap: 2rem;
+    padding: 2.8rem 3.4rem;
+    border-radius: 2.4rem;
+  }
+}
+
+/* A warning: lemonade. */
+.noteWarn {
+  background-color: rgb(252, 234, 89);
+}
+
+.noteIcon {
+  flex: 0 0 auto;
+  width: 3.6rem;
+  height: 3.6rem;
+  overflow: visible;
+}
+
+@media screen and (min-width: 769px) {
+  .noteIcon {
+    width: 4.4rem;
+    height: 4.4rem;
+  }
+}
+
+.noteTitle {
+  display: block;
+  margin-bottom: 0.4rem;
+  font-weight: 600;
+}
+
+/* ---------- accordion (the home FAQ's clothes) ---------- */
+
+.acc {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+@media screen and (min-width: 769px) {
+  .acc {
+    gap: 2rem;
+  }
+}
+
+.accItem {
+  border: 2px solid rgb(15, 15, 15);
+  border-radius: 2rem;
+  background-color: #ffffff;
+}
+
+@media screen and (min-width: 769px) {
+  .accItem {
+    border-radius: 3rem;
+  }
+}
+
+.accHeading {
+  margin: 0;
+  font: inherit;
+}
+
+.accHead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  width: 100%;
+  padding: 2.2rem 2.4rem;
+  border: 0;
+  background: none;
+  font: inherit;
+  color: inherit;
+  text-align: left;
+  cursor: pointer;
+  appearance: none;
+}
+
+@media screen and (min-width: 769px) {
+  .accHead {
+    padding: 3.2rem 4.4rem;
+  }
+}
+
+.accLead {
+  display: flex;
+  flex: 1 1 auto;
+  align-items: center;
+  gap: 1.6rem;
+  min-width: 0;
+}
+
+.accIcon {
+  flex: 0 0 auto;
+  width: 4.4rem;
+  height: 4.4rem;
+  overflow: visible;
+}
+
+@media screen and (min-width: 769px) {
+  .accIcon {
+    width: 5.6rem;
+    height: 5.6rem;
+  }
+}
+
+.accTitle {
+  flex: 1 1 auto;
+  min-width: 0;
+  font-size: 2.2rem;
+  font-weight: 600;
+  line-height: 2.7rem;
+}
+
+@media screen and (min-width: 769px) {
+  .accTitle {
+    font-size: 3rem;
+    line-height: 3.4rem;
+  }
+}
+
+/* The + that turns into a − when open. */
+.accToggle {
+  position: relative;
+  display: block;
+  flex: 0 0 auto;
+  width: 4rem;
+  height: 4rem;
+  border: 2px solid rgb(15, 15, 15);
+  border-radius: 50%;
+  transition: background-color 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+@media screen and (min-width: 769px) {
+  .accToggle {
+    width: 5.2rem;
+    height: 5.2rem;
+  }
+}
+
+.accToggle span {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 1.4rem;
+  height: 2px;
+  margin: -1px 0 0 -0.7rem;
+  background-color: rgb(15, 15, 15);
+  transition:
+    transform 0.3s cubic-bezier(0.165, 0.84, 0.44, 1),
+    background-color 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.accToggle span:last-child {
+  transform: rotate(90deg);
+}
+
+.accItem[data-open="true"] .accToggle {
+  background-color: rgb(15, 15, 15);
+}
+
+.accItem[data-open="true"] .accToggle span {
+  background-color: #ffffff;
+}
+
+.accItem[data-open="true"] .accToggle span:last-child {
+  transform: rotate(0deg);
+}
+
+/* Height is tweened from the component; closed by default. */
+.accPanel {
+  height: 0;
+  overflow: hidden;
+}
+
+.accBody {
+  padding: 0 2.4rem 2.8rem;
+}
+
+@media screen and (min-width: 769px) {
+  .accBody {
+    padding: 0 4.4rem 4.4rem;
+  }
+}
+
+/* A rule and what it determines, as a definition list inside a panel. */
+.terms {
+  display: grid;
+  margin: 0;
+  border-top: 1px solid rgba(0, 20, 5, 0.14);
+}
+
+.term {
+  display: grid;
+  gap: 0.4rem;
+  padding: 1.6rem 0;
+  border-bottom: 1px solid rgba(0, 20, 5, 0.14);
+}
+
+.term:last-child {
+  border-bottom: 0;
+  padding-bottom: 0;
+}
+
+@media screen and (min-width: 769px) {
+  .term {
+    grid-template-columns: minmax(0, 0.42fr) minmax(0, 1fr);
+    gap: 4rem;
+    padding: 2rem 0;
+  }
+}
+
+.termName {
+  margin: 0;
+  font-weight: 600;
+  color: rgb(15, 15, 15);
+}
+
+.termText {
+  margin: 0;
+  color: rgb(90, 88, 90);
+}
+
+/* ---------- hero ---------- */
+
+.hero {
+  position: relative;
+  width: 100%;
+  padding: 14rem 0 6rem;
+  overflow: hidden;
+}
+
+@media screen and (min-width: 769px) {
+  .hero {
+    padding: 21rem 0 9rem;
+  }
+}
+
+.heroHead {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.heroTitle {
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.heroText {
+  position: relative;
+  z-index: 1;
+  max-width: 64rem;
+  margin: 3rem auto 0;
+  color: rgb(90, 88, 90);
+}
+
+@media screen and (min-width: 769px) {
+  .heroText {
+    max-width: 90rem;
+    margin-top: 4rem;
+  }
+}
+
+.actions {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.2rem;
+  margin-top: 3.5rem;
+}
+
+@media screen and (min-width: 769px) {
+  .actions {
+    gap: 1.6rem;
+    margin-top: 5rem;
+  }
+}
+
+/* The scattered stickers around the title. */
+.heroStickers {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+/* The page's illustration under the calls to action. */
+.heroArt {
+  position: relative;
+  z-index: 0;
+  width: calc(100% - 2.4rem);
+  max-width: 52rem;
+  margin: 5rem auto 0;
+}
+
+@media screen and (min-width: 769px) {
+  .heroArt {
+    width: 100%;
+    max-width: 104rem;
+    margin-top: 7rem;
+  }
+}
+
+/* A sticker placed by its parent: `--x`/`--y` on desktop, `--mx`/`--my` on phones, `--s` its size. */
+.sticker {
+  position: absolute;
+  top: var(--my, var(--y));
+  left: var(--mx, var(--x));
+  width: var(--ms, var(--s));
+  height: var(--ms, var(--s));
+}
+
+@media screen and (min-width: 769px) {
+  .sticker {
+    top: var(--y);
+    left: var(--x);
+    width: var(--s);
+    height: var(--s);
+  }
+}
+
+.stickerDesktop {
+  display: none;
+}
+
+@media screen and (min-width: 769px) {
+  .stickerDesktop {
+    display: block;
+  }
+}
+
+/* ---------- stations on a pipe (Stations.tsx) ---------- */
+
+.stations {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  gap: 3rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+@media screen and (min-width: 769px) {
+  .stations {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 3.2rem;
+  }
+}
+
+.station {
+  position: relative;
+  display: grid;
+  grid-template-columns: 7.6rem minmax(0, 1fr);
+  gap: 1.8rem;
+  align-items: start;
+}
+
+@media screen and (min-width: 769px) {
+  .station {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+    text-align: center;
+  }
+}
+
+/* The circle the pipe runs through; lime once the coin has reached it. */
+.stop {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 7.6rem;
+  height: 7.6rem;
+  border: 2px solid rgb(15, 15, 15);
+  border-radius: 50%;
+  background-color: #ffffff;
+  transition:
+    background-color 0.4s ease,
+    transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@media screen and (min-width: 769px) {
+  .stop {
+    width: 13.6rem;
+    height: 13.6rem;
+  }
+}
+
+.stop[data-reached] {
+  background-color: #d1f500;
+  transform: scale(1.06);
+}
+
+.stopIcon {
+  width: 64%;
+  height: 64%;
+  overflow: visible;
+}
+
+.stationBody {
+  padding-top: 0.4rem;
+}
+
+@media screen and (min-width: 769px) {
+  .stationBody {
+    margin-top: 2.8rem;
+    padding: 0 0.6rem;
+  }
+}
+
+.stationName {
+  margin: 0;
+  font-size: 2.2rem;
+  font-weight: 600;
+  line-height: 2.6rem;
+}
+
+@media screen and (min-width: 769px) {
+  .stationName {
+    font-size: 2.8rem;
+    line-height: 3.2rem;
+  }
+}
+
+.stationText {
+  margin-top: 0.8rem;
+  color: rgb(90, 88, 90);
+}
+
+@media screen and (min-width: 769px) {
+  .stationText {
+    margin-top: 1.2rem;
+  }
+}
+
+/* ---------- a pipe between stations, with a token travelling along it (PathTrack) ---------- */
+
+.track {
+  position: relative;
+}
+
+.trackSvg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  pointer-events: none;
+}
+
+.trackOutline,
+.trackBase,
+.trackFill {
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.trackOutline {
+  stroke: rgb(15, 15, 15);
+  stroke-width: 1.6rem;
+}
+
+.trackBase {
+  stroke: #ffffff;
+  stroke-width: 1rem;
+}
+
+.trackFill {
+  stroke: #d1f500;
+  stroke-width: 1rem;
+}
+
+@media screen and (min-width: 769px) {
+  .trackOutline {
+    stroke-width: 1.9rem;
+  }
+
+  .trackBase,
+  .trackFill {
+    stroke-width: 1.2rem;
+  }
+}
+
+.trackToken {
+  --token: 5.6rem;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  width: var(--token);
+  height: var(--token);
+  margin: calc(var(--token) / -2) 0 0 calc(var(--token) / -2);
+  pointer-events: none;
+  will-change: transform;
+}
+
+@media screen and (min-width: 769px) {
+  .trackToken {
+    --token: 7.2rem;
+  }
+}
+
+/* ---------- the close ---------- */
+
+.closingArt {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+/* ---------- the sticker art ---------- */
+
+.art {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+
+/*
+ * The motions: each keeps a little of its group's own transform-box so it turns or bobs about
+ * its own middle. In SVG a px is one unit of the drawing, so the distances scale with it.
+ */
+.float,
+.bob,
+.sway,
+.tilt,
+.twinkle,
+.spin,
+.turn,
+.drift,
+.pulse,
+.wobble,
+.blink,
+.drop,
+.slide {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation-duration: 6s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+}
+
+.float {
+  animation-name: kitFloat;
+}
+
+.bob {
+  animation-name: kitBob;
+  animation-duration: 3.2s;
+}
+
+.sway {
+  animation-name: kitSway;
+  transform-origin: 50% 100%;
+}
+
+.tilt {
+  animation-name: kitTilt;
+  transform-origin: 50% 0%;
+}
+
+.twinkle {
+  animation-name: kitTwinkle;
+  animation-duration: 3s;
+}
+
+/* A coin turning over now and then. */
+.spin {
+  animation-name: kitSpin;
+}
+
+.turn {
+  animation-name: kitTurn;
+  animation-timing-function: linear;
+  animation-duration: 24s;
+}
+
+.drift {
+  animation-name: kitDrift;
+  animation-duration: 7s;
+}
+
+.pulse {
+  animation-name: kitPulse;
+  animation-duration: 2.6s;
+  animation-timing-function: ease-out;
+}
+
+.wobble {
+  animation-name: kitWobble;
+  animation-duration: 4.8s;
+}
+
+.blink {
+  animation-name: kitBlink;
+  animation-duration: 2.4s;
+}
+
+/* Falls into place from above and fades, on a loop (coins into a slot). */
+.drop {
+  animation-name: kitDrop;
+  animation-duration: 2.8s;
+  animation-timing-function: cubic-bezier(0.55, 0, 0.6, 1);
+}
+
+/* Side to side, without turning (water, a drawer). */
+.slide {
+  animation-name: kitSlide;
+  animation-duration: 4s;
+}
+
+@keyframes kitSlide {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(var(--dx, 12px));
+  }
+}
+
+/* Dashes marching along a connector, in the direction it is drawn. */
+.march {
+  animation: kitMarch 1.1s linear infinite;
+}
+
+@keyframes kitMarch {
+  to {
+    stroke-dashoffset: -18;
+  }
+}
+
+@keyframes kitFloat {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(calc(var(--amp, 6px) * -1));
+  }
+}
+
+@keyframes kitBob {
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(calc(var(--amp, 4px) * -1)) rotate(-2deg);
+  }
+}
+
+@keyframes kitSway {
+  0%,
+  100% {
+    transform: rotate(calc(var(--r, 0deg) - 4deg));
+  }
+  50% {
+    transform: rotate(calc(var(--r, 0deg) + 4deg));
+  }
+}
+
+@keyframes kitTilt {
+  0%,
+  100% {
+    transform: rotate(-3deg);
+  }
+  50% {
+    transform: rotate(3deg);
+  }
+}
+
+@keyframes kitTwinkle {
+  0%,
+  100% {
+    transform: scale(1) rotate(0deg);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(0.7) rotate(18deg);
+    opacity: 0.85;
+  }
+}
+
+@keyframes kitSpin {
+  0%,
+  60% {
+    transform: rotateY(0deg);
+  }
+  85%,
+  100% {
+    transform: rotateY(360deg);
+  }
+}
+
+@keyframes kitTurn {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes kitDrift {
+  0%,
+  100% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  50% {
+    transform: translate(var(--dx, 5px), var(--dy, -7px)) rotate(8deg);
+  }
+}
+
+@keyframes kitPulse {
+  0% {
+    transform: scale(0.7);
+    opacity: 0.5;
+  }
+  100% {
+    transform: scale(1.9);
+    opacity: 0;
+  }
+}
+
+@keyframes kitWobble {
+  0%,
+  100% {
+    transform: rotate(0deg);
+  }
+  20% {
+    transform: rotate(-7deg);
+  }
+  40% {
+    transform: rotate(5deg);
+  }
+  60% {
+    transform: rotate(-2deg);
+  }
+  80% {
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes kitBlink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.25;
+  }
+}
+
+@keyframes kitDrop {
+  0% {
+    transform: translateY(calc(var(--fall, 40px) * -1));
+    opacity: 0;
+  }
+  15% {
+    opacity: 1;
+  }
+  70% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  85%,
+  100% {
+    transform: translateY(var(--sink, 8px));
+    opacity: 0;
+  }
+}
+
+/* ---------- reactions: a beat that something answers ----------
+ * Each runs on its scene's beat (the same duration as the thing it answers) and peaks around
+ * the middle of it; a delay lines the peak up with the moment (a coin through a slot, a ticket
+ * through a door).
+ */
+
+.thump,
+.flash,
+.notch,
+.spark,
+.pop,
+.queue {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation-duration: 1.6s;
+  animation-timing-function: ease-out;
+  animation-iteration-count: infinite;
+}
+
+/* A body taking a hit from above: squashes from its foot and settles. */
+.thump {
+  animation-name: kitThump;
+  transform-origin: 50% 100%;
+}
+
+/* A light coming on for a moment. */
+.flash {
+  animation-name: kitFlash;
+  opacity: 0;
+}
+
+/* A dial clicking round a quarter turn (its marks repeat every quarter, so the loop is seamless). */
+.notch {
+  animation-name: kitNotch;
+  animation-timing-function: ease-in-out;
+}
+
+/* A spark popping up and fading. */
+.spark {
+  animation-name: kitSpark;
+  opacity: 0;
+}
+
+/* A quick swell and settle. */
+.pop {
+  animation-name: kitPop;
+}
+
+/* A place in a queue: steps forward a place each quarter of the cycle, the last step through a door. */
+.queue {
+  animation-name: kitQueue;
+  animation-duration: 7.2s;
+  animation-timing-function: linear;
+}
+
+@keyframes kitThump {
+  0%,
+  44%,
+  76%,
+  100% {
+    transform: none;
+  }
+  52% {
+    transform: scale(1.03, 0.955);
+  }
+  64% {
+    transform: scale(0.985, 1.02);
+  }
+}
+
+@keyframes kitFlash {
+  0%,
+  40%,
+  72%,
+  100% {
+    opacity: 0;
+  }
+  48% {
+    opacity: 1;
+  }
+}
+
+@keyframes kitNotch {
+  0%,
+  46% {
+    transform: rotate(0deg);
+  }
+  70%,
+  100% {
+    transform: rotate(90deg);
+  }
+}
+
+@keyframes kitSpark {
+  0%,
+  46% {
+    opacity: 0;
+    transform: translateY(6px) scale(0.4);
+  }
+  56% {
+    opacity: 1;
+    transform: translateY(-6px) scale(1.1);
+  }
+  80%,
+  100% {
+    opacity: 0;
+    transform: translateY(-16px) scale(0.8);
+  }
+}
+
+@keyframes kitPop {
+  0%,
+  44%,
+  76%,
+  100% {
+    transform: none;
+  }
+  54% {
+    transform: scale(1.18);
+  }
+  66% {
+    transform: scale(0.96);
+  }
+}
+
+@keyframes kitQueue {
+  0% {
+    opacity: 0;
+    transform: translateX(0) scale(0.85);
+  }
+  6% {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+  18% {
+    transform: translateX(0);
+    animation-timing-function: cubic-bezier(0.5, 0, 0.3, 1);
+  }
+  25%,
+  43% {
+    transform: translateX(116px);
+    animation-timing-function: cubic-bezier(0.5, 0, 0.3, 1);
+  }
+  50%,
+  68% {
+    transform: translateX(232px);
+    animation-timing-function: cubic-bezier(0.5, 0, 0.3, 1);
+  }
+  75%,
+  90% {
+    opacity: 1;
+    transform: translateX(348px);
+    animation-timing-function: cubic-bezier(0.55, 0, 0.7, 0.4);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(470px) scale(0.6);
+  }
+}
+
+/* ---------- reduced motion: everything holds still ---------- */
+
+@media (prefers-reduced-motion: reduce) {
+  .float,
+  .bob,
+  .sway,
+  .tilt,
+  .twinkle,
+  .spin,
+  .turn,
+  .drift,
+  .pulse,
+  .wobble,
+  .blink,
+  .march,
+  .slide {
+    animation: none !important;
+  }
+
+  /* A falling coin rests in its slot. */
+  .drop {
+    animation: none !important;
+    opacity: 0;
+  }
+
+  .thump,
+  .notch,
+  .pop {
+    animation: none !important;
+  }
+
+  /* Lights and sparks stay off. */
+  .flash,
+  .spark {
+    animation: none !important;
+    opacity: 0;
+  }
+
+  /* Each ticket waits at its own place in the line. */
+  .queue {
+    animation: none !important;
+    opacity: 1;
+    transform: translateX(var(--rest, 0px));
+  }
+}

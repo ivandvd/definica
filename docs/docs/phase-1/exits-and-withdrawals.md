@@ -67,9 +67,9 @@ The Vault's claim delay (`_exitingAssetsClaimDelay`) is an immutable value fixed
 | Receiver | Core | Your wallet |
 | Who claims | Core, settling your position | You, at the Vault |
 | Partial claims | The remainder stays in your exit position for later settlement | A new ticket is issued to you for the remainder |
-| Where you follow it | The Withdraw screen in the app | The Withdraw screen, or the Vault directly |
+| Where you follow it | The Unstake screen in the app | The Unstake screen, or the Vault directly |
 
-You choose the route on the Withdraw screen, and the transaction review shows it again before you confirm.
+You choose the route on the Unstake screen, where it reads **Through Definica** or **Directly at the Vault**, and the transaction review shows it again before you confirm.
 
 ## Exit position states
 
@@ -98,5 +98,5 @@ You choose the route on the Withdraw screen, and the transaction review shows it
 ## Related
 
 - [Exit queue](/concepts/exit-queue)
-- [Withdraw and the exit queue](/app/withdraw-and-exit-queue) in the app
+- [Unstake and the exit queue](/app/withdraw-and-exit-queue) in the app
 - [Staking and validator risk](/risks/staking-and-validator)

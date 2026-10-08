@@ -64,14 +64,14 @@ The number of shares you receive differs from the ETH you deposit whenever the s
 
 The Stake screen and the transaction review show:
 
-- The Vault's name and network, and the addresses of DefinicaCore, the Vault and the Keeper on the Contracts card, each linked to a block explorer.
+- The Vault's name, network and operator.
 - The remaining capacity.
 - The Vault fee and any Definica fee, each as a percentage of rewards. See [Fees](/phase-1/fees).
 - The minimum deposit.
 - The estimated shares and the current share price. Shares are accounting units, not a fixed balance.
 - The conditions: rewards depend on validator performance, fees are taken from rewards, and a withdrawal may use available liquidity or require validator exits.
 
-Review the Vault's operator, administrator, fees and permissions as well as the amount; [Controls and upgrades](/phase-1/controls-and-upgrades) shows where to read each one. The app is a convenience layer: it does not replace the contract code, your wallet's confirmation or the onchain record. Check that the address your wallet shows matches the Contracts card and [Verify addresses](/security/verify-addresses) before you sign.
+Review the Vault's operator, administrator, fees and permissions as well as the amount; [Controls and upgrades](/phase-1/controls-and-upgrades) shows where to read each one. The app is a convenience layer: it does not replace the contract code, your wallet's confirmation or the onchain record. Before you sign, check the address your wallet shows as [Verify addresses](/security/verify-addresses) sets out.
 
 ## Related
 

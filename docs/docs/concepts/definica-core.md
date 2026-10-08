@@ -39,7 +39,7 @@ Core and the Vault are separate [ERC-1967 proxies](/glossary#erc-1967-proxy) tha
 
 ## What you can verify
 
-Core's address is listed on the Contracts card of the Stake screen in the app, and shown again by your wallet before you sign; see [Verify addresses](/security/verify-addresses). You can then read:
+Your wallet shows Core's address when you confirm a deposit, and [Verify addresses](/security/verify-addresses) sets out how to check it. You can then read:
 
 - The implementation and admin, from the ERC-1967 storage slots.
 - The holders of the upgrade-authoriser and donator roles, readable onchain from Core.

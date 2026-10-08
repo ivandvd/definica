@@ -41,7 +41,7 @@ The Share locks screen shows your locked shares, your open positions out of 10, 
 
 ## What you can verify
 
-Core's address is listed on the Contracts card of the Stake screen in the app, and shown again by your wallet before you sign; see [Verify addresses](/security/verify-addresses). Its lock records, with shares, start, maturity and state, are readable onchain.
+Core's lock records, with shares, start, maturity and state, are readable onchain. [Verify addresses](/security/verify-addresses) sets out how to check Core's address.
 
 ## Related
 

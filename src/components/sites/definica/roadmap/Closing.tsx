@@ -3,10 +3,10 @@
 import { useRef } from "react";
 import { AppButton } from "../shared/AppButton";
 import { roadmap } from "./content";
-import { useRise } from "./motion";
+import { useRise } from "../shared/motion";
 import styles from "./roadmap.module.css";
 import { Scenery } from "./Scenery";
-import { SectionHead } from "./SectionHead";
+import { SectionHead } from "../shared/SectionHead";
 
 const { closing } = roadmap;
 

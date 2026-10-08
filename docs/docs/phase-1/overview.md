@@ -82,7 +82,7 @@ Alongside these, the Definica multisig can make discretionary contributions ([Tr
 
 ## What you can verify
 
-Every Phase 1 contract can be checked onchain: the Vault's registry entry, collateralisation, capacity, fee, admin and version; Core's proxy slots and its aggregate share balance at the Vault; and the holder of every role. Definica's contract addresses are listed on the Contracts card of the Stake screen in the app, and your wallet shows them again before you sign. [Verify addresses](/security/verify-addresses) lists every check.
+Every Phase 1 contract can be checked onchain: the Vault's registry entry, collateralisation, capacity, fee, admin and version; Core's proxy slots and its aggregate share balance at the Vault; and the holder of every role. Your wallet shows the address of the contract each transaction goes to, and [Verify addresses](/security/verify-addresses) lists every check.
 
 ## In this section
 

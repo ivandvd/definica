@@ -8,12 +8,12 @@ import { Blob, INK } from "./Blob";
 import { cardTone, glyphSrc, roadmap, type RoadItem, type RoadStop } from "./content";
 import { Flag } from "./Flag";
 import { GlyphBadge } from "./GlyphBadge";
-import { prefersReducedMotion, usePop, useRise } from "./motion";
+import { prefersReducedMotion, usePop, useRise } from "../shared/motion";
 import { DottedDisc, LIME, PALETTE, Pin, Sparkle } from "./Pieces";
 import { FINISH_X, layoutRoad, pointAtY, roadPath, samplePath, type RoadNode, type Sample } from "./road-layout";
 import styles from "./roadmap.module.css";
 import { Scenery, TONE_FILLS } from "./Scenery";
-import { SectionHead } from "./SectionHead";
+import { SectionHead } from "../shared/SectionHead";
 
 const { road } = roadmap;
 const NODES = layoutRoad(road.stops);

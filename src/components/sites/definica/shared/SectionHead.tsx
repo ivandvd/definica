@@ -1,8 +1,8 @@
 "use client";
 
-import { SurtitleWithDot } from "../shared/SurtitleWithDot";
-import { TitleWithIcon } from "../shared/TitleWithIcon";
-import styles from "./roadmap.module.css";
+import { SurtitleWithDot } from "./SurtitleWithDot";
+import { TitleWithIcon } from "./TitleWithIcon";
+import styles from "./SectionHead.module.css";
 
 interface SectionHeadProps {
   surtitle: string;

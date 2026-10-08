@@ -1,0 +1,190 @@
+{
+  "seo": {
+    "title": "About",
+    "description": "Definica is an independently developed Ethereum protocol for staking, liquidity and borrowing, built on StakeWise V3 and Aave V3, mechanics in plain view."
+  },
+  "hero": {
+    "surtitle": "About Definica",
+    "title": "No hidden \nmechanics.",
+    "text": "Definica is an independently developed, Ethereum-native protocol that connects pooled ETH staking, committed osETH liquidity and borrowing markets in one architecture. The aim is simple: help you understand what you hold, where each return comes from and what can go wrong.",
+    "buttons": [
+      {
+        "linkType": "internalLink",
+        "title": "Read the docs",
+        "to": {
+          "path": "/docs"
+        },
+        "theme": "dark"
+      },
+      {
+        "linkType": "internalLink",
+        "title": "Contact the team",
+        "to": "/about#contact",
+        "trailingSlash": false,
+        "theme": "border-light"
+      }
+    ]
+  },
+  "why": {
+    "surtitle": "Why Definica exists",
+    "title": "Questions that \nshould be easy.",
+    "intro": "Staked ETH can earn validator-backed rewards, but using it elsewhere onchain often means separate protocols, interfaces and accounting systems. That makes basic questions hard to answer.",
+    "questions": [
+      "What position do I actually hold?",
+      "Where does each return come from?",
+      "Which protocol or contract manages it?",
+      "What conditions apply to withdrawal?",
+      "Which new risks appear when it enters another market?"
+    ],
+    "answer": "Definica connects these layers and keeps them legible. Validator performance, market supply return and incentives are shown as separate components, never combined into one headline number."
+  },
+  "mission": {
+    "surtitle": "Our mission",
+    "title": "Mechanics you \ncan follow.",
+    "statement": "Build useful ETH infrastructure without hiding the mechanics. You should be able to understand how a position is created, how your share is calculated, where each return originates, which external systems it depends on and which risks apply at every layer."
+  },
+  "principles": {
+    "surtitle": "Principles",
+    "title": "What we \nhold to.",
+    "intro": "Five principles shape every layer, from the contracts to the way the app shows a position.",
+    "items": [
+      {
+        "icon": "key",
+        "title": "Non-custodial",
+        "text": "Your ETH sits in a StakeWise Vault governed by smart contracts, not with a company. That doesn't mean no permissions exist: the contracts are upgradeable through distinct roles, and those roles are described openly."
+      },
+      {
+        "icon": "layers",
+        "title": "Every layer on its own",
+        "text": "Staking, the Main Liquidity Module and the borrowing markets each run on their own contracts, and each layer names the contract that manages it, so a position can be traced from deposit to exit."
+      },
+      {
+        "icon": "receipt",
+        "title": "Nothing blended into one rate",
+        "text": "Staking performance, Aave supply interest, lending income and incentives are reported as separate lines, next to any debt and its cost. No headline rate, and no guaranteed one."
+      },
+      {
+        "icon": "magnifier",
+        "title": "Verifiable onchain",
+        "text": "Role holders, fees and parameters can be read onchain, and the executed contract state prevails over the app and the docs."
+      },
+      {
+        "icon": "flag",
+        "title": "Progress tied to readiness",
+        "text": "Each module is enabled on its own once its evidence is in place: reviewed code, published rules and parameters, and deployed contracts that match them. Not on a fixed date."
+      }
+    ]
+  },
+  "builtOn": {
+    "surtitle": "Built on",
+    "title": "Two established \nfoundations.",
+    "intro": "Definica doesn't run its own staking network or its own money market. On Ethereum, it coordinates position accounting, funding, commitments, interest allocation, incentives and exits on top of two established providers.",
+    "items": [
+      {
+        "icon": "vault",
+        "name": "StakeWise V3",
+        "role": "Vaults and osETH",
+        "text": "StakeWise Vaults are isolated staking pools with shares-based accounting and permissionless Vault creation. They give Definica independent Vault administration, proportional accounting and the adoption of approved upgrades: a Vault's admin can upgrade only to implementations the StakeWise DAO has registered."
+      },
+      {
+        "icon": "pool",
+        "name": "Aave V3 Ethereum",
+        "role": "The osETH supply market and the funding loan",
+        "text": "Supplying osETH to Aave V3 Ethereum mints aEthosETH, the receipt committed to the Main Liquidity Module. A funding loan, when you authorise one, is an ordinary Aave V3 borrow and follows Aave's rules."
+      }
+    ],
+    "link": {
+      "title": "The reading list behind the mechanics",
+      "to": "/docs/reference/reading-list"
+    }
+  },
+  "layers": {
+    "surtitle": "What Definica connects",
+    "title": "Three layers, \neach on its own.",
+    "intro": "Each layer can be used on its own, and each module is activated separately, with its own contracts and parameters.",
+    "items": [
+      {
+        "icon": "coins",
+        "title": "Staking",
+        "text": "Pool ETH in a dedicated StakeWise Vault and keep a proportional share, recorded by DefinicaCore.",
+        "link": {
+          "title": "How staking works",
+          "to": "/staking"
+        }
+      },
+      {
+        "icon": "lock",
+        "title": "Main Liquidity Module",
+        "text": "Supply osETH to Aave V3, hold aEthosETH and commit it for a fixed duration, with optional financing.",
+        "link": {
+          "title": "How the Module works",
+          "to": "/liquidity"
+        }
+      },
+      {
+        "icon": "scale",
+        "title": "Borrowing markets",
+        "text": "Borrow a supported asset against approved ETH-correlated collateral, under rules set per market.",
+        "link": {
+          "title": "How borrowing works",
+          "to": "/borrowing"
+        }
+      }
+    ]
+  },
+  "contact": {
+    "surtitle": "Contact",
+    "title": "Talk to \nthe team.",
+    "intro": "Write to the address that fits, and your message reaches the right people.",
+    "emails": [
+      {
+        "label": "General enquiries",
+        "address": "contact@definica.com"
+      },
+      {
+        "label": "Business and partnerships",
+        "address": "business@definica.com"
+      },
+      {
+        "label": "Legal matters and abuse reports",
+        "address": "legal@definica.com"
+      },
+      {
+        "label": "Privacy requests",
+        "address": "privacy@definica.com"
+      },
+      {
+        "label": "Security and vulnerability reports",
+        "address": "security@definica.com"
+      }
+    ],
+    "channels": {
+      "title": "Official channels",
+      "text": "These are the only accounts Definica operates.",
+      "items": [
+        {
+          "icon": "globe",
+          "label": "Website",
+          "handle": "definica.com",
+          "href": "https://definica.com"
+        },
+        {
+          "icon": "telegram",
+          "label": "Telegram",
+          "handle": "t.me/definica",
+          "href": "https://t.me/definica"
+        },
+        {
+          "icon": "x",
+          "label": "X",
+          "handle": "x.com/definicacom",
+          "href": "https://x.com/definicacom"
+        }
+      ]
+    },
+    "safety": {
+      "title": "Definica never asks for your keys",
+      "text": "Never share a private key, seed phrase or recovery phrase. For security research, write to security@definica.com before any testing that could affect users, assets, availability or confidential information."
+    }
+  }
+}

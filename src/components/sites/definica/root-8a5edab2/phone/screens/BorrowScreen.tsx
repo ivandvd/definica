@@ -20,7 +20,7 @@ import { allEl, byEl, hideCursor, showCursor, tap } from "../motion";
 import styles from "../phone.module.css";
 
 /*
- * Phase 3 — borrowing markets: the cursor taps the osETH market, its parameters cascade open, each
+ * The borrowing markets: the cursor taps the osETH market, its parameters cascade open, each
  * with what it sets, and the list scrolls on to the other markets.
  */
 
@@ -70,7 +70,6 @@ export function BorrowMarkup() {
             <span>
               1.00 <small>osETH</small>
             </span>
-            <span className={`${styles.pill} ${styles.pillGreen}`}>Phase 3</span>
           </div>
         </div>
         <div className={styles.tabsRow}>

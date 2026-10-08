@@ -37,7 +37,7 @@ Definica does not promise an exit time. When an exit needs validator exits, it d
 | Managed through Core | Core | Core claims and settles your position; a [managed partial claim](/glossary#managed-partial-claim) keeps the remainder open. |
 | Direct at the Vault | Your address | You claim at the Vault. |
 
-You choose the route on the Withdraw screen in the app.
+You choose the route on the Unstake screen in the app, where the two routes read **Through Definica** and **Directly at the Vault**.
 
 ## What it means for you
 
@@ -55,5 +55,5 @@ You choose the route on the Withdraw screen in the app.
 ## Related
 
 - [Exits and withdrawals](/phase-1/exits-and-withdrawals)
-- [Withdraw and the exit queue](/app/withdraw-and-exit-queue)
+- [Unstake and the exit queue](/app/withdraw-and-exit-queue)
 - [Market and liquidity risk](/risks/market-and-liquidity)

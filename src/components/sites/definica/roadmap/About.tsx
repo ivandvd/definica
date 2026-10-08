@@ -3,10 +3,10 @@
 import { useEffect, useId, useRef, useState } from "react";
 import { gsap } from "../shared/gsap";
 import { roadmap } from "./content";
-import { useRise } from "./motion";
+import { useRise } from "../shared/motion";
 import styles from "./roadmap.module.css";
 import { Scenery } from "./Scenery";
-import { SectionHead } from "./SectionHead";
+import { SectionHead } from "../shared/SectionHead";
 
 const { about } = roadmap;
 const FIRST_OPEN = 0;

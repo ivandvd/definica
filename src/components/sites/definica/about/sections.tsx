@@ -142,7 +142,8 @@ function ChannelIcon({ icon }: { icon: string }) {
 }
 
 function ChannelLink({ channel }: { channel: Channel }) {
-  const external = !channel.href.startsWith("https://definica.com");
+  // The website itself is this site; Telegram and X open in a new tab.
+  const external = /^https?:\/\//.test(channel.href);
   return (
     <a className={styles.channel} href={channel.href} {...(external ? { target: "_blank", rel: "noreferrer" } : null)}>
       <span className={styles.channelIcon} aria-hidden="true">

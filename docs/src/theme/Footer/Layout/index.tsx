@@ -1,6 +1,7 @@
 import React, {type ReactNode} from 'react';
 import clsx from 'clsx';
 import {ThemeClassNames} from '@docusaurus/theme-common';
+import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import type {Props} from '@theme/Footer/Layout';
 import {openConsentSettings} from '@site/src/lib/consent';
 
@@ -37,12 +38,15 @@ const SOCIALS = [
   },
 ];
 
-const LEGAL = [
-  {label: 'Terms of service', href: 'https://definica.com/terms'},
-  {label: 'Privacy policy', href: 'https://definica.com/privacy'},
+/** The website's legal pages, on its current address (`siteUrl` in docusaurus.config.ts). */
+const legalLinks = (siteUrl: string) => [
+  {label: 'Terms of service', href: `${siteUrl}/terms`},
+  {label: 'Privacy policy', href: `${siteUrl}/privacy`},
 ];
 
 export default function FooterLayout({links, logo, copyright}: Props): ReactNode {
+  const {siteConfig} = useDocusaurusContext();
+  const LEGAL = legalLinks(String(siteConfig.customFields?.siteUrl ?? ''));
   return (
     <footer className={clsx(ThemeClassNames.layout.footer.container, 'footer', 'df-footer')}>
       <div className="container">

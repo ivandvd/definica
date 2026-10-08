@@ -49,8 +49,9 @@ export function LaunchTransition() {
       } catch {
         // Without storage the app simply opens without its reveal.
       }
-      // Another host (app.definica.com) can't read this tab's storage: tell it in the URL instead.
-      if (url.origin !== window.location.origin) url.searchParams.set("launch", "1");
+      // The app may sit on another address (or be redirected there), which can't read this tab's
+      // storage: say it in the URL too. The app takes it out of the address bar on arrival.
+      url.searchParams.set("launch", "1");
       setActive(true);
       window.setTimeout(() => window.location.assign(url.href), CLOSE_MS);
     };

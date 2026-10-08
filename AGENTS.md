@@ -38,6 +38,12 @@ Three Definica surfaces in one repo:
 - `NEXT_PUBLIC_POSTHOG_KEY` / `_HOST`: PostHog analytics, loaded only after the visitor accepts the cookie banner (`src/lib/consent.ts`, `src/lib/analytics.ts`; the docs read `POSTHOG_KEY` / `POSTHOG_HOST` at build time). The consent cookie is shared across *.definica.com. Never send wallet addresses, names or emails to analytics.
 - `NEXT_PUBLIC_NEWSLETTER_ENDPOINT`: where sign-ups are posted; unset, the footer shows Telegram and X instead of the form.
 
+## Deployment (Vercel, team JulianTeam)
+Both projects deploy on every push to `main`:
+- **`definica`** (the repo root: site and app) answers at `definica-flame.vercel.app` (the website) and `app-definica.vercel.app` (the app: its root opens `/app`, and `/app` on the website redirects there). Production env: `NEXT_PUBLIC_SITE_URL`, `DAPP_URL` (`…/app`), `DOCS_URL` and `NEXT_PUBLIC_DOCS_URL`. With `DAPP_URL` set, `next.config.ts` redirects by host, and Launch App always passes `?launch=1` so the curtain survives the hop.
+- **`definica-docs`** (root directory `docs/`) answers at `docs-definica.vercel.app`; `/docs` on the website redirects there. Its links to the website and the app come from `SITE_URL` / `APP_URL` at build time (defaults: the Vercel addresses above); `DOCUSAURUS_NO_PERSISTENT_CACHE=true` avoids a build that stalls on a stale cache.
+- `vercel.app` addresses are one level only (no `app.app-definica…`). When definica.com moves to Vercel, point the env vars at `definica.com`, `app.definica.com/app` and `docs.definica.com`, and set `SITE_URL` / `APP_URL` on the docs project.
+
 ## Launch essentials (where they live)
 Per-page `metadata` (title template "%s — Definica", description, canonical) in each route; icons and the manifest are file conventions in `src/app/` (`icon.svg`, `apple-icon.png`, `favicon.ico`, `manifest.ts`), plus `robots.ts` and `sitemap.ts`. Share images are `opengraph-image.tsx` files built with `src/lib/og.tsx` (Tomato Grotesk `.woff` in `src/assets/fonts/`, since the share-image renderer cannot read woff2). The 404 page is `src/app/global-not-found.tsx` (needs `experimental.globalNotFound`, as the site and the app have separate root layouts). Terms and Privacy are `/terms` and `/privacy`, their text in `src/data/sites/definica/legal/`.
 

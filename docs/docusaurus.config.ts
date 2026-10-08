@@ -14,6 +14,14 @@ const LEMONADE = '#fbe74e';
 const BABY = 'rgb(255,208,226)';
 const FONT = '"Tomato Grotesk", Arial, sans-serif';
 
+/**
+ * Where the website and the app are. Set SITE_URL and APP_URL at build time when they move to
+ * definica.com; until then they are the Vercel addresses. Markdown can use {{SITE_URL}} and
+ * {{APP_URL}} in links.
+ */
+const SITE_URL = (process.env.SITE_URL ?? 'https://definica-flame.vercel.app').replace(/\/$/, '');
+const APP_URL = (process.env.APP_URL ?? 'https://app-definica.vercel.app/app').replace(/\/$/, '');
+
 const config: Config = {
   title: 'Definica Docs',
   tagline: 'Pooled ETH staking, committed liquidity and borrowing, explained',
@@ -36,6 +44,7 @@ const config: Config = {
 
   markdown: {
     mermaid: true,
+    preprocessor: ({fileContent}) => fileContent.replaceAll('{{SITE_URL}}', SITE_URL).replaceAll('{{APP_URL}}', APP_URL),
     hooks: {
       onBrokenMarkdownLinks: 'throw',
       onBrokenMarkdownImages: 'throw',
@@ -114,6 +123,8 @@ const config: Config = {
   // Read in the browser by src/theme/Root.tsx: analytics stays off until a key is set and the
   // visitor accepts cookies (POSTHOG_KEY / POSTHOG_HOST at build time).
   customFields: {
+    siteUrl: SITE_URL,
+    appUrl: APP_URL,
     posthogKey: process.env.POSTHOG_KEY ?? '',
     posthogHost: process.env.POSTHOG_HOST ?? 'https://eu.i.posthog.com',
   },
@@ -293,9 +304,8 @@ const config: Config = {
         {to: '/app', label: 'App', position: 'left'},
         {to: '/faq', label: 'FAQ', position: 'left'},
         {to: '/roadmap', label: 'Roadmap', position: 'right'},
-        {href: 'https://definica.com', label: 'Website', position: 'right'},
         {
-          href: 'https://definica.com/app',
+          href: APP_URL,
           label: 'Launch app',
           position: 'right',
           className: 'navbar__item--cta',
@@ -307,7 +317,7 @@ const config: Config = {
       logo: {
         alt: 'Definica',
         src: 'img/logo.svg',
-        href: 'https://definica.com',
+        href: SITE_URL,
         width: 115,
         height: 24,
       },
@@ -324,9 +334,9 @@ const config: Config = {
         {
           title: 'Company',
           items: [
-            {label: 'About', href: 'https://www.definica.com/about'},
+            {label: 'About', href: `${SITE_URL}/about`},
             {label: 'Roadmap', to: '/roadmap'},
-            {label: 'Contact', href: 'https://www.definica.com/contact'},
+            {label: 'Contact', href: `${SITE_URL}/about#contact`},
           ],
         },
         {

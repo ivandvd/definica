@@ -12,6 +12,8 @@ export function AppSvg({ name, className, ref, ...rest }: AppSvgProps) {
     <span
       ref={ref}
       data-v-19e1002b=""
+      // Decorative unless it's given a name: the text beside it says what it is.
+      aria-hidden={rest["aria-label"] || rest.title ? undefined : true}
       {...rest}
       className={className ? `AppSvg ${className}` : "AppSvg"}
       dangerouslySetInnerHTML={{ __html: icons[name] }}

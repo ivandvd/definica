@@ -1,6 +1,7 @@
 import React, {type ReactNode} from 'react';
 import clsx from 'clsx';
 import Link from '@docusaurus/Link';
+import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import type {Props} from '@theme/NotFound/Content';
 
 const INK = '#001405';
@@ -8,6 +9,7 @@ const ROAD = 'M46 150C120 150 150 96 236 96S356 150 430 150';
 
 /** The docs' 404, matching the site's: a road that stops at a barrier, and the ways back. */
 export default function NotFoundContent({className}: Props): ReactNode {
+  const {siteConfig} = useDocusaurusContext();
   return (
     <main className={clsx('container', 'df-404', className)}>
       <svg className="df-404__graphic" viewBox="0 0 520 230" aria-hidden="true" focusable="false">
@@ -34,8 +36,8 @@ export default function NotFoundContent({className}: Props): ReactNode {
         <Link className="df-404__button" to="/phase-1">
           Phase 1
         </Link>
-        <Link className="df-404__button" href="https://definica.com">
-          definica.com
+        <Link className="df-404__button" href={String(siteConfig.customFields?.siteUrl ?? '/')}>
+          Definica website
         </Link>
       </div>
     </main>

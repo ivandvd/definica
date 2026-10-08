@@ -10,7 +10,7 @@ The deployed contracts are the final word on what happens to your assets. This p
 
 ## The three rules
 
-These rules come from Definica's [Terms of Service](https://www.definica.com/terms-of-service).
+These rules come from Definica's [Terms of Service]({{SITE_URL}}/terms).
 
 | Rule | What it means for you |
 |---|---|

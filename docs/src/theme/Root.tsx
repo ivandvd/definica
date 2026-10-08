@@ -71,7 +71,7 @@ export default function Root({children}: {children: ReactNode}): ReactNode {
         </div>
         <p className="df-cookie__text">
           We use analytics cookies to understand how Definica is used. They’re only set if you accept.{' '}
-          <a href="https://definica.com/privacy" tabIndex={open ? 0 : -1}>
+          <a href={`${String(siteConfig.customFields?.siteUrl ?? '')}/privacy`} tabIndex={open ? 0 : -1}>
             Privacy policy
           </a>
         </p>

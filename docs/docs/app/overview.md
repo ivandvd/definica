@@ -10,7 +10,7 @@ import DocCardList from '@theme/DocCardList';
 
 # Using the app
 
-The Definica app at [definica.com/app](https://definica.com/app) is where you stake ETH, follow your position, unstake, and lock and release Vault shares. It reads your position from the chain and prepares each transaction for you to sign in your own wallet; it never takes custody of your ETH or shares.
+The [Definica app]({{APP_URL}}) is where you stake ETH, follow your position, unstake, and lock and release Vault shares. It reads your position from the chain and prepares each transaction for you to sign in your own wallet; it never takes custody of your ETH or shares.
 
 ## How the app is organised
 

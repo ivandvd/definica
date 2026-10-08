@@ -55,13 +55,9 @@ export function AppFooter() {
               onMouseLeave={resumeStickers}
             >
               {socials.links.map((social, index) => (
-                <AppLink key={index} {...social.link} className="Footer-socialsItem" data-v-b3bc0079="">
-                  <AppSvg
-                    name={social.icon}
-                    title={social.icon}
-                    className={`Footer-socialsItemIcon --${social.icon} --themed-fill`}
-                    data-v-b3bc0079=""
-                  />
+                // Icon-only links: the name comes from the link ("Definica on X"), the icon stays silent.
+                <AppLink key={index} {...social.link} aria-label={social.link.title ?? social.icon} className="Footer-socialsItem" data-v-b3bc0079="">
+                  <AppSvg name={social.icon} aria-hidden="true" className={`Footer-socialsItemIcon --${social.icon} --themed-fill`} data-v-b3bc0079="" />
                 </AppLink>
               ))}
             </div>

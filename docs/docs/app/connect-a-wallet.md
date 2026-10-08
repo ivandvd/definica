@@ -10,7 +10,7 @@ Connecting a wallet lets the app read your Definica position and prepare transac
 
 ## Before you connect
 
-1. **Check the address bar.** The app is at `definica.com/app`. Definica's official channels are definica.com, [t.me/definica](https://t.me/definica) and [x.com/definicacom](https://x.com/definicacom); links from anywhere else are not official.
+1. **Check the address bar.** Open the app from Definica's website or the **Launch app** button on these pages. Definica's official channels are definica.com, [t.me/definica](https://t.me/definica) and [x.com/definicacom](https://x.com/definicacom); links from anywhere else are not official.
 2. **Keep your keys to yourself.** Never share a private key, seed phrase or recovery phrase. Definica never asks for them, and the connect dialog says so.
 3. **Check that you are eligible.** You must be 18 or over, not subject to sanctions, and not in a region where Definica is restricted, and you must not use a VPN to get round a restriction. Access can be restricted by jurisdiction, IP address, wallet address or risk signal.
 

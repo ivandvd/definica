@@ -1,0 +1,10 @@
+.cardDescription {
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: var(--df-body);
+  display: -webkit-box;
+  -webkit-line-clamp: 5;
+  line-clamp: 5;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}

@@ -1,0 +1,39 @@
+.cardContainer {
+  --ifm-link-color: var(--df-ink);
+  --ifm-link-hover-color: var(--df-ink);
+  --ifm-link-hover-decoration: none;
+
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 1.5rem;
+  background: #ffffff;
+  border: 2px solid var(--df-ink);
+  border-radius: var(--df-radius-lg);
+  box-shadow: none;
+  color: var(--df-ink);
+  transition: transform 160ms ease, background-color 160ms ease;
+}
+
+.cardContainer:hover {
+  background: var(--df-grey);
+  border-color: var(--df-ink);
+  box-shadow: none;
+  transform: translateY(-3px);
+}
+
+.cardContainer *:last-child {
+  margin-bottom: 0;
+}
+
+.cardMore {
+  margin-top: auto;
+  padding-top: 0.9rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--df-ink);
+}
+
+.cardMore::after {
+  content: ' →';
+}

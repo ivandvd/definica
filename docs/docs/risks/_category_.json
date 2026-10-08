@@ -1,0 +1,12 @@
+{
+  "label": "Risks",
+  "position": 7,
+  "collapsible": true,
+  "collapsed": true,
+  "link": {
+    "type": "generated-index",
+    "title": "Risks",
+    "slug": "/risks",
+    "description": "Every risk a Definica position carries, stated plainly: what can go wrong, how the design limits it and what you can check yourself. Correlation with ETH removes none of them."
+  }
+}

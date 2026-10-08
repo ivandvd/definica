@@ -1,0 +1,12 @@
+{
+  "label": "Reference",
+  "position": 12,
+  "collapsible": true,
+  "collapsed": true,
+  "link": {
+    "type": "generated-index",
+    "title": "Reference",
+    "slug": "/reference",
+    "description": "About these docs, and a reading list of the StakeWise, Aave and Ethereum documentation behind the mechanics."
+  }
+}

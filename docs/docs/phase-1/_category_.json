@@ -1,0 +1,10 @@
+{
+  "label": "Phase 1 — Pooled ETH staking",
+  "position": 3,
+  "collapsible": true,
+  "collapsed": true,
+  "link": {
+    "type": "doc",
+    "id": "phase-1/overview"
+  }
+}

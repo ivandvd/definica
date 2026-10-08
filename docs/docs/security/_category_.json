@@ -1,0 +1,12 @@
+{
+  "label": "Security",
+  "position": 8,
+  "collapsible": true,
+  "collapsed": true,
+  "link": {
+    "type": "generated-index",
+    "title": "Security",
+    "slug": "/security",
+    "description": "Audits, the control model, the evidence behind each release, the source of truth and how to verify every contract address before you sign."
+  }
+}

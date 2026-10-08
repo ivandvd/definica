@@ -1,0 +1,1456 @@
+/**
+ * Definica Docs — theme.
+ *
+ * The docs share the landing page's design system: Tomato Grotesk, ink on white, the lime
+ * call-to-action colour, the four pastel tones and the hand-drawn blob. Infima variables are
+ * mapped to those values here; Definica's own tokens are prefixed `--df-`. Light theme only.
+ */
+
+/* ---------- Tomato Grotesk (self-hosted, same weights as the landing page) ---------- */
+
+@font-face {
+  font-family: 'Tomato Grotesk';
+  src: url('/fonts/TomatoGrotesk-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Tomato Grotesk';
+  src: url('/fonts/TomatoGrotesk-Medium.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Tomato Grotesk';
+  src: url('/fonts/TomatoGrotesk-SemiBold.woff2') format('woff2');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Tomato Grotesk';
+  src: url('/fonts/TomatoGrotesk-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ---------- Tokens and Infima mapping ---------- */
+
+:root {
+  /* Definica palette (see src/styles/sites/definica in the main repo) */
+  --df-white: #ffffff;
+  --df-grey: rgb(249, 250, 249);
+  --df-grey-2: rgb(236, 239, 236);
+  --df-grey-3: rgb(209, 214, 210);
+  --df-ink: rgb(15, 15, 15);
+  --df-ink-graphic: #001405;
+  --df-body: rgb(90, 88, 90);
+  --df-hairline: rgba(0, 20, 5, 0.12);
+  --df-lime: #d1f500;
+  --df-lime-deep: #b9d900;
+  --df-green: #05c92f;
+  --df-red: #ff5a4d;
+  --df-sky: rgb(167, 203, 246);
+  --df-baby: rgb(255, 208, 226);
+  --df-lemonade: rgb(252, 234, 89);
+  --df-mint: rgb(214, 238, 219);
+  --df-radius: 1.25rem;
+  --df-radius-lg: 1.5rem;
+
+  /* The blob, as a CSS image, for markers and admonition badges */
+  --df-blob-green: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path d='M12.4 2.3c3.5-.2 7.6 1.6 8.9 5 1.2 3.1-.3 5.4.2 8.2.4 2.7-2 5.6-5.4 6.1-3 .4-4.6-1.3-7.6-1.1-3 .2-5.6-1.7-6.1-4.9-.5-3.1 1.6-4.4 1.6-7.4C4 4.9 7.9 2.5 12.4 2.3Z' fill='%2305c92f' stroke='%23001405' stroke-width='1.7' stroke-linejoin='round'/></svg>");
+  --df-blob-sky: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path d='M12.4 2.3c3.5-.2 7.6 1.6 8.9 5 1.2 3.1-.3 5.4.2 8.2.4 2.7-2 5.6-5.4 6.1-3 .4-4.6-1.3-7.6-1.1-3 .2-5.6-1.7-6.1-4.9-.5-3.1 1.6-4.4 1.6-7.4C4 4.9 7.9 2.5 12.4 2.3Z' fill='%239dc4f5' stroke='%23001405' stroke-width='1.7' stroke-linejoin='round'/></svg>");
+  --df-blob-lemonade: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path d='M12.4 2.3c3.5-.2 7.6 1.6 8.9 5 1.2 3.1-.3 5.4.2 8.2.4 2.7-2 5.6-5.4 6.1-3 .4-4.6-1.3-7.6-1.1-3 .2-5.6-1.7-6.1-4.9-.5-3.1 1.6-4.4 1.6-7.4C4 4.9 7.9 2.5 12.4 2.3Z' fill='%23fbe74e' stroke='%23001405' stroke-width='1.7' stroke-linejoin='round'/></svg>");
+  --df-blob-baby: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path d='M12.4 2.3c3.5-.2 7.6 1.6 8.9 5 1.2 3.1-.3 5.4.2 8.2.4 2.7-2 5.6-5.4 6.1-3 .4-4.6-1.3-7.6-1.1-3 .2-5.6-1.7-6.1-4.9-.5-3.1 1.6-4.4 1.6-7.4C4 4.9 7.9 2.5 12.4 2.3Z' fill='%23ffcadc' stroke='%23001405' stroke-width='1.7' stroke-linejoin='round'/></svg>");
+  --df-blob-red: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path d='M12.4 2.3c3.5-.2 7.6 1.6 8.9 5 1.2 3.1-.3 5.4.2 8.2.4 2.7-2 5.6-5.4 6.1-3 .4-4.6-1.3-7.6-1.1-3 .2-5.6-1.7-6.1-4.9-.5-3.1 1.6-4.4 1.6-7.4C4 4.9 7.9 2.5 12.4 2.3Z' fill='%23ff5a4d' stroke='%23001405' stroke-width='1.7' stroke-linejoin='round'/></svg>");
+
+  /* Primary = lime, the landing's call-to-action colour. Text never uses it; see the link rules. */
+  --ifm-color-primary: #d1f500;
+  --ifm-color-primary-dark: #bddd00;
+  --ifm-color-primary-darker: #b3d100;
+  --ifm-color-primary-darkest: #93ac00;
+  --ifm-color-primary-light: #d7f61a;
+  --ifm-color-primary-lighter: #daf62b;
+  --ifm-color-primary-lightest: #e3f85c;
+
+  /* Greys with the landing's slight green cast */
+  --ifm-color-emphasis-0: #ffffff;
+  --ifm-color-emphasis-100: var(--df-grey);
+  --ifm-color-emphasis-200: var(--df-grey-2);
+  --ifm-color-emphasis-300: var(--df-grey-3);
+  --ifm-color-emphasis-400: #b8bdb9;
+  --ifm-color-emphasis-500: #9ba19c;
+  --ifm-color-emphasis-600: #7c817d;
+  --ifm-color-emphasis-700: var(--df-body);
+  --ifm-color-emphasis-800: #2e2e2e;
+  --ifm-color-emphasis-900: var(--df-ink);
+  --ifm-color-emphasis-1000: #000000;
+
+  /* Type */
+  --ifm-font-family-base: 'Tomato Grotesk', Arial, ui-sans-serif, system-ui, sans-serif;
+  --ifm-heading-font-family: var(--ifm-font-family-base);
+  --ifm-font-family-monospace: ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace;
+  --ifm-font-size-base: 16px;
+  --ifm-line-height-base: 1.6;
+  --ifm-font-weight-light: 400;
+  --ifm-font-weight-normal: 500;
+  --ifm-font-weight-semibold: 600;
+  --ifm-font-weight-bold: 600;
+  --ifm-font-weight-base: 500;
+  --ifm-font-color-base: var(--df-ink);
+  --ifm-font-color-secondary: var(--df-body);
+  --ifm-color-content: var(--df-ink);
+  --ifm-color-content-secondary: var(--df-body);
+  --ifm-heading-color: var(--df-ink);
+  --ifm-heading-font-weight: 600;
+  --ifm-heading-line-height: 1.1;
+  --ifm-code-font-size: 0.875em;
+
+  /* Links: ink, lime underline (see .markdown a) */
+  --ifm-link-color: var(--df-ink);
+  --ifm-link-hover-color: var(--df-ink);
+  --ifm-link-hover-decoration: none;
+
+  /* Surfaces and shape */
+  --ifm-background-color: #ffffff;
+  --ifm-background-surface-color: var(--df-grey);
+  --ifm-global-radius: var(--df-radius);
+  --ifm-global-border-width: 1px;
+  --ifm-global-shadow-lw: none;
+  --ifm-global-shadow-md: none;
+  --ifm-global-shadow-tl: none;
+  --ifm-hr-background-color: var(--df-hairline);
+  --ifm-hr-height: 1px;
+  --ifm-toc-border-color: var(--df-hairline);
+  --ifm-container-width-xl: 1440px;
+
+  /* Navbar */
+  --ifm-navbar-height: 4.5rem;
+  --ifm-navbar-background-color: #ffffff;
+  --ifm-navbar-shadow: none;
+  --ifm-navbar-link-color: var(--df-ink);
+  --ifm-navbar-link-hover-color: var(--df-ink);
+  --ifm-navbar-item-padding-horizontal: 0.85rem;
+  --ifm-navbar-search-input-background-color: var(--df-grey);
+  --ifm-navbar-search-input-color: var(--df-ink);
+  --ifm-navbar-search-input-placeholder-color: var(--df-body);
+  --ifm-navbar-sidebar-width: 86vw;
+
+  /* Sidebar menu */
+  --ifm-menu-color: var(--df-body);
+  --ifm-menu-color-active: var(--df-ink);
+  --ifm-menu-color-background-active: var(--df-lime);
+  --ifm-menu-color-background-hover: var(--df-grey-2);
+  --ifm-menu-link-padding-horizontal: 0.9rem;
+  --ifm-menu-link-padding-vertical: 0.45rem;
+
+  /* Right-hand table of contents */
+  --ifm-toc-link-color: var(--df-body);
+  --ifm-toc-padding-vertical: 0.35rem;
+
+  /* Tables */
+  --ifm-table-border-color: var(--df-hairline);
+  --ifm-table-border-width: 1px;
+  --ifm-table-cell-padding: 0.8rem 1rem;
+  --ifm-table-head-background: var(--df-grey);
+  --ifm-table-head-color: var(--df-ink);
+  --ifm-table-head-font-weight: 600;
+  --ifm-table-stripe-background: transparent;
+
+  /* Code */
+  --ifm-code-background: var(--df-grey);
+  --ifm-code-border-radius: 0.4rem;
+  --ifm-code-padding-horizontal: 0.4rem;
+  --ifm-code-padding-vertical: 0.15rem;
+  --ifm-pre-background: var(--df-grey);
+  --ifm-pre-color: var(--df-ink);
+  --ifm-pre-border-radius: 1rem;
+  --ifm-pre-padding: 1.1rem 1.25rem;
+  --docusaurus-highlighted-code-line-bg: rgba(209, 245, 0, 0.35);
+
+  /* Admonitions */
+  --ifm-alert-border-radius: var(--df-radius);
+  --ifm-alert-border-left-width: 2px;
+  --ifm-alert-shadow: none;
+  --ifm-alert-padding-horizontal: 1.35rem;
+  --ifm-alert-padding-vertical: 1.1rem;
+
+  /* Cards, pagination, breadcrumbs, dropdowns */
+  --ifm-card-background-color: #ffffff;
+  --ifm-card-border-radius: var(--df-radius-lg);
+  --ifm-pagination-nav-border-radius: var(--df-radius);
+  --ifm-pagination-nav-color-hover: var(--df-ink);
+  --ifm-breadcrumb-border-radius: 999px;
+  --ifm-breadcrumb-color-active: var(--df-ink);
+  --ifm-breadcrumb-item-background-active: var(--df-grey-2);
+  --ifm-breadcrumb-padding-horizontal: 0.7rem;
+  --ifm-breadcrumb-padding-vertical: 0.3rem;
+  --ifm-dropdown-background-color: #ffffff;
+  --ifm-dropdown-link-color: var(--df-ink);
+  --ifm-dropdown-hover-background-color: var(--df-grey-2);
+  --ifm-dropdown-font-weight: 500;
+  --ifm-blockquote-border-color: var(--df-ink);
+  --ifm-blockquote-color: var(--df-body);
+
+  /* Footer (white, like the landing footer) */
+  --ifm-footer-background-color: #ffffff;
+  --ifm-footer-color: var(--df-body);
+  --ifm-footer-link-color: var(--df-body);
+  --ifm-footer-link-hover-color: var(--df-green);
+  --ifm-footer-title-color: var(--df-ink);
+  --ifm-footer-padding-vertical: 3.5rem;
+
+  /* Local search plugin */
+  --search-local-highlight-color: var(--df-lime);
+  --search-local-hit-active-color: var(--df-ink);
+}
+
+/* ---------- Base ---------- */
+
+html {
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  background: #ffffff;
+}
+
+body {
+  background: #ffffff;
+  color: var(--df-ink);
+}
+
+::selection {
+  background: var(--df-lime);
+  color: var(--df-ink);
+}
+
+:focus-visible {
+  outline: 2px solid var(--df-ink);
+  outline-offset: 2px;
+  border-radius: 0.25rem;
+}
+
+/* ---------- Typography ---------- */
+
+.markdown {
+  --ifm-h1-font-size: 2.75rem;
+  --ifm-h2-font-size: 1.75rem;
+  --ifm-h3-font-size: 1.25rem;
+  --ifm-h4-font-size: 1.05rem;
+  --ifm-heading-vertical-rhythm-bottom: 0.9;
+  --ifm-h2-vertical-rhythm-top: 2.8;
+  --ifm-h3-vertical-rhythm-top: 2;
+  --ifm-leading: 1.1rem;
+}
+
+.markdown h1:first-child,
+header > h1,
+.theme-doc-markdown header h1 {
+  --ifm-h1-font-size: 2.9rem;
+  letter-spacing: -0.025em;
+  line-height: 1.02;
+  margin-bottom: 1.4rem;
+}
+
+.markdown h1,
+.markdown h2,
+.markdown h3,
+.markdown h4 {
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  font-weight: 600;
+}
+
+.markdown h2 {
+  margin-top: 2.8rem;
+}
+
+.markdown h3 {
+  line-height: 1.2;
+}
+
+.markdown h4 {
+  font-weight: 600;
+}
+
+.markdown p,
+.markdown li,
+.markdown td,
+.markdown th {
+  font-size: 1rem;
+}
+
+/* Lead paragraph: the first paragraph after the title */
+.markdown > h1:first-child + p,
+.markdown > header + p {
+  font-size: 1.2rem;
+  line-height: 1.5;
+  color: var(--df-body);
+  letter-spacing: -0.005em;
+}
+
+/* Text links: ink with a lime rule, lime on hover (buttons and cards excluded) */
+.markdown a:not(.card):not(.button):not(.df-card):not(.hash-link),
+.footer__copyright a,
+.theme-doc-breadcrumbs a:not(.breadcrumbs__link) {
+  color: var(--df-ink);
+  text-decoration: underline;
+  text-decoration-color: var(--df-lime);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 0.16em;
+  border-radius: 0.2em;
+  transition: background-color 120ms ease, text-decoration-color 120ms ease;
+}
+
+.markdown a:not(.card):not(.button):not(.df-card):not(.hash-link):hover {
+  background-color: var(--df-lime);
+  text-decoration-color: var(--df-ink);
+  box-shadow: 0 0 0 2px var(--df-lime);
+}
+
+.hash-link {
+  color: var(--df-grey-3);
+  text-decoration: none;
+}
+
+.hash-link:hover {
+  color: var(--df-ink);
+}
+
+/* Lists: the blob marks top-level bullets */
+.markdown ul {
+  padding-left: 1.4rem;
+}
+
+.markdown > ul,
+.theme-doc-markdown > div > ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.markdown > ul > li {
+  position: relative;
+  padding-left: 1.75rem;
+}
+
+.markdown > ul > li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.3em;
+  width: 1.05em;
+  height: 1.05em;
+  background: var(--df-blob-green) no-repeat center / contain;
+}
+
+.markdown > ul > li:nth-child(4n + 2)::before {
+  background-image: var(--df-blob-sky);
+}
+
+.markdown > ul > li:nth-child(4n + 3)::before {
+  background-image: var(--df-blob-lemonade);
+}
+
+.markdown > ul > li:nth-child(4n + 4)::before {
+  background-image: var(--df-blob-baby);
+}
+
+.markdown li + li {
+  margin-top: 0.4rem;
+}
+
+.markdown li > p {
+  margin-bottom: 0.4rem;
+}
+
+.markdown ol > li::marker {
+  font-weight: 600;
+}
+
+.markdown strong {
+  font-weight: 600;
+}
+
+.markdown blockquote {
+  border-left: 2px solid var(--df-ink);
+  padding: 0.2rem 0 0.2rem 1.1rem;
+  color: var(--df-body);
+}
+
+.markdown hr {
+  margin: 2.5rem 0;
+}
+
+.markdown img {
+  border-radius: var(--df-radius);
+}
+
+kbd {
+  font-family: var(--ifm-font-family-base);
+  border: 1px solid var(--df-hairline);
+  border-radius: 0.4rem;
+  background: var(--df-grey);
+  box-shadow: none;
+}
+
+/* Column width: comfortable measure */
+@media (min-width: 997px) {
+  .theme-doc-markdown {
+    max-width: 48rem;
+  }
+}
+
+@media (max-width: 996px) {
+  .markdown h1:first-child,
+  header > h1,
+  .theme-doc-markdown header h1 {
+    --ifm-h1-font-size: 2.15rem;
+  }
+
+  .markdown {
+    --ifm-h2-font-size: 1.5rem;
+    --ifm-h3-font-size: 1.15rem;
+  }
+
+  .markdown > h1:first-child + p,
+  .markdown > header + p {
+    font-size: 1.08rem;
+  }
+}
+
+/* Headers of generated category index pages */
+header + .margin-top--lg,
+.generatedIndexPage_vN6x header {
+  margin-bottom: 1rem;
+}
+
+/* ---------- Inline code and code blocks ---------- */
+
+.markdown code {
+  border: 0;
+  color: var(--df-ink);
+  font-weight: 500;
+  vertical-align: baseline;
+}
+
+.markdown a code {
+  color: inherit;
+  background: transparent;
+  padding: 0;
+}
+
+.theme-code-block {
+  --prism-background-color: var(--df-grey) !important;
+  --prism-color: var(--df-ink) !important;
+  border: 1px solid var(--df-hairline);
+  border-radius: 1rem;
+  box-shadow: none !important;
+}
+
+.theme-code-block pre,
+.theme-code-block code {
+  font-size: 0.875rem;
+  line-height: 1.6;
+}
+
+.theme-code-block [class*='codeBlockTitle'] {
+  border-bottom: 1px solid var(--df-hairline);
+  font-weight: 600;
+  background: var(--df-grey-2);
+}
+
+.theme-code-block button {
+  border-radius: 0.6rem;
+  border-color: var(--df-hairline);
+  background: #ffffff;
+}
+
+/* ---------- Tables: a rounded container with a light-grey header row ---------- */
+
+.df-table {
+  margin: 0 0 1.5rem;
+  border: 1px solid var(--df-hairline);
+  border-radius: 1rem;
+  overflow-x: auto;
+  background: #ffffff;
+}
+
+.df-table > table {
+  display: table;
+  width: 100%;
+  margin: 0;
+  border-collapse: separate;
+  border-spacing: 0;
+  font-size: 0.95rem;
+}
+
+.df-table > table thead tr {
+  background: var(--df-grey);
+}
+
+.df-table > table th {
+  text-align: left;
+  font-weight: 600;
+  color: var(--df-ink);
+  border: 0;
+  border-bottom: 1px solid var(--df-hairline);
+  padding: 0.85rem 1rem;
+  white-space: nowrap;
+}
+
+.df-table > table td {
+  border: 0;
+  border-bottom: 1px solid var(--df-hairline);
+  padding: 0.8rem 1rem;
+  vertical-align: top;
+  min-width: 8rem;
+}
+
+.df-table > table tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+.df-table > table tbody tr:nth-child(2n) {
+  background: transparent;
+}
+
+.df-table > table tbody tr:hover {
+  background: var(--df-grey);
+}
+
+.df-table > table td code,
+.df-table > table th code {
+  white-space: nowrap;
+}
+
+/* Two-column tables (term | explanation): give the term column a steady width */
+.df-table > table tr > :first-child:nth-last-child(2) {
+  width: 32%;
+}
+
+.df-table > table td:first-child {
+  font-weight: 500;
+}
+
+.df-table > table td:first-child strong {
+  font-weight: 600;
+}
+
+/* ---------- Admonitions: tone cards with an ink border and a blob badge ---------- */
+
+.theme-admonition {
+  --ifm-alert-foreground-color: var(--df-ink);
+  --ifm-alert-border-color: var(--df-ink);
+  --ifm-alert-background-color: var(--df-sky);
+  --ifm-alert-background-color-highlight: rgba(0, 20, 5, 0.08);
+  --df-admonition-blob: var(--df-blob-green);
+  color: var(--df-ink);
+  border: 2px solid var(--df-ink);
+  border-left-width: 2px;
+  border-radius: var(--df-radius);
+  box-shadow: none;
+  margin: 1.5rem 0;
+}
+
+.theme-admonition-note {
+  --ifm-alert-background-color: var(--df-sky);
+  --df-admonition-blob: var(--df-blob-green);
+}
+
+.theme-admonition-tip {
+  --ifm-alert-background-color: var(--df-mint);
+  --df-admonition-blob: var(--df-blob-green);
+}
+
+.theme-admonition-info {
+  --ifm-alert-background-color: var(--df-lemonade);
+  --df-admonition-blob: var(--df-blob-sky);
+}
+
+.theme-admonition-warning,
+.theme-admonition-caution {
+  --ifm-alert-background-color: var(--df-baby);
+  --df-admonition-blob: var(--df-blob-lemonade);
+}
+
+.theme-admonition-danger {
+  --ifm-alert-background-color: rgba(255, 90, 77, 0.18);
+  --df-admonition-blob: var(--df-blob-red);
+}
+
+/* heading row */
+.theme-admonition > div:first-child {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  font-family: var(--ifm-font-family-base);
+  font-size: 1rem;
+  font-weight: 600;
+  text-transform: none;
+  letter-spacing: 0;
+  margin-bottom: 0.5rem;
+  color: var(--df-ink);
+}
+
+/* the default icon is replaced by the blob */
+.theme-admonition > div:first-child > span {
+  display: inline-block;
+  width: 1.35rem;
+  height: 1.35rem;
+  margin: 0;
+  flex: 0 0 auto;
+  background: var(--df-admonition-blob) no-repeat center / contain;
+}
+
+.theme-admonition > div:first-child > span > svg {
+  display: none;
+}
+
+.theme-admonition a:not(.card):not(.button) {
+  text-decoration-color: var(--df-ink);
+}
+
+.theme-admonition a:not(.card):not(.button):hover {
+  background-color: #ffffff;
+  box-shadow: 0 0 0 2px #ffffff;
+}
+
+.theme-admonition code {
+  background: rgba(255, 255, 255, 0.65);
+}
+
+.theme-admonition p:last-child {
+  margin-bottom: 0;
+}
+
+/* ---------- Navbar: white, hairline, ink text, dark pill call to action ---------- */
+
+.navbar {
+  border-bottom: 1px solid var(--df-hairline);
+  padding: 0 1.25rem;
+}
+
+.navbar__inner {
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+.navbar__brand {
+  margin-right: 1.5rem;
+}
+
+.navbar__logo {
+  height: 1.5rem;
+  display: flex;
+  align-items: center;
+}
+
+.navbar__logo img {
+  height: 1.5rem;
+  width: auto;
+}
+
+.navbar__link {
+  font-weight: 600;
+  font-size: 0.95rem;
+  border-radius: 999px;
+  padding: 0.4rem 0.85rem;
+  transition: background-color 120ms ease;
+}
+
+.navbar__link:hover,
+.navbar__link--active {
+  background: var(--df-grey-2);
+  color: var(--df-ink);
+}
+
+.navbar__item.dropdown .navbar__link:after {
+  border-color: var(--df-ink) transparent;
+  margin-left: 0.35rem;
+}
+
+.dropdown__menu {
+  border: 1px solid var(--df-hairline);
+  border-radius: 1rem;
+  box-shadow: 0 12px 32px rgba(0, 20, 5, 0.1);
+  padding: 0.5rem;
+  min-width: 16rem;
+}
+
+.dropdown__link {
+  border-radius: 0.65rem;
+  font-weight: 500;
+  padding: 0.5rem 0.8rem;
+}
+
+.dropdown__link--active {
+  background: var(--df-lime);
+  color: var(--df-ink);
+}
+
+/* the external-link arrow on text links in the navbar */
+.navbar__link svg {
+  opacity: 0.55;
+  margin-left: 0.15rem;
+}
+
+.navbar__item--cta,
+.navbar__items .navbar__item--cta {
+  background: var(--df-ink);
+  color: #ffffff !important;
+  border: 2px solid var(--df-ink);
+  border-radius: 4rem;
+  padding: 0.5rem 1.3rem;
+  font-weight: 600;
+  margin-left: 0.5rem;
+  transition: background-color 160ms ease, color 160ms ease;
+}
+
+.navbar__item--cta:hover {
+  background: var(--df-lime);
+  color: var(--df-ink) !important;
+}
+
+.navbar__item--cta svg {
+  display: none;
+}
+
+.navbar__toggle {
+  color: var(--df-ink);
+}
+
+.navbar__search-input {
+  background-color: var(--df-grey);
+  border: 1px solid var(--df-hairline);
+  border-radius: 999px;
+  color: var(--df-ink);
+  font-family: var(--ifm-font-family-base);
+  font-weight: 500;
+  height: 2.4rem;
+  padding-left: 2.4rem;
+}
+
+.navbar__search-input:focus {
+  border-color: var(--df-ink);
+  outline: none;
+}
+
+[class*='searchHintContainer'] {
+  color: var(--df-body);
+}
+
+[class*='searchHintContainer'] kbd {
+  background: #ffffff;
+}
+
+/* Mobile navbar sidebar */
+.navbar-sidebar {
+  background: #ffffff;
+}
+
+.navbar-sidebar__brand {
+  border-bottom: 1px solid var(--df-hairline);
+  box-shadow: none;
+}
+
+.navbar-sidebar__back {
+  background: var(--df-grey);
+  border-radius: 999px;
+  margin: 0.75rem 0.75rem 0.25rem;
+  font-weight: 600;
+}
+
+.navbar-sidebar .navbar__item--cta {
+  display: inline-block;
+  margin: 0.75rem 1rem 0.25rem;
+  text-align: center;
+}
+
+.navbar-sidebar .menu__link.navbar__item--cta {
+  color: #ffffff !important;
+}
+
+/* ---------- Doc sidebar: ink text, lime pill for the current page ---------- */
+
+.theme-doc-sidebar-container {
+  border-right: 1px solid var(--df-hairline) !important;
+}
+
+.menu {
+  font-size: 0.93rem;
+  padding: 1.1rem 0.9rem !important;
+}
+
+.menu__link {
+  border-radius: 999px;
+  line-height: 1.35;
+  font-weight: 500;
+  transition: background-color 120ms ease, color 120ms ease;
+}
+
+.menu__link:hover {
+  color: var(--df-ink);
+}
+
+.menu__list-item-collapsible {
+  border-radius: 999px;
+}
+
+.menu__list-item-collapsible > .menu__link,
+.menu__list-item-collapsible > .menu__link:hover {
+  font-weight: 600;
+  color: var(--df-ink);
+}
+
+.menu__list-item-collapsible:hover {
+  background: var(--df-grey-2);
+}
+
+.menu__list-item-collapsible--active {
+  background: transparent;
+}
+
+.menu__link--active:not(.menu__link--sublist) {
+  background: var(--df-lime);
+  color: var(--df-ink);
+  font-weight: 600;
+}
+
+.menu__link--active:not(.menu__link--sublist):hover {
+  background: var(--df-lime);
+}
+
+.menu__caret,
+.menu__link--sublist-caret:after,
+.menu__caret:before {
+  filter: none;
+}
+
+.menu__link--sublist-caret:after,
+.menu__caret:before {
+  background: var(--ifm-menu-link-sublist-icon) 50% / 1.6rem 1.6rem;
+  opacity: 0.8;
+}
+
+.menu__caret {
+  border-radius: 999px;
+}
+
+.menu__list .menu__list {
+  border-left: 1px solid var(--df-hairline);
+  margin-left: 1rem;
+  padding-left: 0.4rem;
+  margin-top: 0.25rem;
+}
+
+.menu__list-item:not(:first-child) {
+  margin-top: 0.2rem;
+}
+
+.theme-doc-sidebar-item-category-level-1 + .theme-doc-sidebar-item-category-level-1,
+.theme-doc-sidebar-item-link-level-1 + .theme-doc-sidebar-item-category-level-1,
+.theme-doc-sidebar-item-category-level-1 + .theme-doc-sidebar-item-link-level-1 {
+  margin-top: 0.5rem;
+}
+
+/* ---------- Table of contents (right) ---------- */
+
+.table-of-contents {
+  font-size: 0.85rem;
+  padding-left: 0;
+  border-left: 1px solid var(--df-hairline);
+}
+
+.table-of-contents li {
+  margin: 0.15rem 0;
+}
+
+.table-of-contents__link {
+  color: var(--df-body);
+  display: block;
+  padding: 0.2rem 0 0.2rem 0.9rem;
+  margin-left: -1px;
+  border-left: 2px solid transparent;
+  transition: color 120ms ease, border-color 120ms ease;
+}
+
+.table-of-contents__link:hover {
+  color: var(--df-ink);
+}
+
+.table-of-contents__link--active {
+  color: var(--df-ink);
+  font-weight: 600;
+  border-left-color: var(--df-lime);
+}
+
+.table-of-contents ul {
+  padding-left: 0.6rem;
+  border-left: 0;
+}
+
+/* mobile TOC */
+.tocCollapsible_ETCw,
+[class*='tocCollapsible'] {
+  background: var(--df-grey);
+  border: 1px solid var(--df-hairline);
+  border-radius: 1rem;
+}
+
+[class*='tocCollapsibleButton'] {
+  font-weight: 600;
+}
+
+/* ---------- Breadcrumbs ---------- */
+
+.theme-doc-breadcrumbs {
+  margin-bottom: 1.25rem;
+}
+
+.breadcrumbs__link {
+  font-weight: 500;
+  color: var(--df-body);
+  font-size: 0.85rem;
+}
+
+.breadcrumbs__item--active .breadcrumbs__link {
+  background: var(--df-grey-2);
+  color: var(--df-ink);
+  font-weight: 600;
+}
+
+.breadcrumbs__item:not(:last-child):after {
+  opacity: 0.55;
+}
+
+.breadcrumbHomeIcon_YNFT,
+[class*='breadcrumbHomeIcon'] {
+  color: var(--df-ink);
+}
+
+/* ---------- Pagination ---------- */
+
+.pagination-nav {
+  margin-top: 3rem;
+  gap: 1rem;
+}
+
+.pagination-nav__link {
+  border: 2px solid var(--df-ink);
+  border-radius: var(--df-radius);
+  padding: 1.1rem 1.35rem;
+  transition: background-color 160ms ease, transform 160ms ease;
+}
+
+.pagination-nav__link:hover {
+  background: var(--df-grey);
+  border-color: var(--df-ink);
+  transform: translateY(-2px);
+}
+
+.pagination-nav__sublabel {
+  color: var(--df-body);
+  font-size: 0.8rem;
+  font-weight: 500;
+  margin-bottom: 0.3rem;
+}
+
+.pagination-nav__label {
+  font-weight: 600;
+  font-size: 1rem;
+  color: var(--df-ink);
+}
+
+/* ---------- Cards (DocCardList grids and index-page cards) ---------- */
+
+.row > .col > article {
+  height: 100%;
+}
+
+/* DocCard grids: the blob badges cycle through the landing's four tones in order */
+.row > .col:nth-child(4n + 1) [class*='cardTitleIcon'] path {
+  fill: #05c92f;
+}
+
+.row > .col:nth-child(4n + 2) [class*='cardTitleIcon'] path {
+  fill: #9dc4f5;
+}
+
+.row > .col:nth-child(4n + 3) [class*='cardTitleIcon'] path {
+  fill: #fbe74e;
+}
+
+.row > .col:nth-child(4n + 4) [class*='cardTitleIcon'] path {
+  fill: #ffcadc;
+}
+
+.df-cards {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  margin: 1.75rem 0 2.25rem;
+}
+
+.df-cards--2 {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.df-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.6rem;
+  padding: 1.4rem 1.4rem 1.25rem;
+  border: 2px solid var(--df-ink);
+  border-radius: var(--df-radius-lg);
+  background: #ffffff;
+  color: var(--df-ink);
+  text-decoration: none;
+  transition: transform 160ms ease, background-color 160ms ease;
+}
+
+.df-card:hover {
+  color: var(--df-ink);
+  text-decoration: none;
+  transform: translateY(-3px);
+}
+
+.df-card:not([class*='df-tone-']):hover {
+  background: var(--df-grey);
+}
+
+.df-card__blob {
+  width: 2.25rem;
+  height: 2.25rem;
+  display: block;
+  flex: 0 0 auto;
+  margin-bottom: 0.35rem;
+  overflow: visible;
+}
+
+.df-card__kicker {
+  display: block;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: rgba(0, 20, 5, 0.7);
+}
+
+.df-card__title {
+  display: block;
+  font-size: 1.25rem;
+  line-height: 1.15;
+  font-weight: 600;
+  letter-spacing: -0.015em;
+}
+
+.df-card__text {
+  display: block;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: rgba(0, 20, 5, 0.78);
+}
+
+.df-card__more {
+  display: block;
+  margin-top: auto;
+  padding-top: 0.6rem;
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.df-card__more::after {
+  content: ' →';
+}
+
+.df-tone-sky {
+  background-color: var(--df-sky);
+}
+
+.df-tone-baby {
+  background-color: var(--df-baby);
+}
+
+.df-tone-lemonade {
+  background-color: var(--df-lemonade);
+}
+
+.df-tone-mint {
+  background-color: var(--df-mint);
+}
+
+.df-tone-grey {
+  background-color: var(--df-grey);
+}
+
+@media (max-width: 1200px) and (min-width: 997px), (max-width: 760px) {
+  .df-cards {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 560px) {
+  .df-cards,
+  .df-cards--2 {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* surtitle with a blob, as on the landing page */
+.df-surtitle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  margin: 0 0 1rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: var(--df-body);
+}
+
+.df-surtitle::before {
+  content: '';
+  width: 1.4rem;
+  height: 1.4rem;
+  background: var(--df-blob-green) no-repeat center / contain;
+  animation: df-blob 4.8s ease-in-out infinite;
+}
+
+@keyframes df-blob {
+  0%,
+  100% {
+    transform: rotate(0deg) scale(1);
+  }
+  33% {
+    transform: rotate(14deg) scale(1.06, 0.94);
+  }
+  66% {
+    transform: rotate(-8deg) scale(0.95, 1.05);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .df-surtitle::before {
+    animation: none;
+  }
+}
+
+/* pill button, as the landing's AppButton */
+.df-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 3rem;
+  padding: 0 1.6rem;
+  border-radius: 4rem;
+  border: 2px solid var(--df-ink);
+  background: var(--df-lime);
+  color: var(--df-ink) !important;
+  font-weight: 600;
+  text-decoration: none !important;
+  transition: background-color 160ms ease, color 160ms ease;
+}
+
+.df-button:hover {
+  background: var(--df-ink);
+  color: #ffffff !important;
+}
+
+.df-button--dark {
+  background: var(--df-ink);
+  color: #ffffff !important;
+}
+
+.df-button--dark:hover {
+  background: var(--df-lime);
+  color: var(--df-ink) !important;
+}
+
+.df-button--ghost {
+  background: transparent;
+}
+
+.df-button--ghost:hover {
+  background: var(--df-ink);
+  color: #ffffff !important;
+}
+
+.df-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin: 1.5rem 0 2rem;
+}
+
+/* ---------- Mermaid: a white card with a hairline border ---------- */
+
+.docusaurus-mermaid-container {
+  margin: 1.5rem 0 2rem;
+  padding: 1.5rem 1.25rem;
+  background: #ffffff;
+  border: 1px solid var(--df-hairline);
+  border-radius: var(--df-radius);
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+}
+
+/* The svg keeps Mermaid's natural max-width and is centred; the min-width set by the theme
+   component stops it shrinking below 80%, and the card scrolls sideways instead. */
+.df-mermaid__canvas > svg {
+  display: block;
+  margin: 0 auto;
+  min-width: var(--df-mermaid-min-width, 0);
+  height: auto;
+}
+
+/* Labels are measured before render; these keep anything that still differs visible. */
+.docusaurus-mermaid-container foreignObject {
+  overflow: visible;
+}
+
+.docusaurus-mermaid-container .nodeLabel,
+.docusaurus-mermaid-container .edgeLabel {
+  line-height: 1.3;
+}
+
+.docusaurus-mermaid-container .nodeLabel p,
+.docusaurus-mermaid-container .edgeLabel p {
+  margin: 0;
+}
+
+/* Subgraph titles in semibold. Scoped to Mermaid's own svg id rather than the page container so
+   the rule also applies while Mermaid measures the label off-screen, and the box fits the text. */
+svg[id^='mermaid-svg'] .cluster-label .nodeLabel,
+svg[id^='mermaid-svg'] .cluster-label span {
+  font-weight: 600;
+}
+
+/* Ink lines a little heavier than Mermaid's hairline, as the landing's 2px borders at diagram scale */
+.docusaurus-mermaid-container .node .label-container,
+.docusaurus-mermaid-container .node .label-container path,
+.docusaurus-mermaid-container .node > rect,
+.docusaurus-mermaid-container .node > path,
+.docusaurus-mermaid-container .node > polygon,
+.docusaurus-mermaid-container .node > circle,
+.docusaurus-mermaid-container .actor,
+.docusaurus-mermaid-container .note,
+.docusaurus-mermaid-container g.stateGroup rect,
+.docusaurus-mermaid-container .statediagram-state rect.basic {
+  stroke-width: 1.5px !important;
+}
+
+.docusaurus-mermaid-container .flowchart-link,
+.docusaurus-mermaid-container .transition {
+  stroke-width: 1.5px !important;
+}
+
+/* Subgraphs: soft grey panels with rounded corners */
+.docusaurus-mermaid-container .cluster rect {
+  rx: 14px;
+  ry: 14px;
+  fill: rgb(249, 250, 249) !important;
+  stroke: rgba(0, 20, 5, 0.16) !important;
+  stroke-width: 1px !important;
+}
+
+.docusaurus-mermaid-container .edgeLabel span {
+  border-radius: 0.3rem;
+}
+
+.df-mermaid--loading {
+  min-height: 16rem;
+  background: var(--df-grey);
+  border-color: transparent;
+}
+
+/* ---------- Footer (modelled on the landing footer) ---------- */
+
+.footer {
+  border-top: 1px solid var(--df-hairline);
+  background: #ffffff;
+  padding: 3.5rem 1.25rem 2.25rem;
+}
+
+.footer .container {
+  max-width: 1440px;
+  padding: 0;
+}
+
+.df-footer__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.footer__logo {
+  height: 1.6rem;
+  width: auto;
+  display: block;
+  margin: 0;
+}
+
+/* Docusaurus fades the footer logo to 50%; the landing footer shows it at full strength */
+.df-footer__logo a,
+.footer a[class*='footerLogoLink'] {
+  opacity: 1;
+  display: inline-block;
+}
+
+.df-footer__socials {
+  display: flex;
+  gap: 0.9rem;
+  margin: 0;
+}
+
+.df-footer__socials a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.6rem;
+  height: 2.6rem;
+  border: 2px solid var(--df-ink);
+  border-radius: 100%;
+  color: var(--df-ink);
+  transition: transform 300ms cubic-bezier(0.165, 0.84, 0.44, 1), background-color 160ms ease;
+}
+
+.df-footer__socials a:hover {
+  transform: scale(1.1);
+  background: var(--df-lime);
+  color: var(--df-ink);
+}
+
+.df-footer__socials svg {
+  width: 1.05rem;
+  height: 1.05rem;
+}
+
+.footer__links {
+  margin-bottom: 2rem;
+}
+
+.footer__col {
+  margin-bottom: 1.25rem;
+}
+
+.footer__title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--df-ink);
+  margin-bottom: 0.75rem;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+.footer__item {
+  padding: 0.25rem 0;
+}
+
+.footer__link-item {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--df-body);
+  line-height: 1.6;
+  transition: color 200ms ease;
+}
+
+.footer__link-item:hover {
+  color: var(--df-green);
+  text-decoration: none;
+}
+
+.footer__link-item svg {
+  display: none;
+}
+
+.df-footer__bottom {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--df-hairline);
+}
+
+.footer__copyright {
+  font-size: 0.85rem;
+  color: var(--df-body);
+  margin: 0;
+}
+
+.df-footer__legal {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+  margin: 0;
+}
+
+.df-footer__legal a {
+  font-size: 0.85rem;
+  color: var(--df-body);
+  font-weight: 500;
+}
+
+.df-footer__legal a:hover {
+  color: var(--df-green);
+  text-decoration: none;
+}
+
+@media (max-width: 996px) {
+  .footer {
+    padding: 2.5rem 1rem 1.75rem;
+  }
+
+  .footer__links .col {
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
+
+  .df-footer__top {
+    margin-bottom: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer__links .col {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+}
+
+/* ---------- Layout guards: nothing overflows horizontally on a phone ---------- */
+
+.main-wrapper {
+  overflow-x: clip;
+}
+
+.theme-doc-markdown {
+  overflow-wrap: anywhere;
+}
+
+.theme-doc-markdown pre,
+.theme-doc-markdown .df-table {
+  overflow-wrap: normal;
+}
+
+@media (max-width: 996px) {
+  .docusaurus-mermaid-container {
+    padding: 0.9rem 0.5rem;
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .pagination-nav {
+    grid-template-columns: 1fr;
+  }
+}

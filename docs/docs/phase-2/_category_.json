@@ -1,0 +1,10 @@
+{
+  "label": "Phase 2 — Main Liquidity Module",
+  "position": 4,
+  "collapsible": true,
+  "collapsed": true,
+  "link": {
+    "type": "doc",
+    "id": "phase-2/overview"
+  }
+}

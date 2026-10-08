@@ -1,0 +1,8 @@
+.cardTitleText {
+  display: block;
+  font-size: 1.3rem;
+  line-height: 1.15;
+  font-weight: 600;
+  letter-spacing: -0.015em;
+  color: var(--df-ink);
+}

@@ -10,8 +10,25 @@ import { SliceTitleListGrid, type SliceTitleListGridProps } from "./SliceTitleLi
 import { SliceTitleListHorizontal, type SliceTitleListHorizontalProps } from "./SliceTitleListHorizontal";
 import { SliceTitleListVertical, type SliceTitleListVerticalProps } from "./SliceTitleListVertical";
 
-type Slice = { componentName: string };
+type Slice = { componentName: string; sliceId?: string };
 const slices: Slice[] = home.slices;
+
+/** Anchor ids of the in-page links (see settings.json); the app-screens slice carries one per phase instead. */
+const SLICE_IDS: Record<string, string> = {
+  sliceBlockchainsSearch: "infrastructure",
+  sliceTitleListVertical: "position",
+  sliceTitleListGrid: "phases",
+  sliceMechanisms: "mechanisms",
+  sliceTitleListHorizontal: "risks",
+  sliceFAQ: "faq",
+};
+
+/** Where each phase's screen sits on the app-screens scroll, as a fraction of that slice's height. */
+const PHASE_ANCHORS = [
+  { id: "staking", at: 0.12 },
+  { id: "liquidity", at: 0.42 },
+  { id: "borrowing", at: 0.72 },
+];
 
 /** Port of `Slices` position classes: first/last plus the neighbouring slice names. */
 function sliceClass(index: number) {
@@ -26,12 +43,20 @@ function sliceClass(index: number) {
 }
 
 function renderSlice(slice: Slice, index: number): ReactNode {
-  const shared = { className: sliceClass(index), "data-v-fc0f272b": "" };
+  const id = slice.sliceId ? SLICE_IDS[slice.sliceId] : undefined;
+  const shared = { className: sliceClass(index), "data-v-fc0f272b": "", ...(id ? { id } : null) };
   // The JSON's `componentName` is typed as plain `string`, so each slice is cast to its component's props.
   const data = slice as unknown;
   switch (slice.componentName) {
     case "SliceScrollableAppScreens":
-      return <SliceScrollableAppScreens key={index} {...(data as SliceScrollableAppScreensProps)} {...shared} />;
+      return (
+        <SliceScrollableAppScreens
+          key={index}
+          {...(data as SliceScrollableAppScreensProps)}
+          {...shared}
+          anchors={PHASE_ANCHORS}
+        />
+      );
     case "SliceBlockchainsSearch":
       return <SliceBlockchainsSearch key={index} {...(data as SliceBlockchainsSearchProps)} {...shared} />;
     case "SliceTitleListVertical":

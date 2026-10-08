@@ -48,7 +48,7 @@ const OnePosition = () => (
   </Sticker>
 );
 
-function ThreeStages() {
+function ThreePhases() {
   const id = useId();
   return (
     <Sticker width={92} height={92}>
@@ -58,7 +58,7 @@ function ThreeStages() {
       <path id={id} d="M46 46m-31 0a31 31 0 1 1 62 0a31 31 0 1 1-62 0" fill="none" />
       <text {...TEXT} fontSize="9.5" letterSpacing="1">
         <textPath href={`#${id}`} textLength="190" lengthAdjust="spacing">
-          THREE STAGES · THREE STAGES ·
+          THREE PHASES · THREE PHASES ·
         </textPath>
       </text>
     </Sticker>
@@ -170,6 +170,6 @@ export const STICKERS: { Component: () => ReactNode; angle: number; distance: nu
   { Component: OnePosition, angle: 60, distance: 140, rotation: 24 },
   { Component: PooledStaking, angle: 92, distance: 150, rotation: -8 },
   { Component: VaultShares, angle: 122, distance: 128, rotation: 14 },
-  { Component: ThreeStages, angle: 152, distance: 128, rotation: -10 },
+  { Component: ThreePhases, angle: 152, distance: 128, rotation: -10 },
   { Component: NonCustodial, angle: 182, distance: 126, rotation: -18 },
 ];

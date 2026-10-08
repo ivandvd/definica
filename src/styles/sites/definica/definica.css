@@ -3,22 +3,223 @@
  * Loaded after site.css, so equal-specificity rules here win, media queries or not.
  */
 
-/* ---------- Header: logo, Launch App and burger hide with the nav while scrolling down ---------- */
+/* ---------- Header: one floating white bar (logo, links, Launch App) ---------- */
 
-.Header-logo[data-v-d5c9479a],
-.Header-download[data-v-d5c9479a],
-.Header-burger[data-v-d5c9479a] {
+/*
+ * The logo, the links and Launch App sit together in a frosted white pill, so the header reads the
+ * same over any section. The whole bar slides away while scrolling down and comes back on the way
+ * up (AppHeader toggles `--is-hidden`). On desktop the links are plain text with a lime pill that
+ * slides under the hovered one, and a green dot under the current page; on phones the links drop
+ * down as a white card under the bar.
+ */
+.Header-wrapper[data-v-d5c9479a] {
+  border: 1px solid rgba(0, 20, 5, 0.1);
+  border-radius: 10rem;
+  background-color: rgba(255, 255, 255, 0.88);
+  -webkit-backdrop-filter: saturate(1.4) blur(14px);
+  backdrop-filter: saturate(1.4) blur(14px);
+  box-shadow: 0 0.8rem 2.8rem rgba(0, 20, 5, 0.07);
   transition:
-    transform 1s cubic-bezier(0.165, 0.84, 0.44, 1),
+    transform 0.8s cubic-bezier(0.165, 0.84, 0.44, 1),
     opacity 0.4s ease;
 }
 
-.--is-hidden .Header-logo[data-v-d5c9479a],
-.--is-hidden .Header-download[data-v-d5c9479a],
-.--is-hidden .Header-burger[data-v-d5c9479a] {
+.--is-hidden .Header-wrapper[data-v-d5c9479a] {
   opacity: 0;
   pointer-events: none;
-  transform: translate3d(0, -12rem, 0);
+  transform: translate3d(0, -14rem, 0);
+}
+
+/* The logo, nav and burger take their place in the bar's own layout. */
+.Header-logoWrap[data-v-d5c9479a] {
+  display: contents;
+}
+
+.Header-logo[data-v-d5c9479a] {
+  position: static;
+  display: block;
+  width: auto;
+  height: auto;
+}
+
+.Header-logoIcon[data-v-d5c9479a] {
+  display: block;
+  height: 2.6rem;
+  width: 12.5rem;
+}
+
+.Header-logoIcon[data-v-d5c9479a] svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.Header-download[data-v-d5c9479a] {
+  position: static;
+}
+
+/* No separators between the links. */
+.Header-navListItem[data-v-d5c9479a]::after {
+  display: none;
+}
+
+@media screen and (max-width: 768px) {
+  .Header[data-v-d5c9479a] {
+    padding-top: 1.2rem;
+  }
+
+  .Header-wrapper[data-v-d5c9479a] {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    max-width: calc(100% - 2.4rem);
+    height: 6.4rem;
+    padding: 0 0.8rem 0 2rem;
+  }
+
+  /* Solid while the menu is open (the page behind is dimmed). */
+  .--is-nav-open .Header-wrapper[data-v-d5c9479a] {
+    background-color: #ffffff;
+  }
+
+  .Header-logo[data-v-d5c9479a] {
+    order: 0;
+    margin-right: auto;
+  }
+
+  .Header-logoIcon[data-v-d5c9479a] {
+    height: 2.2rem;
+    width: 10.5rem;
+  }
+
+  .Header-download[data-v-d5c9479a] {
+    order: 1;
+    right: auto;
+    top: auto;
+    height: 4.2rem;
+    padding: 0 1.8rem;
+  }
+
+  .Header-burger[data-v-d5c9479a] {
+    order: 2;
+    position: relative;
+    top: auto;
+    right: auto;
+    flex: 0 0 auto;
+    width: 4.6rem;
+    height: 4.6rem;
+    padding: 0;
+    background-color: rgb(241, 243, 241);
+  }
+
+  .Header-burgerIcon[data-v-d5c9479a] {
+    width: 4.6rem;
+    height: 4.6rem;
+  }
+
+  /* The menu: a white card dropping from under the bar. */
+  .Header-nav[data-v-d5c9479a] {
+    top: calc(100% + 0.8rem);
+    left: 0;
+    right: 0;
+    border-radius: 2.4rem;
+  }
+
+  .Header-navList[data-v-d5c9479a] {
+    gap: 0.2rem;
+    padding: 1rem;
+    border: 1px solid rgba(0, 20, 5, 0.1);
+    border-radius: 2.4rem;
+    background-color: #ffffff;
+  }
+
+  .Header-navListItem[data-v-d5c9479a] {
+    display: block;
+  }
+
+  .Header-navListItemLink[data-v-d5c9479a] {
+    padding: 1.4rem 1.6rem;
+    border-radius: 1.6rem;
+    font-size: 2rem;
+    line-height: 2.4rem;
+  }
+
+  .Header-navListItem.--is-current .Header-navListItemLink[data-v-d5c9479a] {
+    background-color: #d1f500;
+  }
+}
+
+@media screen and (min-width: 769px) {
+  .Header[data-v-d5c9479a] {
+    padding-top: 2rem;
+  }
+
+  .Header-hitzone[data-v-d5c9479a] {
+    height: 11rem;
+  }
+
+  /* Logo | links | Launch App, the links centred in the bar. */
+  .Header-wrapper[data-v-d5c9479a] {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    max-width: min(128rem, calc(100% - 8rem));
+    height: 7.2rem;
+    padding: 0 1.3rem 0 2.8rem;
+  }
+
+  .Header-logo[data-v-d5c9479a] {
+    justify-self: start;
+    top: auto;
+  }
+
+  .Header-logoIcon[data-v-d5c9479a] {
+    height: 3rem;
+    width: 14.4rem;
+  }
+
+  .Header-download[data-v-d5c9479a] {
+    justify-self: end;
+    right: auto;
+    top: auto;
+  }
+
+  .Header-nav[data-v-d5c9479a],
+  .--is-hidden .Header-nav[data-v-d5c9479a] {
+    position: relative;
+    justify-self: center;
+    overflow: visible;
+    background-color: transparent;
+    transform: none;
+    z-index: auto;
+  }
+
+  /* The pill that slides under the hovered link (moved by AppHeader). */
+  .Header-navBg[data-v-d5c9479a] {
+    top: 0;
+    bottom: 0;
+    left: 0;
+    background-color: #d1f500;
+    border-radius: 10rem;
+  }
+
+  .Header-navListItemLink[data-v-d5c9479a] {
+    padding: 1.2rem 1.8rem;
+  }
+
+  /* The current page: a green dot under its link. */
+  .Header-navListItem.--is-current[data-v-d5c9479a]::after {
+    display: block;
+    top: auto;
+    right: auto;
+    bottom: 0.1rem;
+    left: 50%;
+    width: 0.6rem;
+    height: 0.6rem;
+    margin-left: -0.3rem;
+    border-radius: 50%;
+    background: #05c92f;
+  }
 }
 
 /* ---------- Section surtitles: centred, with a blob instead of the dot ---------- */
@@ -124,7 +325,7 @@
   transform: translateY(calc(-50% - 0.36em));
 }
 
-/* ---------- Card colours: the stage cards' sky, baby pink and lemonade, plus the site's light green ---------- */
+/* ---------- Card colours: the phase cards' sky, baby pink and lemonade, plus the site's light green ---------- */
 
 /* Set per card in home.json (`tone`), chosen so the colour never swallows that card's key elements. */
 .--tone-sky {
@@ -147,4 +348,37 @@
 [class*="--tone-"] .VerticalCard-text[data-v-eafce9c3],
 [class*="--tone-"] .SliceTitleListHorizontal-listItemText[data-v-80f8c832] {
   color: rgba(0, 20, 5, 0.76);
+}
+
+/* ---------- App screens: the notes beside the phone ---------- */
+
+/* The notes are short paragraphs now, so they take body-sized type, and the box grows past its
+   38.5rem instead of clipping, keeping the bottom 13rem free for the animated icon pinned there. */
+@media screen and (min-width: 769px) {
+  .SliceScrollableAppScreens-box.--is-text[data-v-c86fbc86] {
+    height: auto;
+    min-height: 38.5rem;
+    padding-bottom: 13rem;
+  }
+
+  .SliceScrollableAppScreens-boxText[data-v-c86fbc86] {
+    font-size: 3rem;
+    line-height: 3.6rem;
+  }
+}
+
+/* ---------- DeFi Infrastructure: a longer intro, set in paragraphs ---------- */
+
+/* "\n" in the text starts a new paragraph (see home.json). */
+.SliceBlockchainsSearch-contentText[data-v-051a504d] {
+  white-space: pre-line;
+}
+
+/* A wider measure at a smaller size, so the column still fits beside the wheel in one viewport. */
+@media screen and (min-width: 769px) {
+  .SliceBlockchainsSearch-contentText[data-v-051a504d] {
+    max-width: 52rem;
+    font-size: 2rem;
+    line-height: 2.9rem;
+  }
 }

@@ -20,27 +20,27 @@ import { allEl, byEl, hideCursor, showCursor, tap } from "../motion";
 import styles from "../phone.module.css";
 
 /*
- * Stage 3 — borrowing markets (planned): the cursor taps the osETH market, its parameters cascade
- * open — each one "published before activation" — and the list scrolls on to the other markets.
+ * Phase 3 — borrowing markets: the cursor taps the osETH market, its parameters cascade open, each
+ * with what it sets, and the list scrolls on to the other markets.
  */
 
-// The parameters the brief says are published before any market is activated.
-const PARAMETERS: { name: string; icon: ReactNode }[] = [
-  { name: "Borrow asset", icon: <ArrowsIcon /> },
-  { name: "Max LTV", icon: <GaugeIcon /> },
-  { name: "Liquidation threshold", icon: <AlertIcon /> },
-  { name: "Oracle", icon: <TargetIcon /> },
-  { name: "Interest rate model", icon: <PercentIcon /> },
-  { name: "Market caps", icon: <LockIcon /> },
-  { name: "Emergency controls", icon: <ShieldIcon /> },
+// The parameters every market defines (see the docs' Market parameters); the values are set per market.
+const PARAMETERS: { name: string; sets: string; icon: ReactNode }[] = [
+  { name: "Borrow asset", sets: "What you borrow and repay", icon: <ArrowsIcon /> },
+  { name: "Max LTV", sets: "The most you can borrow", icon: <GaugeIcon /> },
+  { name: "Liquidation threshold", sets: "Where liquidation starts", icon: <AlertIcon /> },
+  { name: "Oracle", sets: "Prices collateral and debt", icon: <TargetIcon /> },
+  { name: "Interest rate model", sets: "Follows utilisation", icon: <PercentIcon /> },
+  { name: "Market caps", sets: "Limits supply and borrowing", icon: <LockIcon /> },
+  { name: "Emergency controls", sets: "Who can pause or cap", icon: <ShieldIcon /> },
 ];
 
-const MARKETS: { name: string; sub: string; glyph: GlyphName; color: string; value: string }[] = [
-  { name: "aEthosETH", sub: "Separate path, later", glyph: "aethoseth", color: "#9dc4f5", value: "0.40" },
-  { name: "ETH", sub: "Direct lending supply", glyph: "ethereum", color: "#9dc4f5", value: "—" },
+const MARKETS: { name: string; sub: string; glyph: GlyphName; color: string; value: string; note: string }[] = [
+  { name: "aEthosETH", sub: "Liquidity Module collateral", glyph: "aethoseth", color: "#9dc4f5", value: "—", note: "Available" },
+  { name: "ETH", sub: "Direct lending supply", glyph: "ethereum", color: "#9dc4f5", value: "—", note: "Available" },
 ];
 
-function MarketRow({ name, sub, glyph, color, value, dataEl }: (typeof MARKETS)[number] & { dataEl?: string }) {
+function MarketRow({ name, sub, glyph, color, value, note, dataEl }: (typeof MARKETS)[number] & { dataEl?: string }) {
   return (
     <div className={styles.marketRow} data-el={dataEl}>
       <Badge glyph={glyph} color={color} size={34} />
@@ -50,7 +50,7 @@ function MarketRow({ name, sub, glyph, color, value, dataEl }: (typeof MARKETS)[
       </div>
       <div className={styles.marketSide}>
         <div className={styles.marketName}>{value}</div>
-        <div className={styles.marketStatus}>Planned</div>
+        <div className={styles.marketStatus}>{note}</div>
       </div>
     </div>
   );
@@ -70,7 +70,7 @@ export function BorrowMarkup() {
             <span>
               1.00 <small>osETH</small>
             </span>
-            <span className={`${styles.pill} ${styles.pillGrey}`}>Stage 3 · Planned</span>
+            <span className={`${styles.pill} ${styles.pillGreen}`}>Phase 3</span>
           </div>
         </div>
         <div className={styles.tabsRow}>
@@ -86,6 +86,7 @@ export function BorrowMarkup() {
               glyph="oseth"
               color="#e2f2e5"
               value="1.00"
+              note="Supplied"
               dataEl="osethRow"
             />
             <div className={styles.expand} data-el="expand">
@@ -94,7 +95,7 @@ export function BorrowMarkup() {
                   <span className={styles.paramIcon}>{parameter.icon}</span>
                   <div>
                     <div className={styles.paramName}>{parameter.name}</div>
-                    <div className={styles.paramValue}>Published before activation</div>
+                    <div className={styles.paramValue}>{parameter.sets}</div>
                   </div>
                 </div>
               ))}

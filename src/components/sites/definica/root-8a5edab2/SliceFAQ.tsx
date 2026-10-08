@@ -40,6 +40,8 @@ export interface SliceFAQProps {
   className?: string;
   /** Parent scope attribute. */
   "data-v-fc0f272b"?: string;
+  /** In-page link target. */
+  id?: string;
 }
 
 /**
@@ -55,6 +57,7 @@ export function SliceFAQ({
   sliceId,
   className,
   "data-v-fc0f272b": parentScope,
+  id,
 }: SliceFAQProps) {
   const refItem = useRef<(HTMLElement | null)[]>([]);
   const refItemContent = useRef<(HTMLDivElement | null)[]>([]);
@@ -118,6 +121,7 @@ export function SliceFAQ({
   return (
     <section
       {...(sliceId ? { sliceid: sliceId } : null)}
+      id={id}
       data-v-fc0f272b={parentScope}
       data-v-5ccfc627=""
       className={className ? `SliceFAQ --bg-grey8 ${className}` : "SliceFAQ --bg-grey8"}

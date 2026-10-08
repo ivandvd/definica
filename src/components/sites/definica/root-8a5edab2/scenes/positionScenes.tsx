@@ -305,7 +305,7 @@ export function buildLayers(canvas: HTMLElement) {
  * Know which contract holds it: layer cards turn over to the contract that holds each layer, then
  * back. Pairs follow the brief: DefinicaCore holds the aggregate Vault shares and the share locks;
  * the Staking Vault holds the pooled ETH and funds the validators; Aave V3 holds supplied osETH; the
- * planned Main Liquidity Module holds aEthosETH locks. The small Definica tile turns to its Treasury.
+ * Main Liquidity Module holds aEthosETH locks. The small Definica tile turns to its Treasury.
  */
 
 type CardGlyph = GlyphName | "mark";

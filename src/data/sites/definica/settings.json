@@ -6,15 +6,27 @@
         "title": "Protocol",
         "links": [
           {
-            "linkType": "externalLink",
+            "linkType": "internalLink",
             "title": "Staking",
-            "to": "https://www.definica.com/#liquid",
+            "to": "/#staking",
             "trailingSlash": false
           },
           {
-            "linkType": "externalLink",
+            "linkType": "internalLink",
             "title": "Liquidity Module",
-            "to": "https://www.definica.com/#node",
+            "to": "/#liquidity",
+            "trailingSlash": false
+          },
+          {
+            "linkType": "internalLink",
+            "title": "Borrowing",
+            "to": "/#borrowing",
+            "trailingSlash": false
+          },
+          {
+            "linkType": "internalLink",
+            "title": "Risks",
+            "to": "/#risks",
             "trailingSlash": false
           }
         ]
@@ -29,10 +41,9 @@
             "trailingSlash": false
           },
           {
-            "linkType": "externalLink",
+            "linkType": "internalLink",
             "title": "Roadmap",
-            "to": "https://www.definica.com/roadmap",
-            "trailingSlash": false
+            "to": { "path": "/roadmap" }
           },
           {
             "linkType": "externalLink",
@@ -46,22 +57,22 @@
         "title": "Resources",
         "links": [
           {
-            "linkType": "externalLink",
-            "title": "Borrowing",
-            "to": "https://www.definica.com/borrowing",
-            "trailingSlash": false
+            "linkType": "internalLink",
+            "title": "Docs",
+            "to": { "path": "/docs" }
           },
           {
-            "linkType": "externalLink",
+            "linkType": "internalLink",
             "title": "FAQ",
-            "to": "https://www.definica.com/#faq",
+            "to": "/#faq",
             "trailingSlash": false
           },
           {
             "linkType": "externalLink",
             "title": "Community",
-            "to": "https://www.definica.com/#community",
-            "trailingSlash": false
+            "to": "https://t.me/definica",
+            "trailingSlash": false,
+            "openInNewTab": true
           }
         ]
       }
@@ -88,29 +99,32 @@
   },
   "header": {
     "download": {
-      "linkType": "externalLink",
+      "linkType": "internalLink",
       "title": "Launch App",
-      "to": "https://www.definica.com/",
-      "trailingSlash": false
+      "to": { "path": "/app" }
     },
     "links": [
       {
-        "linkType": "externalLink",
+        "linkType": "internalLink",
         "title": "Staking",
-        "to": "https://www.definica.com/#liquid",
+        "to": "/#staking",
         "trailingSlash": false
       },
       {
-        "linkType": "externalLink",
+        "linkType": "internalLink",
         "title": "Borrowing",
-        "to": "https://www.definica.com/borrowing",
+        "to": "/#borrowing",
         "trailingSlash": false
       },
       {
-        "linkType": "externalLink",
+        "linkType": "internalLink",
         "title": "Roadmap",
-        "to": "https://www.definica.com/roadmap",
-        "trailingSlash": false
+        "to": { "path": "/roadmap" }
+      },
+      {
+        "linkType": "internalLink",
+        "title": "Docs",
+        "to": { "path": "/docs" }
       },
       {
         "linkType": "externalLink",

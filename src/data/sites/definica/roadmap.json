@@ -1,0 +1,174 @@
+{
+  "seo": {
+    "title": "Roadmap — Definica",
+    "description": "The Definica roadmap: pooled ETH staking first, then committed liquidity, then borrowing — what each phase delivers and how the phases connect."
+  },
+  "hero": {
+    "surtitle": "Roadmap",
+    "title": "Staked ETH, \neasier to use.",
+    "text": "The Definica roadmap lays out how we're building pooled ETH staking, committed liquidity and borrowing — in order, each phase creating the conditions for the next. Progress is tied to evidence and readiness rather than a fixed launch date.",
+    "buttons": [
+      {
+        "linkType": "internalLink",
+        "title": "Launch App",
+        "to": {
+          "path": "/app"
+        },
+        "theme": "dark"
+      },
+      {
+        "linkType": "internalLink",
+        "title": "Read the docs",
+        "to": {
+          "path": "/docs"
+        },
+        "theme": "border-light"
+      }
+    ]
+  },
+  "about": {
+    "surtitle": "About this roadmap",
+    "title": "Definica roadmap.",
+    "note": "Maintained by the Definica team. Updated as modules are reviewed, published and activated.",
+    "items": [
+      {
+        "title": "What the roadmap is and isn't",
+        "text": "These are the modules Definica is building, in the order they depend on each other, with the detail in the documentation. It is not a schedule with guaranteed release dates: each module is activated on its own, and the deployed onchain configuration is always the final source of truth."
+      },
+      {
+        "title": "How progress is measured",
+        "text": "Progress is tied to evidence and readiness rather than a fixed launch date. Each module moves forward once its prerequisites are in place — agreed review requirements, submitted audit material, the registry process and published parameters."
+      },
+      {
+        "title": "Why StakeWise",
+        "text": "StakeWise is used as the staking foundation because its Vault architecture is designed around permissionless Vault creation, isolated staking pools, non-custodial smart-contract execution, and shares-based accounting."
+      }
+    ]
+  },
+  "northStar": {
+    "surtitle": "North star",
+    "title": "Useful ETH infrastructure, \nwithout hiding the mechanics.",
+    "lead": "Definica connects pooled ETH staking, transparent position accounting, osETH-based liquidity and future borrowing utility through one phased architecture.",
+    "text": "You should be able to understand how a position is created, how your share is calculated, where each return originates, which external systems the position depends on, and which risks apply at every phase."
+  },
+  "road": {
+    "surtitle": "The roadmap",
+    "title": "Stake, lock, borrow.",
+    "intro": "Everything on this roadmap runs in a simple sequence: each phase creates the conditions for the next, and no module goes live before its prerequisites are met. Scroll to travel the road, phase by phase.",
+    "start": "Start",
+    "stops": [
+      {
+        "label": "Phase 1 — Anchor",
+        "theme": "Staking",
+        "title": "Pooled ETH staking",
+        "text": "Establishes the foundation. Eligible ETH is pooled in a dedicated StakeWise Vault and DefinicaCore records each user's proportional position, so nobody has to run a validator.",
+        "pointsTitle": "Key points",
+        "bullets": [
+          "Vault capacity, fees and participation conditions shown before you confirm",
+          "Optional share locks of 7 to 365 days, up to 10 lock positions at a time",
+          "Withdrawals use available liquidity or wait for validator exits before ETH is claimable"
+        ],
+        "glyph": "ethereum",
+        "tone": "sky",
+        "items": [
+          {
+            "title": "Dedicated pooled ETH staking layer",
+            "text": "Eligible ETH pooled in a dedicated StakeWise Vault, routed through DefinicaCore.",
+            "glyph": "stakewise-vault",
+            "glyphColor": "#ffcadc"
+          },
+          {
+            "title": "Proportional user accounting",
+            "text": "Vault shares as accounting units: your proportion of the Vault, net of fees.",
+            "glyph": "vault-shares",
+            "glyphColor": "#fbe74e"
+          },
+          {
+            "title": "Validator-backed reward generation",
+            "text": "Rewards accrue to every share after each harvest. No return is guaranteed.",
+            "glyph": "validators",
+            "glyphColor": "#e2f2e5"
+          },
+          {
+            "title": "Non-custodial staking infrastructure",
+            "text": "Separate proxies, distinct admin and upgrade roles, approved-implementation upgrades.",
+            "glyph": "definica-core",
+            "glyphColor": "#d1f500"
+          }
+        ]
+      },
+      {
+        "label": "Phase 2 — Commit",
+        "theme": "Liquidity",
+        "title": "Main Liquidity Module",
+        "text": "With staking in place, eligible osETH supplied to Aave V3 Ethereum is represented by aEthosETH and can be locked for a fixed duration under published rules — the foundation for future osETH utility.",
+        "pointsTitle": "Key points",
+        "bullets": [
+          "Fixed-duration aEthosETH lock-ups",
+          "Published funding, lock, allocation, capacity and withdrawal rules",
+          "Optional, user-authorised funding loans for Definica's lending markets"
+        ],
+        "glyph": "liquidity-module",
+        "tone": "baby",
+        "items": [
+          {
+            "title": "The foundation for future osETH utility",
+            "text": "osETH supplied to Aave V3, held as aEthosETH, locked in the Main Liquidity Module.",
+            "glyph": "oseth",
+            "glyphColor": "#e2f2e5"
+          }
+        ]
+      },
+      {
+        "label": "Phase 3 — Grow",
+        "theme": "Borrowing",
+        "title": "Borrowing markets",
+        "text": "With proven infrastructure and committed liquidity, borrowing markets for approved ETH-correlated collateral follow — the initial base for Definica's long-term borrowing infrastructure.",
+        "pointsTitle": "Key points",
+        "bullets": [
+          "osETH as the primary collateral",
+          "Borrow supported assets under published collateral, interest and liquidation rules",
+          "75% of attributable lending interest to participants, 25% to Definica"
+        ],
+        "glyph": "borrowing-markets",
+        "tone": "lemonade",
+        "items": [
+          {
+            "title": "The initial base for Definica's long-term borrowing infrastructure",
+            "text": "Borrowing markets for approved ETH-correlated collateral, under published parameters.",
+            "glyph": "borrowing-markets",
+            "glyphColor": "#9ca69e"
+          }
+        ]
+      }
+    ],
+    "finish": {
+      "label": "Finish",
+      "title": "Staked ETH, put to work.",
+      "text": "Staking, committed liquidity and borrowing, connected through one architecture. Each module is activated on its own, and the deployed onchain configuration is the final source of truth."
+    }
+  },
+  "closing": {
+    "surtitle": "Keep reading",
+    "title": "The detail lives \nin the docs.",
+    "text": "Launch updates, module releases and published contract addresses come straight from the team. The documentation carries the detail; the community channel is where questions get answered.",
+    "buttons": [
+      {
+        "linkType": "internalLink",
+        "title": "Read the docs",
+        "to": {
+          "path": "/docs"
+        },
+        "theme": "dark"
+      },
+      {
+        "linkType": "externalLink",
+        "title": "Ask the community",
+        "to": "https://t.me/definica",
+        "trailingSlash": false,
+        "openInNewTab": true,
+        "theme": "border-light"
+      }
+    ]
+  }
+}

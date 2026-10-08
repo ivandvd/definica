@@ -63,7 +63,7 @@ export function DefinicaMark({ className, color = "#002012", accent = "#d1f500" 
   );
 }
 
-/** A wheel glyph in a coloured circle, as in the "Three stages" wheel. */
+/** A wheel glyph in a coloured circle, as in the "Three phases" wheel. */
 export function Badge({ glyph, color, size }: { glyph: GlyphName; color: string; size: number }) {
   return (
     <span className={styles.badge} style={{ width: size, height: size, background: color }}>
@@ -217,7 +217,7 @@ const ActivityIcon = () => (
   </Svg>
 );
 
-const StagesIcon = () => (
+const PhasesIcon = () => (
   <Svg>
     <path {...stroke} d="M12 3.5 20.5 8 12 12.5 3.5 8Z" />
     <path {...stroke} d="M3.5 12 12 16.5 20.5 12M3.5 16 12 20.5 20.5 16" />
@@ -285,8 +285,8 @@ export function BottomNav({ dataEl }: { dataEl?: string }) {
         </g>
       </svg>
       <span className={styles.navItem}>
-        <StagesIcon />
-        Stages
+        <PhasesIcon />
+        Phases
       </span>
       <span className={styles.navItem}>
         <GearIcon />
@@ -351,13 +351,14 @@ export function PositionCard({ value, valueEl, dataEl, lineEl, fillEl }: {
   );
 }
 
-const LAYERS: { name: string; glyph: GlyphName; color: string; value: string; stage: string; live: boolean }[] = [
-  { name: "Vault shares", glyph: "vault-shares", color: "#fbe74e", value: "1.00 ETH", stage: "Stage 1", live: true },
-  { name: "Liquidity Module", glyph: "liquidity-module", color: "#ff5a4d", value: "Planned", stage: "Stage 2", live: false },
-  { name: "Borrowing", glyph: "borrowing-markets", color: "#9ca69e", value: "Planned", stage: "Stage 3", live: false },
+/** A new position: staked ETH, nothing locked yet and no debt (the empty layers are muted). */
+const LAYERS: { name: string; glyph: GlyphName; color: string; value: string; phase: string; empty: boolean }[] = [
+  { name: "Vault shares", glyph: "vault-shares", color: "#fbe74e", value: "1.00 ETH", phase: "Phase 1", empty: false },
+  { name: "Liquidity Module", glyph: "liquidity-module", color: "#ff5a4d", value: "0.00 aEthosETH", phase: "Phase 2", empty: true },
+  { name: "Borrowing", glyph: "borrowing-markets", color: "#9ca69e", value: "No debt", phase: "Phase 3", empty: true },
 ];
 
-/** "Your layers" header and list: one row per stage of the position. */
+/** "Your layers" header and list: one row per phase of the position. */
 export function LayersList({ headEl, listEl, rowEl }: { headEl?: string; listEl?: string; rowEl?: string }) {
   return (
     <>
@@ -373,10 +374,10 @@ export function LayersList({ headEl, listEl, rowEl }: { headEl?: string; listEl?
                 {layer.name}
                 <Badge glyph={layer.glyph} color={layer.color} size={18} />
               </div>
-              <div className={`${styles.layerValue} ${layer.live ? "" : styles.layerValueMuted}`}>{layer.value}</div>
+              <div className={`${styles.layerValue} ${layer.empty ? styles.layerValueMuted : ""}`}>{layer.value}</div>
             </div>
             <div className={styles.layerSide}>
-              <span className={`${styles.pill} ${layer.live ? styles.pillGreen : styles.pillGrey}`}>{layer.stage}</span>
+              <span className={`${styles.pill} ${styles.pillGreen}`}>{layer.phase}</span>
               <KebabIcon className={styles.kebab} />
             </div>
           </div>

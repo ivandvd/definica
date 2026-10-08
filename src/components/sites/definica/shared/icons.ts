@@ -1,5 +1,5 @@
 // Inline SVG markup used by `AppSvg`. `definica-logo` and `definica-mark` are the Definica wordmark
-// and mark from definica.com; `eth`, `lock` and `balance` mark the three stages.
+// and mark from definica.com; `eth`, `lock` and `balance` mark the three phases.
 export const icons = {
   "arrow-down": "<svg version=\"1.1\" id=\"Calque_1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\"\n\t viewBox=\"0 0 10 7\" style=\"enable-background:new 0 0 10 7;\" xml:space=\"preserve\">\n<style type=\"text/css\">\n\t.st0{fill:#5A585A;}\n</style>\n<polygon class=\"st0\" points=\"5,6.2 0.2,1.7 1.6,0.2 5,3.5 8.4,0.2 9.8,1.6 \"/>\n</svg>",
   "balance": "<svg viewBox=\"0 0 30 26\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M15 3.5v18M9.5 23h11M4.5 7h21\" stroke=\"#001405\" stroke-width=\"2\" stroke-linecap=\"round\"/><path d=\"M1.5 15.5 4.5 7l3 8.5M22.5 15.5l3-8.5 3 8.5\" stroke=\"#001405\" stroke-width=\"1.6\" stroke-linejoin=\"round\"/><path d=\"M1 15.5h7a3.5 3 0 0 1-7 0ZM22 15.5h7a3.5 3 0 0 1-7 0Z\" stroke=\"#001405\" stroke-width=\"2\" stroke-linejoin=\"round\"/></svg>",

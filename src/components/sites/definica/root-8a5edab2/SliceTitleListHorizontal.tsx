@@ -49,6 +49,8 @@ export interface SliceTitleListHorizontalProps {
   className?: string;
   /** Parent scope attribute. */
   "data-v-fc0f272b"?: string;
+  /** In-page link target. */
+  id?: string;
 }
 
 const subscribeResize = (onChange: () => void) => {
@@ -75,6 +77,7 @@ export function SliceTitleListHorizontal({
   sliceId,
   className,
   "data-v-fc0f272b": parentScope,
+  id,
 }: SliceTitleListHorizontalProps) {
   // Read synchronously right after hydration so the videos get the right `autoplay`
   // before their own mount timers fire (the original device refs are set on mount).
@@ -107,6 +110,7 @@ export function SliceTitleListHorizontal({
   return (
     <section
       {...(sliceId ? { sliceid: sliceId } : null)}
+      id={id}
       data-v-fc0f272b={parentScope}
       data-v-80f8c832=""
       className={className ? `SliceTitleListHorizontal ${className}` : "SliceTitleListHorizontal"}

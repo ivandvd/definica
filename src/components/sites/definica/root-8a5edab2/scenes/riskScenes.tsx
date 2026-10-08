@@ -473,7 +473,7 @@ export function buildMarket(canvas: HTMLElement) {
  * Borrowing risk: debt, interest, oracles and liquidation. A position's collateral and debt sit
  * above its health bar. Interest adds to the debt, the oracle reports a lower collateral price,
  * health falls into the red and the position is liquidated: collateral goes to repay debt. No
- * numbers: market parameters are published before activation.
+ * numbers: market parameters are set per market.
  */
 
 const PILE = { collateralX: 108, debtX: 292, baseY: 206, step: 15, coin: 92 };

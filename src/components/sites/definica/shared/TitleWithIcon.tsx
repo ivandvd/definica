@@ -81,7 +81,8 @@ export function TitleWithIcon({
   const iconUrl = iconFile?.url ?? null;
 
   const html = useMemo(() => {
-    if (!iconUrl) return title;
+    // Definica: a "\n" in the title is a line break on desktop (hidden on mobile, see definica.css).
+    if (!iconUrl) return title.replace(/\n/g, '<br class="titleBreak">');
     // Definica: a "\n" in the title is a line break on desktop (hidden on mobile, see definica.css).
     const words = title.split(" ").map((word) => word.replace(/\n/g, '<br class="titleBreak">'));
     if (!forceWrapBeforeIcon && iconPos > 0) {
@@ -162,6 +163,11 @@ export function TitleWithIcon({
     const el = refEl.current;
     if (!split || !el) return;
     gsap.set(el, { opacity: 0 });
+    // Definica: a "\n" break hidden at this breakpoint (see definica.css) is dropped before the
+    // split, which would otherwise still start a new line there and strand a word on its own.
+    el.querySelectorAll(".titleBreak").forEach((br) => {
+      if (getComputedStyle(br).display === "none") br.remove();
+    });
     split.split();
     // With an icon, the timeline is built once the icon has been rendered into its wrap (effect below).
     if (!iconUrl || !el.querySelector(".iconWrap")) buildTimeline(null);

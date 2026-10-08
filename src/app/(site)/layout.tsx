@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import "./globals.css";
+import "../globals.css";
 import "@/styles/sites/definica/site.css";
 import "@/styles/sites/definica/definica.css";
 

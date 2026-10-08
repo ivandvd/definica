@@ -21,7 +21,7 @@
           "iconFile": {
             "url": "/sites/definica/root-8a5edab2/cms/eth-coins.json"
           },
-          "tag": "Stage 1",
+          "tag": "Phase 1",
           "text": "Pooled in a dedicated StakeWise Vault. No validator to run.",
           "title": "Pool your ETH. Keep your share.",
           "titleIcon": "eth",
@@ -33,7 +33,7 @@
           "iconFile": {
             "url": "/sites/definica/root-8a5edab2/cms/eth-coins-stacked.json"
           },
-          "tag": "Stage 2",
+          "tag": "Phase 2",
           "text": "The core layer for locking Aave-supplied osETH, held as aEthosETH.",
           "title": "Main Liquidity Module.",
           "titleIcon": "lock",
@@ -45,8 +45,8 @@
           "iconFile": {
             "url": "/sites/definica/root-8a5edab2/cms/balance.json"
           },
-          "tag": "Stage 3",
-          "text": "Planned: borrow osETH or osETH-linked liquidity under protocol-defined risk parameters.",
+          "tag": "Phase 3",
+          "text": "Borrow supported assets against approved ETH or ETH-correlated collateral under defined collateral, interest and liquidation rules.",
           "title": "Borrowing for ETH-correlated collateral.",
           "titleIcon": "balance",
           "screen": "borrow"
@@ -340,7 +340,7 @@
       "componentName": "SliceBlockchainsSearch",
       "placeholder": "Search",
       "sliceId": "sliceBlockchainsSearch",
-      "text": "Definica is designed to connect pooled ETH staking through StakeWise Vault infrastructure with osETH liquidity and Aave V3 Ethereum supply positions represented by aEthosETH. Together, these components create the foundation for liquidity locks, protocol incentives, and future borrowing markets for approved ETH-correlated collaterals.",
+      "text": "Definica is built in three phases: pooled ETH staking through StakeWise Vault infrastructure, osETH-based liquidity through Aave V3 Ethereum, and borrowing markets for approved ETH-correlated collateral.\n\nThe Main Liquidity Module manages locked aEthosETH supply positions and, with user authorisation and where supported, borrowing against those positions through Aave. The borrowed assets provide liquidity to Definica’s lending markets, with explicit accounting for participant exposure, financing costs, lending income and separately funded incentives.",
       "title": "DeFi Infrastructure."
     },
     {
@@ -435,24 +435,24 @@
         {
           "_key": "0e917a1225fb",
           "_type": "item",
-          "title": "Stage 1 · Pooled ETH staking \nthrough a dedicated StakeWise Vault.",
-          "scene": "stage1"
+          "title": "Phase 1 · Pooled ETH staking \nthrough a dedicated StakeWise Vault.",
+          "scene": "phase1"
         },
         {
           "_key": "48c92ee26549",
           "_type": "item",
-          "title": "Stage 2 · Main Liquidity Module. \nPlanned fixed-duration aEthosETH lock-ups.",
-          "scene": "stage2"
+          "title": "Phase 2 · Main Liquidity Module. \nFixed-duration aEthosETH lock-ups.",
+          "scene": "phase2"
         },
         {
           "_key": "bed376c1650f",
           "_type": "item",
-          "title": "Stage 3 · Borrowing markets. \nParameters published before activation.",
-          "scene": "stage3"
+          "title": "Phase 3 · Borrowing markets. \nPublished collateral, interest and liquidation rules.",
+          "scene": "phase3"
         }
       ],
       "sliceId": "sliceTitleListGrid",
-      "surtitle": "Three stages",
+      "surtitle": "Three phases",
       "title": {
         "forceWrapBeforeIcon": null,
         "icon": null,
@@ -525,14 +525,14 @@
                   "_key": "spnm03",
                   "_type": "span",
                   "marks": [],
-                  "text": "Supply osETH to Aave V3, then commit the aEthosETH to the Main Liquidity Module. It records custody and any funding loan sent to the lending markets."
+                  "text": "The Main Liquidity Module lets users supply osETH to Aave V3 Ethereum and lock the resulting aEthosETH position. With user authorisation, eligible positions can support borrowing WETH or other permitted assets to supply liquidity to Definica’s lending markets. The module tracks each participant’s commitment, allocated debt, income and withdrawal conditions."
                 }
               ],
               "markDefs": [],
               "style": "normal"
             }
           ],
-          "title": "Liquidity, committed",
+          "title": "Committed liquidity",
           "scene": "commit",
           "tone": "baby"
         },
@@ -686,7 +686,7 @@
                   "_key": "spn0008",
                   "_type": "span",
                   "marks": [],
-                  "text": "Definica is a hybrid Ethereum-native staking, liquidity, and collateralized borrowing protocol designed around StakeWise-compatible ETH staking infrastructure, osETH composability, Aave-compatible osETH flows, and fixed-duration aEthosETH lock-ups. Each module is activated separately, and a roadmap feature should be treated as planned until Definica publishes its contracts and identifies it as live."
+                  "text": "Definica is a hybrid Ethereum-native staking, liquidity, and collateralized borrowing protocol designed around StakeWise-compatible ETH staking infrastructure, osETH composability, Aave-compatible osETH flows, and fixed-duration aEthosETH lock-ups. Each module is activated separately, and the deployed onchain configuration is the final source of truth."
                 }
               ],
               "markDefs": [],
@@ -766,14 +766,14 @@
                   "_key": "spn000g",
                   "_type": "span",
                   "marks": [],
-                  "text": "In Stage 1 you deposit ETH through Definica Core, which routes eligible ETH to the dedicated Vault and records your position. A withdrawal may use available liquidity or require validator exits before ETH becomes claimable. Stage 2 adds a separate path where eligible osETH is supplied to Aave V3 and the aEthosETH position can be locked in the Main Liquidity Module."
+                  "text": "In Phase 1 you deposit ETH through Definica Core, which routes eligible ETH to the dedicated Vault and records your position. A withdrawal may use available liquidity or require validator exits before ETH becomes claimable. Phase 2 adds a separate path where eligible osETH is supplied to Aave V3 and the aEthosETH position can be locked in the Main Liquidity Module."
                 }
               ],
               "markDefs": [],
               "style": "normal"
             }
           ],
-          "question": "How will deposits, locks and withdrawals work?"
+          "question": "How do deposits, locks and withdrawals work?"
         },
         {
           "_type": "item",
@@ -786,7 +786,7 @@
                   "_key": "spn0101",
                   "_type": "span",
                   "marks": [],
-                  "text": "Stage 1's specified design supports optional share locks of 7 to 365 days, with up to 10 lock positions at a time. Locked shares stay in reward accounting. These Core locks are separate from the planned fixed-duration aEthosETH lock-ups of Stage 2."
+                  "text": "Phase 1 supports optional share locks of 7 to 365 days, with up to 10 lock positions at a time. Locked shares stay in reward accounting. These Core locks are separate from the fixed-duration aEthosETH lock-ups of Phase 2."
                 }
               ],
               "markDefs": [],
@@ -826,14 +826,14 @@
                   "_key": "spn000i",
                   "_type": "span",
                   "marks": [],
-                  "text": "The three stages describe a development sequence, not three features that are already active. The three stages are delivered through six milestones, and progress is tied to evidence and readiness rather than a fixed launch date. A module should be considered live only after Definica publishes its supported network, verified contract addresses, parameters, documentation and enabled interface. The deployed onchain configuration remains the final source of truth."
+                  "text": "Each phase adds a layer, and each can be used on its own. Phase 1 pools ETH in a dedicated StakeWise Vault and records your share of it; Phase 2 commits osETH liquidity through Aave V3 in the Main Liquidity Module; Phase 3 runs borrowing markets for approved ETH-correlated collateral. Each module is activated separately, with its network, verified contract addresses, parameters and documentation published, and the deployed onchain configuration is the final source of truth."
                 }
               ],
               "markDefs": [],
               "style": "normal"
             }
           ],
-          "question": "Which features are live, and how is security handled?"
+          "question": "How do the three phases fit together?"
         }
       ],
       "sliceId": "sliceFAQ",

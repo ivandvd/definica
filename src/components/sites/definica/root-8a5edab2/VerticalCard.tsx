@@ -13,7 +13,7 @@ import { isLoopSceneName, LoopScene } from "./scenes/LoopScene";
 
 export type VerticalCardVariant = "default" | "sliceJoinTeam" | "sliceMediasList" | "sliceToken";
 
-/** A card's background colour, from the site palette (the stage cards' colours plus light green; see definica.css). */
+/** A card's background colour, from the site palette (the phase cards' colours plus light green; see definica.css). */
 export type CardTone = "sky" | "baby" | "lemonade" | "mint";
 export const toneClass = (tone?: CardTone | null) => (tone ? `--tone-${tone}` : "");
 

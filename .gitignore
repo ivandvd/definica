@@ -47,3 +47,11 @@ next-env.d.ts
 
 # Local temp files
 temp/
+
+# Playwright MCP session logs
+.playwright-mcp/
+
+# Internal material, never published (the repo is public and public/ is served by the site)
+public/Definica-Project-Overview-and-Technical-Brief.pdf
+docs/research/
+docs/EDITORIAL-NOTES.md

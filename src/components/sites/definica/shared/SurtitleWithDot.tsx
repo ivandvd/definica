@@ -12,7 +12,7 @@ export interface SurtitleWithDotProps extends Omit<HTMLAttributes<HTMLElement>, 
 }
 
 /** Fill of the blob for each original dot colour class. */
-const BLOB_FILLS: Record<string, string> = {
+export const BLOB_FILLS: Record<string, string> = {
   green: "#05c92f",
   "flash-red": "#ff5a4d",
   baby: "#ffcadc",
@@ -20,8 +20,8 @@ const BLOB_FILLS: Record<string, string> = {
   sky: "#9dc4f5",
 };
 
-/** A soft, hand-drawn blob in the site's sticker style (ink outline, flat fill). */
-const BLOB_PATH =
+/** A soft, hand-drawn blob in the site's sticker style (ink outline, flat fill); a 24 x 24 path. */
+export const BLOB_PATH =
   "M12.4 2.3c3.5-.2 7.6 1.6 8.9 5 1.2 3.1-.3 5.4.2 8.2.4 2.7-2 5.6-5.4 6.1-3 .4-4.6-1.3-7.6-1.1-3 .2-5.6-1.7-6.1-4.9-.5-3.1 1.6-4.4 1.6-7.4C4 4.9 7.9 2.5 12.4 2.3Z";
 
 /**

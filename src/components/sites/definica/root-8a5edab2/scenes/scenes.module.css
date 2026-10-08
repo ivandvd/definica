@@ -232,7 +232,7 @@
   filter: drop-shadow(2px 2.5px 0 rgba(0, 20, 5, 0.18));
 }
 
-/* Stage 2 lock-up: a big padlock, an aEthosETH coin and the fixed-duration track. */
+/* Phase 2 lock-up: a big padlock, an aEthosETH coin and the fixed-duration track. */
 .bigPadlock {
   position: absolute;
   z-index: 2;

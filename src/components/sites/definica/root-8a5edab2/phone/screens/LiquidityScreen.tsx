@@ -15,7 +15,7 @@ import { byEl, countUp, hideCursor, moveCursor, showCursor, tap } from "../motio
 import styles from "../phone.module.css";
 
 /*
- * Stage 2 — Main Liquidity Module (planned): a sheet over the dimmed overview, a toggle switching
+ * Phase 2 — Main Liquidity Module: a sheet over the dimmed overview, a toggle switching
  * on, then Lock → choose 50% → Review → Confirm, and the locked balance counting up.
  */
 
@@ -58,7 +58,7 @@ export function LiquidityMarkup() {
           <div className={styles.sheetCard}>
             <div className={styles.sheetLabel}>
               Locked aEthosETH
-              <span className={`${styles.pill} ${styles.pillGrey}`}>Planned</span>
+              <span className={`${styles.pill} ${styles.pillGreen}`}>Phase 2</span>
             </div>
             <div className={styles.sheetValue}>
               <span data-el="lockedValue">0.00</span>

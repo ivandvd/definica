@@ -423,7 +423,7 @@
   overflow: visible;
 }
 
-/* ---------- Stage 1: stake ---------- */
+/* ---------- Phase 1: stake ---------- */
 
 /* Centred vertically, so taller phones (mobile) keep the original's balance. */
 .stakeIntro {
@@ -552,7 +552,7 @@
   position: relative;
 }
 
-/* ---------- Stage 2: liquidity sheet ---------- */
+/* ---------- Phase 2: liquidity sheet ---------- */
 
 .overlay {
   background: rgba(0, 32, 15, 0.39);
@@ -806,7 +806,7 @@
   text-align: center;
 }
 
-/* ---------- Stage 3: borrowing markets ---------- */
+/* ---------- Phase 3: borrowing markets ---------- */
 
 .borrow {
   display: flex;

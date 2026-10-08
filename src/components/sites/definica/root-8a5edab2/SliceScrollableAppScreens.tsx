@@ -42,6 +42,8 @@ export interface SliceScrollableAppScreensProps {
   className?: string;
   /** Parent scope attribute. */
   "data-v-fc0f272b"?: string;
+  /** In-page link targets, each placed at a fraction of the slice's height (the screen shown at that scroll). */
+  anchors?: { id: string; at: number }[];
 }
 
 const APP_ITEM_EASE =
@@ -61,6 +63,7 @@ export function SliceScrollableAppScreens({
   sliceId,
   className,
   "data-v-fc0f272b": parentScope,
+  anchors = [],
 }: SliceScrollableAppScreensProps) {
   const elRef = useRef<HTMLElement>(null);
   const stickyRef = useRef<HTMLDivElement>(null);
@@ -246,6 +249,9 @@ export function SliceScrollableAppScreens({
       data-v-c86fbc86=""
       className={className ? `SliceScrollableAppScreens ${className}` : "SliceScrollableAppScreens"}
     >
+      {anchors.map((anchor) => (
+        <div key={anchor.id} id={anchor.id} style={{ position: "absolute", top: `${anchor.at * 100}%` }} />
+      ))}
       <div ref={stickyRef} data-v-c86fbc86="" className="SliceScrollableAppScreens-sticky">
         <div data-v-c86fbc86="" className="SliceScrollableAppScreens-wrapper">
           <div data-v-c86fbc86="" className="SliceScrollableAppScreens-titles">

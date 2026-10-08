@@ -24,6 +24,10 @@ export function PageLoader() {
         if (cancelled) return;
         setProgress(1);
         smoothScroll.goToTop(true);
+        // A "/#section" link from another page lands on its section once the page is in place.
+        const hash = window.location.hash;
+        const target = hash ? document.getElementById(decodeURIComponent(hash.slice(1))) : null;
+        if (target) smoothScroll.goToElement(target, 0, true);
         document.body.classList.add("cursor-loading");
         timeline = gsap
           .timeline({

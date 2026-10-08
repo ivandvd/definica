@@ -35,7 +35,7 @@ import {
   TreasuryMarkup,
 } from "./machineScenes";
 import styles from "./scenes.module.css";
-import { buildStage1, buildStage2, buildStage3, Stage1Markup, Stage2Markup, Stage3Markup } from "./transparencyScenes";
+import { buildPhase1, buildPhase2, buildPhase3, Phase1Markup, Phase2Markup, Phase3Markup } from "./transparencyScenes";
 import { useLoopTimeline, type LoopHandle } from "./useLoopTimeline";
 
 interface SceneDefinition {
@@ -51,10 +51,10 @@ const SCENES = {
   shares: { Markup: SharesMarkup, build: buildShares, width: 400, height: 400 },
   layers: { Markup: LayersMarkup, build: buildLayers, width: 400, height: 400 },
   contracts: { Markup: ContractsMarkup, build: buildContracts, width: 400, height: 400 },
-  // "Stake, lock, borrow." stage cards (the videos were shown 16:9)
-  stage1: { Markup: Stage1Markup, build: buildStage1, width: 480, height: 270 },
-  stage2: { Markup: Stage2Markup, build: buildStage2, width: 480, height: 270 },
-  stage3: { Markup: Stage3Markup, build: buildStage3, width: 480, height: 270 },
+  // "Stake, lock, borrow." phase cards (the videos were shown 16:9)
+  phase1: { Markup: Phase1Markup, build: buildPhase1, width: 480, height: 270 },
+  phase2: { Markup: Phase2Markup, build: buildPhase2, width: 480, height: 270 },
+  phase3: { Markup: Phase3Markup, build: buildPhase3, width: 480, height: 270 },
   // "Risks, stated up front" (16:15)
   validators: { Markup: ValidatorsMarkup, build: buildValidators, width: 400, height: 375 },
   contract: { Markup: ContractMarkup, build: buildContract, width: 400, height: 375 },

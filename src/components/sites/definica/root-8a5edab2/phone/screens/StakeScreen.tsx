@@ -4,7 +4,7 @@ import { allEl, byEl, countUp, drawPath, hideCursor, moveCursor, showCursor, tap
 import styles from "../phone.module.css";
 
 /*
- * Stage 1 — pooled staking: six ETH coins flip in the card, the cursor picks an amount and taps
+ * Phase 1 — pooled staking: six ETH coins flip in the card, the cursor picks an amount and taps
  * Stake, the coins pool into one stack, and the screen builds into the position overview.
  */
 

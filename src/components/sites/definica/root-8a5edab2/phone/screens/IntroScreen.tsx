@@ -4,7 +4,7 @@ import { allEl, byEl } from "../motion";
 import styles from "../phone.module.css";
 import { STICKERS } from "../stickers";
 
-/* Intro loop shown before the stages: Definica stickers burst out of the mark and drift off-screen. */
+/* Intro loop shown before the phases: Definica stickers burst out of the mark and drift off-screen. */
 
 export function IntroMarkup() {
   return (

@@ -3,13 +3,13 @@ import { DefinicaCursor, DefinicaMark, glyphSrc } from "../phone/kit";
 import { allEl, byEl } from "../phone/motion";
 import styles from "./scenes.module.css";
 
-/* Scenes for the "Live means published" stage cards (480 x 270 canvases, shown 16:9 like the videos). */
+/* Scenes for the "Stake, lock, borrow." phase cards (480 x 270 canvases, shown 16:9 like the videos). */
 
 const INK = "#001405";
 
-/* ---------- Stage 1: the mark is clicked and Stage 1's components fill the card ---------- */
+/* ---------- Phase 1: the mark is clicked and Phase 1's components fill the card ---------- */
 
-const STAGE1_PILLS: [string, string][] = [
+const PHASE1_PILLS: [string, string][] = [
   ["Definica Core", "#d1f500"],
   ["StakeWise Vault", "#ffcadc"],
   ["Validators", "#05c92f"],
@@ -46,11 +46,11 @@ const Pointer = () => (
   </div>
 );
 
-export function Stage1Markup() {
+export function Phase1Markup() {
   return (
     <>
       <div className={styles.abs} data-el="list" style={{ left: 0, top: 0, width: 480, height: 400 }}>
-        {STAGE1_PILLS.map(([label, color], i) => (
+        {PHASE1_PILLS.map(([label, color], i) => (
           <div
             key={label}
             className={styles.chainPill}
@@ -70,7 +70,7 @@ export function Stage1Markup() {
   );
 }
 
-export function buildStage1(canvas: HTMLElement) {
+export function buildPhase1(canvas: HTMLElement) {
   const list = byEl(canvas, "list");
   const chips = allEl(canvas, "chip");
   const tile = byEl(canvas, "tile");
@@ -95,7 +95,7 @@ export function buildStage1(canvas: HTMLElement) {
     .to(tile, { scale: 0.92, duration: 0.1, ease: "power2.out", yoyo: true, repeat: 1 }, 0.85)
     .to(pointer, { scale: 0.8, autoAlpha: 0, duration: 0.3, ease: "power1.in" }, 1.1);
 
-  // The mark opens up: Stage 1's parts burst out of it and fill the card...
+  // The mark opens up: Phase 1's parts burst out of it and fill the card...
   firstRows.forEach((chip, i) => {
     const from = toTile(i);
     const at = 1.05 + i * 0.03;
@@ -127,7 +127,7 @@ export function buildStage1(canvas: HTMLElement) {
 }
 
 /*
- * Stage 2: a fixed-duration aEthosETH lock-up. The aEthosETH coin goes into the padlock, the shackle
+ * Phase 2: a fixed-duration aEthosETH lock-up. The aEthosETH coin goes into the padlock, the shackle
  * snaps shut, the fixed-duration track fills (no numbers: durations are not published yet), then the
  * lock opens and the coin comes back out.
  */
@@ -163,7 +163,7 @@ const Hourglass = () => (
   </svg>
 );
 
-export function Stage2Markup() {
+export function Phase2Markup() {
   return (
     <>
       <div className={styles.lockCaption} style={{ left: 120, top: 172, width: 240 }}>
@@ -224,7 +224,7 @@ export function Stage2Markup() {
   );
 }
 
-export function buildStage2(canvas: HTMLElement) {
+export function buildPhase2(canvas: HTMLElement) {
   const coin = byEl(canvas, "coin");
   const coinLabel = byEl(canvas, "coinLabel");
   const padlock = byEl(canvas, "padlock");
@@ -307,11 +307,11 @@ export function buildStage2(canvas: HTMLElement) {
   return tl;
 }
 
-/* ---------- Stage 3: a short chat about borrowing ---------- */
+/* ---------- Phase 3: a short chat about borrowing ---------- */
 
 const EXCHANGES: { left: string; right: string }[] = [
-  { left: "Borrowing is planned.", right: "What's the max LTV?" },
-  { left: "Published before activation.", right: "Fair enough!" },
+  { left: "Borrow against osETH.", right: "What's the max LTV?" },
+  { left: "Each market shows it.", right: "Fair enough!" },
 ];
 
 const Chars = ({ text }: { text: string }) => (
@@ -324,7 +324,7 @@ const Chars = ({ text }: { text: string }) => (
   </>
 );
 
-export function Stage3Markup() {
+export function Phase3Markup() {
   return (
     <>
       <div className={styles.avatar} style={{ left: 34, top: 76, background: INK }}>
@@ -352,7 +352,7 @@ export function Stage3Markup() {
   );
 }
 
-export function buildStage3(canvas: HTMLElement) {
+export function buildPhase3(canvas: HTMLElement) {
   const bubbles = [0, 1].map((i) => ({ left: byEl(canvas, `left${i}`), right: byEl(canvas, `right${i}`) }));
   // Measure natural widths from a clean state: a previous build (resize, dev double-mount) may have shrunk them.
   gsap.set(

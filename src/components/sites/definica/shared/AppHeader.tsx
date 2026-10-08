@@ -1,5 +1,6 @@
 "use client";
 
+import { usePathname } from "next/navigation";
 import { useCallback, useEffect, useRef, useState, type MouseEvent } from "react";
 import { AppButton } from "./AppButton";
 import { AppLink } from "./AppLink";
@@ -12,6 +13,9 @@ import { smoothScroll, type ScrollState } from "./smooth-scroll";
 
 const header: { links?: CmsLink[]; download?: CmsLink } = settings.header;
 
+/** The page a link leads to, when it is one of this site's pages (not an in-page anchor or another site). */
+const pagePath = ({ to }: CmsLink) => (to && typeof to === "object" ? (to.path ?? null) : null);
+
 /**
  * Port of `AppHeader` (scope data-v-d5c9479a): the hit-zone strip plus the fixed header.
  * - intro timeline played when the hit-zone enters the viewport (i.e. once the page loader releases the observers)
@@ -20,6 +24,7 @@ const header: { links?: CmsLink[]; download?: CmsLink } = settings.header;
  * - mobile burger menu with its GSAP open/close timelines
  */
 export function AppHeader() {
+  const pathname = usePathname();
   const refEl = useRef<HTMLElement>(null);
   const refHitzone = useRef<HTMLDivElement>(null);
   const refNav = useRef<HTMLElement>(null);
@@ -115,8 +120,9 @@ export function AppHeader() {
       gsap.set(bg, { y: "0rem", scaleY: 0.5 });
       gsap.set(bg, { x: item.left - navRect.left + item.width / 2 });
     }
+    // Definica: the pill covers the whole link (the original's 85% made room for its separators).
     gsap.to(bg, {
-      width: item.width * 0.85,
+      width: item.width,
       scaleY: 1,
       y: 0,
       x: item.left - navRect.left,
@@ -146,7 +152,7 @@ export function AppHeader() {
           <div className="Header-logoWrap" data-v-d5c9479a="">
             <AppLink
               to={{ path: "/" }}
-              aria-current="page"
+              aria-current={pathname === "/" ? "page" : undefined}
               aria-label="Go back home"
               className="nuxt-link-active router-link-exact-active Header-logo"
               data-v-d5c9479a=""
@@ -163,13 +169,26 @@ export function AppHeader() {
               <div ref={refNavBg} className="Header-navBg" data-v-d5c9479a="" />
               {header.links ? (
                 <ul className="Header-navList" data-v-d5c9479a="">
-                  {header.links.map((link, index) => (
-                    <li key={index} className="Header-navListItem" data-v-d5c9479a="" onMouseEnter={onItemEnter}>
-                      <AppLink {...link} className="Header-navListItemLink --text-15 --fw-600" data-v-d5c9479a="">
-                        <span data-v-d5c9479a="">{link.title}</span>
-                      </AppLink>
-                    </li>
-                  ))}
+                  {header.links.map((link, index) => {
+                    const current = pagePath(link) === pathname;
+                    return (
+                      <li
+                        key={index}
+                        className={current ? "Header-navListItem --is-current" : "Header-navListItem"}
+                        data-v-d5c9479a=""
+                        onMouseEnter={onItemEnter}
+                      >
+                        <AppLink
+                          {...link}
+                          className="Header-navListItemLink --text-15 --fw-600"
+                          aria-current={current ? "page" : undefined}
+                          data-v-d5c9479a=""
+                        >
+                          <span data-v-d5c9479a="">{link.title}</span>
+                        </AppLink>
+                      </li>
+                    );
+                  })}
                 </ul>
               ) : null}
             </nav>

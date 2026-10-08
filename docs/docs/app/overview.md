@@ -123,12 +123,10 @@ You accept the Terms for each address in the connect dialog, and the app asks ag
 
 ## Settings
 
-- **Wallet.** The connected address with a copy button, the network, the wallet you connected with, the version of the Terms accepted for the address, and **Disconnect**. Without a wallet, the card offers **Connect wallet**.
+- **Wallet.** The connected address with **Copy**, the network (with **Switch to Ethereum** when your wallet is on another one), the wallet you connected with, the version of the Terms accepted for the address, and **Disconnect**. Without a wallet, the card offers **Connect wallet**.
 - **Display.** Kept on this device only: **Hide balances**, **Decimals** (2 or 4 places) and **Your position in** (ETH or Vault shares, for the headline on Home).
-- **Clear data on this device.** Forgets your display choices and the remembered wallet connection, after you confirm. Your position is untouched; you connect your wallet again afterwards.
-- **Help and legal.** Links to this documentation, how to use the app, the risks, the roadmap, Telegram, X, the Terms and the Privacy Policy.
-
-The app sets no cookies.
+- **Privacy and data.** The app sets no cookies and sends no analytics. **Clear data on this device** forgets your display choices and the remembered wallet connection, after you confirm. Your position is untouched; you connect your wallet again afterwards.
+- **Help and legal.** Under **Learn**: how to use the app, this documentation, the risks and [Verify addresses](/security/verify-addresses). Under **Definica**: the roadmap, Telegram, X, the Terms and the Privacy Policy.
 
 ## In this section
 

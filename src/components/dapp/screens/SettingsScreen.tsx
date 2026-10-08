@@ -1,7 +1,6 @@
 "use client";
 
 import { ArrowUpRight, Check, Copy, FlaskConical, LogOut, RotateCcw, Trash2 } from "lucide-react";
-import Link from "next/link";
 import { useState, useSyncExternalStore, type ReactNode } from "react";
 import { cn } from "@/lib/utils";
 import { useDevTools } from "../lib/devtools";
@@ -22,9 +21,13 @@ import { Segmented } from "../ui/Segmented";
 import { Switch } from "../ui/Switch";
 import { ConnectButton } from "./shared";
 
-function SettingRow({ label, description, children }: { label: string; description?: string; children: ReactNode }) {
+/**
+ * One setting: its name and a line of help, with its control. `inline` keeps a short control or
+ * value beside the words at every width; wider controls (segmented choices) go under them on a phone.
+ */
+function SettingRow({ label, description, children, inline = false }: { label: string; description?: string; children: ReactNode; inline?: boolean }) {
   return (
-    <div className="flex flex-col gap-3 py-4 sm:flex-row sm:items-center sm:justify-between">
+    <div className={cn("flex gap-3 py-4", inline ? "items-center justify-between" : "flex-col sm:flex-row sm:items-center sm:justify-between")}>
       <div className="min-w-0">
         <div className="text-sm font-semibold">{label}</div>
         {description ? <div className="mt-0.5 text-[13px] leading-5 text-ink-2">{description}</div> : null}
@@ -34,60 +37,86 @@ function SettingRow({ label, description, children }: { label: string; descripti
   );
 }
 
-function AccountCard() {
-  const { env, wallet, connected, data, disconnect } = useDapp();
+/** "Copy" beside the address: says "Copied" for a moment. */
+function CopyAddress({ address }: { address: string }) {
   const [copied, setCopied] = useState(false);
+  return (
+    <button
+      type="button"
+      aria-label={copied ? "Address copied" : "Copy address"}
+      className="inline-flex h-7 shrink-0 items-center gap-1 rounded-full px-2 text-xs font-semibold text-ink-2 transition-colors hover:bg-canvas hover:text-ink"
+      onClick={() => {
+        void navigator.clipboard
+          .writeText(address)
+          .then(() => {
+            setCopied(true);
+            window.setTimeout(() => setCopied(false), 1400);
+          })
+          .catch(() => undefined);
+      }}
+    >
+      {copied ? <Check className="size-3.5 text-green-ink" aria-hidden="true" /> : <Copy className="size-3.5" aria-hidden="true" />}
+      {copied ? "Copied" : "Copy"}
+    </button>
+  );
+}
+
+function AccountCard() {
+  const { env, wallet, connected, data, disconnect, wrongNetwork, switchToEthereum } = useDapp();
   if (!connected || !wallet.address) {
     return (
-      <Card className="flex flex-col items-start gap-4 sm:flex-row sm:items-center">
-        <div className="min-w-0 flex-1">
-          <h2 className="text-[15px] font-semibold">Wallet</h2>
-          <p className="mt-0.5 text-[13px] text-ink-2">Connect to see your account here.</p>
+      <Card>
+        <CardHeader title="Wallet" />
+        <div className="flex flex-col items-start gap-4 sm:flex-row sm:items-center">
+          <p className="min-w-0 flex-1 text-[13px] leading-5 text-ink-2">Connect a wallet to see its address, network and Terms here.</p>
+          <ConnectButton size="md" />
         </div>
-        <ConnectButton size="md" />
       </Card>
     );
   }
   const account = env.wallet.accounts.find((item) => item.address === wallet.address);
   const connector = env.wallet.connectors.find((item) => item.id === wallet.connectorId);
+  const terms = data.eligibility?.acceptedTermsVersion;
   return (
     <Card>
       <CardHeader title="Wallet" />
-      <div className="flex flex-wrap items-center gap-4">
-        <AddressAvatar address={wallet.address} className="size-12" />
+      <div className="flex items-center gap-3.5">
+        <AddressAvatar address={wallet.address} className="size-12 shrink-0" />
         <div className="min-w-0 flex-1">
-          <div className="text-base font-bold">{wallet.ensName ?? account?.label ?? "Connected"}</div>
-          <div className="flex items-center gap-1 text-[13px] text-ink-2 tabular">
-            {shortAddress(wallet.address, 6)}
-            <button
-              type="button"
-              className="flex size-7 items-center justify-center rounded-full text-ink-3 transition-colors hover:bg-canvas hover:text-ink"
-              aria-label="Copy address"
-              onClick={() => {
-                void navigator.clipboard.writeText(wallet.address ?? "").then(() => {
-                  setCopied(true);
-                  window.setTimeout(() => setCopied(false), 1400);
-                });
-              }}
-            >
-              {copied ? <Check className="size-3.5 text-green-ink" aria-hidden="true" /> : <Copy className="size-3.5" aria-hidden="true" />}
-            </button>
+          <div className="truncate text-base font-bold">{wallet.ensName ?? account?.label ?? "Your wallet"}</div>
+          <div className="mt-0.5 flex items-center gap-1">
+            <span className="font-mono text-[13px] whitespace-nowrap text-ink-2" title={wallet.address}>
+              {shortAddress(wallet.address)}
+            </span>
+            <CopyAddress address={wallet.address} />
           </div>
         </div>
-        <Button variant="secondary" icon={<LogOut />} onClick={() => void disconnect()}>
-          Disconnect
-        </Button>
       </div>
-      <div className="row-divide mt-4">
-        <SettingRow label="Network">
-          <span className="text-sm font-semibold">{chainName(wallet.chainId)}</span>
+      <div className="row-divide mt-3">
+        <SettingRow inline label="Network">
+          {wrongNetwork ? (
+            <Button size="sm" loading={wallet.busy} onClick={() => void switchToEthereum()}>
+              Switch to Ethereum
+            </Button>
+          ) : (
+            <span className="flex items-center gap-2 text-sm font-semibold">
+              <span className="size-2 rounded-full bg-green" aria-hidden="true" />
+              {chainName(wallet.chainId)}
+            </span>
+          )}
         </SettingRow>
-        <SettingRow label="Connected with">
+        <SettingRow inline label="Connected with">
           <span className="text-sm font-semibold">{connector?.name ?? "Wallet"}</span>
         </SettingRow>
-        <SettingRow label="Terms" description="Accepted for this address. You're asked again if they change.">
-          <span className="text-sm font-semibold">{data.eligibility?.acceptedTermsVersion ? `Version ${data.eligibility.acceptedTermsVersion}` : "Not yet accepted"}</span>
+        <SettingRow inline label="Terms" description={terms ? "Accepted for this address. You're asked again if they change." : undefined}>
+          <span className="text-sm font-semibold">{terms ? `Version ${terms}` : "Not accepted yet"}</span>
         </SettingRow>
+      </div>
+      {/* Full width on a phone, at the end of the card on a wide screen. */}
+      <div className="mt-2 flex sm:justify-end">
+        <Button variant="danger" className="w-full sm:w-auto" icon={<LogOut />} onClick={() => void disconnect()}>
+          Disconnect
+        </Button>
       </div>
     </Card>
   );
@@ -97,12 +126,12 @@ function DisplayCard() {
   const { preferences, setPreferences } = useDapp();
   return (
     <Card>
-      <CardHeader title="Display" hint="Kept on this device only." />
+      <CardHeader title="Display" hint="How amounts show. Kept on this device." />
       <div className="row-divide">
         <div className="py-4">
           <Switch checked={preferences.hideBalances} onCheckedChange={(next) => setPreferences({ hideBalances: next })} label="Hide balances" description="Masks every amount of your own. The eye on your position card does the same." />
         </div>
-        <SettingRow label="Decimals" description="How many places amounts show.">
+        <SettingRow inline label="Decimals" description="Places shown in amounts.">
           <Segmented
             size="sm"
             value={String(preferences.precision) as "2" | "4"}
@@ -136,52 +165,17 @@ function DisplayCard() {
   );
 }
 
-const HELP = [
-  { label: "Documentation", href: LINKS.docs, external: false },
-  { label: "How to use the app", href: LINKS.docsApp, external: false },
-  { label: "Risks", href: LINKS.docsRisks, external: false },
-  { label: "Roadmap", href: LINKS.roadmap, external: false },
-  { label: "Telegram", href: LINKS.telegram, external: true },
-  { label: "X", href: LINKS.x, external: true },
-  { label: "Terms", href: LINKS.terms, external: false },
-  { label: "Privacy Policy", href: LINKS.privacy, external: false },
-];
-
-function HelpCard() {
-  return (
-    <Card>
-      <CardHeader title="Help and legal" />
-      <ul className="grid gap-2 sm:grid-cols-2">
-        {HELP.map((item) => (
-          <li key={item.label}>
-            <a
-              href={item.href}
-              target={item.external ? "_blank" : undefined}
-              rel={item.external ? "noreferrer" : undefined}
-              className="group flex items-center justify-between rounded-[14px] bg-canvas px-4 py-3 text-sm font-semibold transition-colors hover:bg-chip"
-            >
-              {item.label}
-              <ArrowUpRight className="size-4 text-ink-3 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" aria-hidden="true" />
-            </a>
-          </li>
-        ))}
-      </ul>
-    </Card>
-  );
-}
-
-function ClearDataCard() {
+function PrivacyCard() {
   const { disconnect } = useDapp();
   const [confirming, setConfirming] = useState(false);
   return (
-    <Card className="flex flex-col items-start gap-4 sm:flex-row sm:items-center">
-      <div className="min-w-0 flex-1">
-        <h2 className="text-[15px] font-semibold">Clear data on this device</h2>
-        <p className="mt-0.5 text-[13px] leading-5 text-ink-2">Forgets your display choices and the remembered wallet connection. Your position is untouched.</p>
-      </div>
-      <Button variant="danger" icon={<Trash2 />} onClick={() => setConfirming(true)}>
-        Clear data
-      </Button>
+    <Card>
+      <CardHeader title="Privacy and data" hint="The app sets no cookies and sends no analytics." />
+      <SettingRow label="Clear data on this device" description="Forgets your display choices and the remembered wallet connection. Your position is untouched.">
+        <Button variant="danger" size="sm" icon={<Trash2 />} onClick={() => setConfirming(true)}>
+          Clear data
+        </Button>
+      </SettingRow>
       <ResponsiveSheet open={confirming} onOpenChange={setConfirming} title="Clear data on this device?" description="You'll need to connect your wallet again.">
         <div className="flex flex-col gap-2">
           <Button
@@ -200,6 +194,58 @@ function ClearDataCard() {
           </Button>
         </div>
       </ResponsiveSheet>
+    </Card>
+  );
+}
+
+const HELP: { title: string; links: { label: string; href: string; external?: boolean }[] }[] = [
+  {
+    title: "Learn",
+    links: [
+      { label: "How to use the app", href: LINKS.docsApp },
+      { label: "Documentation", href: LINKS.docs },
+      { label: "Risks", href: LINKS.docsRisks },
+      { label: "Verify contract addresses", href: `${LINKS.docs}/security/verify-addresses` },
+    ],
+  },
+  {
+    title: "Definica",
+    links: [
+      { label: "Roadmap", href: LINKS.roadmap },
+      { label: "Telegram", href: LINKS.telegram, external: true },
+      { label: "X", href: LINKS.x, external: true },
+      { label: "Terms", href: LINKS.terms },
+      { label: "Privacy Policy", href: LINKS.privacy },
+    ],
+  },
+];
+
+function HelpCard() {
+  return (
+    <Card>
+      <CardHeader title="Help and legal" />
+      <div className="grid gap-5">
+        {HELP.map((group) => (
+          <div key={group.title}>
+            <div className="mb-1 text-[11px] font-semibold tracking-[0.08em] text-ink-3 uppercase">{group.title}</div>
+            <ul className="row-divide">
+              {group.links.map((item) => (
+                <li key={item.label}>
+                  <a
+                    href={item.href}
+                    target={item.external ? "_blank" : undefined}
+                    rel={item.external ? "noreferrer" : undefined}
+                    className="group -mx-2 flex items-center justify-between rounded-[12px] px-2 py-3 text-sm font-semibold transition-colors hover:bg-canvas"
+                  >
+                    {item.label}
+                    <ArrowUpRight className="size-4 text-ink-3 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" aria-hidden="true" />
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
     </Card>
   );
 }
@@ -366,21 +412,21 @@ export function SettingsScreen() {
   const devTools = useDevTools();
   return (
     <>
-      <PageHeader title="Settings" description="Your wallet, how figures show, and where to get help." actions={<ArtSettings className="hidden w-[120px] lg:block" />} />
+      <PageHeader title="Settings" description="Your wallet, how amounts show, your data on this device, and where to get help." actions={<ArtSettings className="hidden w-[120px] lg:block" />} />
       <div className="grid gap-4 xl:grid-cols-2 xl:items-start xl:gap-5">
         <div className="flex flex-col gap-4 lg:gap-5">
           <AccountCard />
           <DisplayCard />
-          <ClearDataCard />
+          <PrivacyCard />
         </div>
         <div className="flex flex-col gap-4 lg:gap-5">
           {env.preview && devTools ? <DevTools /> : null}
           <HelpCard />
           <p className="px-1 text-xs text-ink-3">
             Definica app ·{" "}
-            <Link href="/" className="underline-offset-4 hover:underline">
+            <a href={LINKS.site} className="underline-offset-4 hover:underline">
               definica.com
-            </Link>
+            </a>
           </p>
         </div>
       </div>

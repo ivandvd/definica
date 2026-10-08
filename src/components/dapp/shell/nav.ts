@@ -1,3 +1,4 @@
+import { SITE_ORIGIN } from "@/lib/site";
 import type { ComponentType } from "react";
 import { FEATURES } from "../lib/features";
 import { ActivityIcon, BorrowIcon, HomeIcon, LiquidityIcon, LockIcon, StakeIcon, UnstakeIcon } from "../ui/icons";
@@ -38,11 +39,12 @@ export function isCurrent(pathname: string, href: string) {
 }
 
 /** Where the app links out to. The docs paths resolve through the /docs redirect (see next.config.ts). */
+/** Pages of the website go to its own address: the app may be on another one. */
 export const LINKS = {
-  site: "/",
-  roadmap: "/roadmap",
-  terms: "/terms",
-  privacy: "/privacy",
+  site: `${SITE_ORIGIN}/`,
+  roadmap: `${SITE_ORIGIN}/roadmap`,
+  terms: `${SITE_ORIGIN}/terms`,
+  privacy: `${SITE_ORIGIN}/privacy`,
   docs: "/docs",
   docsApp: "/docs/app",
   docsRisks: "/docs/risks",

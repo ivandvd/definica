@@ -45,10 +45,11 @@ export function Sidebar() {
   return (
     <aside className="sticky top-0 hidden h-dvh w-[272px] shrink-0 p-3 lg:block">
       <div className="flex h-full flex-col rounded-[24px] bg-card px-3 pt-5 pb-3 shadow-[0_1px_0_rgba(15,15,15,0.04),0_12px_32px_-24px_rgba(15,15,15,0.3)]">
-        <Link href="/app" aria-label="Definica app home" className="flex items-center gap-2 px-3">
+        {/* The logo goes to the website's landing page, like the docs' logo. */}
+        <a href={LINKS.site} aria-label="Definica website" className="flex items-center gap-2 px-3">
           <DefinicaLogo className="h-[23px]" />
           <span className="rounded-[6px] bg-lime px-1.5 py-0.5 text-[10.5px] font-bold tracking-wide">APP</span>
-        </Link>
+        </a>
 
         <nav aria-label="Sections" className="mt-7 flex flex-col gap-1">
           {[...NAV, ...live].map((item) => (

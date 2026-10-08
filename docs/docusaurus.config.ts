@@ -284,7 +284,9 @@ const config: Config = {
       logo: {
         alt: 'Definica',
         src: 'img/logo.svg',
-        href: '/',
+        // The logo goes to the website's landing page, as in the app.
+        href: SITE_URL,
+        target: '_self',
         width: 115,
         height: 24,
       },

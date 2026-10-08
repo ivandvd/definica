@@ -63,6 +63,10 @@ const config: Config = {
   headTags: [
     {
       tagName: 'link',
+      attributes: {rel: 'icon', type: 'image/svg+xml', href: '/img/icon.svg'},
+    },
+    {
+      tagName: 'link',
       attributes: {rel: 'icon', type: 'image/png', sizes: '32x32', href: '/img/favicon-32x32.png'},
     },
     {
@@ -107,6 +111,13 @@ const config: Config = {
     },
   ],
 
+  // Read in the browser by src/theme/Root.tsx: analytics stays off until a key is set and the
+  // visitor accepts cookies (POSTHOG_KEY / POSTHOG_HOST at build time).
+  customFields: {
+    posthogKey: process.env.POSTHOG_KEY ?? '',
+    posthogHost: process.env.POSTHOG_HOST ?? 'https://eu.i.posthog.com',
+  },
+
   i18n: {
     defaultLocale: 'en',
     locales: ['en'],
@@ -132,6 +143,7 @@ const config: Config = {
   ],
 
   themeConfig: {
+    image: 'img/social-card.png',
     metadata: [
       {
         name: 'description',

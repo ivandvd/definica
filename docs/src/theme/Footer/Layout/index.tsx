@@ -2,6 +2,7 @@ import React, {type ReactNode} from 'react';
 import clsx from 'clsx';
 import {ThemeClassNames} from '@docusaurus/theme-common';
 import type {Props} from '@theme/Footer/Layout';
+import {openConsentSettings} from '@site/src/lib/consent';
 
 /**
  * Footer on the landing page's model: logo and social circles on top, the three link groups,
@@ -37,8 +38,8 @@ const SOCIALS = [
 ];
 
 const LEGAL = [
-  {label: 'Terms of service', href: 'https://www.definica.com/terms-of-service'},
-  {label: 'Privacy policy', href: 'https://www.definica.com/privacy-policy'},
+  {label: 'Terms of service', href: 'https://definica.com/terms'},
+  {label: 'Privacy policy', href: 'https://definica.com/privacy'},
 ];
 
 export default function FooterLayout({links, logo, copyright}: Props): ReactNode {
@@ -73,6 +74,12 @@ export default function FooterLayout({links, logo, copyright}: Props): ReactNode
                 </a>
               </li>
             ))}
+            <li>
+              {/* Reopens the cookie banner (src/theme/Root.tsx). */}
+              <button type="button" className="df-footer__cookies" onClick={openConsentSettings}>
+                Cookie settings
+              </button>
+            </li>
           </ul>
         </div>
       </div>

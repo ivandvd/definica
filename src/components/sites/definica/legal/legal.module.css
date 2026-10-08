@@ -1,0 +1,171 @@
+/* Terms and Privacy: long-form text in the site's type, rem-sized like the rest of the site. */
+
+.page {
+  position: relative;
+  width: 100%;
+  background-color: #ffffff;
+}
+
+.hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 15rem 0 5rem;
+  text-align: center;
+}
+
+@media screen and (min-width: 769px) {
+  .hero {
+    padding: 22rem 0 8rem;
+  }
+}
+
+.title {
+  margin: 2rem auto 0;
+}
+
+.updated {
+  margin-top: 1.6rem;
+  color: rgb(90, 88, 90);
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 4rem;
+  padding-bottom: 10rem;
+}
+
+@media screen and (min-width: 769px) {
+  .layout {
+    grid-template-columns: 30rem minmax(0, 1fr);
+    gap: 8rem;
+    padding-bottom: 16rem;
+  }
+}
+
+/* Contents: a card on phones, a sticky list beside the text on desktop. */
+.toc {
+  align-self: start;
+  padding: 2.2rem 2.4rem;
+  border: 2px solid rgb(15, 15, 15);
+  border-radius: 2rem;
+}
+
+@media screen and (min-width: 769px) {
+  .toc {
+    position: sticky;
+    top: 12rem;
+    max-height: calc(100vh - 14rem);
+    overflow: auto;
+    padding: 0;
+    border: 0;
+    border-radius: 0;
+  }
+}
+
+.tocTitle {
+  margin: 0 0 1.2rem;
+  font-size: 1.4rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgb(90, 88, 90);
+}
+
+.tocList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.tocLink {
+  display: block;
+  padding: 0.5rem 0;
+  font-size: 1.5rem;
+  line-height: 1.35;
+  color: rgb(15, 15, 15);
+  transition: color 0.2s ease;
+}
+
+.tocLink:hover {
+  color: #05c92f;
+}
+
+@media screen and (min-width: 769px) {
+  .tocLink {
+    font-size: 1.4rem;
+  }
+}
+
+.body {
+  max-width: 82rem;
+}
+
+.intro {
+  display: flex;
+  flex-direction: column;
+  gap: 1.8rem;
+  padding-bottom: 4rem;
+  border-bottom: 1px solid rgba(0, 20, 5, 0.12);
+}
+
+.section {
+  padding-top: 4rem;
+  scroll-margin-top: 11rem;
+}
+
+@media screen and (min-width: 769px) {
+  .section {
+    padding-top: 5.6rem;
+  }
+}
+
+.heading {
+  margin: 0 0 1.8rem;
+}
+
+.paragraph {
+  margin: 0 0 1.4rem;
+  color: rgb(60, 58, 60);
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin: 0 0 1.6rem;
+  padding: 0;
+  list-style: none;
+}
+
+.item {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.1rem;
+  color: rgb(60, 58, 60);
+}
+
+.bullet {
+  flex: 0 0 auto;
+  width: 1.4rem;
+  height: 1.4rem;
+  margin-top: 0.3em;
+  overflow: visible;
+}
+
+.link {
+  color: rgb(15, 15, 15);
+  text-decoration: underline;
+  text-decoration-color: #d1f500;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 3px;
+  word-break: break-word;
+}
+
+.link:hover {
+  background-color: #d1f500;
+}

@@ -32,7 +32,14 @@ Three Definica surfaces in one repo:
 - `cd docs && npm start` — Docs site on port 3400 (`npm run build` there to verify links)
 
 ## Environment
-`.env.example` documents `DAPP_URL` and `DOCS_URL`: when set, `next.config.ts` redirects `/app` and `/docs` to those hosts. Unset, `/app` is served here and `/docs` expects the docs site to be proxied (`.env.local` points it at `localhost:3400` in development).
+`.env.example` documents every variable:
+- `DAPP_URL` / `DOCS_URL`: when set, `next.config.ts` redirects `/app` and `/docs` to those hosts (docs.definica.com in production). Unset, `/app` is served here and `/docs` expects the docs site to be proxied (`.env.local` points it at `localhost:3400` in development).
+- `NEXT_PUBLIC_SITE_URL` / `NEXT_PUBLIC_DOCS_URL`: absolute URLs for metadata, share images, robots.txt and the sitemap (`src/lib/site.ts`). Search engines index production builds only; `NEXT_PUBLIC_NOINDEX=true` hides one anyway.
+- `NEXT_PUBLIC_POSTHOG_KEY` / `_HOST`: PostHog analytics, loaded only after the visitor accepts the cookie banner (`src/lib/consent.ts`, `src/lib/analytics.ts`; the docs read `POSTHOG_KEY` / `POSTHOG_HOST` at build time). The consent cookie is shared across *.definica.com. Never send wallet addresses, names or emails to analytics.
+- `NEXT_PUBLIC_NEWSLETTER_ENDPOINT`: where sign-ups are posted; unset, the footer shows Telegram and X instead of the form.
+
+## Launch essentials (where they live)
+Per-page `metadata` (title template "%s — Definica", description, canonical) in each route; icons and the manifest are file conventions in `src/app/` (`icon.svg`, `apple-icon.png`, `favicon.ico`, `manifest.ts`), plus `robots.ts` and `sitemap.ts`. Share images are `opengraph-image.tsx` files built with `src/lib/og.tsx` (Tomato Grotesk `.woff` in `src/assets/fonts/`, since the share-image renderer cannot read woff2). The 404 page is `src/app/global-not-found.tsx` (needs `experimental.globalNotFound`, as the site and the app have separate root layouts). Terms and Privacy are `/terms` and `/privacy`, their text in `src/data/sites/definica/legal/`.
 
 ## Code Style
 - TypeScript strict mode, no `any`

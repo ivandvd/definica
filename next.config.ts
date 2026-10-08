@@ -11,6 +11,10 @@ const DOCS_URL = process.env.DOCS_URL;
 
 const nextConfig: NextConfig = {
   output: "standalone",
+  experimental: {
+    // One 404 page for every URL, as the site and the app have separate root layouts (app/global-not-found.tsx).
+    globalNotFound: true,
+  },
   async redirects() {
     const redirects: Redirects = [];
     if (DAPP_URL) redirects.push({ source: "/app/:path*", destination: `${DAPP_URL}/:path*`, permanent: false });

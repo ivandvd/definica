@@ -13,7 +13,7 @@ export const ASSET_BASE = `/sites/${SITE_KEY}/${PAGE_KEY}`;
 /** Origin of the main Definica site; routes that do not exist in this app link there. */
 export const ORIGIN = "https://www.definica.com";
 /** Routes this app serves itself (`/app` and `/docs` may redirect to their own hosts, see next.config.ts). */
-export const LOCAL_ROUTES = new Set(["/", "/roadmap", "/app", "/docs"]);
+export const LOCAL_ROUTES = new Set(["/", "/roadmap", "/terms", "/privacy", "/app", "/docs"]);
 
 export type RouteTo = { name?: string; params?: { uid?: string }; path?: string };
 export type LinkTo = string | RouteTo | null | undefined;

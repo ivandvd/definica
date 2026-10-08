@@ -5,14 +5,14 @@ import { AppFooter } from "@/components/sites/definica/shared/AppFooter";
 import { AppHeader } from "@/components/sites/definica/shared/AppHeader";
 import { AppShell } from "@/components/sites/definica/shared/AppShell";
 
-const SEO = "/sites/definica/shared/seo";
 const { title, description } = roadmap.seo;
 
 export const metadata: Metadata = {
   title,
   description,
-  openGraph: { title, description, siteName: "Definica", locale: "en_GB", images: `${SEO}/og-image.png` },
-  twitter: { card: "summary_large_image", title, description, images: `${SEO}/og-image.png` },
+  alternates: { canonical: "/roadmap" },
+  openGraph: { title: `${title} — Definica`, description, siteName: "Definica", locale: "en_GB", type: "website", url: "/roadmap" },
+  twitter: { card: "summary_large_image", title: `${title} — Definica`, description, site: "@definicacom" },
 };
 
 export default function Roadmap() {

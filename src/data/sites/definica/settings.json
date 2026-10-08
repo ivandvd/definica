@@ -43,7 +43,9 @@
           {
             "linkType": "internalLink",
             "title": "Roadmap",
-            "to": { "path": "/roadmap" }
+            "to": {
+              "path": "/roadmap"
+            }
           },
           {
             "linkType": "externalLink",
@@ -59,7 +61,9 @@
           {
             "linkType": "internalLink",
             "title": "Docs",
-            "to": { "path": "/docs" }
+            "to": {
+              "path": "/docs"
+            }
           },
           {
             "linkType": "internalLink",
@@ -79,16 +83,18 @@
     ],
     "secondsLinks": [
       {
-        "linkType": "externalLink",
+        "linkType": "internalLink",
         "title": "Terms of service",
-        "to": "https://www.definica.com/terms-of-service",
-        "trailingSlash": false
+        "to": {
+          "path": "/terms"
+        }
       },
       {
-        "linkType": "externalLink",
+        "linkType": "internalLink",
         "title": "Privacy policy",
-        "to": "https://www.definica.com/privacy-policy",
-        "trailingSlash": false
+        "to": {
+          "path": "/privacy"
+        }
       }
     ],
     "text": null,
@@ -101,7 +107,9 @@
     "download": {
       "linkType": "internalLink",
       "title": "Launch App",
-      "to": { "path": "/app" }
+      "to": {
+        "path": "/app"
+      }
     },
     "links": [
       {
@@ -119,12 +127,16 @@
       {
         "linkType": "internalLink",
         "title": "Roadmap",
-        "to": { "path": "/roadmap" }
+        "to": {
+          "path": "/roadmap"
+        }
       },
       {
         "linkType": "internalLink",
         "title": "Docs",
-        "to": { "path": "/docs" }
+        "to": {
+          "path": "/docs"
+        }
       },
       {
         "linkType": "externalLink",
@@ -138,7 +150,7 @@
     "backToList": "Back to the list",
     "backToSite": "Back to site",
     "close": "Close",
-    "cookies": "Cookie Preferences",
+    "cookies": "Cookie settings",
     "desktop": "Desktop",
     "download": "Launch App",
     "filters": "Filters",
@@ -198,6 +210,39 @@
           "trailingSlash": false,
           "openInNewTab": true
         }
+      }
+    ]
+  },
+  "cookieBanner": {
+    "title": "Cookies",
+    "text": "We use analytics cookies to understand how Definica is used. They’re only set if you accept.",
+    "accept": "Accept",
+    "reject": "Reject",
+    "policy": {
+      "linkType": "internalLink",
+      "title": "Privacy policy",
+      "to": {
+        "path": "/privacy"
+      }
+    }
+  },
+  "follow": {
+    "title": "Updates",
+    "text": "Launch updates, module releases and contract addresses are announced on Telegram and X, straight from the team.",
+    "links": [
+      {
+        "linkType": "externalLink",
+        "title": "Join on Telegram",
+        "to": "https://t.me/definica",
+        "trailingSlash": false,
+        "openInNewTab": true
+      },
+      {
+        "linkType": "externalLink",
+        "title": "Follow on X",
+        "to": "https://x.com/definicacom",
+        "trailingSlash": false,
+        "openInNewTab": true
       }
     ]
   }

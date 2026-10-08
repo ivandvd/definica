@@ -1,6 +1,7 @@
 "use client";
 
 import { useLayoutEffect, useRef, type ReactNode } from "react";
+import { CookieBanner } from "./CookieBanner";
 import { CustomScrollBar } from "./CustomScrollBar";
 import { PageLoader, PageTransition } from "./PageLoader";
 import { smoothScroll } from "./smooth-scroll";
@@ -39,6 +40,7 @@ export function AppShell({ header, footer, children }: AppShellProps) {
       <PageLoader />
       <PageTransition />
       <CustomScrollBar />
+      <CookieBanner />
       {header}
       <main style={{ paddingTop: "var(--banner-h, 0px)" }}>
         <div className="Site-inner">

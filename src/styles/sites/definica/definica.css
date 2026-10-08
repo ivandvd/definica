@@ -382,3 +382,42 @@
     line-height: 2.9rem;
   }
 }
+
+/* ---------- Footer: the updates block and the cookie settings link ---------- */
+
+/* Until there is a sign-up service the newsletter block offers the official channels (AppNewsletter). */
+.AppNewsletter-follow[data-v-eee0b83b] {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.2rem;
+}
+
+@media screen and (min-width: 769px) {
+  .AppNewsletter-follow[data-v-eee0b83b] {
+    gap: 1.6rem;
+    padding-left: 5rem;
+  }
+}
+
+/* "Cookie settings" is a button that looks like the legal links beside it. */
+.Footer-secondLinksButton[data-v-b3bc0079] {
+  padding: 0;
+  border: 0;
+  background: none;
+  font-family: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+  cursor: pointer;
+}
+
+/* ---------- Tablets: the phone layout stops growing past 13px a rem ---------- */
+
+/* site.css scales the phone layout with the viewport (2.78vw a rem), which made everything on a
+   600–768px tablet up to twice the size of a phone. From about 470px wide the rem now holds at
+   13px; layouts are fluid, so only type and spacing stop growing. (769px and up is the desktop
+   layout, which keeps its own scale: its pinned sections are sized for it.) */
+@media screen and (max-width: 768px) {
+  html {
+    font-size: min(calc(2.77778vw - var(--sbw) / 36), 13px);
+  }
+}

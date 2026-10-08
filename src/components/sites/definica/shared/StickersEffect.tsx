@@ -200,7 +200,7 @@ export function StickersEffect({ pageType = "default", isActive = true, ...rest 
   }, []);
 
   return (
-    <div {...rest} ref={refEl} data-v-357233d0="" className="StickersEffect">
+    <div {...rest} ref={refEl} data-v-357233d0="" className="StickersEffect" aria-hidden="true">
       <div ref={refArea} data-v-357233d0="" className="StickersEffect-area" />
       {STICKERS[pageType].map((name, index) => (
         <StickersEffectItem

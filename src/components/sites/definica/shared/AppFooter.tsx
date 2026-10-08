@@ -1,6 +1,7 @@
 "use client";
 
-import { useCallback, useState, useSyncExternalStore, type MouseEvent } from "react";
+import { useCallback, useState, useSyncExternalStore } from "react";
+import { openConsentSettings } from "@/lib/consent";
 import { AppFooterTitles } from "./AppFooterTitles";
 import { AppLangSwitcher } from "./AppLangSwitcher";
 import { AppLink } from "./AppLink";
@@ -34,8 +35,6 @@ export function AppFooter() {
 
   const pauseStickers = useCallback(() => setIsStickersActive(false), []);
   const resumeStickers = useCallback(() => setIsStickersActive(true), []);
-  // The original link is taken over by the CookieYes banner script, which is not part of the clone.
-  const onCookiesClick = useCallback((event: MouseEvent<HTMLAnchorElement>) => event.preventDefault(), []);
 
   return (
     <footer className="Footer" data-v-b3bc0079="">
@@ -102,14 +101,15 @@ export function AppFooter() {
               </li>
             ))}
             <li data-v-b3bc0079="">
-              <a
-                href="#"
-                className="cky-banner-element Footer-secondLinksItem --c-grey1 --text-12"
+              {/* Reopens the cookie banner (CookieBanner). */}
+              <button
+                type="button"
+                className="Footer-secondLinksItem Footer-secondLinksButton --c-grey1 --text-12"
                 data-v-b3bc0079=""
-                onClick={onCookiesClick}
+                onClick={openConsentSettings}
               >
                 {locales.cookies}
-              </a>
+              </button>
             </li>
           </ul>
         </div>

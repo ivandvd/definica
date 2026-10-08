@@ -3,16 +3,20 @@
 import { useEffect, useRef, useState, type FormEvent, type HTMLAttributes, type RefObject } from "react";
 import { AppButton } from "./AppButton";
 import { AppSvg } from "./AppSvg";
-import { settings } from "./content";
+import { settings, type CmsLink } from "./content";
 import { useDevice } from "./device";
 import { SanityPortableText } from "./SanityPortableText";
 
 const newsletter = settings.newsletter;
+const follow: { title: string; text: string; links: CmsLink[] } = settings.follow;
+
+/**
+ * Where sign-ups are posted (`{ "email": "…" }` as JSON). Until Definica has a sign-up service this
+ * is unset, and the block offers the official Telegram and X channels instead of a form.
+ */
+const ENDPOINT = process.env.NEXT_PUBLIC_NEWSLETTER_ENDPOINT;
 
 type Status = "IDLE" | "PENDING" | "SUCCESS";
-
-/** Stand-in for the original reCAPTCHA + `/.netlify/functions/newsletter` round trip. */
-const FAKE_REQUEST_MS = 900;
 
 const HIDDEN = { display: "none" } as const;
 
@@ -65,12 +69,47 @@ function useShowTransition(ref: RefObject<HTMLElement | null>, show: boolean, na
 
 type AppNewsletterProps = Omit<HTMLAttributes<HTMLDivElement>, "children" | "className">;
 
+/** The block while there is no sign-up service: the same card, with the official channels instead of a form. */
+function FollowLinks(props: AppNewsletterProps) {
+  return (
+    <div {...props} data-v-eee0b83b="" className="AppNewsletter --follow">
+      <div className="AppNewsletter-wrapper" data-v-eee0b83b="">
+        <div className="AppNewsletter-content" data-v-eee0b83b="">
+          <div className="AppNewsletter-contentTitle AppSurtitle-1" data-v-eee0b83b="">
+            {follow.title}
+          </div>
+          <p className="AppText-5 --c-grey3" data-v-eee0b83b="">
+            {follow.text}
+          </p>
+        </div>
+        <div className="AppNewsletter-follow" data-v-eee0b83b="">
+          {follow.links.map((link, index) => (
+            <AppButton
+              key={link.title}
+              {...link}
+              size="small"
+              theme={index === 0 ? "dark" : "border-light"}
+              label={link.title}
+              data-v-eee0b83b=""
+            />
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
+
 /**
- * Port of `AppNewsletter` (scope data-v-eee0b83b). Same form, native validation and
- * idle → pending → success UI as the original; the clone has no backend, so instead of
- * posting the address the success state is simulated locally and nothing is sent.
+ * Port of `AppNewsletter` (scope data-v-eee0b83b), with its idle → pending → success UI. Once
+ * `NEXT_PUBLIC_NEWSLETTER_ENDPOINT` is set the address is posted there; the form shows why a
+ * sign-up failed (invalid address, already registered, any other error) and keeps what was typed.
+ * Without an endpoint it renders the follow links instead.
  */
 export function AppNewsletter(props: AppNewsletterProps) {
+  return ENDPOINT ? <NewsletterForm endpoint={ENDPOINT} {...props} /> : <FollowLinks {...props} />;
+}
+
+function NewsletterForm({ endpoint, ...props }: AppNewsletterProps & { endpoint: string }) {
   const { safari } = useDevice();
   const [status, setStatus] = useState<Status>("IDLE");
   const [message, setMessage] = useState<string | null>(null);
@@ -79,9 +118,6 @@ export function AppNewsletter(props: AppNewsletterProps) {
   const refSuccessMessage = useRef<HTMLDivElement>(null);
   const refBottomIcon = useRef<HTMLDivElement>(null);
   const refBottomInner = useRef<HTMLDivElement>(null);
-  const requestTimer = useRef(0);
-
-  useEffect(() => () => window.clearTimeout(requestTimer.current), []);
 
   const isSuccess = status === "SUCCESS";
   useShowTransition(refSuccessMessage, isSuccess, "success");
@@ -91,17 +127,33 @@ export function AppNewsletter(props: AppNewsletterProps) {
   const onSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const form = refForm.current;
-    if (!form || !form.reportValidity()) return;
-    // Original `setPending`.
+    const input = form?.elements.namedItem("email");
+    if (!form || !(input instanceof HTMLInputElement)) return;
+    if (!input.value.trim() || !input.checkValidity()) {
+      setMessage(newsletter.emailNotValid);
+      input.focus();
+      return;
+    }
     setMessage(null);
     setStatus("PENDING");
-    window.clearTimeout(requestTimer.current);
-    requestTimer.current = window.setTimeout(() => {
-      // Original `setSuccess` + `resetForm`.
-      setStatus("SUCCESS");
-      form.reset();
-      setMessage(null);
-    }, FAKE_REQUEST_MS);
+    fetch(endpoint, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ email: input.value.trim() }),
+    })
+      .then((response) => {
+        if (response.ok) {
+          setStatus("SUCCESS");
+          form.reset();
+          return;
+        }
+        setStatus("IDLE");
+        setMessage(response.status === 409 ? newsletter.alreadyRegistered : newsletter.errorMessage);
+      })
+      .catch(() => {
+        setStatus("IDLE");
+        setMessage(newsletter.errorMessage);
+      });
   };
 
   const classes = ["AppNewsletter", status === "PENDING" ? "--pending" : "", safari ? "--is-safari" : ""]
@@ -119,12 +171,15 @@ export function AppNewsletter(props: AppNewsletterProps) {
             <SanityPortableText blocks={newsletter.text} />
           </div>
         </div>
-        <form ref={refForm} autoComplete="false" data-v-eee0b83b="" onSubmit={onSubmit}>
+        <form ref={refForm} autoComplete="off" noValidate data-v-eee0b83b="" onSubmit={onSubmit}>
           <div className="AppNewsletter-inputWrap" data-v-eee0b83b="">
             <input
               name="email"
               type="email"
               required
+              aria-label={newsletter.placeholder}
+              aria-invalid={message === newsletter.emailNotValid}
+              aria-describedby="newsletter-message"
               placeholder={isSuccess ? undefined : newsletter.placeholder}
               className={isSuccess ? "AppNewsletter-input --disabled" : "AppNewsletter-input"}
               data-v-eee0b83b=""
@@ -138,7 +193,7 @@ export function AppNewsletter(props: AppNewsletterProps) {
               <AppSvg name="cursor-success_clean" data-v-eee0b83b="" />
             </div>
             <div ref={refBottomInner} className="AppNewsletter-bottomInner" data-v-eee0b83b="">
-              <div className="AppNewsletter-message" data-v-eee0b83b="">
+              <div id="newsletter-message" role="status" aria-live="polite" className="AppNewsletter-message" data-v-eee0b83b="">
                 {message}
               </div>
               <AppButton

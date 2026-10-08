@@ -123,6 +123,7 @@ export function LottiePlayer({
     <div
       ref={refEl}
       data-v-dacb824b=""
+      aria-hidden="true"
       {...rest}
       className={className ? `LottiePlayer ${className}` : "LottiePlayer"}
     >

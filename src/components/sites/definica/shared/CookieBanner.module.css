@@ -1,0 +1,90 @@
+/* The cookie banner: a card in the FAQ's clothes (ink border, white), bottom-left on desktop and
+   across the bottom on phones. Sized in rem like the rest of the site. */
+
+.banner {
+  position: fixed;
+  z-index: 950;
+  right: 1.2rem;
+  bottom: 1.2rem;
+  left: 1.2rem;
+  padding: 2.2rem 2.2rem 2.4rem;
+  border: 2px solid rgb(15, 15, 15);
+  border-radius: 2rem;
+  background-color: #ffffff;
+  box-shadow: 0 1.2rem 4rem rgba(0, 20, 5, 0.14);
+  opacity: 0;
+  visibility: hidden;
+  transform: translate3d(0, 2.4rem, 0);
+  transition:
+    opacity 0.4s ease,
+    transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1),
+    visibility 0s linear 0.6s;
+}
+
+.banner[data-open="true"] {
+  opacity: 1;
+  visibility: visible;
+  transform: translate3d(0, 0, 0);
+  transition:
+    opacity 0.4s ease,
+    transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1),
+    visibility 0s;
+}
+
+@media screen and (min-width: 769px) {
+  .banner {
+    right: auto;
+    bottom: 3rem;
+    left: 3rem;
+    width: 48rem;
+    padding: 3rem 3rem 3.2rem;
+    border-radius: 2.4rem;
+  }
+}
+
+.head {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+}
+
+.icon {
+  flex: 0 0 auto;
+  width: 3.6rem;
+  height: 3.6rem;
+  overflow: visible;
+}
+
+.title {
+  margin: 0;
+}
+
+.text {
+  margin-top: 1.4rem;
+  color: rgb(90, 88, 90);
+}
+
+.link {
+  color: rgb(15, 15, 15);
+  text-decoration: underline;
+  text-decoration-color: #d1f500;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 3px;
+}
+
+.actions {
+  display: flex;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.button {
+  flex: 1 1 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .banner,
+  .banner[data-open="true"] {
+    transition: none;
+  }
+}

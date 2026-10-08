@@ -1,0 +1,143 @@
+/* The 404 page: the site's type and buttons, centred, with a small road scene. */
+
+.page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  min-height: 100dvh;
+  background-color: #ffffff;
+  color: rgb(15, 15, 15);
+}
+
+.top {
+  padding-top: 2.4rem;
+}
+
+.logo {
+  display: inline-block;
+}
+
+.logoIcon {
+  display: block;
+  width: 12.5rem;
+  height: 2.6rem;
+}
+
+.logoIcon svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+@media screen and (min-width: 769px) {
+  .top {
+    padding-top: 3.2rem;
+  }
+
+  .logoIcon {
+    width: 14.4rem;
+    height: 3rem;
+  }
+}
+
+.body {
+  display: flex;
+  flex: 1 0 auto;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem 0 8rem;
+  text-align: center;
+}
+
+.graphic {
+  display: block;
+  width: 30rem;
+  max-width: 100%;
+  height: auto;
+  overflow: visible;
+}
+
+@media screen and (min-width: 769px) {
+  .graphic {
+    width: 52rem;
+  }
+}
+
+.code {
+  margin-top: 3rem;
+  color: rgb(90, 88, 90);
+}
+
+.title {
+  max-width: 100rem;
+  margin: 1.4rem auto 0;
+}
+
+.text {
+  max-width: 64rem;
+  margin: 2rem auto 0;
+  color: rgb(90, 88, 90);
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.2rem;
+  margin-top: 3.6rem;
+}
+
+/* A little life: the pin hops, the barrier wobbles, the sparkle twinkles, the blob floats. */
+.pin {
+  transform-box: fill-box;
+  transform-origin: 50% 100%;
+  animation: hop 3.6s ease-in-out infinite;
+}
+
+.barrier {
+  transform-box: fill-box;
+  transform-origin: 50% 100%;
+  animation: wobble 4.2s ease-in-out infinite;
+}
+
+.sparkle {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: twinkle 3s ease-in-out infinite;
+}
+
+.blob {
+  animation: float 5s ease-in-out infinite;
+}
+
+@keyframes hop {
+  0%, 60%, 100% { transform: translateY(0); }
+  70% { transform: translateY(-10px); }
+  80% { transform: translateY(0); }
+  86% { transform: translateY(-3px); }
+}
+
+@keyframes wobble {
+  0%, 100% { transform: rotate(0deg); }
+  50% { transform: rotate(-2.5deg); }
+}
+
+@keyframes twinkle {
+  0%, 100% { transform: scale(1) rotate(0deg); }
+  50% { transform: scale(0.78) rotate(14deg); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pin,
+  .barrier,
+  .sparkle,
+  .blob {
+    animation: none;
+  }
+}

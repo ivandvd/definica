@@ -271,7 +271,12 @@ export function SliceScrollableAppScreens({
               </div>
             ))}
           </div>
-          <div data-v-c86fbc86="" className="SliceScrollableAppScreens-app">
+          <div
+            data-v-c86fbc86=""
+            className="SliceScrollableAppScreens-app"
+            role="img"
+            aria-label="Animated preview of the Definica app: staking ETH, locking aEthosETH in the Liquidity Module and the borrowing markets"
+          >
             <div data-v-c86fbc86="" className="SliceScrollableAppScreens-appInner">
               <div ref={appMainRef} data-v-c86fbc86="" className="SliceScrollableAppScreens-appMain">
                 {isPhoneScreenName(screen) ? (
